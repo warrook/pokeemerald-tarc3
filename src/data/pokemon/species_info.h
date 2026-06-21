@@ -246,6 +246,8 @@ const struct SpeciesInfo gSpeciesInfo[] =
         //.perfectIVCount = NUM_STATS,
     },
     */
+    
+    #include "species_info/tamagotchi.h"
 };
 
 const struct EggData gEggDatas[EGG_ID_COUNT] =
