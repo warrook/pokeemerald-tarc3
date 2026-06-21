@@ -55,6 +55,10 @@
 #define CHAR_BARD_WORD_DELIMIT 0x37 // Empty space to separate words in Bard's song
 #define CHAR_V_D_ARROW         0x38
 #define CHAR_NBSP              0x39
+#define CHAR_TCHI              0x3A
+#define CHAR_TAMAGOTCHI_1      0x3B
+#define CHAR_TAMAGOTCHI_2      0x3C
+#define CHAR_TAMAGOTCHI_3      0x3D
 #define CHAR_INV_QUESTION_MARK 0x51
 #define CHAR_INV_EXCL_MARK     0x52
 #define CHAR_PK                0x53

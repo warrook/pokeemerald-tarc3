@@ -246,8 +246,211 @@ const struct SpeciesInfo gSpeciesInfo[] =
         //.perfectIVCount = NUM_STATS,
     },
     */
+
+#define TAMAGOTCHI_PREADULT_INFO            \
+        .types = MON_TYPES(TYPE_MYSTERY),   \
+        .catchRate = 255,                   \
+        .genderRatio = PERCENT_FEMALE(50),  \
+        .eggCycles = 10,                    \
+        .friendship = STANDARD_FRIENDSHIP,  \
+        .growthRate = GROWTH_FAST,          
+
+#define TAMAGOTCHI_KID_INFO(field)          \
+        .baseHP        = 1,                 \
+        .baseAttack    = 1,                 \
+        .baseDefense   = 1,                 \
+        .baseSpeed     = 1,                 \
+        .baseSpAttack  = 1,                 \
+        .baseSpDefense = 1,                 \
+        .speciesName = _(#field " Kid"),    \
+        .categoryName =_("Kid"),            \
+        TAMAGOTCHI_PREADULT_INFO
     
-    #include "species_info/tamagotchi.h"
+#define TAMAGOTCHI_YOUNG_INFO(name)         \
+        .baseHP        = 1,                 \
+        .baseAttack    = 1,                 \
+        .baseDefense   = 1,                 \
+        .baseSpeed     = 1,                 \
+        .baseSpAttack  = 1,                 \
+        .baseSpDefense = 1,                 \
+        .speciesName = _(#name " Young"),   \
+        .categoryName = _("Young"),         \
+        TAMAGOTCHI_PREADULT_INFO
+
+    
+    // Begin Stage 0
+    [SPECIES_BABYMARUTCHI] =
+    {
+        .baseHP        = 1,
+        .baseAttack    = 1,
+        .baseDefense   = 1,
+        .baseSpeed     = 1,
+        .baseSpAttack  = 1,
+        .baseSpDefense = 1,
+        .speciesName = _("Babymaru{TCHI}"),
+        .categoryName = _("Baby"),
+        .natDexNum = NATIONAL_DEX_BABYMARUTCHI,
+        TAMAGOTCHI_PREADULT_INFO
+        .levelUpLearnset = sBabymarutchiLevelUpLearnset,
+    },
+
+    // Begin Stage 1
+
+    [SPECIES_LAND_KID] =
+    {
+        TAMAGOTCHI_KID_INFO(Land)
+    },
+
+    [SPECIES_WATER_KID] =
+    {
+        TAMAGOTCHI_KID_INFO(Water)
+    },
+
+    [SPECIES_SKY_KID] =
+    {
+        TAMAGOTCHI_KID_INFO(Sky)
+    },
+
+    [SPECIES_FOREST_KID] =
+    {
+        TAMAGOTCHI_KID_INFO(Forest)
+    },
+
+    [SPECIES_TROPICS_KID] =
+    {
+        TAMAGOTCHI_KID_INFO(Tropics)
+    },
+
+    [SPECIES_ICE_KID] =
+    {
+        TAMAGOTCHI_KID_INFO(Ice)
+    },
+
+    // Begin Stage 2
+
+    [SPECIES_BUMBLE_SKY] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Bumble)
+    },
+
+    [SPECIES_CHIRP_FOREST] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Chirp)
+    },
+
+    [SPECIES_CHIRP_SKY] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Chirp)
+    },
+
+    [SPECIES_FLAP_SKY] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Flap)
+    },
+
+    [SPECIES_FLOAT_ICE] = 
+    {
+        TAMAGOTCHI_YOUNG_INFO(Float)
+    },
+
+    [SPECIES_FLOAT_WATER] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Float)
+    },
+
+    [SPECIES_GLIDE_ICE] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Glide)
+    },
+
+    [SPECIES_GLIDE_WATER] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Glide)
+    },
+
+    [SPECIES_LEAP_WATER] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Leap)
+    },
+
+    [SPECIES_LICK_LAND] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Lick)
+    },
+
+    [SPECIES_LICK_TROPICS] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Lick)
+    },
+
+    [SPECIES_PADDLE_WATER] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Paddle)
+    },
+
+    [SPECIES_ROAR_FOREST] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Roar)
+    },
+
+    [SPECIES_ROAR_LAND] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Roar)
+    },
+
+    [SPECIES_ROAR_TROPICS] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Roar)
+    },
+
+    [SPECIES_ROAR_ICE] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Roar)
+    },
+
+    [SPECIES_ROCKY_SKY] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Rocky)
+    },
+
+    [SPECIES_SPROUT_FOREST] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Sprout)
+    },
+
+    [SPECIES_SPROUT_LAND] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Sprout)
+    },
+
+    [SPECIES_SPROUT_TROPICS] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Sprout)
+    },
+
+    [SPECIES_TODDLE_FOREST] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Toddle)
+    },
+
+    [SPECIES_TODDLE_ICE] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Toddle)
+    },
+
+    [SPECIES_TODDLE_LAND] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Toddle)
+    },
+
+    [SPECIES_TODDLE_TROPICS] =
+    {
+        TAMAGOTCHI_YOUNG_INFO(Toddle)
+    },
+
+    // Begin Stage 3
+
+
 };
 
 const struct EggData gEggDatas[EGG_ID_COUNT] =

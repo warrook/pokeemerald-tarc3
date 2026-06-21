@@ -22314,3 +22314,11 @@ static const struct LevelUpMove sPecharuntLevelUpLearnset[] = {
 };
 #endif //P_FAMILY_PECHARUNT
 
+
+
+// Tamagotchi below
+static const struct LevelUpMove sBabymarutchiLevelUpLearnset[] = {
+    LEVEL_UP_MOVE(1, MOVE_POUND),
+    LEVEL_UP_MOVE(1, MOVE_DEFENSE_CURL),
+    LEVEL_UP_END
+};
