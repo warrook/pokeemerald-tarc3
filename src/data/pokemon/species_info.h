@@ -326,7 +326,9 @@ const struct SpeciesInfo gSpeciesInfo[] =
         TAMAGOTCHI_KID_INFO(Ice)
     },
 
+    //
     // Begin Stage 2
+    //
 
     [SPECIES_BUMBLE_SKY] =
     {

@@ -1,3 +1,8 @@
+static const struct SpriteFrameImage sPicTable_Capsule[] = {
+    obj_frame_tiles(gObjectEventPic_Capsule),
+};
+
+
 static const struct SpriteFrameImage sPicTable_BrendanNormal[] = {
     overworld_ascending_frames(gObjectEventPic_BrendanNormalRunning, 2, 4),
 };
