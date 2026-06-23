@@ -1,0 +1,27 @@
+mapscripts LandingSite_MapScripts {}
+
+script Capsule {
+    lockall
+    //call Common_EventScript_OutOfCenterPartyHeal
+    special(ScriptMenu_CreateCapsuleMultichoice)
+    // - Rest
+    // - Items
+    // - PC
+    // - Call
+    // - Exit
+    switch (var(VAR_RESULT)) {
+        case 0:
+            call(Common_EventScript_OutOfCenterPartyHeal)
+            msgbox("You feel refreshed!")
+        case 1:
+            msgbox("You fire up the synthesizer.")
+        case 2:
+            call(EventScript_AccessPokemonBoxLink)
+        case 3:
+            msgbox("No answer.")
+        case MULTI_B_PRESSED:
+            break
+    }
+    release
+    end
+}

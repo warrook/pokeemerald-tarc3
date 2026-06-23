@@ -46,5 +46,6 @@ int DisplayTextAndGetWidth(const u8 *str, int prevWidth);
 int ScriptMenu_AdjustLeftCoordFromWidth(int left, int width);
 bool16 ScriptMenu_CreatePCMultichoice(void);
 void ScriptMenu_DisplayPCStartupPrompt(void);
+bool16 ScriptMenu_CreateCapsuleMultichoice(void);
 
 #endif //GUARD_SCRIPT_MENU_H

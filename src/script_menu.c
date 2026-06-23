@@ -58,6 +58,7 @@ static void DrawMultichoiceMenu(u8 left, u8 top, u8 multichoiceId, bool8 ignoreB
 static void InitMultichoiceCheckWrap(bool8 ignoreBPress, u8 count, u8 windowId, u8 multichoiceId);
 static void DrawLinkServicesMultichoiceMenu(u8 multichoiceId);
 static void CreatePCMultichoice(void);
+static void CreateCapsuleMultichoice(void);
 static void CreateLilycoveSSTidalMultichoice(void);
 static bool8 IsPicboxClosed(void);
 static void CreateStartMenuForPokenavTutorial(void);
@@ -1306,4 +1307,55 @@ u16 GetSelectedSeagallopDestination(void)
             return gSpecialVar_Result;
     }
     return SEAGALLOP_VERMILION_CITY;
+}
+
+bool16 ScriptMenu_CreateCapsuleMultichoice(void)
+{
+    if (FuncIsActiveTask(Task_HandleMultichoiceInput) == TRUE)
+    {
+        return FALSE;
+    }
+    else
+    {
+        gSpecialVar_Result = 0xFF;
+        CreateCapsuleMultichoice();
+        return TRUE;
+    }
+}
+
+static void CreateCapsuleMultichoice(void)
+{
+    // Copied from CreatePCMultichoice, mostly
+
+    u8 x = 8;
+    u32 pixelWidth = 0;
+    u8 width;
+    u8 numChoices = 5;
+    u8 windowId;
+
+
+    pixelWidth = DisplayTextAndGetWidth(gText_Items, pixelWidth);
+
+    width = ConvertPixelWidthToTileWidth(pixelWidth);
+
+    windowId = CreateWindowFromRect(0, 0, width, 10);
+    SetStandardWindowBorderStyle(windowId, FALSE);
+
+    // Set up options
+    // - Rest
+    // - Items
+    // - PC
+    // - Call
+    // - Exit
+
+    AddTextPrinterParameterized(windowId,FONT_NORMAL, gText_Rest, x, 1, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId,FONT_NORMAL, gText_Items, x, 17, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId,FONT_NORMAL, gText_PC, x, 33, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, gText_Call, x, 49, TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, gText_Exit, x, 65, TEXT_SKIP_DRAW, NULL);
+
+
+    InitMenuInUpperLeftCornerNormal(windowId, numChoices, 0);
+    CopyWindowToVram(windowId, COPYWIN_FULL);
+    InitMultichoiceCheckWrap(FALSE, numChoices, windowId, MULTI_PC);
 }
