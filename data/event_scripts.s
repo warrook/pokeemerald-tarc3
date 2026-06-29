@@ -1739,3 +1739,9 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/scripts/wild_encounter.inc"
 
 	.include "data/maps/LandingSite/scripts.inc"
+
+	.include "data/maps/Mountain/scripts.inc"
+
+	.include "data/maps/Beach/scripts.inc"
+
+	.include "data/maps/Land/scripts.inc"

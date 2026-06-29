@@ -9333,6 +9333,36 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/LandingSite/border.bin",
       "blockdata_filepath": "data/layouts/LandingSite/map.bin"
+    },
+    {
+      "id": "LAYOUT_BEACH",
+      "name": "Beach_Layout",
+      "width": 20,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Dewford",
+      "border_filepath": "data/layouts/Beach/border.bin",
+      "blockdata_filepath": "data/layouts/Beach/map.bin"
+    },
+    {
+      "id": "LAYOUT_MOUNTAIN",
+      "name": "Mountain_Layout",
+      "width": 40,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Mountain/border.bin",
+      "blockdata_filepath": "data/layouts/Mountain/map.bin"
+    },
+    {
+      "id": "LAYOUT_LAND",
+      "name": "Land_Layout",
+      "width": 20,
+      "height": 40,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Land/border.bin",
+      "blockdata_filepath": "data/layouts/Land/map.bin"
     }
   ]
 }
