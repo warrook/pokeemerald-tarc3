@@ -2480,4 +2480,11 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .name = _("Spicy Spray"),
         .description = COMPOUND_STRING("Burns the foe when damaged."),
     },
+
+    [ABILITY_INDIGNATION] =
+    {
+        .name = _("Indignation"),
+        .description = COMPOUND_STRING("Critical hits raise Sp. Atk."),
+        .aiRating = 4,
+    },
 };
