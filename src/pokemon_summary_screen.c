@@ -29,6 +29,8 @@
 #include "party_menu.h"
 #include "palette.h"
 #include "pokeball.h"
+#include "pokedex.h"
+#include "pokedex_plus_hgss.h"
 #include "pokemon.h"
 #include "pokemon_sprite_visualizer.h"
 #include "pokemon_storage_system.h"
@@ -1830,6 +1832,15 @@ static void Task_HandleInput(u8 taskId)
         else if (ShouldShowMoveRelearner() && IS_MOVE_PAGE(sMonSummaryScreen->currPageIndex))
         {
             HandleMoveRelearnerInput(taskId);
+        }
+        else if (JOY_NEW(START_BUTTON) && !gMain.inBattle)
+        {
+            sMonSummaryScreen->callback = CB2_OpenPokedex;
+            SetPokemonForNextOpen(SpeciesToHoennPokedexNum(GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES)));
+            StopPokemonAnimations();
+            PlaySE(SE_SELECT);
+            BeginCloseSummaryScreen(taskId);
+            //DisplayCaughtMonDexPage(GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES), FALSE, 0);
         }
     }
 }

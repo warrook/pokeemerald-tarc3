@@ -8812,3 +8812,7 @@ static void FillCryMeterWindowTilemapWithBg(void)
         windowLocal.window.height,
         windowLocal.window.paletteNum);
 }
+
+void SetPokemonForNextOpen(u16 species) {
+    sLastSelectedPokemon = species - 1;
+}

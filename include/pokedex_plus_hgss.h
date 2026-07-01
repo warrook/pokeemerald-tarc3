@@ -3,5 +3,6 @@
 
 void CB2_OpenPokedexPlusHGSS(void);
 void Task_DisplayCaughtMonDexPageHGSS(u8);
+void SetPokemonForNextOpen(u16);
 
 #endif // GUARD_POKEDEX_PLUS_HGSS_H
