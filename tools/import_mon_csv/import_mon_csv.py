@@ -36,6 +36,7 @@ def sanitize_str(string:str, prefix:str="", suffix:str="", default:bool=True):
     s = s.replace(")","")
     return prefix + s + suffix
 
+
 def format_name(string:str):
     if ' (' in string:
         string = string.split(' ')[0]

@@ -1835,12 +1835,16 @@ static void Task_HandleInput(u8 taskId)
         }
         else if (JOY_NEW(START_BUTTON) && !gMain.inBattle)
         {
+            // Set Pokedex to open
             sMonSummaryScreen->callback = CB2_OpenPokedex;
+
+            // Manually set the Pokemon to open too
             SetPokemonForNextOpen(SpeciesToHoennPokedexNum(GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES)));
+
+            // Clean up summary screen
             StopPokemonAnimations();
             PlaySE(SE_SELECT);
             BeginCloseSummaryScreen(taskId);
-            //DisplayCaughtMonDexPage(GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES), FALSE, 0);
         }
     }
 }
