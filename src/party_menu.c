@@ -48,6 +48,8 @@
 #include "palette.h"
 #include "party_menu.h"
 #include "player_pc.h"
+#include "pokedex.h"
+#include "pokedex_plus_hgss.h"
 #include "pokemon.h"
 #include "pokemon_icon.h"
 #include "pokemon_jump.h"
@@ -110,7 +112,8 @@ enum {
     MENU_CATALOG_MOWER,
     MENU_CHANGE_FORM,
     MENU_CHANGE_ABILITY,
-    MENU_FIELD_MOVES
+    MENU_POKEDEX,
+    MENU_FIELD_MOVES,
 };
 
 // IDs for the action lists that appear when a party mon is selected
@@ -482,6 +485,7 @@ static void CursorCb_CatalogFan(u8);
 static void CursorCb_CatalogMower(u8);
 static void CursorCb_ChangeForm(u8);
 static void CursorCb_ChangeAbility(u8);
+static void CursorCb_Pokedex(u8);
 void TryItemHoldFormChange(struct Pokemon *mon, s8 slotId, enum BattleTrainer trainer);
 static void ShowMoveSelectWindow(u8 slot);
 static void Task_HandleWhichMoveInput(u8 taskId);
@@ -2892,6 +2896,13 @@ static u8 DisplaySelectionWindow(u8 windowType)
         const u8 *text;
         u8 fontColorsId = 3;
 
+        // Make the Pokedex action stand out for players who might
+        // not notice it otherwise
+        /*
+        if (sPartyMenuInternal->actions[i] == MENU_POKEDEX)
+            fontColorsId = 6;
+        */
+
         if (sPartyMenuInternal->actions[i] >= MENU_FIELD_MOVES)
             fontColorsId = 4;
 
@@ -2956,6 +2967,7 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 
     sPartyMenuInternal->numActions = 0;
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SUMMARY);
+    AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_POKEDEX);
 
     // Add field moves to action list
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -6957,6 +6969,15 @@ static void CursorCb_ChangeAbility(u8 taskId)
 {
     gSpecialVar_Result = 1;
     TryMultichoiceFormChange(taskId);
+}
+
+static void CursorCb_Pokedex(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    sPartyMenuInternal->exitCallback = CB2_OpenPokedex;
+    SetPokemonForNextOpen(SpeciesToHoennPokedexNum(GetMonData(GetPartyMonFromPartyMenuId(gPartyMenu.slotId), MON_DATA_SPECIES)));
+
+    Task_ClosePartyMenu(taskId);
 }
 
 void TryItemHoldFormChange(struct Pokemon *mon, s8 slotId, enum BattleTrainer trainer)

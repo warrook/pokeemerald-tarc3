@@ -1983,6 +1983,8 @@ static const struct WindowTemplate sSearchMenu_WindowTemplate[] =
     DUMMY_WIN_TEMPLATE
 };
 
+u8 forcedOpen = FALSE;
+static void Task_ForceOpenInfoScreen(u8 taskId);
 
 //************************************
 //*                                  *
@@ -2121,7 +2123,13 @@ static void Task_OpenPokedexMainPage(u8 taskId)
     sPokedexView->sEvoScreenData.fromEvoPage = FALSE;
     sPokedexView->formSpecies = 0;
     if (LoadPokedexListPage(PAGE_MAIN))
-        gTasks[taskId].func = Task_HandlePokedexInput;
+    {
+        if (forcedOpen)
+            gTasks[taskId].func = Task_ForceOpenInfoScreen;
+        else
+            gTasks[taskId].func = Task_HandlePokedexInput;
+    }
+    
 }
 
 #define tLoadScreenTaskId data[0]
@@ -8813,6 +8821,20 @@ static void FillCryMeterWindowTilemapWithBg(void)
         windowLocal.window.paletteNum);
 }
 
+static void Task_ForceOpenInfoScreen(u8 taskId) {
+    TryDestroyStatBars();
+    UpdateSelectedMonSpriteId();
+    BeginNormalPaletteFade(~(1 << (gSprites[sPokedexView->selectedMonSpriteId].oam.paletteNum + 16)), 0, 0, 0x10, RGB_BLACK);
+    gSprites[sPokedexView->selectedMonSpriteId].callback = SpriteCB_MoveMonForInfoScreen;
+    gTasks[taskId].func = Task_OpenInfoScreenAfterMonMovement;
+    PlaySE(SE_PIN);
+    FreeWindowAndBgBuffers();
+    forcedOpen = FALSE;
+}
+
 void SetPokemonForNextOpen(u16 species) {
     sLastSelectedPokemon = species - 1;
+    forcedOpen = TRUE;
+    //CreateTask(Task_ForceOpenInfoScreen, 0);
 }
+
