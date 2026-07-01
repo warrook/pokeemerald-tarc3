@@ -1838,7 +1838,7 @@ static void Task_HandleInput(u8 taskId)
             // Set Pokedex to open
             sMonSummaryScreen->callback = CB2_OpenPokedex;
 
-            // Manually set the Pokemon to open too
+            // Manually set the Pokemon to open to
             SetPokemonForNextOpen(SpeciesToHoennPokedexNum(GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SPECIES)));
 
             // Clean up summary screen
