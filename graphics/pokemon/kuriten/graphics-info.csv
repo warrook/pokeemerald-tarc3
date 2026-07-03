@@ -1,0 +1,10 @@
+field,value
+frontPicSize,45 50
+frontPicOffset,0
+enemyMonElevation,9
+enemyShadowYOffset,16
+frontAnimId,ANIM_FIGURE_8
+backPicSize,52 48
+backPicYOffset,13
+backAnimId,BACK_ANIM_CONVEX_DOUBLE_ARC
+iconPalIndex,2

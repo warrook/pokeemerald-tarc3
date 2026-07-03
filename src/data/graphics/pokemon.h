@@ -27503,3 +27503,13 @@ const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_
     const u32 gMonFrontPic_Egg[] = INCGFX_U32("graphics/pokemon/egg/anim_front.png", ".4bpp.smol");
     const u16 gMonPalette_Egg[] = INCGFX_U16("graphics/pokemon/egg/normal.pal", ".gbapal");
     const u8 gMonIcon_Egg[] = INCGFX_U8("graphics/pokemon/egg/icon.png", ".4bpp");
+
+
+#include "imported_graphics.h"
+
+    /* const u32 gMonFrontPic_Kuriten[] = INCGFX_U32("graphics/pokemon/kuriten/front.png", ".4bpp.lz");
+    const u32 gMonBackPic_Kuriten[] = INCGFX_U32("graphics/pokemon/kuriten/back.png", ".4bpp.lz");
+    const u16 gMonPalette_Kuriten[] = INCGFX_U16("graphics/pokemon/kuriten/normal.pal", ".gbapal");
+    const u16 gMonShinyPalette_Kuriten[] = INCGFX_U16("graphics/pokemon/kuriten/shiny.pal", ".gbapal");
+    const u8 gMonIcon_Kuriten[] = INCGFX_U8("graphics/pokemon/kuriten/icon.png", ".4bpp");
+    //const u8 gMonFootprint_Kuriten[] = INCGFX_U8("graphics/pokemon/kuriten/footprint.png", ".1bpp"); */

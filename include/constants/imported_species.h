@@ -1,3 +1,10 @@
+// Include this in include/constants/species.h
+
+#ifdef __INTELLISENSE__
+enum __attribute((packed)) SpeciesImported
+{
+#endif
+
 SPECIES_BABYMARUTCHI = 1573,
 SPECIES_LAND_KID = 1574,
 SPECIES_ROAR_LAND = 1575,
@@ -71,3 +78,7 @@ SPECIES_ANDROTCHI = 1642,
 SPECIES_BBMARUTCHI = 1643,
 SPECIES_SHINIGAMI = 1644,
 SPECIES_KURITEN = 1645,
+
+#ifdef __INTELLISENSE__
+};
+#endif

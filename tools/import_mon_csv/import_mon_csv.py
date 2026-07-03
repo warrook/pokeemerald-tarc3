@@ -1,4 +1,6 @@
 import csv
+import os
+import subprocess
 
 species_index = 1573
 
@@ -24,12 +26,13 @@ mon_gfx_constants = []
 ## src/data/pokemon/species_info.h
 species_info = []
 
-def sanitize_str(string:str, prefix:str="", suffix:str="", default:bool=True):
-    if string == "" and default:
+def sanitize_str(string:str, prefix:str="", suffix:str="", none_if_empty:bool=True, capitalize:bool=True):
+    if string == "" and none_if_empty:
         return prefix + "NONE" + suffix
-    s = string.upper()
+    if capitalize:
+        string = string.upper()
     #handle Shigemi-san
-    s = s.replace("-", "")
+    s = string.replace("-", "")
     #handle " (Land)" etc
     s = s.replace(" ", "_")
     s = s.replace("(","")
@@ -46,12 +49,125 @@ def format_name(string:str):
     else:
         return string
 
+
+def generate_palette_if_missing(fpath:str, pal:str):
+    #if os.path.exists(fpath + pal):
+    #    return 0
+    
+    target = "back.png" if pal == "shiny.pal" else "front.png"
+    if not os.path.exists(fpath + target):
+        # Skip trying to generate a file if the base sprite doesn't
+        return True
+
+    subprocess.Popen(["tools/gbagfx/gbagfx", fpath + target, fpath + pal])
+    return False
+
+
+def fill_mon_gfx_constant(name_in_row:str, part:str):
+    var_name = sanitize_str(name_in_row, capitalize=False)
+    fpath = "graphics/pokemon/" + var_name.lower() + "/"
+
+    g = { 
+        "variable": part, 
+        "name_in_variable": var_name, 
+        "path": fpath 
+    }
+    missing = False
+    match part:
+        case "FrontPic":
+            g["input"] =    "front.png"
+            g["output"] =   ".4bpp.lz"
+            g["size"] =     "32"
+        case "BackPic":
+            g["input"] =    "back.png"
+            g["output"] =   ".4bpp.lz"
+            g["size"] =     "32"
+        case "Palette":
+            g["input"] =    "normal.pal"
+            g["output"] =   ".gbapal"
+            g["size"] =     "16"
+            missing = generate_palette_if_missing(g["path"], g["input"])
+        case "ShinyPalette":
+            g["input"] =    "shiny.pal"
+            g["output"] =   ".gbapal"
+            g["size"] =     "16"
+            missing = generate_palette_if_missing(g["path"], g["input"])
+        case "Icon":
+            g["input"] =    "icon.png"
+            g["output"] =   ".4bpp"
+            g["size"] =     "8"
+        case "Footprint":
+            g["input"] =    "footprint.png"
+            g["output"] =   ".1bpp"
+            g["size"] =     "8"
+    if missing == False:
+        missing = False if os.path.exists(g["path"] + g["input"]) else True
+    
+    return ("// " if missing == 1 else "") + "const u{size} gMon{variable}_{name_in_variable}[] = INCGFX_U{size}(\"{path}{input}\", \"{output}\");".format_map(g)
+
+
+def make_mon_gfx_constants(name_in_row:str):
+    mon_gfx_constants.append(fill_mon_gfx_constant(name_in_row, "FrontPic"))
+    mon_gfx_constants.append(fill_mon_gfx_constant(name_in_row, "BackPic"))
+    mon_gfx_constants.append(fill_mon_gfx_constant(name_in_row, "Palette"))
+    mon_gfx_constants.append(fill_mon_gfx_constant(name_in_row, "ShinyPalette"))
+    mon_gfx_constants.append(fill_mon_gfx_constant(name_in_row, "Icon"))
+    mon_gfx_constants.append(fill_mon_gfx_constant(name_in_row, "Footprint"))
+    mon_gfx_constants.append("")
+
+    return "graphics/pokemon/" + sanitize_str(name_in_row).lower() + "/"
+
+
+def gfx_str(d:dict, key:str):
+    if key in d.keys():
+        return "\t.{0} = {1},".format(key, d[key])
+
+
+def make_graphics_info_strings(d:dict, name_in_var:str):
+    fpath = "graphics/pokemon/" + name_in_var.lower() + "/"
+    
+    basics = [
+        ("\t.frontPic = gMonFrontPic_" + name_in_var + ",") \
+            if os.path.exists(fpath + "front.png") else None,
+        ("\t.backPic = gMonBackPic_" + name_in_var + ",") \
+            if os.path.exists(fpath + "back.png") else None,
+        ("\t.palette = gMonPalette_" + name_in_var + ",") \
+            if os.path.exists(fpath + "normal.pal") else None,
+        ("\t.shinyPalette = gMonShinyPalette_" + name_in_var + ",") \
+            if os.path.exists(fpath + "shiny.pal") else None,
+        ("\t.iconSprite = gMonIcon_" + name_in_var + ",") \
+            if os.path.exists(fpath + "icon.png") else None,
+    ]
+
+    return list(filter(None,[
+        gfx_str(d, "pokemonScale"),
+        gfx_str(d, "pokemonOffset"),
+        gfx_str(d, "trainerScale"),
+        gfx_str(d, "trainerOffset"),
+        basics[0],
+        gfx_str(d, "frontPicSize"), #TODO: handle MON_COORDS
+        gfx_str(d, "frontPicYOffset"),
+        gfx_str(d, "frontAnimId"),
+        basics[1],
+        gfx_str(d, "backPicSize"),
+        gfx_str(d, "backPicYOffset"),
+        gfx_str(d, "backAnimId"),
+        basics[2],
+        basics[3],
+        basics[4],
+        gfx_str(d, "iconPalIndex"),
+    ]))
+
+
 def read_row(row:dict):
     const_name = sanitize_str(row["Name"]) # Tamagotchi => TAMAGOTCHI
+    name_in_var = sanitize_str(row["Name"], capitalize=False)
+    # Shigemi-san => Shigemisan
+
     species_constants.append("SPECIES_{0} = {1},".format(const_name, species_index + len(species_constants)))
     nat_dex_constants.append("NATIONAL_DEX_" + const_name + ",")
     reg_dex_constants.append("\tF(" + const_name + ")")
-
+    graphics_dir = make_mon_gfx_constants(row["Name"])
 
     info = []
     info.append("[SPECIES_{0}] =".format(const_name))
@@ -167,9 +283,43 @@ def read_row(row:dict):
                 category += "Teen" #e.g. Land Teen
             case 4:
                 category += young #e.g. Land Roar
-    info.append("\t.categoryName = _(\"{0}\")".format(category))
+    info.append("\t.categoryName = _(\"{0}\"),".format(category))
 
-    # TODO: Graphics, learnsets, evolutions
+    gfx_dict = {}
+    try:
+        f = open(graphics_dir + "graphics-info.csv", newline='')
+    except FileNotFoundError:
+        print("No graphics-info.csv found in " + graphics_dir)
+    else:
+        with open(graphics_dir + "graphics-info.csv", newline='') as f:
+            # pokemonScale
+            # pokemonOffset
+            # trainerScale
+            # trainerOffset
+            # //frontPic
+            # frontPicSize
+            # frontPicYOffset
+            # frontAnimId
+            # //backPic
+            # backPicSize
+            # backPicYOffset
+            # backAnimId
+            # //palette
+            # // shinyPalette
+            # // iconSprite
+            # iconPalIndex
+            reader = csv.DictReader(f)
+            for row in reader:
+                gfx_dict[row["field"]] = row["value"]
+    graphics_info = make_graphics_info_strings(gfx_dict, name_in_var)
+
+    
+
+    # FOOTPRINT(???)
+
+    info.extend(graphics_info)
+
+    # TODO: Learnsets, evolutions
 
     info.append("},")
     info.append("")
@@ -239,11 +389,25 @@ def output_reg_dex_constants():
         f.write('\n'.join(output).expandtabs(4))
 
 
+# const u32 gMonFrontPic_Tamagotchi[] = INCGFX_U32("graphics/pokemon/tamagotchi/(anim_)front.png", ".4bpp.lz");
+# const u32 gMonBackPic_Tamagotchi[] = INCGFX_U32("graphics/pokemon/tamagotchi/back.png", ".4bpp.lz");
+# const u16 gMonPalette_Tamagotchi[] = INCGFX_U16("graphics/pokemon/tamagotchi/normal.pal", ".gbapal");
+# const u16 gMonShinyPalette_Tamagotchi[] = INCGFX_U16("graphics/pokemon/tamagotchi/shiny.pal", ".gbapal");
+# const u8 gMonIcon_Tamagotchi[] = INCGFX_U8("graphics/pokemon/tamagotchi/icon.png", ".4bpp");
+# const u8 gMonFootprint_Tamagotchi[] = INCGFX_U8("graphics/pokemon/tamagotchi/footprint.png", ".1bpp");
 def output_mon_gfx_constants():
     """
     Generate file to be included in [src/data/graphics/pokemon.h].
-
     """
+    output = [
+        "// Include this in src/data/graphics/pokemon.h",
+        "",
+    ]
+    output.extend(mon_gfx_constants)
+    with open("src/data/graphics/imported_graphics.h", "w+") as f:
+        f.write('\n'.join(output).expandtabs(4))
+
+
     # TODO: this.
     return
 

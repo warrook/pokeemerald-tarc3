@@ -297,7 +297,13 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_CUTE_CHARM, ABILITY_RATTLED, ABILITY_OBLIVIOUS },
         .speciesName = _("Babymaru{TCHI}"),
         .natDexNum = NATIONAL_DEX_BABYMARUTCHI,
-        .categoryName = _("Baby")
+        .categoryName = _("Baby"),
+        .frontPic = gMonFrontPic_Babymarutchi,
+        .backPic = gMonBackPic_Babymarutchi,
+        .palette = gMonPalette_Babymarutchi,
+        .shinyPalette = gMonShinyPalette_Babymarutchi,
+        .iconSprite = gMonIcon_Babymarutchi,
+        .iconPalIndex = 4,
     },
 
     [SPECIES_LAND_KID] =
@@ -319,7 +325,13 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_CUTE_CHARM, ABILITY_RATTLED, ABILITY_OBLIVIOUS },
         .speciesName = _("Land Kid"),
         .natDexNum = NATIONAL_DEX_LAND_KID,
-        .categoryName = _("Land Kid")
+        .categoryName = _("Land Kid"),
+        .frontPic = gMonFrontPic_Land_Kid,
+        .backPic = gMonBackPic_Land_Kid,
+        .palette = gMonPalette_Land_Kid,
+        .shinyPalette = gMonShinyPalette_Land_Kid,
+        .iconSprite = gMonIcon_Land_Kid,
+        .iconPalIndex = 4,
     },
 
     [SPECIES_ROAR_LAND] =
@@ -341,7 +353,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_PICKUP, ABILITY_RUN_AWAY, ABILITY_FRISK },
         .speciesName = _("Roar"),
         .natDexNum = NATIONAL_DEX_ROAR_LAND,
-        .categoryName = _("Land Teen")
+        .categoryName = _("Land Teen"),
     },
 
     [SPECIES_MEOWTCHI] =
@@ -366,7 +378,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_JUSTIFIED, ABILITY_NONE, ABILITY_INDIGNATION },
         .speciesName = _("Meow{TCHI}"),
         .natDexNum = NATIONAL_DEX_MEOWTCHI,
-        .categoryName = _("Land Roar")
+        .categoryName = _("Land Roar"),
     },
 
     [SPECIES_POCHITCHI] =
@@ -391,7 +403,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_GUARD_DOG, ABILITY_NONE, ABILITY_SIMPLE },
         .speciesName = _("Pochi{TCHI}"),
         .natDexNum = NATIONAL_DEX_POCHITCHI,
-        .categoryName = _("Land Roar")
+        .categoryName = _("Land Roar"),
     },
 
     [SPECIES_GUMAX] =
@@ -415,7 +427,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_HUGE_POWER, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Gumax"),
         .natDexNum = NATIONAL_DEX_GUMAX,
-        .categoryName = _("Land Roar")
+        .categoryName = _("Land Roar"),
     },
 
     [SPECIES_RATCHI] =
@@ -438,7 +450,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_PICKUP, ABILITY_NONE, ABILITY_PICKPOCKET },
         .speciesName = _("Ra{TCHI}"),
         .natDexNum = NATIONAL_DEX_RATCHI,
-        .categoryName = _("Land Roar")
+        .categoryName = _("Land Roar"),
     },
 
     [SPECIES_TODDLE_LAND] =
@@ -460,7 +472,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_PICKUP, ABILITY_RUN_AWAY, ABILITY_FRISK },
         .speciesName = _("Toddle"),
         .natDexNum = NATIONAL_DEX_TODDLE_LAND,
-        .categoryName = _("Land Teen")
+        .categoryName = _("Land Teen"),
     },
 
     [SPECIES_MAMETCHI] =
@@ -483,7 +495,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_TRACE, ABILITY_UNNERVE, ABILITY_ANALYTIC },
         .speciesName = _("Mame{TCHI}"),
         .natDexNum = NATIONAL_DEX_MAMETCHI,
-        .categoryName = _("Land Toddle")
+        .categoryName = _("Land Toddle"),
     },
 
     [SPECIES_MIMITCHI] =
@@ -508,7 +520,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_MAGIC_GUARD, ABILITY_NONE, ABILITY_MAGICIAN },
         .speciesName = _("Mimi{TCHI}"),
         .natDexNum = NATIONAL_DEX_MIMITCHI,
-        .categoryName = _("Land Toddle")
+        .categoryName = _("Land Toddle"),
     },
 
     [SPECIES_MOLMOTCHI] =
@@ -533,7 +545,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_CHEEK_POUCH, ABILITY_NONE, ABILITY_CUD_CHEW },
         .speciesName = _("Molmo{TCHI}"),
         .natDexNum = NATIONAL_DEX_MOLMOTCHI,
-        .categoryName = _("Land Toddle")
+        .categoryName = _("Land Toddle"),
     },
 
     [SPECIES_SHEEPTCHI] =
@@ -558,7 +570,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_FLUFFY, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Sheep{TCHI}"),
         .natDexNum = NATIONAL_DEX_SHEEPTCHI,
-        .categoryName = _("Land Toddle")
+        .categoryName = _("Land Toddle"),
     },
 
     [SPECIES_LICK_LAND] =
@@ -580,7 +592,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_PICKUP, ABILITY_RUN_AWAY, ABILITY_FRISK },
         .speciesName = _("Lick"),
         .natDexNum = NATIONAL_DEX_LICK_LAND,
-        .categoryName = _("Land Teen")
+        .categoryName = _("Land Teen"),
     },
 
     [SPECIES_LEOPATCHI] =
@@ -603,7 +615,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_POISON_TOUCH, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Leopa{TCHI}"),
         .natDexNum = NATIONAL_DEX_LEOPATCHI,
-        .categoryName = _("Land Lick")
+        .categoryName = _("Land Lick"),
     },
 
     [SPECIES_SEBIRETCHI] =
@@ -628,7 +640,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_GLUTTONY, ABILITY_THICK_FAT, ABILITY_NONE },
         .speciesName = _("Sebire{TCHI}"),
         .natDexNum = NATIONAL_DEX_SEBIRETCHI,
-        .categoryName = _("Land Lick")
+        .categoryName = _("Land Lick"),
     },
 
     [SPECIES_ELIZARDOTCHI] =
@@ -653,7 +665,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_INTIMIDATE, ABILITY_STATIC, ABILITY_NONE },
         .speciesName = _("Elizardo{TCHI}"),
         .natDexNum = NATIONAL_DEX_ELIZARDOTCHI,
-        .categoryName = _("Land Lick")
+        .categoryName = _("Land Lick"),
     },
 
     [SPECIES_HEAVYTCHI] =
@@ -676,7 +688,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_INTIMIDATE, ABILITY_UNNERVE, ABILITY_STURDY },
         .speciesName = _("Heavy{TCHI}"),
         .natDexNum = NATIONAL_DEX_HEAVYTCHI,
-        .categoryName = _("Land Lick")
+        .categoryName = _("Land Lick"),
     },
 
     [SPECIES_SPROUT_LAND] =
@@ -698,7 +710,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_PICKUP, ABILITY_RUN_AWAY, ABILITY_FRISK },
         .speciesName = _("Sprout"),
         .natDexNum = NATIONAL_DEX_SPROUT_LAND,
-        .categoryName = _("Land Teen")
+        .categoryName = _("Land Teen"),
     },
 
     [SPECIES_FURAWATCHI] =
@@ -723,7 +735,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_HARVEST, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Furawa{TCHI}"),
         .natDexNum = NATIONAL_DEX_FURAWATCHI,
-        .categoryName = _("Land Sprout")
+        .categoryName = _("Land Sprout"),
     },
 
     [SPECIES_POTSUNENTCHI] =
@@ -748,7 +760,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_CHLOROPHYLL, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Potsunen{TCHI}"),
         .natDexNum = NATIONAL_DEX_POTSUNENTCHI,
-        .categoryName = _("Land Sprout")
+        .categoryName = _("Land Sprout"),
     },
 
     [SPECIES_TUSTUSTCHI] =
@@ -773,7 +785,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_WATER_ABSORB, ABILITY_NONE, ABILITY_POISON_POINT },
         .speciesName = _("Tustus{TCHI}"),
         .natDexNum = NATIONAL_DEX_TUSTUSTCHI,
-        .categoryName = _("Land Sprout")
+        .categoryName = _("Land Sprout"),
     },
 
     [SPECIES_SHIGEMISAN] =
@@ -798,7 +810,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_FLUFFY, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Shigemi-san"),
         .natDexNum = NATIONAL_DEX_SHIGEMISAN,
-        .categoryName = _("Land Sprout")
+        .categoryName = _("Land Sprout"),
     },
 
     [SPECIES_CHODRACOTCHI] =
@@ -821,7 +833,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_MOXIE, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Chodraco{TCHI}"),
         .natDexNum = NATIONAL_DEX_CHODRACOTCHI,
-        .categoryName = _("Land any")
+        .categoryName = _("Land any"),
     },
 
     [SPECIES_MASKUTCHI] =
@@ -846,7 +858,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_STAKEOUT, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Masku{TCHI}"),
         .natDexNum = NATIONAL_DEX_MASKUTCHI,
-        .categoryName = _("Land Sprout")
+        .categoryName = _("Land Sprout"),
     },
 
     [SPECIES_WATER_KID] =
@@ -868,7 +880,13 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_CUTE_CHARM, ABILITY_RATTLED, ABILITY_OBLIVIOUS },
         .speciesName = _("Water Kid"),
         .natDexNum = NATIONAL_DEX_WATER_KID,
-        .categoryName = _("Water Kid")
+        .categoryName = _("Water Kid"),
+        .frontPic = gMonFrontPic_Water_Kid,
+        .backPic = gMonBackPic_Water_Kid,
+        .palette = gMonPalette_Water_Kid,
+        .shinyPalette = gMonShinyPalette_Water_Kid,
+        .iconSprite = gMonIcon_Water_Kid,
+        .iconPalIndex = 4,
     },
 
     [SPECIES_GLIDE_WATER] =
@@ -890,7 +908,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_SWIFT_SWIM, ABILITY_RUN_AWAY, ABILITY_INNER_FOCUS },
         .speciesName = _("Glide"),
         .natDexNum = NATIONAL_DEX_GLIDE_WATER,
-        .categoryName = _("Water Teen")
+        .categoryName = _("Water Teen"),
     },
 
     [SPECIES_IRUKATCHI] =
@@ -914,7 +932,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_SWIFT_SWIM, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Iruka{TCHI}"),
         .natDexNum = NATIONAL_DEX_IRUKATCHI,
-        .categoryName = _("Water Glide")
+        .categoryName = _("Water Glide"),
     },
 
     [SPECIES_KAMETCHI] =
@@ -939,7 +957,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_SWIFT_SWIM, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Kame{TCHI}"),
         .natDexNum = NATIONAL_DEX_KAMETCHI,
-        .categoryName = _("Water Glide")
+        .categoryName = _("Water Glide"),
     },
 
     [SPECIES_KUJIRATCHI] =
@@ -964,7 +982,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_LIQUID_VOICE, ABILITY_NONE, ABILITY_HUGE_POWER },
         .speciesName = _("Kujira{TCHI}"),
         .natDexNum = NATIONAL_DEX_KUJIRATCHI,
-        .categoryName = _("Water Glide")
+        .categoryName = _("Water Glide"),
     },
 
     [SPECIES_URUOTCHI] =
@@ -989,7 +1007,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_DRY_SKIN, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Uruo{TCHI}"),
         .natDexNum = NATIONAL_DEX_URUOTCHI,
-        .categoryName = _("Water Glide")
+        .categoryName = _("Water Glide"),
     },
 
     [SPECIES_LEAP_WATER] =
@@ -1011,7 +1029,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_SWIFT_SWIM, ABILITY_RUN_AWAY, ABILITY_INNER_FOCUS },
         .speciesName = _("Leap"),
         .natDexNum = NATIONAL_DEX_LEAP_WATER,
-        .categoryName = _("Water Teen")
+        .categoryName = _("Water Teen"),
     },
 
     [SPECIES_AXOLOPATCHI] =
@@ -1036,7 +1054,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_DAMP, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Axolopa{TCHI}"),
         .natDexNum = NATIONAL_DEX_AXOLOPATCHI,
-        .categoryName = _("Water Leap")
+        .categoryName = _("Water Leap"),
     },
 
     [SPECIES_IMORITCHI] =
@@ -1059,7 +1077,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_POISON_TOUCH, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Imori{TCHI}"),
         .natDexNum = NATIONAL_DEX_IMORITCHI,
-        .categoryName = _("Water Leap")
+        .categoryName = _("Water Leap"),
     },
 
     [SPECIES_KAWAZUTCHI] =
@@ -1082,7 +1100,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_CONTRARY, ABILITY_SWIFT_SWIM, ABILITY_OWN_TEMPO },
         .speciesName = _("Kawazu{TCHI}"),
         .natDexNum = NATIONAL_DEX_KAWAZUTCHI,
-        .categoryName = _("Water Leap")
+        .categoryName = _("Water Leap"),
     },
 
     [SPECIES_BEAVERTCHI] =
@@ -1107,7 +1125,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_GUTS, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Beaver{TCHI}"),
         .natDexNum = NATIONAL_DEX_BEAVERTCHI,
-        .categoryName = _("Water Leap")
+        .categoryName = _("Water Leap"),
     },
 
     [SPECIES_PADDLE_WATER] =
@@ -1129,7 +1147,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_SWIFT_SWIM, ABILITY_RUN_AWAY, ABILITY_INNER_FOCUS },
         .speciesName = _("Paddle"),
         .natDexNum = NATIONAL_DEX_PADDLE_WATER,
-        .categoryName = _("Water Teen")
+        .categoryName = _("Water Teen"),
     },
 
     [SPECIES_TACHUTCHI] =
@@ -1154,7 +1172,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_UNAWARE, ABILITY_SNIPER, ABILITY_NONE },
         .speciesName = _("Tachu{TCHI}"),
         .natDexNum = NATIONAL_DEX_TACHUTCHI,
-        .categoryName = _("Water Paddle")
+        .categoryName = _("Water Paddle"),
     },
 
     [SPECIES_SHARKTCHI] =
@@ -1177,7 +1195,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_ROUGH_SKIN, ABILITY_STRONG_JAW, ABILITY_INTIMIDATE },
         .speciesName = _("Shark{TCHI}"),
         .natDexNum = NATIONAL_DEX_SHARKTCHI,
-        .categoryName = _("Water Paddle")
+        .categoryName = _("Water Paddle"),
     },
 
     [SPECIES_ANKOTCHI] =
@@ -1200,7 +1218,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_ILLUMINATE, ABILITY_LIGHTNING_ROD, ABILITY_NONE },
         .speciesName = _("Anko{TCHI}"),
         .natDexNum = NATIONAL_DEX_ANKOTCHI,
-        .categoryName = _("Water Paddle")
+        .categoryName = _("Water Paddle"),
     },
 
     [SPECIES_OTOTOTCHI] =
@@ -1225,7 +1243,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_STAMINA, ABILITY_NONE, ABILITY_NO_GUARD },
         .speciesName = _("Ototo{TCHI}"),
         .natDexNum = NATIONAL_DEX_OTOTOTCHI,
-        .categoryName = _("Water Paddle")
+        .categoryName = _("Water Paddle"),
     },
 
     [SPECIES_FLOAT_WATER] =
@@ -1247,7 +1265,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_SWIFT_SWIM, ABILITY_RUN_AWAY, ABILITY_INNER_FOCUS },
         .speciesName = _("Float"),
         .natDexNum = NATIONAL_DEX_FLOAT_WATER,
-        .categoryName = _("Water Teen")
+        .categoryName = _("Water Teen"),
     },
 
     [SPECIES_KURARATCHI] =
@@ -1270,7 +1288,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_CUTE_CHARM, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Kurara{TCHI}"),
         .natDexNum = NATIONAL_DEX_KURARATCHI,
-        .categoryName = _("Water Float")
+        .categoryName = _("Water Float"),
     },
 
     [SPECIES_MENDAKOTCHI] =
@@ -1295,7 +1313,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_SUCTION_CUPS, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Mendako{TCHI}"),
         .natDexNum = NATIONAL_DEX_MENDAKOTCHI,
-        .categoryName = _("Water Float")
+        .categoryName = _("Water Float"),
     },
 
     [SPECIES_AMEFURATCHI] =
@@ -1320,7 +1338,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_SWIFT_SWIM, ABILITY_STICKY_HOLD, ABILITY_DRIZZLE },
         .speciesName = _("Amefura{TCHI}"),
         .natDexNum = NATIONAL_DEX_AMEFURATCHI,
-        .categoryName = _("Water Float")
+        .categoryName = _("Water Float"),
     },
 
     [SPECIES_GUSOKUTCHI] =
@@ -1345,7 +1363,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_SHELL_ARMOR, ABILITY_WEAK_ARMOR, ABILITY_NONE },
         .speciesName = _("Gusoku{TCHI}"),
         .natDexNum = NATIONAL_DEX_GUSOKUTCHI,
-        .categoryName = _("Water Float")
+        .categoryName = _("Water Float"),
     },
 
     [SPECIES_MERMARINTCHI] =
@@ -1370,7 +1388,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_STORM_DRAIN, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Mermarin{TCHI}"),
         .natDexNum = NATIONAL_DEX_MERMARINTCHI,
-        .categoryName = _("Water any")
+        .categoryName = _("Water any"),
     },
 
     [SPECIES_ACHIATCHI] =
@@ -1395,7 +1413,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_FLAME_BODY, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Achia{TCHI}"),
         .natDexNum = NATIONAL_DEX_ACHIATCHI,
-        .categoryName = _("Water Float")
+        .categoryName = _("Water Float"),
     },
 
     [SPECIES_SKY_KID] =
@@ -1417,7 +1435,13 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_CUTE_CHARM, ABILITY_RATTLED, ABILITY_OBLIVIOUS },
         .speciesName = _("Sky Kid"),
         .natDexNum = NATIONAL_DEX_SKY_KID,
-        .categoryName = _("Sky Kid")
+        .categoryName = _("Sky Kid"),
+        .frontPic = gMonFrontPic_Sky_Kid,
+        .backPic = gMonBackPic_Sky_Kid,
+        .palette = gMonPalette_Sky_Kid,
+        .shinyPalette = gMonShinyPalette_Sky_Kid,
+        .iconSprite = gMonIcon_Sky_Kid,
+        .iconPalIndex = 3,
     },
 
     [SPECIES_FLAP_SKY] =
@@ -1439,7 +1463,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_LEVITATE, ABILITY_RUN_AWAY, ABILITY_EARLY_BIRD },
         .speciesName = _("Flap"),
         .natDexNum = NATIONAL_DEX_FLAP_SKY,
-        .categoryName = _("Sky Teen")
+        .categoryName = _("Sky Teen"),
     },
 
     [SPECIES_HORHOTCHI] =
@@ -1464,7 +1488,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_INFILTRATOR, ABILITY_INSOMNIA, ABILITY_NONE },
         .speciesName = _("Horho{TCHI}"),
         .natDexNum = NATIONAL_DEX_HORHOTCHI,
-        .categoryName = _("Sky Flap")
+        .categoryName = _("Sky Flap"),
     },
 
     [SPECIES_MONGATCHI] =
@@ -1487,7 +1511,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_CHEEK_POUCH, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Monga{TCHI}"),
         .natDexNum = NATIONAL_DEX_MONGATCHI,
-        .categoryName = _("Sky Flap")
+        .categoryName = _("Sky Flap"),
     },
 
     [SPECIES_EAGLETCHI] =
@@ -1510,7 +1534,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_INFILTRATOR, ABILITY_INTIMIDATE, ABILITY_NONE },
         .speciesName = _("Eagle{TCHI}"),
         .natDexNum = NATIONAL_DEX_EAGLETCHI,
-        .categoryName = _("Sky Flap")
+        .categoryName = _("Sky Flap"),
     },
 
     [SPECIES_BATCHI] =
@@ -1535,7 +1559,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_HUSTLE, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Ba{TCHI}"),
         .natDexNum = NATIONAL_DEX_BATCHI,
-        .categoryName = _("Sky Flap")
+        .categoryName = _("Sky Flap"),
     },
 
     [SPECIES_CHIRP_SKY] =
@@ -1557,7 +1581,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_LEVITATE, ABILITY_RUN_AWAY, ABILITY_EARLY_BIRD },
         .speciesName = _("Chirp"),
         .natDexNum = NATIONAL_DEX_CHIRP_SKY,
-        .categoryName = _("Sky Teen")
+        .categoryName = _("Sky Teen"),
     },
 
     [SPECIES_PEACOTCHI] =
@@ -1582,7 +1606,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_CUTE_CHARM, ABILITY_STURDY, ABILITY_INNER_FOCUS },
         .speciesName = _("Peaco{TCHI}"),
         .natDexNum = NATIONAL_DEX_PEACOTCHI,
-        .categoryName = _("Sky Chirp")
+        .categoryName = _("Sky Chirp"),
     },
 
     [SPECIES_BATATCHI] =
@@ -1605,7 +1629,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_RUN_AWAY, ABILITY_RATTLED, ABILITY_NONE },
         .speciesName = _("Bata{TCHI}"),
         .natDexNum = NATIONAL_DEX_BATATCHI,
-        .categoryName = _("Sky Chirp")
+        .categoryName = _("Sky Chirp"),
     },
 
     [SPECIES_KUCHIPATCHI] =
@@ -1630,7 +1654,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_BIG_PECKS, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Kuchipa{TCHI}"),
         .natDexNum = NATIONAL_DEX_KUCHIPATCHI,
-        .categoryName = _("Sky Chirp")
+        .categoryName = _("Sky Chirp"),
     },
 
     [SPECIES_KIWITCHI] =
@@ -1655,7 +1679,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_HUSTLE, ABILITY_GUTS, ABILITY_FRISK },
         .speciesName = _("Kiwi{TCHI}"),
         .natDexNum = NATIONAL_DEX_KIWITCHI,
-        .categoryName = _("Sky Chirp")
+        .categoryName = _("Sky Chirp"),
     },
 
     [SPECIES_BUMBLE_SKY] =
@@ -1677,7 +1701,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_LEVITATE, ABILITY_RUN_AWAY, ABILITY_EARLY_BIRD },
         .speciesName = _("Bumble"),
         .natDexNum = NATIONAL_DEX_BUMBLE_SKY,
-        .categoryName = _("Sky Teen")
+        .categoryName = _("Sky Teen"),
     },
 
     [SPECIES_PAPILLOTCHI] =
@@ -1702,7 +1726,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_WIND_RIDER, ABILITY_NONE, ABILITY_FLOWER_VEIL },
         .speciesName = _("Papillo{TCHI}"),
         .natDexNum = NATIONAL_DEX_PAPILLOTCHI,
-        .categoryName = _("Sky Bumble")
+        .categoryName = _("Sky Bumble"),
     },
 
     [SPECIES_KABUTOTCHI] =
@@ -1726,7 +1750,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_SWARM, ABILITY_GUTS, ABILITY_MOXIE },
         .speciesName = _("Kabuto{TCHI}"),
         .natDexNum = NATIONAL_DEX_KABUTOTCHI,
-        .categoryName = _("Sky Bumble")
+        .categoryName = _("Sky Bumble"),
     },
 
     [SPECIES_TENTOTCHI] =
@@ -1751,7 +1775,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_OBLIVIOUS, ABILITY_NONE, ABILITY_UNAWARE },
         .speciesName = _("Tento{TCHI}"),
         .natDexNum = NATIONAL_DEX_TENTOTCHI,
-        .categoryName = _("Sky Bumble")
+        .categoryName = _("Sky Bumble"),
     },
 
     [SPECIES_HATCHITCHI] =
@@ -1776,7 +1800,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_HEALER, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Hatchi{TCHI}"),
         .natDexNum = NATIONAL_DEX_HATCHITCHI,
-        .categoryName = _("Sky Bumble")
+        .categoryName = _("Sky Bumble"),
     },
 
     [SPECIES_ROCKY_SKY] =
@@ -1798,7 +1822,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_STURDY, ABILITY_RUN_AWAY, ABILITY_EARLY_BIRD },
         .speciesName = _("Rocky"),
         .natDexNum = NATIONAL_DEX_ROCKY_SKY,
-        .categoryName = _("Sky Teen")
+        .categoryName = _("Sky Teen"),
     },
 
     [SPECIES_GEMTCHI] =
@@ -1823,7 +1847,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_CLEAR_BODY, ABILITY_SHADOW_TAG, ABILITY_MAGIC_GUARD },
         .speciesName = _("Gem{TCHI}"),
         .natDexNum = NATIONAL_DEX_GEMTCHI,
-        .categoryName = _("Sky Rocky")
+        .categoryName = _("Sky Rocky"),
     },
 
     [SPECIES_ORETATCHI] =
@@ -1848,7 +1872,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_DEFIANT, ABILITY_ARENA_TRAP, ABILITY_MAGIC_GUARD },
         .speciesName = _("Oreta{TCHI}"),
         .natDexNum = NATIONAL_DEX_ORETATCHI,
-        .categoryName = _("Sky Rocky")
+        .categoryName = _("Sky Rocky"),
     },
 
     [SPECIES_ISHIKOROTCHI] =
@@ -1873,7 +1897,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_ROCK_HEAD, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Ishikoro{TCHI}"),
         .natDexNum = NATIONAL_DEX_ISHIKOROTCHI,
-        .categoryName = _("Sky Rocky")
+        .categoryName = _("Sky Rocky"),
     },
 
     [SPECIES_MAGMATCHI] =
@@ -1898,7 +1922,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_MAGMA_ARMOR, ABILITY_GOOEY, ABILITY_FLAME_BODY },
         .speciesName = _("Magma{TCHI}"),
         .natDexNum = NATIONAL_DEX_MAGMATCHI,
-        .categoryName = _("Sky Rocky")
+        .categoryName = _("Sky Rocky"),
     },
 
     [SPECIES_YAYACORNTCHI] =
@@ -1923,7 +1947,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Yayacorn{TCHI}"),
         .natDexNum = NATIONAL_DEX_YAYACORNTCHI,
-        .categoryName = _("Sky any")
+        .categoryName = _("Sky any"),
     },
 
     [SPECIES_ANDROTCHI] =
@@ -1947,7 +1971,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Andro{TCHI}"),
         .natDexNum = NATIONAL_DEX_ANDROTCHI,
-        .categoryName = _("Sky Rocky")
+        .categoryName = _("Sky Rocky"),
     },
 
     [SPECIES_BBMARUTCHI] =
@@ -1969,7 +1993,13 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_MIMICRY, ABILITY_NONE, ABILITY_IMPOSTER },
         .speciesName = _("Bbmaru{TCHI}"),
         .natDexNum = NATIONAL_DEX_BBMARUTCHI,
-        .categoryName = _("Mystery")
+        .categoryName = _("Mystery"),
+        .frontPic = gMonFrontPic_Bbmarutchi,
+        .backPic = gMonBackPic_Bbmarutchi,
+        .palette = gMonPalette_Bbmarutchi,
+        .shinyPalette = gMonShinyPalette_Bbmarutchi,
+        .iconSprite = gMonIcon_Bbmarutchi,
+        .iconPalIndex = 4,
     },
 
     [SPECIES_SHINIGAMI] =
@@ -1991,7 +2021,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_MOLD_BREAKER, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Shinigami"),
         .natDexNum = NATIONAL_DEX_SHINIGAMI,
-        .categoryName = _("Grim")
+        .categoryName = _("Grim"),
     },
 
     [SPECIES_KURITEN] =
@@ -2013,184 +2043,19 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .abilities = { ABILITY_VICTORY_STAR, ABILITY_NONE, ABILITY_NONE },
         .speciesName = _("Kuriten"),
         .natDexNum = NATIONAL_DEX_KURITEN,
-        .categoryName = _("Angel")
+        .categoryName = _("Angel"),
+        .frontPic = gMonFrontPic_Kuriten,
+        .frontPicSize = MON_COORDS_SIZE(45,50),
+        .frontAnimId = ANIM_FIGURE_8,
+        .backPic = gMonBackPic_Kuriten,
+        .backPicSize = MON_COORDS_SIZE(52,48),
+        .backPicYOffset = 13,
+        .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,
+        .palette = gMonPalette_Kuriten,
+        .shinyPalette = gMonShinyPalette_Kuriten,
+        .iconSprite = gMonIcon_Kuriten,
+        .iconPalIndex = 2,
     },
-    
-    /* // Begin Stage 0
-    [SPECIES_BABYMARUTCHI] =
-    {
-        .baseHP        = 1,
-        .baseAttack    = 1,
-        .baseDefense   = 1,
-        .baseSpeed     = 1,
-        .baseSpAttack  = 1,
-        .baseSpDefense = 1,
-        .speciesName = _("Babymaru{TCHI}"),
-        .categoryName = _("Baby"),
-        .natDexNum = NATIONAL_DEX_BABYMARUTCHI,
-        TAMAGOTCHI_PREADULT_INFO
-        .levelUpLearnset = sBabymarutchiLevelUpLearnset,
-    },
-
-    // Begin Stage 1
-
-    [SPECIES_LAND_KID] =
-    {
-        TAMAGOTCHI_KID_INFO(Land)
-    },
-
-    [SPECIES_WATER_KID] =
-    {
-        TAMAGOTCHI_KID_INFO(Water)
-    },
-
-    [SPECIES_SKY_KID] =
-    {
-        TAMAGOTCHI_KID_INFO(Sky)
-    },
-
-    [SPECIES_FOREST_KID] =
-    {
-        TAMAGOTCHI_KID_INFO(Forest)
-    },
-
-    [SPECIES_TROPICS_KID] =
-    {
-        TAMAGOTCHI_KID_INFO(Tropics)
-    },
-
-    [SPECIES_ICE_KID] =
-    {
-        TAMAGOTCHI_KID_INFO(Ice)
-    },
-
-    //
-    // Begin Stage 2
-    //
-
-    [SPECIES_BUMBLE_SKY] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Bumble)
-    },
-
-    [SPECIES_CHIRP_FOREST] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Chirp)
-    },
-
-    [SPECIES_CHIRP_SKY] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Chirp)
-    },
-
-    [SPECIES_FLAP_SKY] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Flap)
-    },
-
-    [SPECIES_FLOAT_ICE] = 
-    {
-        TAMAGOTCHI_YOUNG_INFO(Float)
-    },
-
-    [SPECIES_FLOAT_WATER] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Float)
-    },
-
-    [SPECIES_GLIDE_ICE] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Glide)
-    },
-
-    [SPECIES_GLIDE_WATER] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Glide)
-    },
-
-    [SPECIES_LEAP_WATER] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Leap)
-    },
-
-    [SPECIES_LICK_LAND] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Lick)
-    },
-
-    [SPECIES_LICK_TROPICS] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Lick)
-    },
-
-    [SPECIES_PADDLE_WATER] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Paddle)
-    },
-
-    [SPECIES_ROAR_FOREST] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Roar)
-    },
-
-    [SPECIES_ROAR_LAND] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Roar)
-    },
-
-    [SPECIES_ROAR_TROPICS] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Roar)
-    },
-
-    [SPECIES_ROAR_ICE] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Roar)
-    },
-
-    [SPECIES_ROCKY_SKY] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Rocky)
-    },
-
-    [SPECIES_SPROUT_FOREST] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Sprout)
-    },
-
-    [SPECIES_SPROUT_LAND] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Sprout)
-    },
-
-    [SPECIES_SPROUT_TROPICS] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Sprout)
-    },
-
-    [SPECIES_TODDLE_FOREST] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Toddle)
-    },
-
-    [SPECIES_TODDLE_ICE] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Toddle)
-    },
-
-    [SPECIES_TODDLE_LAND] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Toddle)
-    },
-
-    [SPECIES_TODDLE_TROPICS] =
-    {
-        TAMAGOTCHI_YOUNG_INFO(Toddle)
-    },
-
-    // Begin Stage 3 */
-
-
 };
 
 const struct EggData gEggDatas[EGG_ID_COUNT] =

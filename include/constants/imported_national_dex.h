@@ -1,3 +1,11 @@
+// Include this in include/constants/pokedex.h, and don't
+// forget to update NATIONAL_DEX_COUNT!
+
+#ifdef __INTELLISENSE__
+enum NationalDexOrderImported
+{
+#endif
+
 NATIONAL_DEX_BABYMARUTCHI,
 NATIONAL_DEX_LAND_KID,
 NATIONAL_DEX_ROAR_LAND,
@@ -71,3 +79,7 @@ NATIONAL_DEX_ANDROTCHI,
 NATIONAL_DEX_BBMARUTCHI,
 NATIONAL_DEX_SHINIGAMI,
 NATIONAL_DEX_KURITEN,
+
+#ifdef __INTELLISENSE__
+};
+#endif
