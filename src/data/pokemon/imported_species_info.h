@@ -25,11 +25,17 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .natDexNum = NATIONAL_DEX_BABYMARUTCHI,
     .categoryName = _("Baby"),
     .frontPic = gMonFrontPic_Babymarutchi,
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
     .backPic = gMonBackPic_Babymarutchi,
+    .backPicSize = MON_COORDS_SIZE(64, 64),
     .palette = gMonPalette_Babymarutchi,
     .shinyPalette = gMonShinyPalette_Babymarutchi,
     .iconSprite = gMonIcon_Babymarutchi,
     .iconPalIndex = 4,
+    FOOTPRINT(Babymarutchi)
 },
 
 [SPECIES_LAND_KID] =
@@ -53,11 +59,17 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .natDexNum = NATIONAL_DEX_LAND_KID,
     .categoryName = _("Land Kid"),
     .frontPic = gMonFrontPic_Land_Kid,
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
     .backPic = gMonBackPic_Land_Kid,
+    .backPicSize = MON_COORDS_SIZE(64, 64),
     .palette = gMonPalette_Land_Kid,
     .shinyPalette = gMonShinyPalette_Land_Kid,
     .iconSprite = gMonIcon_Land_Kid,
     .iconPalIndex = 4,
+    FOOTPRINT(Land_Kid)
 },
 
 [SPECIES_ROAR_LAND] =
@@ -80,6 +92,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Roar"),
     .natDexNum = NATIONAL_DEX_ROAR_LAND,
     .categoryName = _("Land Teen"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_MEOWTCHI] =
@@ -105,6 +122,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Meow{TCHI}"),
     .natDexNum = NATIONAL_DEX_MEOWTCHI,
     .categoryName = _("Land Roar"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_POCHITCHI] =
@@ -130,6 +152,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Pochi{TCHI}"),
     .natDexNum = NATIONAL_DEX_POCHITCHI,
     .categoryName = _("Land Roar"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_GUMAX] =
@@ -154,6 +181,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Gumax"),
     .natDexNum = NATIONAL_DEX_GUMAX,
     .categoryName = _("Land Roar"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_RATCHI] =
@@ -177,6 +209,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Ra{TCHI}"),
     .natDexNum = NATIONAL_DEX_RATCHI,
     .categoryName = _("Land Roar"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_TODDLE_LAND] =
@@ -199,6 +236,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Toddle"),
     .natDexNum = NATIONAL_DEX_TODDLE_LAND,
     .categoryName = _("Land Teen"),
+    .frontPic = gMonFrontPic_Toddle_Land,
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPic = gMonBackPic_Toddle_Land,
+    .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Toddle_Land,
+    .shinyPalette = gMonShinyPalette_Toddle_Land,
+    .iconSprite = gMonIcon_Toddle_Land,
+    .iconPalIndex = 4,
+    FOOTPRINT(Toddle_Land)
 },
 
 [SPECIES_MAMETCHI] =
@@ -222,6 +271,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Mame{TCHI}"),
     .natDexNum = NATIONAL_DEX_MAMETCHI,
     .categoryName = _("Land Toddle"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_MIMITCHI] =
@@ -247,6 +301,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Mimi{TCHI}"),
     .natDexNum = NATIONAL_DEX_MIMITCHI,
     .categoryName = _("Land Toddle"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_MOLMOTCHI] =
@@ -272,6 +331,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Molmo{TCHI}"),
     .natDexNum = NATIONAL_DEX_MOLMOTCHI,
     .categoryName = _("Land Toddle"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_SHEEPTCHI] =
@@ -297,6 +361,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Sheep{TCHI}"),
     .natDexNum = NATIONAL_DEX_SHEEPTCHI,
     .categoryName = _("Land Toddle"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_LICK_LAND] =
@@ -319,6 +388,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Lick"),
     .natDexNum = NATIONAL_DEX_LICK_LAND,
     .categoryName = _("Land Teen"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_LEOPATCHI] =
@@ -342,6 +416,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Leopa{TCHI}"),
     .natDexNum = NATIONAL_DEX_LEOPATCHI,
     .categoryName = _("Land Lick"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_SEBIRETCHI] =
@@ -367,6 +446,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Sebire{TCHI}"),
     .natDexNum = NATIONAL_DEX_SEBIRETCHI,
     .categoryName = _("Land Lick"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_ELIZARDOTCHI] =
@@ -392,6 +476,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Elizardo{TCHI}"),
     .natDexNum = NATIONAL_DEX_ELIZARDOTCHI,
     .categoryName = _("Land Lick"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_HEAVYTCHI] =
@@ -415,6 +504,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Heavy{TCHI}"),
     .natDexNum = NATIONAL_DEX_HEAVYTCHI,
     .categoryName = _("Land Lick"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_SPROUT_LAND] =
@@ -437,6 +531,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Sprout"),
     .natDexNum = NATIONAL_DEX_SPROUT_LAND,
     .categoryName = _("Land Teen"),
+    .frontPic = gMonFrontPic_Sprout_Land,
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPic = gMonBackPic_Sprout_Land,
+    .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Sprout_Land,
+    .shinyPalette = gMonShinyPalette_Sprout_Land,
+    .iconSprite = gMonIcon_Sprout_Land,
+    .iconPalIndex = 3,
+    FOOTPRINT(Sprout_Land)
 },
 
 [SPECIES_FURAWATCHI] =
@@ -462,6 +568,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Furawa{TCHI}"),
     .natDexNum = NATIONAL_DEX_FURAWATCHI,
     .categoryName = _("Land Sprout"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_POTSUNENTCHI] =
@@ -487,6 +598,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Potsunen{TCHI}"),
     .natDexNum = NATIONAL_DEX_POTSUNENTCHI,
     .categoryName = _("Land Sprout"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_TUSTUSTCHI] =
@@ -512,6 +628,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Tustus{TCHI}"),
     .natDexNum = NATIONAL_DEX_TUSTUSTCHI,
     .categoryName = _("Land Sprout"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_SHIGEMISAN] =
@@ -537,6 +658,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Shigemi-san"),
     .natDexNum = NATIONAL_DEX_SHIGEMISAN,
     .categoryName = _("Land Sprout"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_CHODRACOTCHI] =
@@ -560,6 +686,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Chodraco{TCHI}"),
     .natDexNum = NATIONAL_DEX_CHODRACOTCHI,
     .categoryName = _("Land any"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_MASKUTCHI] =
@@ -585,6 +716,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Masku{TCHI}"),
     .natDexNum = NATIONAL_DEX_MASKUTCHI,
     .categoryName = _("Land Sprout"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_WATER_KID] =
@@ -608,11 +744,17 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .natDexNum = NATIONAL_DEX_WATER_KID,
     .categoryName = _("Water Kid"),
     .frontPic = gMonFrontPic_Water_Kid,
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
     .backPic = gMonBackPic_Water_Kid,
+    .backPicSize = MON_COORDS_SIZE(64, 64),
     .palette = gMonPalette_Water_Kid,
     .shinyPalette = gMonShinyPalette_Water_Kid,
     .iconSprite = gMonIcon_Water_Kid,
     .iconPalIndex = 4,
+    FOOTPRINT(Water_Kid)
 },
 
 [SPECIES_GLIDE_WATER] =
@@ -635,6 +777,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Glide"),
     .natDexNum = NATIONAL_DEX_GLIDE_WATER,
     .categoryName = _("Water Teen"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_IRUKATCHI] =
@@ -659,6 +806,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Iruka{TCHI}"),
     .natDexNum = NATIONAL_DEX_IRUKATCHI,
     .categoryName = _("Water Glide"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_KAMETCHI] =
@@ -684,6 +836,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Kame{TCHI}"),
     .natDexNum = NATIONAL_DEX_KAMETCHI,
     .categoryName = _("Water Glide"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_KUJIRATCHI] =
@@ -709,6 +866,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Kujira{TCHI}"),
     .natDexNum = NATIONAL_DEX_KUJIRATCHI,
     .categoryName = _("Water Glide"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_URUOTCHI] =
@@ -734,6 +896,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Uruo{TCHI}"),
     .natDexNum = NATIONAL_DEX_URUOTCHI,
     .categoryName = _("Water Glide"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_LEAP_WATER] =
@@ -756,6 +923,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Leap"),
     .natDexNum = NATIONAL_DEX_LEAP_WATER,
     .categoryName = _("Water Teen"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_AXOLOPATCHI] =
@@ -781,6 +953,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Axolopa{TCHI}"),
     .natDexNum = NATIONAL_DEX_AXOLOPATCHI,
     .categoryName = _("Water Leap"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_IMORITCHI] =
@@ -804,6 +981,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Imori{TCHI}"),
     .natDexNum = NATIONAL_DEX_IMORITCHI,
     .categoryName = _("Water Leap"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_KAWAZUTCHI] =
@@ -827,6 +1009,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Kawazu{TCHI}"),
     .natDexNum = NATIONAL_DEX_KAWAZUTCHI,
     .categoryName = _("Water Leap"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_BEAVERTCHI] =
@@ -852,6 +1039,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Beaver{TCHI}"),
     .natDexNum = NATIONAL_DEX_BEAVERTCHI,
     .categoryName = _("Water Leap"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_PADDLE_WATER] =
@@ -874,6 +1066,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Paddle"),
     .natDexNum = NATIONAL_DEX_PADDLE_WATER,
     .categoryName = _("Water Teen"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_TACHUTCHI] =
@@ -899,6 +1096,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Tachu{TCHI}"),
     .natDexNum = NATIONAL_DEX_TACHUTCHI,
     .categoryName = _("Water Paddle"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_SHARKTCHI] =
@@ -922,6 +1124,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Shark{TCHI}"),
     .natDexNum = NATIONAL_DEX_SHARKTCHI,
     .categoryName = _("Water Paddle"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_ANKOTCHI] =
@@ -945,6 +1152,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Anko{TCHI}"),
     .natDexNum = NATIONAL_DEX_ANKOTCHI,
     .categoryName = _("Water Paddle"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_OTOTOTCHI] =
@@ -970,6 +1182,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Ototo{TCHI}"),
     .natDexNum = NATIONAL_DEX_OTOTOTCHI,
     .categoryName = _("Water Paddle"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_FLOAT_WATER] =
@@ -992,6 +1209,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Float"),
     .natDexNum = NATIONAL_DEX_FLOAT_WATER,
     .categoryName = _("Water Teen"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_KURARATCHI] =
@@ -1015,6 +1237,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Kurara{TCHI}"),
     .natDexNum = NATIONAL_DEX_KURARATCHI,
     .categoryName = _("Water Float"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_MENDAKOTCHI] =
@@ -1040,6 +1267,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Mendako{TCHI}"),
     .natDexNum = NATIONAL_DEX_MENDAKOTCHI,
     .categoryName = _("Water Float"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_AMEFURATCHI] =
@@ -1065,6 +1297,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Amefura{TCHI}"),
     .natDexNum = NATIONAL_DEX_AMEFURATCHI,
     .categoryName = _("Water Float"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_GUSOKUTCHI] =
@@ -1090,6 +1327,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Gusoku{TCHI}"),
     .natDexNum = NATIONAL_DEX_GUSOKUTCHI,
     .categoryName = _("Water Float"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_MERMARINTCHI] =
@@ -1115,6 +1357,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Mermarin{TCHI}"),
     .natDexNum = NATIONAL_DEX_MERMARINTCHI,
     .categoryName = _("Water any"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_ACHIATCHI] =
@@ -1140,6 +1387,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Achia{TCHI}"),
     .natDexNum = NATIONAL_DEX_ACHIATCHI,
     .categoryName = _("Water Float"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_SKY_KID] =
@@ -1163,11 +1415,17 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .natDexNum = NATIONAL_DEX_SKY_KID,
     .categoryName = _("Sky Kid"),
     .frontPic = gMonFrontPic_Sky_Kid,
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
     .backPic = gMonBackPic_Sky_Kid,
+    .backPicSize = MON_COORDS_SIZE(64, 64),
     .palette = gMonPalette_Sky_Kid,
     .shinyPalette = gMonShinyPalette_Sky_Kid,
     .iconSprite = gMonIcon_Sky_Kid,
     .iconPalIndex = 3,
+    FOOTPRINT(Sky_Kid)
 },
 
 [SPECIES_FLAP_SKY] =
@@ -1190,6 +1448,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Flap"),
     .natDexNum = NATIONAL_DEX_FLAP_SKY,
     .categoryName = _("Sky Teen"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_HORHOTCHI] =
@@ -1215,6 +1478,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Horho{TCHI}"),
     .natDexNum = NATIONAL_DEX_HORHOTCHI,
     .categoryName = _("Sky Flap"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_MONGATCHI] =
@@ -1238,6 +1506,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Monga{TCHI}"),
     .natDexNum = NATIONAL_DEX_MONGATCHI,
     .categoryName = _("Sky Flap"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_EAGLETCHI] =
@@ -1261,6 +1534,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Eagle{TCHI}"),
     .natDexNum = NATIONAL_DEX_EAGLETCHI,
     .categoryName = _("Sky Flap"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_BATCHI] =
@@ -1286,6 +1564,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Ba{TCHI}"),
     .natDexNum = NATIONAL_DEX_BATCHI,
     .categoryName = _("Sky Flap"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_CHIRP_SKY] =
@@ -1308,6 +1591,20 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Chirp"),
     .natDexNum = NATIONAL_DEX_CHIRP_SKY,
     .categoryName = _("Sky Teen"),
+    .frontPic = gMonFrontPic_Chirp_Sky,
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontPicYOffset = 6,
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    SHADOW(2, -1, SHADOW_SIZE_S)
+    .backPic = gMonBackPic_Chirp_Sky,
+    .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Chirp_Sky,
+    .shinyPalette = gMonShinyPalette_Chirp_Sky,
+    .iconSprite = gMonIcon_Chirp_Sky,
+    .iconPalIndex = 1,
+    FOOTPRINT(Chirp_Sky)
 },
 
 [SPECIES_PEACOTCHI] =
@@ -1333,6 +1630,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Peaco{TCHI}"),
     .natDexNum = NATIONAL_DEX_PEACOTCHI,
     .categoryName = _("Sky Chirp"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_BATATCHI] =
@@ -1356,6 +1658,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Bata{TCHI}"),
     .natDexNum = NATIONAL_DEX_BATATCHI,
     .categoryName = _("Sky Chirp"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_KUCHIPATCHI] =
@@ -1381,6 +1688,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Kuchipa{TCHI}"),
     .natDexNum = NATIONAL_DEX_KUCHIPATCHI,
     .categoryName = _("Sky Chirp"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_KIWITCHI] =
@@ -1406,6 +1718,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Kiwi{TCHI}"),
     .natDexNum = NATIONAL_DEX_KIWITCHI,
     .categoryName = _("Sky Chirp"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_BUMBLE_SKY] =
@@ -1428,6 +1745,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Bumble"),
     .natDexNum = NATIONAL_DEX_BUMBLE_SKY,
     .categoryName = _("Sky Teen"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_PAPILLOTCHI] =
@@ -1453,6 +1775,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Papillo{TCHI}"),
     .natDexNum = NATIONAL_DEX_PAPILLOTCHI,
     .categoryName = _("Sky Bumble"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_KABUTOTCHI] =
@@ -1477,6 +1804,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Kabuto{TCHI}"),
     .natDexNum = NATIONAL_DEX_KABUTOTCHI,
     .categoryName = _("Sky Bumble"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_TENTOTCHI] =
@@ -1502,6 +1834,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Tento{TCHI}"),
     .natDexNum = NATIONAL_DEX_TENTOTCHI,
     .categoryName = _("Sky Bumble"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_HATCHITCHI] =
@@ -1527,6 +1864,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Hatchi{TCHI}"),
     .natDexNum = NATIONAL_DEX_HATCHITCHI,
     .categoryName = _("Sky Bumble"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_ROCKY_SKY] =
@@ -1549,6 +1891,20 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Rocky"),
     .natDexNum = NATIONAL_DEX_ROCKY_SKY,
     .categoryName = _("Sky Teen"),
+    .frontPic = gMonFrontPic_Rocky_Sky,
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontPicYOffset = 5,
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    SHADOW(2, -1, SHADOW_SIZE_S)
+    .backPic = gMonBackPic_Rocky_Sky,
+    .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Rocky_Sky,
+    .shinyPalette = gMonShinyPalette_Rocky_Sky,
+    .iconSprite = gMonIcon_Rocky_Sky,
+    .iconPalIndex = 2,
+    FOOTPRINT(Rocky_Sky)
 },
 
 [SPECIES_GEMTCHI] =
@@ -1574,6 +1930,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Gem{TCHI}"),
     .natDexNum = NATIONAL_DEX_GEMTCHI,
     .categoryName = _("Sky Rocky"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_ORETATCHI] =
@@ -1599,6 +1960,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Oreta{TCHI}"),
     .natDexNum = NATIONAL_DEX_ORETATCHI,
     .categoryName = _("Sky Rocky"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_ISHIKOROTCHI] =
@@ -1624,6 +1990,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Ishikoro{TCHI}"),
     .natDexNum = NATIONAL_DEX_ISHIKOROTCHI,
     .categoryName = _("Sky Rocky"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_MAGMATCHI] =
@@ -1649,6 +2020,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Magma{TCHI}"),
     .natDexNum = NATIONAL_DEX_MAGMATCHI,
     .categoryName = _("Sky Rocky"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_YAYACORNTCHI] =
@@ -1674,6 +2050,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Yayacorn{TCHI}"),
     .natDexNum = NATIONAL_DEX_YAYACORNTCHI,
     .categoryName = _("Sky any"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_ANDROTCHI] =
@@ -1698,6 +2079,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Andro{TCHI}"),
     .natDexNum = NATIONAL_DEX_ANDROTCHI,
     .categoryName = _("Sky Rocky"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_BBMARUTCHI] =
@@ -1721,11 +2107,22 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .natDexNum = NATIONAL_DEX_BBMARUTCHI,
     .categoryName = _("Mystery"),
     .frontPic = gMonFrontPic_Bbmarutchi,
+    .frontPicSize = MON_COORDS_SIZE(36, 30),
+    .frontPicYOffset = 3,
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    SHADOW(0, 3, SHADOW_SIZE_M)
+    .frontAnimId = ANIM_H_JUMPS_V_STRETCH,
     .backPic = gMonBackPic_Bbmarutchi,
+    .backPicSize = MON_COORDS_SIZE(64, 64),
+    .backPicYOffset = 13,
+    .backAnimId = BACK_ANIM_DIP_RIGHT_SIDE,
     .palette = gMonPalette_Bbmarutchi,
     .shinyPalette = gMonShinyPalette_Bbmarutchi,
     .iconSprite = gMonIcon_Bbmarutchi,
     .iconPalIndex = 4,
+    FOOTPRINT(Bbmarutchi)
 },
 
 [SPECIES_SHINIGAMI] =
@@ -1748,6 +2145,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Shinigami"),
     .natDexNum = NATIONAL_DEX_SHINIGAMI,
     .categoryName = _("Grim"),
+    .frontPicSize = MON_COORDS_SIZE(64, 64),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .backPicSize = MON_COORDS_SIZE(64, 64),
 },
 
 [SPECIES_KURITEN] =
@@ -1771,16 +2173,22 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .natDexNum = NATIONAL_DEX_KURITEN,
     .categoryName = _("Angel"),
     .frontPic = gMonFrontPic_Kuriten,
-    .frontPicSize = 45 50,
+    .frontPicSize = MON_COORDS_SIZE(45, 50),
+    .frontAnimFrames = ANIM_FRAMES(
+        ANIMCMD_FRAME(0,1),
+    ),
+    .enemyMonElevation = 9,
+    SHADOW(0, 16, SHADOW_SIZE_S)
     .frontAnimId = ANIM_FIGURE_8,
     .backPic = gMonBackPic_Kuriten,
-    .backPicSize = 52 48,
+    .backPicSize = MON_COORDS_SIZE(52, 48),
     .backPicYOffset = 13,
     .backAnimId = BACK_ANIM_CONVEX_DOUBLE_ARC,
     .palette = gMonPalette_Kuriten,
     .shinyPalette = gMonShinyPalette_Kuriten,
     .iconSprite = gMonIcon_Kuriten,
     .iconPalIndex = 2,
+    FOOTPRINT(Kuriten)
 },
 
 

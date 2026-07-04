@@ -86,12 +86,12 @@ def fill_mon_gfx_constant(name_in_row:str, part:str):
             g["input"] =    "normal.pal"
             g["output"] =   ".gbapal"
             g["size"] =     "16"
-            missing = generate_palette_if_missing(g["path"], g["input"])
+            generate_palette_if_missing(g["path"], g["input"])
         case "ShinyPalette":
             g["input"] =    "shiny.pal"
             g["output"] =   ".gbapal"
             g["size"] =     "16"
-            missing = generate_palette_if_missing(g["path"], g["input"])
+            generate_palette_if_missing(g["path"], g["input"])
         case "Icon":
             g["input"] =    "icon.png"
             g["output"] =   ".4bpp"
@@ -100,10 +100,9 @@ def fill_mon_gfx_constant(name_in_row:str, part:str):
             g["input"] =    "footprint.png"
             g["output"] =   ".1bpp"
             g["size"] =     "8"
-    if missing == False:
-        missing = False if os.path.exists(g["path"] + g["input"]) else True
+    missing = False if os.path.exists(g["path"] + g["input"]) else True
     
-    return ("// " if missing == 1 else "") + "const u{size} gMon{variable}_{name_in_variable}[] = INCGFX_U{size}(\"{path}{input}\", \"{output}\");".format_map(g)
+    return ("// " if missing == True else "") + "const u{size} gMon{variable}_{name_in_variable}[] = INCGFX_U{size}(\"{path}{input}\", \"{output}\");".format_map(g)
 
 
 def make_mon_gfx_constants(name_in_row:str):
@@ -119,8 +118,19 @@ def make_mon_gfx_constants(name_in_row:str):
 
 
 def gfx_str(d:dict, key:str):
+    macro = False
     if key in d.keys():
-        return "\t.{0} = {1},".format(key, d[key])
+        value = d[key]
+        if key.endswith("PicSize"):
+            value = "MON_COORDS_SIZE(" + ", ".join(value.split(' ')) + ")"
+        elif key == "shadow":
+            macro = True
+            key = "SHADOW"
+            value = ", ".join(value.split(' '))
+        output = "\t.{0} = {1}," if not macro else "\t{0}({1})"
+        return output.format(key, value)
+    elif key.endswith("PicSize"):
+        return "\t.{0} = MON_COORDS_SIZE(64, 64),".format(key)
 
 
 def make_graphics_info_strings(d:dict, name_in_var:str):
@@ -137,6 +147,9 @@ def make_graphics_info_strings(d:dict, name_in_var:str):
             if os.path.exists(fpath + "shiny.pal") else None,
         ("\t.iconSprite = gMonIcon_" + name_in_var + ",") \
             if os.path.exists(fpath + "icon.png") else None,
+        ("\tFOOTPRINT(" + name_in_var + ")") \
+            if os.path.exists(fpath + "footprint.png") else None,
+        "\t.frontAnimFrames = ANIM_FRAMES(\n\t\tANIMCMD_FRAME(0,1),\n\t),",
     ]
 
     return list(filter(None,[
@@ -145,8 +158,11 @@ def make_graphics_info_strings(d:dict, name_in_var:str):
         gfx_str(d, "trainerScale"),
         gfx_str(d, "trainerOffset"),
         basics[0],
-        gfx_str(d, "frontPicSize"), #TODO: handle MON_COORDS
+        gfx_str(d, "frontPicSize"),
         gfx_str(d, "frontPicYOffset"),
+        basics[6],
+        gfx_str(d, "enemyMonElevation"),
+        gfx_str(d, "shadow"),
         gfx_str(d, "frontAnimId"),
         basics[1],
         gfx_str(d, "backPicSize"),
@@ -156,6 +172,7 @@ def make_graphics_info_strings(d:dict, name_in_var:str):
         basics[3],
         basics[4],
         gfx_str(d, "iconPalIndex"),
+        basics[5],
     ]))
 
 
@@ -313,10 +330,6 @@ def read_row(row:dict):
                 gfx_dict[row["field"]] = row["value"]
     graphics_info = make_graphics_info_strings(gfx_dict, name_in_var)
 
-    
-
-    # FOOTPRINT(???)
-
     info.extend(graphics_info)
 
     # TODO: Learnsets, evolutions
@@ -406,9 +419,6 @@ def output_mon_gfx_constants():
     output.extend(mon_gfx_constants)
     with open("src/data/graphics/imported_graphics.h", "w+") as f:
         f.write('\n'.join(output).expandtabs(4))
-
-
-    # TODO: this.
     return
 
 

@@ -1,2 +1,8 @@
 field,value
+frontPicSize,36 30
+frontPicYOffset,3
+shadow,0 3 SHADOW_SIZE_M
+frontAnimId,ANIM_H_JUMPS_V_STRETCH
+backAnimId,BACK_ANIM_DIP_RIGHT_SIDE
+backPicYOffset,13
 iconPalIndex,4

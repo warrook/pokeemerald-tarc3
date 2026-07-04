@@ -1,8 +1,7 @@
 field,value
 frontPicSize,45 50
-frontPicOffset,0
 enemyMonElevation,9
-enemyShadowYOffset,16
+shadow,0 16 SHADOW_SIZE_S
 frontAnimId,ANIM_FIGURE_8
 backPicSize,52 48
 backPicYOffset,13
