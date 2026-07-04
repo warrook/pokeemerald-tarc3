@@ -15,12 +15,29 @@
   "connections": [
     {
       "map": "MAP_LANDING_SITE",
-      "offset": 0,
-      "direction": "left"
+      "offset": -20,
+      "direction": "up"
     }
   ],
   "object_events": [],
   "warp_events": [],
   "coord_events": [],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "hidden_item",
+      "x": 7,
+      "y": 26,
+      "elevation": 0,
+      "item": "ITEM_NONE",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "hidden_item",
+      "x": 19,
+      "y": 36,
+      "elevation": 0,
+      "item": "ITEM_NONE",
+      "flag": "FLAG_TEMP_1"
+    }
+  ]
 }
