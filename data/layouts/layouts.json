@@ -9347,8 +9347,8 @@
     {
       "id": "LAYOUT_MOUNTAIN",
       "name": "Mountain_Layout",
-      "width": 40,
-      "height": 20,
+      "width": 20,
+      "height": 40,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Mountain/border.bin",
@@ -9357,8 +9357,8 @@
     {
       "id": "LAYOUT_LAND",
       "name": "Land_Layout",
-      "width": 20,
-      "height": 40,
+      "width": 40,
+      "height": 20,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Land/border.bin",

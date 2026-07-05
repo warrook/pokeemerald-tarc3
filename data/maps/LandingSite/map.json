@@ -3,7 +3,7 @@
   "name": "LandingSite",
   "layout": "LAYOUT_LANDING_SITE",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_TAMAGOTCHI_ISLAND",
+  "region_map_section": "MAPSEC_LANDING_SITE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
@@ -21,7 +21,12 @@
     {
       "map": "MAP_LAND",
       "offset": -20,
-      "direction": "left"
+      "direction": "down"
+    },
+    {
+      "map": "MAP_MOUNTAIN",
+      "offset": 14,
+      "direction": "up"
     }
   ],
   "object_events": [
