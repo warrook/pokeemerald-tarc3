@@ -3,7 +3,7 @@
   "name": "LandingSite",
   "layout": "LAYOUT_LANDING_SITE",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_TAMAGOTCHI_ISLAND",
+  "region_map_section": "MAPSEC_LANDING_SITE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
@@ -15,20 +15,25 @@
   "connections": [
     {
       "map": "MAP_BEACH",
-      "offset": 0,
-      "direction": "right"
+      "offset": 20,
+      "direction": "down"
     },
     {
       "map": "MAP_LAND",
       "offset": -20,
-      "direction": "left"
+      "direction": "down"
+    },
+    {
+      "map": "MAP_MOUNTAIN",
+      "offset": 14,
+      "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_CAPSULE",
       "x": 11,
-      "y": 5,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -37,12 +42,25 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Capsule",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
+      "x": 5,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
     {
       "x": 11,
-      "y": 8,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_LANDING_SITE",
       "dest_warp_id": "0"

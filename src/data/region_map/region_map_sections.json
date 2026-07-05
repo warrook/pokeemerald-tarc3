@@ -1628,8 +1628,20 @@
       "height": 1
     },
     {
-      "id": "MAPSEC_TAMAGOTCHI_ISLAND",
-      "name": "Mountain"
+      "id": "MAPSEC_LANDING_SITE",
+      "name": "Landing Site"
+    },
+    {
+      "id": "MAPSEC_WATER_BEACH",
+      "name": "Water Beach"
+    },
+    {
+      "id": "MAPSEC_LAND_HILLS",
+      "name": "Land Hills"
+    },
+    {
+      "id": "MAPSEC_SKY_MOUNTAIN",
+      "name": "Sky Mountain"
     }
   ]
 }
