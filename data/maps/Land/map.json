@@ -3,10 +3,10 @@
   "name": "Land",
   "layout": "LAYOUT_LAND",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_TAMAGOTCHI_ISLAND",
+  "region_map_section": "MAPSEC_LAND_HILLS",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
-  "map_type": "MAP_TYPE_NONE",
+  "map_type": "MAP_TYPE_ROUTE",
   "allow_cycling": false,
   "allow_escaping": false,
   "allow_running": false,
@@ -16,11 +16,6 @@
     {
       "map": "MAP_LANDING_SITE",
       "offset": 20,
-      "direction": "right"
-    },
-    {
-      "map": "MAP_MOUNTAIN",
-      "offset": -20,
       "direction": "up"
     }
   ],
