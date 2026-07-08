@@ -15,25 +15,25 @@
   "connections": [
     {
       "map": "MAP_BEACH",
-      "offset": 20,
+      "offset": 21,
       "direction": "down"
     },
     {
       "map": "MAP_LAND",
-      "offset": -25,
+      "offset": -32,
       "direction": "down"
     },
     {
       "map": "MAP_MOUNTAIN",
-      "offset": 7,
+      "offset": 8,
       "direction": "up"
     }
   ],
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_CAPSULE",
-      "x": 11,
-      "y": 9,
+      "x": 12,
+      "y": 11,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -45,7 +45,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_POKE_BALL",
-      "x": 5,
+      "x": 6,
       "y": 25,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
@@ -59,8 +59,8 @@
   ],
   "warp_events": [
     {
-      "x": 11,
-      "y": 10,
+      "x": 12,
+      "y": 12,
       "elevation": 0,
       "dest_map": "MAP_LANDING_SITE",
       "dest_warp_id": "0"

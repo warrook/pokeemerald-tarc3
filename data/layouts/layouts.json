@@ -9327,7 +9327,7 @@
     {
       "id": "LAYOUT_LANDING_SITE",
       "name": "LandingSite_Layout",
-      "width": 45,
+      "width": 48,
       "height": 26,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",
@@ -9357,7 +9357,7 @@
     {
       "id": "LAYOUT_LAND",
       "name": "Land_Layout",
-      "width": 45,
+      "width": 53,
       "height": 24,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Petalburg",

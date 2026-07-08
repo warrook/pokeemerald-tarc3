@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_LANDING_SITE",
-      "offset": -20,
+      "offset": -21,
       "direction": "up"
     },
     {
