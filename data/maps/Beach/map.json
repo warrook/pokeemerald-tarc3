@@ -17,6 +17,11 @@
       "map": "MAP_LANDING_SITE",
       "offset": -20,
       "direction": "up"
+    },
+    {
+      "map": "MAP_LAND",
+      "offset": 0,
+      "direction": "left"
     }
   ],
   "object_events": [],

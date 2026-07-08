@@ -20,12 +20,12 @@
     },
     {
       "map": "MAP_LAND",
-      "offset": -20,
+      "offset": -25,
       "direction": "down"
     },
     {
       "map": "MAP_MOUNTAIN",
-      "offset": 14,
+      "offset": 7,
       "direction": "up"
     }
   ],
