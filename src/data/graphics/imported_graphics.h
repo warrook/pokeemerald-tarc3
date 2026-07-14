@@ -1,4 +1,5 @@
 // Include this in src/data/graphics/pokemon.h
+// Completion: 56/410 (0%)
 
 const u32 gMonFrontPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/front.png", ".4bpp.lz");
 const u32 gMonBackPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/back.png", ".4bpp.lz");

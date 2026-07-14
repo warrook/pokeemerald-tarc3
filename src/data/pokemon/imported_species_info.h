@@ -720,7 +720,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .abilities = { ABILITY_MOXIE, ABILITY_NONE, ABILITY_NONE },
     .speciesName = _("Chodraco{TCHI}"),
     .natDexNum = NATIONAL_DEX_CHODRACOTCHI,
-    .categoryName = _("Land any"),
+    .categoryName = _("Rare Land"),
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
@@ -750,7 +750,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .abilities = { ABILITY_STAKEOUT, ABILITY_NONE, ABILITY_NONE },
     .speciesName = _("Masku{TCHI}"),
     .natDexNum = NATIONAL_DEX_MASKUTCHI,
-    .categoryName = _("Land Sprout"),
+    .categoryName = _("Rare Land"),
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
@@ -1415,7 +1415,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .abilities = { ABILITY_STORM_DRAIN, ABILITY_NONE, ABILITY_NONE },
     .speciesName = _("Mermarin{TCHI}"),
     .natDexNum = NATIONAL_DEX_MERMARINTCHI,
-    .categoryName = _("Water any"),
+    .categoryName = _("Rare Water"),
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
@@ -1445,7 +1445,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .abilities = { ABILITY_FLAME_BODY, ABILITY_NONE, ABILITY_NONE },
     .speciesName = _("Achia{TCHI}"),
     .natDexNum = NATIONAL_DEX_ACHIATCHI,
-    .categoryName = _("Water Float"),
+    .categoryName = _("Rare Water"),
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
@@ -2139,7 +2139,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .abilities = { ABILITY_LEVITATE, ABILITY_NONE, ABILITY_NONE },
     .speciesName = _("Yayacorn{TCHI}"),
     .natDexNum = NATIONAL_DEX_YAYACORNTCHI,
-    .categoryName = _("Sky any"),
+    .categoryName = _("Rare Sky"),
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
@@ -2168,7 +2168,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .abilities = { ABILITY_STATIC, ABILITY_NONE, ABILITY_NONE },
     .speciesName = _("Andro{TCHI}"),
     .natDexNum = NATIONAL_DEX_ANDROTCHI,
-    .categoryName = _("Sky Rocky"),
+    .categoryName = _("Rare Sky"),
     .frontPic = gMonFrontPic_Androtchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
