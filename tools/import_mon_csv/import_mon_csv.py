@@ -145,7 +145,7 @@ def make_mon_gfx_constants(name_in_row:str):
 
 def gfx_str(d:dict, key:str):
     """
-    Formats labels into the appropriate names and styles given dictionary created from a species's `graphics_info.csv` (found in their graphics directory), which uses some abbreviated keys.
+    Formats labels into the appropriate names and styles given dictionary created from a species's `graphics-info.csv` (found in their graphics directory), which uses some abbreviated keys.
     """
 
     # Assume not a macro that ends with a comma
@@ -176,7 +176,7 @@ def gfx_str(d:dict, key:str):
 
 def make_graphics_info_strings(d:dict, name_in_var:str):
     """
-    Creates graphics entries for `species_info` from the given dictionary (created from a `graphics_info.csv` in the mon's graphics directory), including: `pokemonScale`, `pokemonOffset`, `trainerScale`, `trainerOffset`, `frontPicSize`, `frontPicYOffset`, `frontAnimId`, `backPicSize`, `backPicYOffset`, `backAnimId`, and `iconPalIndex`.
+    Creates graphics entries for `species_info` from the given dictionary (created from a `graphics-info.csv` in the mon's graphics directory), including: `pokemonScale`, `pokemonOffset`, `trainerScale`, `trainerOffset`, `frontPicSize`, `frontPicYOffset`, `frontAnimId`, `backPicSize`, `backPicYOffset`, `backAnimId`, and `iconPalIndex`.
     
     Also generates `frontPic`, `backPic`, `palette`, `shinyPalette`, and `iconSprite` entries automatically.
 
@@ -184,7 +184,7 @@ def make_graphics_info_strings(d:dict, name_in_var:str):
     """
     fpath = "graphics/pokemon/" + name_in_var.lower() + "/"
     
-    # Generate basics that are not included in graphics_info.csv
+    # Generate basics that are not included in graphics-info.csv
     basics = [
         ("\t.frontPic = gMonFrontPic_" + name_in_var + ",") \
             if os.path.exists(fpath + "front.png") else None,
@@ -398,7 +398,10 @@ def read_mon(row:dict):
             case 3:
                 category += "Teen" #e.g. Land Teen
             case 4:
-                category += young #e.g. Land Roar
+                if row["Scent"] == "complex":
+                    category = "Rare " + tama_field
+                else:
+                    category += young #e.g. Land Roar
     info.append("\t.categoryName = _(\"{0}\"),".format(category))
 
     gfx_dict = {}
