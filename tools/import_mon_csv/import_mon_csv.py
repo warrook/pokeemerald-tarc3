@@ -1,8 +1,9 @@
 import csv
 import os
 import subprocess
+import collections
 
-species_index = 1573
+first_species_index = 1573
 
 ## include/constants/species.h
 species_constants = [] # SPECIES_TAMAGOTCHI = 1573,
@@ -26,24 +27,42 @@ mon_gfx_constants = []
 ## src/data/pokemon/species_info.h
 species_info = []
 
-def sanitize_str(string:str, prefix:str="", suffix:str="", none_if_empty:bool=True, capitalize:bool=True):
+# Key: Species that evolves
+# Value: {condition= destination species}
+evolutions: dict[str, dict[str, str]] = {}
+
+
+# Second pass: Reassemble evolutions with species that evolves as key
+# Key: species that evolves
+# Value: {condition=destination species}
+
+
+def fstr(string:str, prefix:str="", suffix:str="", none_if_empty:bool=True, capitalize:bool=True):
+    """
+    Formats strings in various ways. prefix prepends the given string, suffix appends. If none_if_empty is true, then if string is "", make it "NONE". If capitalize is true, then everything will be made uppercase.
+    """
     if string == "" and none_if_empty:
         return prefix + "NONE" + suffix
     if capitalize:
         string = string.upper()
-    #handle Shigemi-san
+    #handle Shigemi-san => Shigemisan
     s = string.replace("-", "")
-    #handle " (Land)" etc
+    #handle " (Land)" etc => _Land
     s = s.replace(" ", "_")
     s = s.replace("(","")
     s = s.replace(")","")
     return prefix + s + suffix
 
 
-def format_name(string:str):
+def format_display_name(string:str):
+    """
+    Formats a string for display in the Pokedex as a species name. Removes parentheticals and turns -tchi endings into the charmap key TCHI.
+    """
+    # Strip parenthetical from display name
     if ' (' in string:
         string = string.split(' ')[0]
 
+    # Convert tchi to abbreviation if present
     if string.endswith("tchi"):
         return string.removesuffix("tchi")+"{TCHI}"
     else:
@@ -51,20 +70,24 @@ def format_name(string:str):
 
 
 def generate_palette_if_missing(fpath:str, pal:str):
+    """
+    Calls gbagfx to generate a palette from the given directory at fpath. If pal is "shiny.pal", sends gbagfx the back sprite to extract the palette from, otherwise it sends the front sprite. It does not try to generate a palette if the image it's targeting does not exist. 
+    """
     #if os.path.exists(fpath + pal):
     #    return 0
     
     target = "back.png" if pal == "shiny.pal" else "front.png"
     if not os.path.exists(fpath + target):
-        # Skip trying to generate a file if the base sprite doesn't
+        # Skip trying to generate a palette if the base sprite doesn't exist
         return True
 
+    # Call gbagfx
     subprocess.Popen(["tools/gbagfx/gbagfx", fpath + target, fpath + pal])
     return False
 
 
-def fill_mon_gfx_constant(name_in_row:str, part:str):
-    var_name = sanitize_str(name_in_row, capitalize=False)
+def gfx_constant(name_in_row:str, part:str):
+    var_name = fstr(name_in_row, capitalize=False)
     fpath = "graphics/pokemon/" + var_name.lower() + "/"
 
     g = { 
@@ -106,36 +129,62 @@ def fill_mon_gfx_constant(name_in_row:str, part:str):
 
 
 def make_mon_gfx_constants(name_in_row:str):
-    mon_gfx_constants.append(fill_mon_gfx_constant(name_in_row, "FrontPic"))
-    mon_gfx_constants.append(fill_mon_gfx_constant(name_in_row, "BackPic"))
-    mon_gfx_constants.append(fill_mon_gfx_constant(name_in_row, "Palette"))
-    mon_gfx_constants.append(fill_mon_gfx_constant(name_in_row, "ShinyPalette"))
-    mon_gfx_constants.append(fill_mon_gfx_constant(name_in_row, "Icon"))
-    mon_gfx_constants.append(fill_mon_gfx_constant(name_in_row, "Footprint"))
+    """
+    Calls `gfx_constant` to make variables that will go in `src/data/graphics/pokemon.h`.
+    """
+    mon_gfx_constants.append(gfx_constant(name_in_row, "FrontPic"))
+    mon_gfx_constants.append(gfx_constant(name_in_row, "BackPic"))
+    mon_gfx_constants.append(gfx_constant(name_in_row, "Palette"))
+    mon_gfx_constants.append(gfx_constant(name_in_row, "ShinyPalette"))
+    mon_gfx_constants.append(gfx_constant(name_in_row, "Icon"))
+    mon_gfx_constants.append(gfx_constant(name_in_row, "Footprint"))
     mon_gfx_constants.append("")
 
-    return "graphics/pokemon/" + sanitize_str(name_in_row).lower() + "/"
+    return "graphics/pokemon/" + fstr(name_in_row).lower() + "/"
 
 
 def gfx_str(d:dict, key:str):
-    macro = False
+    """
+    Formats labels into the appropriate names and styles given dictionary created from a species's `graphics_info.csv` (found in their graphics directory), which uses some abbreviated keys.
+    """
+
+    # Assume not a macro that ends with a comma
+    line_macro = False
     if key in d.keys():
+        # Key is present in graphics info csv
         value = d[key]
+
         if key.endswith("PicSize"):
+            # Handle coords size macro
             value = "MON_COORDS_SIZE(" + ", ".join(value.split(' ')) + ")"
         elif key == "shadow":
-            macro = True
+            # Handle shadow macro, which takes the place of lines in the struct (meaning no , after it, because the macro includes them)
+            line_macro = True
+
+            # Capitalize key to fit macro
             key = "SHADOW"
+            
+            # Shadow entry in csv is like "x y", so split at the space and rejoin with comma
             value = ", ".join(value.split(' '))
-        output = "\t.{0} = {1}," if not macro else "\t{0}({1})"
+        
+        # Format output based on if macro or not
+        output = "\t.{0} = {1}," if not line_macro else "\t{0}({1})"
         return output.format(key, value)
     elif key.endswith("PicSize"):
         return "\t.{0} = MON_COORDS_SIZE(64, 64),".format(key)
 
 
 def make_graphics_info_strings(d:dict, name_in_var:str):
+    """
+    Creates graphics entries for `species_info` from the given dictionary (created from a `graphics_info.csv` in the mon's graphics directory), including: `pokemonScale`, `pokemonOffset`, `trainerScale`, `trainerOffset`, `frontPicSize`, `frontPicYOffset`, `frontAnimId`, `backPicSize`, `backPicYOffset`, `backAnimId`, and `iconPalIndex`.
+    
+    Also generates `frontPic`, `backPic`, `palette`, `shinyPalette`, and `iconSprite` entries automatically.
+
+    Any missing entries are stripped from the output so as to avoid empty lines in the struct.
+    """
     fpath = "graphics/pokemon/" + name_in_var.lower() + "/"
     
+    # Generate basics that are not included in graphics_info.csv
     basics = [
         ("\t.frontPic = gMonFrontPic_" + name_in_var + ",") \
             if os.path.exists(fpath + "front.png") else None,
@@ -176,12 +225,62 @@ def make_graphics_info_strings(d:dict, name_in_var:str):
     ]))
 
 
-def read_row(row:dict):
-    const_name = sanitize_str(row["Name"]) # Tamagotchi => TAMAGOTCHI
-    name_in_var = sanitize_str(row["Name"], capitalize=False)
+def make_mon_evolutions(const_name: str, evo_stage: int, field: str):
+    """
+    Returns a list of evolutions to go in the EVOLUTION() macro based on given mon and stage.
+    """
+    evos = []
+    if const_name == "BABYMARUTCHI":
+        # Babymarutchi evolves with location
+        evos.append("{{EVO_LEVEL, 0, SPECIES_LAND_KID, CONDITIONS({{IF_MIN_OVERWORLD_STEPS, 100}}, {{IF_IN_MAPSEC, MAPSEC_LAND_HILLS}})}}".format())
+        evos.append("{{EVO_LEVEL, 0, SPECIES_WATER_KID, CONDITIONS({{IF_MIN_OVERWORLD_STEPS, 100}}, {{IF_IN_MAPSEC, MAPSEC_WATER_BEACH}})}}".format())
+        evos.append("{{EVO_LEVEL, 0, SPECIES_SKY_KID, CONDITIONS({{IF_MIN_OVERWORLD_STEPS, 100}}, {{IF_IN_MAPSEC, MAPSEC_SKY_MOUNTAIN}})}}".format())
+        evos.append("{{EVO_LEVEL, 12, SPECIES_BBMARUTCHI, CONDITIONS({{IF_IN_MAPSEC, MAPSEC_LANDING_SITE}})}}".format())
+
+        return evos
+
+    if const_name in evolutions:
+        local_evos = evolutions[const_name]
+
+        if evo_stage == 3 and const_name != "SPROUT_LAND" and const_name != "FLOAT_WATER" and const_name != "ROCKY_SKY":
+            # Add missed pseudo-legendaries to certain young
+            local_evos.update(evolutions[fstr(field, prefix="ANY_")])
+
+        for condition in local_evos:
+            level = 0
+            result_mon = "SPECIES_" + local_evos[condition]
+            item = "ITEM_"
+        
+            if evo_stage == 2:
+                # Field Kids evolve with diet
+                level = 12
+                item += condition + "_FOOD"
+            elif evo_stage == 3:
+                # Young evolve with scents
+                level = 20
+                item += condition + "_SCENT"
+            
+            if condition != "NONE":
+                cond = ", CONDITIONS({{IF_HOLD_ITEM, {0}}})".format(item)
+            else:
+                cond = ""
+
+            evos.append("{{EVO_LEVEL, {0}, {1}{2}}}".format(str(level), result_mon, cond))
+            
+        return evos
+
+
+def read_mon(row:dict):
+    """
+    Reads a row from `mon.csv`.
+    
+    Understatement of the year.
+    """
+    const_name = fstr(row["Name"]) # Tamagotchi => TAMAGOTCHI
+    name_in_var = fstr(row["Name"], capitalize=False)
     # Shigemi-san => Shigemisan
 
-    species_constants.append("SPECIES_{0} = {1},".format(const_name, species_index + len(species_constants)))
+    species_constants.append("SPECIES_{0} = {1},".format(const_name, first_species_index + len(species_constants)))
     nat_dex_constants.append("NATIONAL_DEX_" + const_name + ",")
     reg_dex_constants.append("\tF(" + const_name + ")")
     graphics_dir = make_mon_gfx_constants(row["Name"])
@@ -208,8 +307,8 @@ def read_row(row:dict):
 
     # Types
     types = [
-        sanitize_str(row["Type 1"], "TYPE_"),
-        sanitize_str(row["Type 2"], "TYPE_"),
+        fstr(row["Type 1"], "TYPE_"),
+        fstr(row["Type 2"], "TYPE_"),
     ]
     if types[1] == "TYPE_NONE":
         del types[1]
@@ -222,7 +321,7 @@ def read_row(row:dict):
     info.append("\t.expYield = 67,")
 
     # Effort Value Yield
-    # TODO: Fix this; some mons don't output any
+    # TODO: Fix this; mons younger than adult give no EVs and that seems wrong
     evo_stage = int(row["Stage"])
     if evo_stage == 4:
         evYield = {}
@@ -264,15 +363,15 @@ def read_row(row:dict):
 
     # Abilities
     abilities = [
-        sanitize_str(row["Ability 1"],"ABILITY_"),
-        sanitize_str(row["Ability 2"],"ABILITY_"),
-        sanitize_str(row["Ability Hidden"],"ABILITY_"),
+        fstr(row["Ability 1"],"ABILITY_"),
+        fstr(row["Ability 2"],"ABILITY_"),
+        fstr(row["Ability Hidden"],"ABILITY_"),
     ]
     info.append("\t.abilities = { " + ', '.join(abilities) + " },")
 
     # Dex Info
     #.bodyColor
-    species_name = format_name(row["Name"])
+    species_name = format_display_name(row["Name"])
     info.append("\t.speciesName = _(\"{0}\"),".format(species_name))
     #.cryId
     info.append("\t.natDexNum = NATIONAL_DEX_" + const_name + ",")
@@ -334,10 +433,55 @@ def read_row(row:dict):
 
     # TODO: Learnsets, evolutions
 
+    # Evolutions
+    evos = make_mon_evolutions(const_name, evo_stage, tama_field)
+    if evos:
+        info.append("\t.evolutions = EVOLUTION({0}),".format(",\n\t\t\t\t\t\t\t".join(evos)))
+
+
     info.append("},")
     info.append("")
 
-    species_info.extend(info)
+    species_info.append("\n".join(info))
+
+
+def read_evolutions(row: dict):
+    const_name = fstr(row["Name"])
+    tama_field = fstr(row["Field"])
+    young = fstr(row["Young"])
+    evo_stage = int(row["Stage"])
+
+    if const_name == "BBMARUTCHI" or young == "Legendary":
+        pass
+    elif evo_stage == 1:
+        pass
+    else:
+        condition = ""
+        prevo = ""
+
+        if evo_stage == 2:
+            prevo = "BABYMARUTCHI"
+            condition = tama_field
+        elif evo_stage == 3:
+            # Evolves from Kid with Diet
+            prevo = fstr(tama_field, suffix="_KID")
+            condition = fstr(row["Diet"])
+        elif evo_stage == 4:
+            # Evolves from Young with Scents
+            prevo = fstr(string=young, suffix="_" + tama_field)
+            condition = fstr(row["Scent"])
+
+        if prevo in evolutions.keys():
+            evolutions[prevo][condition] = const_name
+        else:
+            evolutions[prevo] = {condition: const_name}
+
+
+# Key: Species that evolves
+# Value: dictionary of evolutions with key: condition and value: species
+#evos: dict[str, dict[str, str]]
+
+
 
 
 def output_species_constants():
@@ -446,7 +590,14 @@ def main():
     with open('tools/import_mon_csv/mon.csv', newline='') as f:
         reader = csv.DictReader(f)
         for row in reader:
-            read_row(row)
+            read_evolutions(row)
+        
+        # Return to top and skip header
+        f.seek(0)
+        f.readline()
+
+        for row in reader:
+            read_mon(row)
 
     output_species_constants()
     output_nat_dex_constants()

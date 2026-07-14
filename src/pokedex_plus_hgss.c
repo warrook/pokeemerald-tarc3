@@ -6491,9 +6491,10 @@ static void PrintEvolutionTargetSpeciesAndMethod(u8 taskId, enum Species species
         bool32 isAlcremie = IsSpeciesAlcremie(targetSpecies);
 
         u32 speciesNameWidthInChars = GetSpeciesNameWidthInChars(GetSpeciesName(targetSpecies));
-        u32 speciesNameCharWidth = GetFontAttribute(GetSpeciesNameFontId(speciesNameWidthInChars), FONTATTR_MAX_LETTER_WIDTH);
+        //u32 speciesNameCharWidth = GetFontAttribute(GetSpeciesNameFontId(speciesNameWidthInChars), FONTATTR_MAX_LETTER_WIDTH);
 
-        u32 speciesNameWidth = (speciesNameWidthInChars * speciesNameCharWidth);
+        //u32 speciesNameWidth = (speciesNameWidthInChars * speciesNameCharWidth);
+        u32 speciesNameWidth = GetStringWidth(GetSpeciesNameFontId(speciesNameWidthInChars), GetSpeciesName(targetSpecies), -1);
         u32 base_x_offset = speciesNameWidth + base_x + depth_offset; // for evo method info
         u32 maxScreenWidth = 230 - base_x_offset;
 
@@ -6825,7 +6826,8 @@ static void PrintEvolutionTargetSpeciesAndMethod(u8 taskId, enum Species species
 
         sPokedexView->sEvoScreenData.arrowSpriteDist[depth + 1] = numLines;
 
-        PrintEvolutionTargetSpeciesAndMethod(taskId, targetSpecies, depth+1, depth_i, alreadyPrintedIcons, icon_depth_i, numLines);
+        // Dex would can't handle this many nests
+        //PrintEvolutionTargetSpeciesAndMethod(taskId, targetSpecies, depth+1, depth_i, alreadyPrintedIcons, icon_depth_i, numLines);
     }//For loop end
 }
 

@@ -15832,6 +15832,36 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_PokeshiDoll,
         .iconPalette = gItemIconPalette_PokeshiDoll,
     },
+
+#define TAMA_EVO_ITEM(adjective, kind) \
+        .name = ITEM_NAME(#adjective " " #kind), \
+        .pluralName = ITEM_PLURAL_NAME(#adjective " " #kind), \
+        .pocket = POCKET_ITEMS, \
+        .sortType = ITEM_TYPE_HELD_ITEM, \
+        .type = ITEM_USE_BAG_MENU, \
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse, \
+        .iconPic = gItemIcon_QuestionMark, \
+        .iconPalette = gItemIconPalette_QuestionMark, \
+        //.iconPic = gItemIcon_##adjective##Food, \
+        //.iconPalette = gItemIconPalette_##adjective##kind
+
+#define TAMA_EVO_FOOD(adjective) TAMA_EVO_ITEM(adjective, Food) \
+        .description = COMPOUND_STRING( \
+            "Enables a certain\n" \
+            "diet in Pokémon."),
+
+#define TAMA_EVO_SCENT(adjective) TAMA_EVO_ITEM(adjective, Scent) \
+        .description = COMPOUND_STRING( \
+            "Enables a certain\n" \
+            "mood in Pokémon."),
+
+    [ITEM_SAVORY_FOOD] = { TAMA_EVO_FOOD(Savory) },
+    [ITEM_LEAFY_FOOD] = { TAMA_EVO_FOOD(Leafy) },
+    [ITEM_GOOEY_FOOD] = { TAMA_EVO_FOOD(Gooey) },
+    [ITEM_VIVID_SCENT] = { TAMA_EVO_SCENT(Vivid) },
+    [ITEM_EXCITE_SCENT] = { TAMA_EVO_SCENT(Excite) },
+    [ITEM_JOY_SCENT] = { TAMA_EVO_SCENT(Joy) },
+    [ITEM_COMPLEX_SCENT] = { TAMA_EVO_SCENT(Complex) },
 };
 
 #undef ITEM_NAME

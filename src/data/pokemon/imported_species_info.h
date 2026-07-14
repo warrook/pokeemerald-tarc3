@@ -36,6 +36,10 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Babymarutchi,
     .iconPalIndex = 4,
     FOOTPRINT(Babymarutchi)
+    .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_LAND_KID, CONDITIONS({IF_MIN_OVERWORLD_STEPS, 100}, {IF_IN_MAPSEC, MAPSEC_LAND_HILLS})},
+                            {EVO_LEVEL, 0, SPECIES_WATER_KID, CONDITIONS({IF_MIN_OVERWORLD_STEPS, 100}, {IF_IN_MAPSEC, MAPSEC_WATER_BEACH})},
+                            {EVO_LEVEL, 0, SPECIES_SKY_KID, CONDITIONS({IF_MIN_OVERWORLD_STEPS, 100}, {IF_IN_MAPSEC, MAPSEC_SKY_MOUNTAIN})},
+                            {EVO_LEVEL, 12, SPECIES_BBMARUTCHI, CONDITIONS({IF_IN_MAPSEC, MAPSEC_LANDING_SITE})}),
 },
 
 [SPECIES_LAND_KID] =
@@ -70,6 +74,10 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Land_Kid,
     .iconPalIndex = 4,
     FOOTPRINT(Land_Kid)
+    .evolutions = EVOLUTION({EVO_LEVEL, 12, SPECIES_ROAR_LAND, CONDITIONS({IF_HOLD_ITEM, ITEM_SAVORY_FOOD})},
+                            {EVO_LEVEL, 12, SPECIES_TODDLE_LAND, CONDITIONS({IF_HOLD_ITEM, ITEM_LEAFY_FOOD})},
+                            {EVO_LEVEL, 12, SPECIES_LICK_LAND, CONDITIONS({IF_HOLD_ITEM, ITEM_GOOEY_FOOD})},
+                            {EVO_LEVEL, 12, SPECIES_SPROUT_LAND}),
 },
 
 [SPECIES_ROAR_LAND] =
@@ -97,6 +105,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_MEOWTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_POCHITCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_GUMAX, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_RATCHI},
+                            {EVO_LEVEL, 20, SPECIES_CHODRACOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_MEOWTCHI] =
@@ -248,6 +261,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Toddle_Land,
     .iconPalIndex = 4,
     FOOTPRINT(Toddle_Land)
+    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_MAMETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_MIMITCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_MOLMOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_SHEEPTCHI},
+                            {EVO_LEVEL, 20, SPECIES_CHODRACOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_MAMETCHI] =
@@ -393,6 +411,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_LEOPATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_SEBIRETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_ELIZARDOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_HEAVYTCHI},
+                            {EVO_LEVEL, 20, SPECIES_CHODRACOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_LEOPATCHI] =
@@ -543,6 +566,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Sprout_Land,
     .iconPalIndex = 3,
     FOOTPRINT(Sprout_Land)
+    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_FURAWATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_POTSUNENTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_TUSTUSTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_SHIGEMISAN},
+                            {EVO_LEVEL, 20, SPECIES_MASKUTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_FURAWATCHI] =
@@ -658,11 +686,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Shigemi-san"),
     .natDexNum = NATIONAL_DEX_SHIGEMISAN,
     .categoryName = _("Land Sprout"),
+    .frontPic = gMonFrontPic_Shigemisan,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Shigemisan,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Shigemisan,
+    .shinyPalette = gMonShinyPalette_Shigemisan,
+    .iconSprite = gMonIcon_Shigemisan,
+    .iconPalIndex = 4,
+    FOOTPRINT(Shigemisan)
 },
 
 [SPECIES_CHODRACOTCHI] =
@@ -755,6 +790,10 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Water_Kid,
     .iconPalIndex = 4,
     FOOTPRINT(Water_Kid)
+    .evolutions = EVOLUTION({EVO_LEVEL, 12, SPECIES_GLIDE_WATER, CONDITIONS({IF_HOLD_ITEM, ITEM_SAVORY_FOOD})},
+                            {EVO_LEVEL, 12, SPECIES_LEAP_WATER, CONDITIONS({IF_HOLD_ITEM, ITEM_LEAFY_FOOD})},
+                            {EVO_LEVEL, 12, SPECIES_PADDLE_WATER, CONDITIONS({IF_HOLD_ITEM, ITEM_GOOEY_FOOD})},
+                            {EVO_LEVEL, 12, SPECIES_FLOAT_WATER}),
 },
 
 [SPECIES_GLIDE_WATER] =
@@ -782,6 +821,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_IRUKATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_KAMETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_KUJIRATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_URUOTCHI},
+                            {EVO_LEVEL, 20, SPECIES_MERMARINTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_IRUKATCHI] =
@@ -928,6 +972,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_AXOLOPATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_IMORITCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_KAWAZUTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_BEAVERTCHI},
+                            {EVO_LEVEL, 20, SPECIES_MERMARINTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_AXOLOPATCHI] =
@@ -1071,6 +1120,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_TACHUTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_SHARKTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_ANKOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_OTOTOTCHI},
+                            {EVO_LEVEL, 20, SPECIES_MERMARINTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_TACHUTCHI] =
@@ -1214,6 +1268,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_KURARATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_MENDAKOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_AMEFURATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_GUSOKUTCHI},
+                            {EVO_LEVEL, 20, SPECIES_ACHIATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_KURARATCHI] =
@@ -1426,6 +1485,10 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Sky_Kid,
     .iconPalIndex = 3,
     FOOTPRINT(Sky_Kid)
+    .evolutions = EVOLUTION({EVO_LEVEL, 12, SPECIES_FLAP_SKY, CONDITIONS({IF_HOLD_ITEM, ITEM_SAVORY_FOOD})},
+                            {EVO_LEVEL, 12, SPECIES_CHIRP_SKY, CONDITIONS({IF_HOLD_ITEM, ITEM_LEAFY_FOOD})},
+                            {EVO_LEVEL, 12, SPECIES_BUMBLE_SKY, CONDITIONS({IF_HOLD_ITEM, ITEM_GOOEY_FOOD})},
+                            {EVO_LEVEL, 12, SPECIES_ROCKY_SKY}),
 },
 
 [SPECIES_FLAP_SKY] =
@@ -1453,6 +1516,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_HORHOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_MONGATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_EAGLETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_BATCHI},
+                            {EVO_LEVEL, 20, SPECIES_YAYACORNTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_HORHOTCHI] =
@@ -1605,6 +1673,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Chirp_Sky,
     .iconPalIndex = 1,
     FOOTPRINT(Chirp_Sky)
+    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_PEACOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_BATATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_KUCHIPATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_KIWITCHI},
+                            {EVO_LEVEL, 20, SPECIES_YAYACORNTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_PEACOTCHI] =
@@ -1750,6 +1823,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_PAPILLOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_KABUTOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_TENTOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_HATCHITCHI},
+                            {EVO_LEVEL, 20, SPECIES_YAYACORNTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_PAPILLOTCHI] =
@@ -1864,11 +1942,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Hatchi{TCHI}"),
     .natDexNum = NATIONAL_DEX_HATCHITCHI,
     .categoryName = _("Sky Bumble"),
+    .frontPic = gMonFrontPic_Hatchitchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Hatchitchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Hatchitchi,
+    .shinyPalette = gMonShinyPalette_Hatchitchi,
+    .iconSprite = gMonIcon_Hatchitchi,
+    .iconPalIndex = 3,
+    FOOTPRINT(Hatchitchi)
 },
 
 [SPECIES_ROCKY_SKY] =
@@ -1905,6 +1990,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Rocky_Sky,
     .iconPalIndex = 2,
     FOOTPRINT(Rocky_Sky)
+    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_GEMTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_ORETATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_ISHIKOROTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 20, SPECIES_MAGMATCHI},
+                            {EVO_LEVEL, 20, SPECIES_ANDROTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_GEMTCHI] =
@@ -2079,11 +2169,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Andro{TCHI}"),
     .natDexNum = NATIONAL_DEX_ANDROTCHI,
     .categoryName = _("Sky Rocky"),
+    .frontPic = gMonFrontPic_Androtchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Androtchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Androtchi,
+    .shinyPalette = gMonShinyPalette_Androtchi,
+    .iconSprite = gMonIcon_Androtchi,
+    .iconPalIndex = 4,
+    FOOTPRINT(Androtchi)
 },
 
 [SPECIES_BBMARUTCHI] =
@@ -2145,11 +2242,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Shinigami"),
     .natDexNum = NATIONAL_DEX_SHINIGAMI,
     .categoryName = _("Grim"),
+    .frontPic = gMonFrontPic_Shinigami,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Shinigami,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Shinigami,
+    .shinyPalette = gMonShinyPalette_Shinigami,
+    .iconSprite = gMonIcon_Shinigami,
+    .iconPalIndex = 3,
+    FOOTPRINT(Shinigami)
 },
 
 [SPECIES_KURITEN] =
