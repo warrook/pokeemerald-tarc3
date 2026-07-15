@@ -84,7 +84,7 @@ def generate_palette(fpath:str, pal:str):
         return False
 
     # Call gbagfx
-    subprocess.Popen(["tools/gbagfx/gbagfx", fpath + target, fpath + pal])
+    subprocess.run(["tools/gbagfx/gbagfx", fpath + target, fpath + pal])
     return True
 
 
@@ -565,7 +565,7 @@ def output_mon_gfx_constants():
     
     output = [
         "// Include this in src/data/graphics/pokemon.h",
-        "// Completion: {0}/{1} ({2}%)".format(completed, completed + commented, completed // commented),
+        "// Completion: {0}/{1} ({2}%)".format(completed, completed + commented, int(completed / (completed + commented) * 100)),
         "",
     ]
     output.extend(mon_gfx_constants)

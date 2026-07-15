@@ -107,6 +107,8 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     ),
     .backPic = gMonBackPic_Roar_Land,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Roar_Land,
+    .shinyPalette = gMonShinyPalette_Roar_Land,
     .iconSprite = gMonIcon_Roar_Land,
     .iconPalIndex = 0,
     FOOTPRINT(Roar_Land)
@@ -425,6 +427,8 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     ),
     .backPic = gMonBackPic_Lick_Land,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Lick_Land,
+    .shinyPalette = gMonShinyPalette_Lick_Land,
     .iconSprite = gMonIcon_Lick_Land,
     .iconPalIndex = 5,
     FOOTPRINT(Lick_Land)
@@ -1287,6 +1291,8 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     ),
     .backPic = gMonBackPic_Float_Water,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Float_Water,
+    .shinyPalette = gMonShinyPalette_Float_Water,
     .iconSprite = gMonIcon_Float_Water,
     .iconPalIndex = 2,
     FOOTPRINT(Float_Water)
@@ -1846,6 +1852,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     ),
     .backPic = gMonBackPic_Bumble_Sky,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .shinyPalette = gMonShinyPalette_Bumble_Sky,
     .iconSprite = gMonIcon_Bumble_Sky,
     .iconPalIndex = 2,
     FOOTPRINT(Bumble_Sky)
