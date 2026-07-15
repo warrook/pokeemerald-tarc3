@@ -1,5 +1,5 @@
 // Include this in src/data/graphics/pokemon.h
-// Completion: 56/410 (0%)
+// Completion: 60/410 (0%)
 
 const u32 gMonFrontPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/front.png", ".4bpp.lz");
 const u32 gMonBackPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/back.png", ".4bpp.lz");
@@ -43,12 +43,12 @@ const u8 gMonFootprint_Land_Kid[] = INCGFX_U8("graphics/pokemon/land_kid/footpri
 // const u8 gMonIcon_Gumax[] = INCGFX_U8("graphics/pokemon/gumax/icon.png", ".4bpp");
 // const u8 gMonFootprint_Gumax[] = INCGFX_U8("graphics/pokemon/gumax/footprint.png", ".1bpp");
 
-// const u32 gMonFrontPic_Ratchi[] = INCGFX_U32("graphics/pokemon/ratchi/front.png", ".4bpp.lz");
-// const u32 gMonBackPic_Ratchi[] = INCGFX_U32("graphics/pokemon/ratchi/back.png", ".4bpp.lz");
+const u32 gMonFrontPic_Ratchi[] = INCGFX_U32("graphics/pokemon/ratchi/front.png", ".4bpp.lz");
+const u32 gMonBackPic_Ratchi[] = INCGFX_U32("graphics/pokemon/ratchi/back.png", ".4bpp.lz");
 // const u16 gMonPalette_Ratchi[] = INCGFX_U16("graphics/pokemon/ratchi/normal.pal", ".gbapal");
 // const u16 gMonShinyPalette_Ratchi[] = INCGFX_U16("graphics/pokemon/ratchi/shiny.pal", ".gbapal");
-// const u8 gMonIcon_Ratchi[] = INCGFX_U8("graphics/pokemon/ratchi/icon.png", ".4bpp");
-// const u8 gMonFootprint_Ratchi[] = INCGFX_U8("graphics/pokemon/ratchi/footprint.png", ".1bpp");
+const u8 gMonIcon_Ratchi[] = INCGFX_U8("graphics/pokemon/ratchi/icon.png", ".4bpp");
+const u8 gMonFootprint_Ratchi[] = INCGFX_U8("graphics/pokemon/ratchi/footprint.png", ".1bpp");
 
 const u32 gMonFrontPic_Toddle_Land[] = INCGFX_U32("graphics/pokemon/toddle_land/front.png", ".4bpp.lz");
 const u32 gMonBackPic_Toddle_Land[] = INCGFX_U32("graphics/pokemon/toddle_land/back.png", ".4bpp.lz");

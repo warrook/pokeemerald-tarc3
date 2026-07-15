@@ -222,11 +222,16 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Ra{TCHI}"),
     .natDexNum = NATIONAL_DEX_RATCHI,
     .categoryName = _("Land Roar"),
+    .frontPic = gMonFrontPic_Ratchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Ratchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .iconSprite = gMonIcon_Ratchi,
+    .iconPalIndex = 4,
+    FOOTPRINT(Ratchi)
 },
 
 [SPECIES_TODDLE_LAND] =
