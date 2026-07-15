@@ -69,9 +69,11 @@ def format_display_name(string:str):
         return string
 
 
-def generate_palette_if_missing(fpath:str, pal:str):
+def generate_palette(fpath:str, pal:str):
     """
     Calls gbagfx to generate a palette from the given directory at fpath. If pal is "shiny.pal", sends gbagfx the back sprite to extract the palette from, otherwise it sends the front sprite. It does not try to generate a palette if the image it's targeting does not exist. 
+
+    Returns False if base png is missing, and True if it calls gbagfx.
     """
     #if os.path.exists(fpath + pal):
     #    return 0
@@ -79,11 +81,11 @@ def generate_palette_if_missing(fpath:str, pal:str):
     target = "back.png" if pal == "shiny.pal" else "front.png"
     if not os.path.exists(fpath + target):
         # Skip trying to generate a palette if the base sprite doesn't exist
-        return True
+        return False
 
     # Call gbagfx
     subprocess.Popen(["tools/gbagfx/gbagfx", fpath + target, fpath + pal])
-    return False
+    return True
 
 
 def gfx_constant(name_in_row:str, part:str):
@@ -95,7 +97,7 @@ def gfx_constant(name_in_row:str, part:str):
         "name_in_variable": var_name, 
         "path": fpath 
     }
-    missing = False
+    present = False
     match part:
         case "FrontPic":
             g["input"] =    "front.png"
@@ -109,12 +111,12 @@ def gfx_constant(name_in_row:str, part:str):
             g["input"] =    "normal.pal"
             g["output"] =   ".gbapal"
             g["size"] =     "16"
-            generate_palette_if_missing(g["path"], g["input"])
+            present = generate_palette(g["path"], g["input"])
         case "ShinyPalette":
             g["input"] =    "shiny.pal"
             g["output"] =   ".gbapal"
             g["size"] =     "16"
-            generate_palette_if_missing(g["path"], g["input"])
+            present = generate_palette(g["path"], g["input"])
         case "Icon":
             g["input"] =    "icon.png"
             g["output"] =   ".4bpp"
@@ -123,9 +125,9 @@ def gfx_constant(name_in_row:str, part:str):
             g["input"] =    "footprint.png"
             g["output"] =   ".1bpp"
             g["size"] =     "8"
-    missing = False if os.path.exists(g["path"] + g["input"]) else True
+    present = present or os.path.exists(g["path"] + g["input"])
     
-    return ("// " if missing == True else "") + "const u{size} gMon{variable}_{name_in_variable}[] = INCGFX_U{size}(\"{path}{input}\", \"{output}\");".format_map(g)
+    return ("// " if not present else "") + "const u{size} gMon{variable}_{name_in_variable}[] = INCGFX_U{size}(\"{path}{input}\", \"{output}\");".format_map(g)
 
 
 def make_mon_gfx_constants(name_in_row:str):

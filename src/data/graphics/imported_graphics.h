@@ -1,5 +1,5 @@
 // Include this in src/data/graphics/pokemon.h
-// Completion: 60/410 (0%)
+// Completion: 75/401 (0%)
 
 const u32 gMonFrontPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/front.png", ".4bpp.lz");
 const u32 gMonBackPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/back.png", ".4bpp.lz");
@@ -15,12 +15,12 @@ const u16 gMonShinyPalette_Land_Kid[] = INCGFX_U16("graphics/pokemon/land_kid/sh
 const u8 gMonIcon_Land_Kid[] = INCGFX_U8("graphics/pokemon/land_kid/icon.png", ".4bpp");
 const u8 gMonFootprint_Land_Kid[] = INCGFX_U8("graphics/pokemon/land_kid/footprint.png", ".1bpp");
 
-// const u32 gMonFrontPic_Roar_Land[] = INCGFX_U32("graphics/pokemon/roar_land/front.png", ".4bpp.lz");
-// const u32 gMonBackPic_Roar_Land[] = INCGFX_U32("graphics/pokemon/roar_land/back.png", ".4bpp.lz");
-// const u16 gMonPalette_Roar_Land[] = INCGFX_U16("graphics/pokemon/roar_land/normal.pal", ".gbapal");
-// const u16 gMonShinyPalette_Roar_Land[] = INCGFX_U16("graphics/pokemon/roar_land/shiny.pal", ".gbapal");
-// const u8 gMonIcon_Roar_Land[] = INCGFX_U8("graphics/pokemon/roar_land/icon.png", ".4bpp");
-// const u8 gMonFootprint_Roar_Land[] = INCGFX_U8("graphics/pokemon/roar_land/footprint.png", ".1bpp");
+const u32 gMonFrontPic_Roar_Land[] = INCGFX_U32("graphics/pokemon/roar_land/front.png", ".4bpp.lz");
+const u32 gMonBackPic_Roar_Land[] = INCGFX_U32("graphics/pokemon/roar_land/back.png", ".4bpp.lz");
+const u16 gMonPalette_Roar_Land[] = INCGFX_U16("graphics/pokemon/roar_land/normal.pal", ".gbapal");
+const u16 gMonShinyPalette_Roar_Land[] = INCGFX_U16("graphics/pokemon/roar_land/shiny.pal", ".gbapal");
+const u8 gMonIcon_Roar_Land[] = INCGFX_U8("graphics/pokemon/roar_land/icon.png", ".4bpp");
+const u8 gMonFootprint_Roar_Land[] = INCGFX_U8("graphics/pokemon/roar_land/footprint.png", ".1bpp");
 
 // const u32 gMonFrontPic_Meowtchi[] = INCGFX_U32("graphics/pokemon/meowtchi/front.png", ".4bpp.lz");
 // const u32 gMonBackPic_Meowtchi[] = INCGFX_U32("graphics/pokemon/meowtchi/back.png", ".4bpp.lz");
@@ -45,8 +45,8 @@ const u8 gMonFootprint_Land_Kid[] = INCGFX_U8("graphics/pokemon/land_kid/footpri
 
 const u32 gMonFrontPic_Ratchi[] = INCGFX_U32("graphics/pokemon/ratchi/front.png", ".4bpp.lz");
 const u32 gMonBackPic_Ratchi[] = INCGFX_U32("graphics/pokemon/ratchi/back.png", ".4bpp.lz");
-// const u16 gMonPalette_Ratchi[] = INCGFX_U16("graphics/pokemon/ratchi/normal.pal", ".gbapal");
-// const u16 gMonShinyPalette_Ratchi[] = INCGFX_U16("graphics/pokemon/ratchi/shiny.pal", ".gbapal");
+const u16 gMonPalette_Ratchi[] = INCGFX_U16("graphics/pokemon/ratchi/normal.pal", ".gbapal");
+const u16 gMonShinyPalette_Ratchi[] = INCGFX_U16("graphics/pokemon/ratchi/shiny.pal", ".gbapal");
 const u8 gMonIcon_Ratchi[] = INCGFX_U8("graphics/pokemon/ratchi/icon.png", ".4bpp");
 const u8 gMonFootprint_Ratchi[] = INCGFX_U8("graphics/pokemon/ratchi/footprint.png", ".1bpp");
 
@@ -85,12 +85,12 @@ const u8 gMonFootprint_Toddle_Land[] = INCGFX_U8("graphics/pokemon/toddle_land/f
 // const u8 gMonIcon_Sheeptchi[] = INCGFX_U8("graphics/pokemon/sheeptchi/icon.png", ".4bpp");
 // const u8 gMonFootprint_Sheeptchi[] = INCGFX_U8("graphics/pokemon/sheeptchi/footprint.png", ".1bpp");
 
-// const u32 gMonFrontPic_Lick_Land[] = INCGFX_U32("graphics/pokemon/lick_land/front.png", ".4bpp.lz");
-// const u32 gMonBackPic_Lick_Land[] = INCGFX_U32("graphics/pokemon/lick_land/back.png", ".4bpp.lz");
-// const u16 gMonPalette_Lick_Land[] = INCGFX_U16("graphics/pokemon/lick_land/normal.pal", ".gbapal");
-// const u16 gMonShinyPalette_Lick_Land[] = INCGFX_U16("graphics/pokemon/lick_land/shiny.pal", ".gbapal");
-// const u8 gMonIcon_Lick_Land[] = INCGFX_U8("graphics/pokemon/lick_land/icon.png", ".4bpp");
-// const u8 gMonFootprint_Lick_Land[] = INCGFX_U8("graphics/pokemon/lick_land/footprint.png", ".1bpp");
+const u32 gMonFrontPic_Lick_Land[] = INCGFX_U32("graphics/pokemon/lick_land/front.png", ".4bpp.lz");
+const u32 gMonBackPic_Lick_Land[] = INCGFX_U32("graphics/pokemon/lick_land/back.png", ".4bpp.lz");
+const u16 gMonPalette_Lick_Land[] = INCGFX_U16("graphics/pokemon/lick_land/normal.pal", ".gbapal");
+const u16 gMonShinyPalette_Lick_Land[] = INCGFX_U16("graphics/pokemon/lick_land/shiny.pal", ".gbapal");
+const u8 gMonIcon_Lick_Land[] = INCGFX_U8("graphics/pokemon/lick_land/icon.png", ".4bpp");
+const u8 gMonFootprint_Lick_Land[] = INCGFX_U8("graphics/pokemon/lick_land/footprint.png", ".1bpp");
 
 // const u32 gMonFrontPic_Leopatchi[] = INCGFX_U32("graphics/pokemon/leopatchi/front.png", ".4bpp.lz");
 // const u32 gMonBackPic_Leopatchi[] = INCGFX_U32("graphics/pokemon/leopatchi/back.png", ".4bpp.lz");
@@ -281,12 +281,12 @@ const u8 gMonFootprint_Water_Kid[] = INCGFX_U8("graphics/pokemon/water_kid/footp
 // const u8 gMonIcon_Otototchi[] = INCGFX_U8("graphics/pokemon/otototchi/icon.png", ".4bpp");
 // const u8 gMonFootprint_Otototchi[] = INCGFX_U8("graphics/pokemon/otototchi/footprint.png", ".1bpp");
 
-// const u32 gMonFrontPic_Float_Water[] = INCGFX_U32("graphics/pokemon/float_water/front.png", ".4bpp.lz");
-// const u32 gMonBackPic_Float_Water[] = INCGFX_U32("graphics/pokemon/float_water/back.png", ".4bpp.lz");
-// const u16 gMonPalette_Float_Water[] = INCGFX_U16("graphics/pokemon/float_water/normal.pal", ".gbapal");
-// const u16 gMonShinyPalette_Float_Water[] = INCGFX_U16("graphics/pokemon/float_water/shiny.pal", ".gbapal");
-// const u8 gMonIcon_Float_Water[] = INCGFX_U8("graphics/pokemon/float_water/icon.png", ".4bpp");
-// const u8 gMonFootprint_Float_Water[] = INCGFX_U8("graphics/pokemon/float_water/footprint.png", ".1bpp");
+const u32 gMonFrontPic_Float_Water[] = INCGFX_U32("graphics/pokemon/float_water/front.png", ".4bpp.lz");
+const u32 gMonBackPic_Float_Water[] = INCGFX_U32("graphics/pokemon/float_water/back.png", ".4bpp.lz");
+const u16 gMonPalette_Float_Water[] = INCGFX_U16("graphics/pokemon/float_water/normal.pal", ".gbapal");
+const u16 gMonShinyPalette_Float_Water[] = INCGFX_U16("graphics/pokemon/float_water/shiny.pal", ".gbapal");
+const u8 gMonIcon_Float_Water[] = INCGFX_U8("graphics/pokemon/float_water/icon.png", ".4bpp");
+const u8 gMonFootprint_Float_Water[] = INCGFX_U8("graphics/pokemon/float_water/footprint.png", ".1bpp");
 
 // const u32 gMonFrontPic_Kuraratchi[] = INCGFX_U32("graphics/pokemon/kuraratchi/front.png", ".4bpp.lz");
 // const u32 gMonBackPic_Kuraratchi[] = INCGFX_U32("graphics/pokemon/kuraratchi/back.png", ".4bpp.lz");
@@ -408,11 +408,11 @@ const u8 gMonFootprint_Chirp_Sky[] = INCGFX_U8("graphics/pokemon/chirp_sky/footp
 // const u8 gMonFootprint_Kiwitchi[] = INCGFX_U8("graphics/pokemon/kiwitchi/footprint.png", ".1bpp");
 
 // const u32 gMonFrontPic_Bumble_Sky[] = INCGFX_U32("graphics/pokemon/bumble_sky/front.png", ".4bpp.lz");
-// const u32 gMonBackPic_Bumble_Sky[] = INCGFX_U32("graphics/pokemon/bumble_sky/back.png", ".4bpp.lz");
+const u32 gMonBackPic_Bumble_Sky[] = INCGFX_U32("graphics/pokemon/bumble_sky/back.png", ".4bpp.lz");
 // const u16 gMonPalette_Bumble_Sky[] = INCGFX_U16("graphics/pokemon/bumble_sky/normal.pal", ".gbapal");
-// const u16 gMonShinyPalette_Bumble_Sky[] = INCGFX_U16("graphics/pokemon/bumble_sky/shiny.pal", ".gbapal");
-// const u8 gMonIcon_Bumble_Sky[] = INCGFX_U8("graphics/pokemon/bumble_sky/icon.png", ".4bpp");
-// const u8 gMonFootprint_Bumble_Sky[] = INCGFX_U8("graphics/pokemon/bumble_sky/footprint.png", ".1bpp");
+const u16 gMonShinyPalette_Bumble_Sky[] = INCGFX_U16("graphics/pokemon/bumble_sky/shiny.pal", ".gbapal");
+const u8 gMonIcon_Bumble_Sky[] = INCGFX_U8("graphics/pokemon/bumble_sky/icon.png", ".4bpp");
+const u8 gMonFootprint_Bumble_Sky[] = INCGFX_U8("graphics/pokemon/bumble_sky/footprint.png", ".1bpp");
 
 // const u32 gMonFrontPic_Papillotchi[] = INCGFX_U32("graphics/pokemon/papillotchi/front.png", ".4bpp.lz");
 // const u32 gMonBackPic_Papillotchi[] = INCGFX_U32("graphics/pokemon/papillotchi/back.png", ".4bpp.lz");

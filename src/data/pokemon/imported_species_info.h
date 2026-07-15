@@ -100,11 +100,16 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Roar"),
     .natDexNum = NATIONAL_DEX_ROAR_LAND,
     .categoryName = _("Land Teen"),
+    .frontPic = gMonFrontPic_Roar_Land,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Roar_Land,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .iconSprite = gMonIcon_Roar_Land,
+    .iconPalIndex = 0,
+    FOOTPRINT(Roar_Land)
     .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_MEOWTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
                             {EVO_LEVEL, 20, SPECIES_POCHITCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
                             {EVO_LEVEL, 20, SPECIES_GUMAX, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
@@ -229,6 +234,8 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     ),
     .backPic = gMonBackPic_Ratchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Ratchi,
+    .shinyPalette = gMonShinyPalette_Ratchi,
     .iconSprite = gMonIcon_Ratchi,
     .iconPalIndex = 4,
     FOOTPRINT(Ratchi)
@@ -411,11 +418,16 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Lick"),
     .natDexNum = NATIONAL_DEX_LICK_LAND,
     .categoryName = _("Land Teen"),
+    .frontPic = gMonFrontPic_Lick_Land,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Lick_Land,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .iconSprite = gMonIcon_Lick_Land,
+    .iconPalIndex = 5,
+    FOOTPRINT(Lick_Land)
     .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_LEOPATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
                             {EVO_LEVEL, 20, SPECIES_SEBIRETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
                             {EVO_LEVEL, 20, SPECIES_ELIZARDOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
@@ -1268,11 +1280,16 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Float"),
     .natDexNum = NATIONAL_DEX_FLOAT_WATER,
     .categoryName = _("Water Teen"),
+    .frontPic = gMonFrontPic_Float_Water,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Float_Water,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .iconSprite = gMonIcon_Float_Water,
+    .iconPalIndex = 2,
+    FOOTPRINT(Float_Water)
     .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_KURARATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
                             {EVO_LEVEL, 20, SPECIES_MENDAKOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
                             {EVO_LEVEL, 20, SPECIES_AMEFURATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
@@ -1827,7 +1844,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Bumble_Sky,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .iconSprite = gMonIcon_Bumble_Sky,
+    .iconPalIndex = 2,
+    FOOTPRINT(Bumble_Sky)
     .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_PAPILLOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
                             {EVO_LEVEL, 20, SPECIES_KABUTOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
                             {EVO_LEVEL, 20, SPECIES_TENTOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
