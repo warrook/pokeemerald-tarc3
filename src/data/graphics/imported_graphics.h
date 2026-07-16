@@ -1,5 +1,5 @@
 // Include this in src/data/graphics/pokemon.h
-// Completion: 75/401 (18%)
+// Completion: 79/399 (19%)
 
 const u32 gMonFrontPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/front.png", ".4bpp.lz");
 const u32 gMonBackPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/back.png", ".4bpp.lz");
@@ -176,12 +176,12 @@ const u16 gMonShinyPalette_Water_Kid[] = INCGFX_U16("graphics/pokemon/water_kid/
 const u8 gMonIcon_Water_Kid[] = INCGFX_U8("graphics/pokemon/water_kid/icon.png", ".4bpp");
 const u8 gMonFootprint_Water_Kid[] = INCGFX_U8("graphics/pokemon/water_kid/footprint.png", ".1bpp");
 
-// const u32 gMonFrontPic_Glide_Water[] = INCGFX_U32("graphics/pokemon/glide_water/front.png", ".4bpp.lz");
-// const u32 gMonBackPic_Glide_Water[] = INCGFX_U32("graphics/pokemon/glide_water/back.png", ".4bpp.lz");
-// const u16 gMonPalette_Glide_Water[] = INCGFX_U16("graphics/pokemon/glide_water/normal.pal", ".gbapal");
-// const u16 gMonShinyPalette_Glide_Water[] = INCGFX_U16("graphics/pokemon/glide_water/shiny.pal", ".gbapal");
-// const u8 gMonIcon_Glide_Water[] = INCGFX_U8("graphics/pokemon/glide_water/icon.png", ".4bpp");
-// const u8 gMonFootprint_Glide_Water[] = INCGFX_U8("graphics/pokemon/glide_water/footprint.png", ".1bpp");
+const u32 gMonFrontPic_Glide_Water[] = INCGFX_U32("graphics/pokemon/glide_water/front.png", ".4bpp.lz");
+const u32 gMonBackPic_Glide_Water[] = INCGFX_U32("graphics/pokemon/glide_water/back.png", ".4bpp.lz");
+const u16 gMonPalette_Glide_Water[] = INCGFX_U16("graphics/pokemon/glide_water/normal.pal", ".gbapal");
+const u16 gMonShinyPalette_Glide_Water[] = INCGFX_U16("graphics/pokemon/glide_water/shiny.pal", ".gbapal");
+const u8 gMonIcon_Glide_Water[] = INCGFX_U8("graphics/pokemon/glide_water/icon.png", ".4bpp");
+const u8 gMonFootprint_Glide_Water[] = INCGFX_U8("graphics/pokemon/glide_water/footprint.png", ".1bpp");
 
 // const u32 gMonFrontPic_Irukatchi[] = INCGFX_U32("graphics/pokemon/irukatchi/front.png", ".4bpp.lz");
 // const u32 gMonBackPic_Irukatchi[] = INCGFX_U32("graphics/pokemon/irukatchi/back.png", ".4bpp.lz");

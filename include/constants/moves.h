@@ -906,8 +906,16 @@ enum __attribute__((packed)) Move
     MOVES_COUNT_GEN9,
 
     // Add any custom moves here, not further down!
+    
+    // Fell Stinger but Ghost, raises SpA, and pierces Protect effects like Phantom Force
+    MOVE_GRIM_REAPER = MOVES_COUNT_GEN9,
+    
+    // Spirit Shackle but Fairy and always hits
+    MOVE_MAGICAL_ARROW = 849,
+    
+    MOVES_COUNT_CUSTOM,
 
-    MOVES_COUNT = MOVES_COUNT_GEN9,
+    MOVES_COUNT = MOVES_COUNT_CUSTOM,
 
     // Z Moves
     FIRST_Z_MOVE = MOVES_COUNT,

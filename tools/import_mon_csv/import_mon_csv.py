@@ -6,7 +6,8 @@ import collections
 first_species_index = 1573
 
 ## include/constants/species.h
-species_constants = [] # SPECIES_TAMAGOTCHI = 1573,
+# SPECIES_TAMAGOTCHI = 1573,
+species_constants = []
 
 ## include/constants/pokedex.h
 # NATIONAL_DEX_TAMAGOTCHI,
@@ -24,17 +25,22 @@ reg_dex_constants = []
 # const u8 gMonFootprint_Tamagotchi[] = INCGFX_U8("graphics/pokemon/tamagotchi/footprint.png", ".1bpp");
 mon_gfx_constants = []
 
+## src/data/pokemon/level_up_learnsets/gen_9.h
+LearnedMove = collections.namedtuple("LearnedMove", ["level", "move"])
+learnsets = []
+
 ## src/data/pokemon/species_info.h
 species_info = []
 
-# Key: Species that evolves
-# Value: {condition= destination species}
-evolutions: dict[str, dict[str, str]] = {}
+from typing import NamedTuple
+class Species(NamedTuple):
+    const_name: str
+    row: dict[str, str] # row in csv
+    preevolutions: list[str]
+    evolutions: dict[str, str] # condition: result
+    learnset: list[LearnedMove]
 
-
-# Second pass: Reassemble evolutions with species that evolves as key
-# Key: species that evolves
-# Value: {condition=destination species}
+all_species: dict[str, Species] = {} # {const_name: Species}
 
 
 def fstr(string:str, prefix:str="", suffix:str="", none_if_empty:bool=True, capitalize:bool=True):
@@ -60,7 +66,7 @@ def format_display_name(string:str):
     """
     # Strip parenthetical from display name
     if ' (' in string:
-        string = string.split(' ')[0]
+        string = string.split(' ')[0] + " Yng."
 
     # Convert tchi to abbreviation if present
     if string.endswith("tchi"):
@@ -75,9 +81,6 @@ def generate_palette(fpath:str, pal:str):
 
     Returns False if base png is missing, and True if it calls gbagfx.
     """
-    #if os.path.exists(fpath + pal):
-    #    return 0
-    
     target = "back.png" if pal == "shiny.pal" else "front.png"
     if not os.path.exists(fpath + target):
         # Skip trying to generate a palette if the base sprite doesn't exist
@@ -89,6 +92,11 @@ def generate_palette(fpath:str, pal:str):
 
 
 def gfx_constant(name_in_row:str, part:str):
+    """
+    Generates a C constant for the given graphic represented in `part`: `FrontPic`, `BackPic`, `Palette`, `ShinyPalette`, `Icon`, or `Footprint`. Palettes call `generate_palette()`.
+    
+    If a base png or pal is missing, the output will be commented out.
+    """
     var_name = fstr(name_in_row, capitalize=False)
     fpath = "graphics/pokemon/" + var_name.lower() + "/"
 
@@ -227,6 +235,119 @@ def make_graphics_info_strings(d:dict, name_in_var:str):
     ]))
 
 
+def register_species(row: dict):
+    """
+    Registers a new `Species` into `all_species` based on the given row.
+    """
+    const_name = fstr(row["Name"])
+    tama_field = fstr(row["Field"])
+    # Pseudo-legendaries converge from different Youngs
+    young = [ fstr(y) for y in row["Young"].split(";") ]
+    evo_stage = int(row["Stage"])
+
+    # Gather preevolutions
+    if evo_stage == 1:
+        # Babymarutchi handled by make_mon_evolutions(),
+        # and legendaries don't have prevos
+        pass
+    else:
+        condition = ""
+
+        if evo_stage == 2:
+            # Field Kid
+            prevo = ["BABYMARUTCHI"]
+            condition = tama_field if const_name != "BBMARUTCHI" else "SPECIAL"    
+        else:
+            # Young or Adult
+            if row["Evo Item"] in ("no food", "no scent", ""):
+                condition = "NONE"
+            else:
+                condition = fstr(row["Evo Item"], prefix="ITEM_")
+            
+            if evo_stage == 3:
+                # Evolves from Field Kid
+                prevo = [fstr(tama_field, suffix="_KID")]
+            elif evo_stage == 4:
+                # Evolves from Young(s)
+                prevo = [fstr(y, suffix="_" + tama_field) for y in young]
+        
+        for p in prevo:
+            if p not in all_species:
+                # Preevolution is not in the registry, add it
+                all_species[p] = Species(p, row={}, preevolutions=[], evolutions={}, learnset=[])
+            # Add an evolution to the preevolution to get to the current mon
+            all_species[p].evolutions[condition] = const_name
+
+    if const_name not in all_species:
+        # Current mon is not in the registry
+        # Since the dex is ordered, I don't think the `else` should 
+        # ever be reached
+        sp = Species(const_name, row, preevolutions=[], evolutions={}, learnset=[])
+        all_species[const_name] = sp
+    else:
+        sp = all_species[const_name]
+    
+    # Update Species object
+    # .row
+    if sp.row == {}:
+        sp.row = row
+    
+    # .preevolutions
+    prevos = []
+    if evo_stage >= 4:
+        l = [fstr(y, suffix="_" + tama_field) for y in young]
+        prevos.append(",".join(l))
+    if evo_stage >= 3:
+        prevos.append(fstr(tama_field, suffix="_KID"))
+    if evo_stage >= 2:
+        prevos.append("BABYMARUTCHI")
+    sp.preevolutions.extend(prevos)
+    
+    # .evolutions handled by this method already
+
+    # .learnset
+    # Gather written learnset from the csv column
+    row_learnset: list[str] = row["Learnset"].split(";") # Separates out level:move pairs
+    current_learnset = set()
+    # Add moves to working learnset for the current mon
+    for move in row_learnset:
+        s = move.split(":") # [0]: level, [1]: move
+        entry = LearnedMove(int(s[0]), fstr(s[1],"MOVE_"))
+        current_learnset.add(entry)
+    # Add moves from previous evolutions, if they exist,
+    # except for learned-on-evo moves
+    for p in sp.preevolutions:
+        if p in all_species:
+            current_learnset.update([i for i in all_species[p].learnset if i.level != 0])
+    
+    # Store current learnset
+    sp.learnset.clear()
+    from operator import attrgetter
+    sp.learnset.extend(sorted(current_learnset, key=attrgetter("level")))
+    
+    # Add moves to future evolutions, if they exist yet; again this
+    # probably never gets called
+    for e in sp.evolutions.values():
+        if e in all_species:
+            temp = set(all_species[e].learnset)
+            temp.update([i for i in current_learnset if i.level != 0])
+            all_species[e].learnset.clear()
+            all_species[e].learnset.extend(sorted(temp, key=attrgetter("level")))
+
+
+def make_learnset(const_name:str):
+    """Creates constants for mon learnsets."""
+    sp = all_species[const_name]
+    name_in_var = fstr(sp.row["Name"], capitalize=False)
+    # Header
+    output = [f"static const struct LevelUpMove s{name_in_var}LevelUpLearnset[] = {{"]
+    # Moves
+    output.extend([f"\tLEVEL_UP_MOVE({str(move.level).rjust(2)}, {move.move})," for move in sp.learnset])
+    # Footer
+    output.append("\tLEVEL_UP_END\n};\n")
+    return "\n".join(output)
+
+
 def make_mon_evolutions(const_name: str, evo_stage: int, field: str):
     """
     Returns a list of evolutions to go in the EVOLUTION() macro based on given mon and stage.
@@ -234,42 +355,37 @@ def make_mon_evolutions(const_name: str, evo_stage: int, field: str):
     evos = []
     if const_name == "BABYMARUTCHI":
         # Babymarutchi evolves with location
-        evos.append("{{EVO_LEVEL, 0, SPECIES_LAND_KID, CONDITIONS({{IF_MIN_OVERWORLD_STEPS, 100}}, {{IF_IN_MAPSEC, MAPSEC_LAND_HILLS}})}}".format())
-        evos.append("{{EVO_LEVEL, 0, SPECIES_WATER_KID, CONDITIONS({{IF_MIN_OVERWORLD_STEPS, 100}}, {{IF_IN_MAPSEC, MAPSEC_WATER_BEACH}})}}".format())
-        evos.append("{{EVO_LEVEL, 0, SPECIES_SKY_KID, CONDITIONS({{IF_MIN_OVERWORLD_STEPS, 100}}, {{IF_IN_MAPSEC, MAPSEC_SKY_MOUNTAIN}})}}".format())
-        evos.append("{{EVO_LEVEL, 12, SPECIES_BBMARUTCHI, CONDITIONS({{IF_IN_MAPSEC, MAPSEC_LANDING_SITE}})}}".format())
+        evos.append(f"{{EVO_LEVEL, 0, SPECIES_LAND_KID, CONDITIONS({{IF_MIN_OVERWORLD_STEPS, 100}}, {{IF_IN_MAPSEC, MAPSEC_LAND_HILLS}})}}")
+        evos.append(f"{{EVO_LEVEL, 0, SPECIES_WATER_KID, CONDITIONS({{IF_MIN_OVERWORLD_STEPS, 100}}, {{IF_IN_MAPSEC, MAPSEC_WATER_BEACH}})}}")
+        evos.append(f"{{EVO_LEVEL, 0, SPECIES_SKY_KID, CONDITIONS({{IF_MIN_OVERWORLD_STEPS, 100}}, {{IF_IN_MAPSEC, MAPSEC_SKY_MOUNTAIN}})}}")
+        evos.append(f"{{EVO_LEVEL, 12, SPECIES_BBMARUTCHI, CONDITIONS({{IF_IN_MAPSEC, MAPSEC_LANDING_SITE}})}}")
 
         return evos
 
-    if const_name in evolutions:
-        local_evos = evolutions[const_name]
+    local_evos = all_species[const_name].evolutions
 
-        if evo_stage == 3 and const_name != "SPROUT_LAND" and const_name != "FLOAT_WATER" and const_name != "ROCKY_SKY":
-            # Add missed pseudo-legendaries to certain young
-            local_evos.update(evolutions[fstr(field, prefix="ANY_")])
-
-        for condition in local_evos:
-            level = 0
-            result_mon = "SPECIES_" + local_evos[condition]
-            item = "ITEM_"
+    for condition in local_evos:
+        if condition == "SPECIAL":
+            # Handled by Babymarutchi above
+            continue
+        level = 0
+        result_mon = "SPECIES_" + local_evos[condition]
+    
+        if evo_stage == 2:
+            # Field Kids evolve with diet
+            level = 12
+        elif evo_stage == 3:
+            # Young evolve with scents
+            level = 18
         
-            if evo_stage == 2:
-                # Field Kids evolve with diet
-                level = 12
-                item += condition + "_FOOD"
-            elif evo_stage == 3:
-                # Young evolve with scents
-                level = 20
-                item += condition + "_SCENT"
-            
-            if condition != "NONE":
-                cond = ", CONDITIONS({{IF_HOLD_ITEM, {0}}})".format(item)
-            else:
-                cond = ""
+        if condition != "NONE":
+            cond = f", CONDITIONS({{IF_HOLD_ITEM, {condition}}})"
+        else:
+            cond = ""
 
-            evos.append("{{EVO_LEVEL, {0}, {1}{2}}}".format(str(level), result_mon, cond))
-            
-        return evos
+        evos.append(f"{{EVO_LEVEL, {str(level)}, {result_mon}{cond}}}")
+        
+    return evos
 
 
 def read_mon(row:dict):
@@ -400,8 +516,8 @@ def read_mon(row:dict):
             case 3:
                 category += "Teen" #e.g. Land Teen
             case 4:
-                if row["Scent"] == "complex":
-                    category = "Rare " + tama_field
+                if row["Evo Item"] == "complex scent":
+                    category = "Rare " + tama_field #e.g. Rare Land
                 else:
                     category += young #e.g. Land Roar
     info.append("\t.categoryName = _(\"{0}\"),".format(category))
@@ -436,7 +552,9 @@ def read_mon(row:dict):
 
     info.extend(graphics_info)
 
-    # TODO: Learnsets
+    # Learnsets
+    learnsets.append(make_learnset(const_name))
+    info.append(f"\t.levelUpLearnset = s{name_in_var}LevelUpLearnset,")
 
     # Evolutions
     evos = make_mon_evolutions(const_name, evo_stage, tama_field)
@@ -447,38 +565,6 @@ def read_mon(row:dict):
     info.append("")
 
     species_info.append("\n".join(info))
-
-
-def read_evolutions(row: dict):
-    const_name = fstr(row["Name"])
-    tama_field = fstr(row["Field"])
-    young = fstr(row["Young"])
-    evo_stage = int(row["Stage"])
-
-    if const_name == "BBMARUTCHI" or young == "Legendary":
-        pass
-    elif evo_stage == 1:
-        pass
-    else:
-        condition = ""
-        prevo = ""
-
-        if evo_stage == 2:
-            prevo = "BABYMARUTCHI"
-            condition = tama_field
-        elif evo_stage == 3:
-            # Evolves from Kid with Diet
-            prevo = fstr(tama_field, suffix="_KID")
-            condition = fstr(row["Diet"])
-        elif evo_stage == 4:
-            # Evolves from Young with Scents
-            prevo = fstr(string=young, suffix="_" + tama_field)
-            condition = fstr(row["Scent"])
-
-        if prevo in evolutions.keys():
-            evolutions[prevo][condition] = const_name
-        else:
-            evolutions[prevo] = {condition: const_name}
 
 
 def output_species_constants():
@@ -574,6 +660,21 @@ def output_mon_gfx_constants():
     return
 
 
+def output_learnsets():
+    """
+    Generate file to be included in [src/data/pokemon/level_up_learnsets/gen_9.h]
+    """
+    output = [
+        "// Include this in src/data/pokemon/level_up_learnsets/gen_9.h\n",
+        "#define LEVEL_UP_MOVE(lvl, moveLearned) {.move = moveLearned, .level = lvl}",
+        "#define LEVEL_UP_END {.move = LEVEL_UP_MOVE_END, .level = 0}",
+        ""
+    ]
+    output.extend(learnsets)
+    with open("src/data/pokemon/level_up_learnsets/imported_learnsets.h", "w+") as f:
+        f.write('\n'.join(output).expandtabs(4))
+
+
 def output_species_info():
     """
     Generate file to be included in [src/data/pokemon/species_info.h].
@@ -598,7 +699,7 @@ def main():
     with open('tools/import_mon_csv/mon.csv', newline='') as f:
         reader = csv.DictReader(f)
         for row in reader:
-            read_evolutions(row)
+            register_species(row)
         
         # Return to top and skip header
         f.seek(0)
@@ -611,6 +712,7 @@ def main():
     output_nat_dex_constants()
     output_reg_dex_constants()
     output_mon_gfx_constants()
+    output_learnsets()
     output_species_info()
 
 if __name__ == "__main__":

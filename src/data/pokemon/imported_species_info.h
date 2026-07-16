@@ -36,6 +36,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Babymarutchi,
     .iconPalIndex = 4,
     FOOTPRINT(Babymarutchi)
+    .levelUpLearnset = sBabymarutchiLevelUpLearnset,
     .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_LAND_KID, CONDITIONS({IF_MIN_OVERWORLD_STEPS, 100}, {IF_IN_MAPSEC, MAPSEC_LAND_HILLS})},
                             {EVO_LEVEL, 0, SPECIES_WATER_KID, CONDITIONS({IF_MIN_OVERWORLD_STEPS, 100}, {IF_IN_MAPSEC, MAPSEC_WATER_BEACH})},
                             {EVO_LEVEL, 0, SPECIES_SKY_KID, CONDITIONS({IF_MIN_OVERWORLD_STEPS, 100}, {IF_IN_MAPSEC, MAPSEC_SKY_MOUNTAIN})},
@@ -74,6 +75,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Land_Kid,
     .iconPalIndex = 4,
     FOOTPRINT(Land_Kid)
+    .levelUpLearnset = sLand_KidLevelUpLearnset,
     .evolutions = EVOLUTION({EVO_LEVEL, 12, SPECIES_ROAR_LAND, CONDITIONS({IF_HOLD_ITEM, ITEM_SAVORY_FOOD})},
                             {EVO_LEVEL, 12, SPECIES_TODDLE_LAND, CONDITIONS({IF_HOLD_ITEM, ITEM_LEAFY_FOOD})},
                             {EVO_LEVEL, 12, SPECIES_LICK_LAND, CONDITIONS({IF_HOLD_ITEM, ITEM_GOOEY_FOOD})},
@@ -97,7 +99,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
     .abilities = { ABILITY_PICKUP, ABILITY_RUN_AWAY, ABILITY_FRISK },
-    .speciesName = _("Roar"),
+    .speciesName = _("Roar Yng."),
     .natDexNum = NATIONAL_DEX_ROAR_LAND,
     .categoryName = _("Land Teen"),
     .frontPic = gMonFrontPic_Roar_Land,
@@ -112,11 +114,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Roar_Land,
     .iconPalIndex = 0,
     FOOTPRINT(Roar_Land)
-    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_MEOWTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_POCHITCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_GUMAX, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_RATCHI},
-                            {EVO_LEVEL, 20, SPECIES_CHODRACOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
+    .levelUpLearnset = sRoar_LandLevelUpLearnset,
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_MEOWTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_POCHITCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_GUMAX, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_RATCHI},
+                            {EVO_LEVEL, 18, SPECIES_CHODRACOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_MEOWTCHI] =
@@ -147,6 +150,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sMeowtchiLevelUpLearnset,
 },
 
 [SPECIES_POCHITCHI] =
@@ -177,6 +181,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sPochitchiLevelUpLearnset,
 },
 
 [SPECIES_GUMAX] =
@@ -206,6 +211,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sGumaxLevelUpLearnset,
 },
 
 [SPECIES_RATCHI] =
@@ -241,6 +247,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Ratchi,
     .iconPalIndex = 4,
     FOOTPRINT(Ratchi)
+    .levelUpLearnset = sRatchiLevelUpLearnset,
 },
 
 [SPECIES_TODDLE_LAND] =
@@ -260,7 +267,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
     .abilities = { ABILITY_PICKUP, ABILITY_RUN_AWAY, ABILITY_FRISK },
-    .speciesName = _("Toddle"),
+    .speciesName = _("Toddle Yng."),
     .natDexNum = NATIONAL_DEX_TODDLE_LAND,
     .categoryName = _("Land Teen"),
     .frontPic = gMonFrontPic_Toddle_Land,
@@ -275,11 +282,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Toddle_Land,
     .iconPalIndex = 4,
     FOOTPRINT(Toddle_Land)
-    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_MAMETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_MIMITCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_MOLMOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_SHEEPTCHI},
-                            {EVO_LEVEL, 20, SPECIES_CHODRACOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
+    .levelUpLearnset = sToddle_LandLevelUpLearnset,
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_MAMETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_MIMITCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_MOLMOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_SHEEPTCHI},
+                            {EVO_LEVEL, 18, SPECIES_CHODRACOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_MAMETCHI] =
@@ -308,6 +316,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sMametchiLevelUpLearnset,
 },
 
 [SPECIES_MIMITCHI] =
@@ -338,6 +347,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sMimitchiLevelUpLearnset,
 },
 
 [SPECIES_MOLMOTCHI] =
@@ -368,6 +378,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sMolmotchiLevelUpLearnset,
 },
 
 [SPECIES_SHEEPTCHI] =
@@ -398,6 +409,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sSheeptchiLevelUpLearnset,
 },
 
 [SPECIES_LICK_LAND] =
@@ -417,7 +429,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
     .abilities = { ABILITY_PICKUP, ABILITY_RUN_AWAY, ABILITY_FRISK },
-    .speciesName = _("Lick"),
+    .speciesName = _("Lick Yng."),
     .natDexNum = NATIONAL_DEX_LICK_LAND,
     .categoryName = _("Land Teen"),
     .frontPic = gMonFrontPic_Lick_Land,
@@ -432,11 +444,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Lick_Land,
     .iconPalIndex = 5,
     FOOTPRINT(Lick_Land)
-    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_LEOPATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_SEBIRETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_ELIZARDOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_HEAVYTCHI},
-                            {EVO_LEVEL, 20, SPECIES_CHODRACOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
+    .levelUpLearnset = sLick_LandLevelUpLearnset,
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_LEOPATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_SEBIRETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_ELIZARDOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_HEAVYTCHI},
+                            {EVO_LEVEL, 18, SPECIES_CHODRACOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_LEOPATCHI] =
@@ -465,6 +478,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sLeopatchiLevelUpLearnset,
 },
 
 [SPECIES_SEBIRETCHI] =
@@ -495,6 +509,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sSebiretchiLevelUpLearnset,
 },
 
 [SPECIES_ELIZARDOTCHI] =
@@ -516,7 +531,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .friendship = STANDARD_FRIENDSHIP,
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-    .abilities = { ABILITY_INTIMIDATE, ABILITY_STATIC, ABILITY_NONE },
+    .abilities = { ABILITY_INTIMIDATE, ABILITY_STATIC, ABILITY_INNARDS_OUT },
     .speciesName = _("Elizardo{TCHI}"),
     .natDexNum = NATIONAL_DEX_ELIZARDOTCHI,
     .categoryName = _("Land Lick"),
@@ -525,6 +540,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sElizardotchiLevelUpLearnset,
 },
 
 [SPECIES_HEAVYTCHI] =
@@ -535,7 +551,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .baseSpeed     = 120,
     .baseSpAttack  = 80,
     .baseSpDefense = 100,
-    .types = MON_TYPES(TYPE_POISON),
+    .types = MON_TYPES(TYPE_POISON, TYPE_DARK),
     .catchRate = 255,
     .expYield = 67,
     .evYield_Attack = 3,
@@ -553,6 +569,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sHeavytchiLevelUpLearnset,
 },
 
 [SPECIES_SPROUT_LAND] =
@@ -572,7 +589,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
     .abilities = { ABILITY_PICKUP, ABILITY_RUN_AWAY, ABILITY_FRISK },
-    .speciesName = _("Sprout"),
+    .speciesName = _("Sprout Yng."),
     .natDexNum = NATIONAL_DEX_SPROUT_LAND,
     .categoryName = _("Land Teen"),
     .frontPic = gMonFrontPic_Sprout_Land,
@@ -587,11 +604,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Sprout_Land,
     .iconPalIndex = 3,
     FOOTPRINT(Sprout_Land)
-    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_FURAWATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_POTSUNENTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_TUSTUSTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_SHIGEMISAN},
-                            {EVO_LEVEL, 20, SPECIES_MASKUTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
+    .levelUpLearnset = sSprout_LandLevelUpLearnset,
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_FURAWATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_POTSUNENTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_TUSTUSTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_SHIGEMISAN},
+                            {EVO_LEVEL, 18, SPECIES_MASKUTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_FURAWATCHI] =
@@ -622,6 +640,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sFurawatchiLevelUpLearnset,
 },
 
 [SPECIES_POTSUNENTCHI] =
@@ -652,6 +671,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sPotsunentchiLevelUpLearnset,
 },
 
 [SPECIES_TUSTUSTCHI] =
@@ -682,6 +702,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sTustustchiLevelUpLearnset,
 },
 
 [SPECIES_SHIGEMISAN] =
@@ -719,6 +740,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Shigemisan,
     .iconPalIndex = 4,
     FOOTPRINT(Shigemisan)
+    .levelUpLearnset = sShigemisanLevelUpLearnset,
 },
 
 [SPECIES_CHODRACOTCHI] =
@@ -747,6 +769,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sChodracotchiLevelUpLearnset,
 },
 
 [SPECIES_MASKUTCHI] =
@@ -777,6 +800,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sMaskutchiLevelUpLearnset,
 },
 
 [SPECIES_WATER_KID] =
@@ -811,6 +835,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Water_Kid,
     .iconPalIndex = 4,
     FOOTPRINT(Water_Kid)
+    .levelUpLearnset = sWater_KidLevelUpLearnset,
     .evolutions = EVOLUTION({EVO_LEVEL, 12, SPECIES_GLIDE_WATER, CONDITIONS({IF_HOLD_ITEM, ITEM_SAVORY_FOOD})},
                             {EVO_LEVEL, 12, SPECIES_LEAP_WATER, CONDITIONS({IF_HOLD_ITEM, ITEM_LEAFY_FOOD})},
                             {EVO_LEVEL, 12, SPECIES_PADDLE_WATER, CONDITIONS({IF_HOLD_ITEM, ITEM_GOOEY_FOOD})},
@@ -834,19 +859,27 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
     .abilities = { ABILITY_SWIFT_SWIM, ABILITY_RUN_AWAY, ABILITY_INNER_FOCUS },
-    .speciesName = _("Glide"),
+    .speciesName = _("Glide Yng."),
     .natDexNum = NATIONAL_DEX_GLIDE_WATER,
     .categoryName = _("Water Teen"),
+    .frontPic = gMonFrontPic_Glide_Water,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Glide_Water,
     .backPicSize = MON_COORDS_SIZE(64, 64),
-    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_IRUKATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_KAMETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_KUJIRATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_URUOTCHI},
-                            {EVO_LEVEL, 20, SPECIES_MERMARINTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
+    .palette = gMonPalette_Glide_Water,
+    .shinyPalette = gMonShinyPalette_Glide_Water,
+    .iconSprite = gMonIcon_Glide_Water,
+    .iconPalIndex = 3,
+    FOOTPRINT(Glide_Water)
+    .levelUpLearnset = sGlide_WaterLevelUpLearnset,
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_IRUKATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_KAMETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_KUJIRATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_URUOTCHI},
+                            {EVO_LEVEL, 18, SPECIES_MERMARINTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_IRUKATCHI] =
@@ -876,6 +909,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sIrukatchiLevelUpLearnset,
 },
 
 [SPECIES_KAMETCHI] =
@@ -906,15 +940,16 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sKametchiLevelUpLearnset,
 },
 
 [SPECIES_KUJIRATCHI] =
 {
     .baseHP        = 130,
-    .baseAttack    = 90,
+    .baseAttack    = 80,
     .baseDefense   = 80,
     .baseSpeed     = 120,
-    .baseSpAttack  = 80,
+    .baseSpAttack  = 90,
     .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_WATER),
     .catchRate = 255,
@@ -927,7 +962,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .friendship = STANDARD_FRIENDSHIP,
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-    .abilities = { ABILITY_LIQUID_VOICE, ABILITY_NONE, ABILITY_HUGE_POWER },
+    .abilities = { ABILITY_LIQUID_VOICE, ABILITY_NONE, ABILITY_THICK_FAT },
     .speciesName = _("Kujira{TCHI}"),
     .natDexNum = NATIONAL_DEX_KUJIRATCHI,
     .categoryName = _("Water Glide"),
@@ -936,6 +971,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sKujiratchiLevelUpLearnset,
 },
 
 [SPECIES_URUOTCHI] =
@@ -966,6 +1002,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sUruotchiLevelUpLearnset,
 },
 
 [SPECIES_LEAP_WATER] =
@@ -985,7 +1022,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
     .abilities = { ABILITY_SWIFT_SWIM, ABILITY_RUN_AWAY, ABILITY_INNER_FOCUS },
-    .speciesName = _("Leap"),
+    .speciesName = _("Leap Yng."),
     .natDexNum = NATIONAL_DEX_LEAP_WATER,
     .categoryName = _("Water Teen"),
     .frontPicSize = MON_COORDS_SIZE(64, 64),
@@ -993,11 +1030,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
-    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_AXOLOPATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_IMORITCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_KAWAZUTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_BEAVERTCHI},
-                            {EVO_LEVEL, 20, SPECIES_MERMARINTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
+    .levelUpLearnset = sLeap_WaterLevelUpLearnset,
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_AXOLOPATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_IMORITCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_KAWAZUTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_BEAVERTCHI},
+                            {EVO_LEVEL, 18, SPECIES_MERMARINTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_AXOLOPATCHI] =
@@ -1019,7 +1057,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .friendship = STANDARD_FRIENDSHIP,
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-    .abilities = { ABILITY_DAMP, ABILITY_NONE, ABILITY_NONE },
+    .abilities = { ABILITY_REGENERATOR, ABILITY_NONE, ABILITY_NONE },
     .speciesName = _("Axolopa{TCHI}"),
     .natDexNum = NATIONAL_DEX_AXOLOPATCHI,
     .categoryName = _("Water Leap"),
@@ -1028,6 +1066,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sAxolopatchiLevelUpLearnset,
 },
 
 [SPECIES_IMORITCHI] =
@@ -1056,6 +1095,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sImoritchiLevelUpLearnset,
 },
 
 [SPECIES_KAWAZUTCHI] =
@@ -1084,6 +1124,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sKawazutchiLevelUpLearnset,
 },
 
 [SPECIES_BEAVERTCHI] =
@@ -1114,6 +1155,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sBeavertchiLevelUpLearnset,
 },
 
 [SPECIES_PADDLE_WATER] =
@@ -1133,7 +1175,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
     .abilities = { ABILITY_SWIFT_SWIM, ABILITY_RUN_AWAY, ABILITY_INNER_FOCUS },
-    .speciesName = _("Paddle"),
+    .speciesName = _("Paddle Yng."),
     .natDexNum = NATIONAL_DEX_PADDLE_WATER,
     .categoryName = _("Water Teen"),
     .frontPicSize = MON_COORDS_SIZE(64, 64),
@@ -1141,11 +1183,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
-    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_TACHUTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_SHARKTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_ANKOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_OTOTOTCHI},
-                            {EVO_LEVEL, 20, SPECIES_MERMARINTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
+    .levelUpLearnset = sPaddle_WaterLevelUpLearnset,
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_TACHUTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_SHARKTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_ANKOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_OTOTOTCHI},
+                            {EVO_LEVEL, 18, SPECIES_MERMARINTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_TACHUTCHI] =
@@ -1176,6 +1219,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sTachutchiLevelUpLearnset,
 },
 
 [SPECIES_SHARKTCHI] =
@@ -1195,7 +1239,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .friendship = STANDARD_FRIENDSHIP,
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-    .abilities = { ABILITY_ROUGH_SKIN, ABILITY_STRONG_JAW, ABILITY_INTIMIDATE },
+    .abilities = { ABILITY_STRONG_JAW, ABILITY_NONE, ABILITY_ROUGH_SKIN },
     .speciesName = _("Shark{TCHI}"),
     .natDexNum = NATIONAL_DEX_SHARKTCHI,
     .categoryName = _("Water Paddle"),
@@ -1204,6 +1248,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sSharktchiLevelUpLearnset,
 },
 
 [SPECIES_ANKOTCHI] =
@@ -1232,6 +1277,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sAnkotchiLevelUpLearnset,
 },
 
 [SPECIES_OTOTOTCHI] =
@@ -1262,6 +1308,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sOtototchiLevelUpLearnset,
 },
 
 [SPECIES_FLOAT_WATER] =
@@ -1281,7 +1328,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
     .abilities = { ABILITY_SWIFT_SWIM, ABILITY_RUN_AWAY, ABILITY_INNER_FOCUS },
-    .speciesName = _("Float"),
+    .speciesName = _("Float Yng."),
     .natDexNum = NATIONAL_DEX_FLOAT_WATER,
     .categoryName = _("Water Teen"),
     .frontPic = gMonFrontPic_Float_Water,
@@ -1296,11 +1343,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Float_Water,
     .iconPalIndex = 2,
     FOOTPRINT(Float_Water)
-    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_KURARATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_MENDAKOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_AMEFURATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_GUSOKUTCHI},
-                            {EVO_LEVEL, 20, SPECIES_ACHIATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
+    .levelUpLearnset = sFloat_WaterLevelUpLearnset,
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_KURARATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_MENDAKOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_AMEFURATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_GUSOKUTCHI},
+                            {EVO_LEVEL, 18, SPECIES_ACHIATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_KURARATCHI] =
@@ -1329,6 +1377,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sKuraratchiLevelUpLearnset,
 },
 
 [SPECIES_MENDAKOTCHI] =
@@ -1359,6 +1408,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sMendakotchiLevelUpLearnset,
 },
 
 [SPECIES_AMEFURATCHI] =
@@ -1389,6 +1439,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sAmefuratchiLevelUpLearnset,
 },
 
 [SPECIES_GUSOKUTCHI] =
@@ -1419,6 +1470,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sGusokutchiLevelUpLearnset,
 },
 
 [SPECIES_MERMARINTCHI] =
@@ -1449,6 +1501,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sMermarintchiLevelUpLearnset,
 },
 
 [SPECIES_ACHIATCHI] =
@@ -1479,6 +1532,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sAchiatchiLevelUpLearnset,
 },
 
 [SPECIES_SKY_KID] =
@@ -1513,6 +1567,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Sky_Kid,
     .iconPalIndex = 3,
     FOOTPRINT(Sky_Kid)
+    .levelUpLearnset = sSky_KidLevelUpLearnset,
     .evolutions = EVOLUTION({EVO_LEVEL, 12, SPECIES_FLAP_SKY, CONDITIONS({IF_HOLD_ITEM, ITEM_SAVORY_FOOD})},
                             {EVO_LEVEL, 12, SPECIES_CHIRP_SKY, CONDITIONS({IF_HOLD_ITEM, ITEM_LEAFY_FOOD})},
                             {EVO_LEVEL, 12, SPECIES_BUMBLE_SKY, CONDITIONS({IF_HOLD_ITEM, ITEM_GOOEY_FOOD})},
@@ -1536,7 +1591,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
     .abilities = { ABILITY_LEVITATE, ABILITY_RUN_AWAY, ABILITY_EARLY_BIRD },
-    .speciesName = _("Flap"),
+    .speciesName = _("Flap Yng."),
     .natDexNum = NATIONAL_DEX_FLAP_SKY,
     .categoryName = _("Sky Teen"),
     .frontPicSize = MON_COORDS_SIZE(64, 64),
@@ -1544,11 +1599,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
-    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_HORHOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_MONGATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_EAGLETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_BATCHI},
-                            {EVO_LEVEL, 20, SPECIES_YAYACORNTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
+    .levelUpLearnset = sFlap_SkyLevelUpLearnset,
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_HORHOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_MONGATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_EAGLETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_BATCHI},
+                            {EVO_LEVEL, 18, SPECIES_YAYACORNTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_HORHOTCHI] =
@@ -1579,6 +1635,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sHorhotchiLevelUpLearnset,
 },
 
 [SPECIES_MONGATCHI] =
@@ -1598,7 +1655,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .friendship = STANDARD_FRIENDSHIP,
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
-    .abilities = { ABILITY_CHEEK_POUCH, ABILITY_NONE, ABILITY_NONE },
+    .abilities = { ABILITY_SAP_SIPPER, ABILITY_NONE, ABILITY_NONE },
     .speciesName = _("Monga{TCHI}"),
     .natDexNum = NATIONAL_DEX_MONGATCHI,
     .categoryName = _("Sky Flap"),
@@ -1607,6 +1664,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sMongatchiLevelUpLearnset,
 },
 
 [SPECIES_EAGLETCHI] =
@@ -1635,6 +1693,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sEagletchiLevelUpLearnset,
 },
 
 [SPECIES_BATCHI] =
@@ -1665,6 +1724,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sBatchiLevelUpLearnset,
 },
 
 [SPECIES_CHIRP_SKY] =
@@ -1684,7 +1744,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
     .abilities = { ABILITY_LEVITATE, ABILITY_RUN_AWAY, ABILITY_EARLY_BIRD },
-    .speciesName = _("Chirp"),
+    .speciesName = _("Chirp Yng."),
     .natDexNum = NATIONAL_DEX_CHIRP_SKY,
     .categoryName = _("Sky Teen"),
     .frontPic = gMonFrontPic_Chirp_Sky,
@@ -1701,11 +1761,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Chirp_Sky,
     .iconPalIndex = 1,
     FOOTPRINT(Chirp_Sky)
-    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_PEACOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_BATATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_KUCHIPATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_KIWITCHI},
-                            {EVO_LEVEL, 20, SPECIES_YAYACORNTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
+    .levelUpLearnset = sChirp_SkyLevelUpLearnset,
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_PEACOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_BATATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_KUCHIPATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_KIWITCHI},
+                            {EVO_LEVEL, 18, SPECIES_YAYACORNTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_PEACOTCHI] =
@@ -1736,6 +1797,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sPeacotchiLevelUpLearnset,
 },
 
 [SPECIES_BATATCHI] =
@@ -1764,6 +1826,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sBatatchiLevelUpLearnset,
 },
 
 [SPECIES_KUCHIPATCHI] =
@@ -1794,6 +1857,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sKuchipatchiLevelUpLearnset,
 },
 
 [SPECIES_KIWITCHI] =
@@ -1824,6 +1888,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sKiwitchiLevelUpLearnset,
 },
 
 [SPECIES_BUMBLE_SKY] =
@@ -1843,7 +1908,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
     .abilities = { ABILITY_LEVITATE, ABILITY_RUN_AWAY, ABILITY_EARLY_BIRD },
-    .speciesName = _("Bumble"),
+    .speciesName = _("Bumble Yng."),
     .natDexNum = NATIONAL_DEX_BUMBLE_SKY,
     .categoryName = _("Sky Teen"),
     .frontPicSize = MON_COORDS_SIZE(64, 64),
@@ -1856,11 +1921,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Bumble_Sky,
     .iconPalIndex = 2,
     FOOTPRINT(Bumble_Sky)
-    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_PAPILLOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_KABUTOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_TENTOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_HATCHITCHI},
-                            {EVO_LEVEL, 20, SPECIES_YAYACORNTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
+    .levelUpLearnset = sBumble_SkyLevelUpLearnset,
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_PAPILLOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_KABUTOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_TENTOTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_HATCHITCHI},
+                            {EVO_LEVEL, 18, SPECIES_YAYACORNTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_PAPILLOTCHI] =
@@ -1891,6 +1957,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sPapillotchiLevelUpLearnset,
 },
 
 [SPECIES_KABUTOTCHI] =
@@ -1920,6 +1987,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sKabutotchiLevelUpLearnset,
 },
 
 [SPECIES_TENTOTCHI] =
@@ -1950,6 +2018,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sTentotchiLevelUpLearnset,
 },
 
 [SPECIES_HATCHITCHI] =
@@ -1987,6 +2056,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Hatchitchi,
     .iconPalIndex = 3,
     FOOTPRINT(Hatchitchi)
+    .levelUpLearnset = sHatchitchiLevelUpLearnset,
 },
 
 [SPECIES_ROCKY_SKY] =
@@ -2006,7 +2076,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_NO_EGGS_DISCOVERED),
     .abilities = { ABILITY_STURDY, ABILITY_RUN_AWAY, ABILITY_EARLY_BIRD },
-    .speciesName = _("Rocky"),
+    .speciesName = _("Rocky Yng."),
     .natDexNum = NATIONAL_DEX_ROCKY_SKY,
     .categoryName = _("Sky Teen"),
     .frontPic = gMonFrontPic_Rocky_Sky,
@@ -2023,11 +2093,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Rocky_Sky,
     .iconPalIndex = 2,
     FOOTPRINT(Rocky_Sky)
-    .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_GEMTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_ORETATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_ISHIKOROTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
-                            {EVO_LEVEL, 20, SPECIES_MAGMATCHI},
-                            {EVO_LEVEL, 20, SPECIES_ANDROTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
+    .levelUpLearnset = sRocky_SkyLevelUpLearnset,
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_GEMTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_ORETATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_ISHIKOROTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
+                            {EVO_LEVEL, 18, SPECIES_MAGMATCHI},
+                            {EVO_LEVEL, 18, SPECIES_ANDROTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
 [SPECIES_GEMTCHI] =
@@ -2058,6 +2129,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sGemtchiLevelUpLearnset,
 },
 
 [SPECIES_ORETATCHI] =
@@ -2088,6 +2160,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sOretatchiLevelUpLearnset,
 },
 
 [SPECIES_ISHIKOROTCHI] =
@@ -2118,6 +2191,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sIshikorotchiLevelUpLearnset,
 },
 
 [SPECIES_MAGMATCHI] =
@@ -2148,6 +2222,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sMagmatchiLevelUpLearnset,
 },
 
 [SPECIES_YAYACORNTCHI] =
@@ -2178,6 +2253,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .levelUpLearnset = sYayacorntchiLevelUpLearnset,
 },
 
 [SPECIES_ANDROTCHI] =
@@ -2214,6 +2290,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Androtchi,
     .iconPalIndex = 4,
     FOOTPRINT(Androtchi)
+    .levelUpLearnset = sAndrotchiLevelUpLearnset,
 },
 
 [SPECIES_BBMARUTCHI] =
@@ -2224,7 +2301,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .baseSpeed     = 80,
     .baseSpAttack  = 80,
     .baseSpDefense = 80,
-    .types = MON_TYPES(TYPE_NORMAL),
+    .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
     .genderRatio = PERCENT_FEMALE(50),
@@ -2232,7 +2309,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .friendship = STANDARD_FRIENDSHIP,
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_DITTO),
-    .abilities = { ABILITY_MIMICRY, ABILITY_NONE, ABILITY_IMPOSTER },
+    .abilities = { ABILITY_ADAPTABILITY, ABILITY_NONE, ABILITY_IMPOSTER },
     .speciesName = _("Bbmaru{TCHI}"),
     .natDexNum = NATIONAL_DEX_BBMARUTCHI,
     .categoryName = _("Mystery"),
@@ -2253,6 +2330,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Bbmarutchi,
     .iconPalIndex = 4,
     FOOTPRINT(Bbmarutchi)
+    .levelUpLearnset = sBbmarutchiLevelUpLearnset,
 },
 
 [SPECIES_SHINIGAMI] =
@@ -2287,6 +2365,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Shinigami,
     .iconPalIndex = 3,
     FOOTPRINT(Shinigami)
+    .levelUpLearnset = sShinigamiLevelUpLearnset,
 },
 
 [SPECIES_KURITEN] =
@@ -2326,6 +2405,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Kuriten,
     .iconPalIndex = 2,
     FOOTPRINT(Kuriten)
+    .levelUpLearnset = sKuritenLevelUpLearnset,
 },
 
 

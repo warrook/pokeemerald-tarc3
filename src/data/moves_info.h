@@ -21982,6 +21982,59 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_MalignantChain,
     },
 
+    // Custom Moves
+    [MOVE_GRIM_REAPER] =
+    {
+        .name = COMPOUND_STRING("Grim Reaper"),
+        .description = COMPOUND_STRING(
+            "Attacks through barriers\n"
+            "and powers up if it KOs."),
+        .effect = EFFECT_HIT, //TODO: EFFECT_GRIM_REAPER
+        .power = 70,
+        .type = TYPE_DARK,
+        .accuracy = 100,
+        .pp = 15,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .ignoresProtect = TRUE,
+        .ignoresSubstitute = TRUE,
+        .makesContact = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_FEINT,
+        }),
+        .contestEffect = CONTEST_EFFECT_BETTER_WHEN_AUDIENCE_EXCITED,
+        .contestCategory = CONTEST_CATEGORY_COOL,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_FellStinger, //TODO: Custom anim
+    },
+
+    [MOVE_MAGICAL_ARROW] =
+    {
+        .name = COMPOUND_STRING("Magical Arrow"),
+        .description = COMPOUND_STRING(
+            "Never missing, foes can\n"
+            "no longer escape."),
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .type = TYPE_FAIRY,
+        .accuracy = 0,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_PREVENT_ESCAPE,
+            .chance = 100,
+        }),
+        .contestEffect = CONTEST_EFFECT_BADLY_STARTLE_MONS_WITH_GOOD_APPEALS,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_SpiritShackle, // TODO: Custom anim
+    },
+
     // Z-Moves
     [MOVE_BREAKNECK_BLITZ] =
     {
