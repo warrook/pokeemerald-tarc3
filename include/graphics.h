@@ -1775,6 +1775,14 @@ extern const u16 gItemIconPalette_TwiceSpicedRadish[];
 extern const u32 gItemIcon_ReturnToFieldArrow[];
 extern const u16 gItemIconPalette_ReturnToFieldArrow[];
 
+// Tamagotchi
+extern const u32 gItemIcon_SavoryFood[];
+extern const u16 gItemIconPalette_SavoryFood[];
+extern const u32 gItemIcon_LeafyFood[];
+extern const u16 gItemIconPalette_LeafyFood[];
+extern const u32 gItemIcon_GooeyFood[];
+extern const u16 gItemIconPalette_GooeyFood[];
+
 //menu graphics
 extern const u16 gMenuInfoElements1_Pal[16];
 extern const u16 gMenuInfoElements2_Pal[16];

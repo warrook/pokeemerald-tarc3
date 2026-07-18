@@ -15840,20 +15840,22 @@ const struct ItemInfo gItemsInfo[] =
         .sortType = ITEM_TYPE_HELD_ITEM, \
         .type = ITEM_USE_BAG_MENU, \
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse, \
-        .iconPic = gItemIcon_QuestionMark, \
-        .iconPalette = gItemIconPalette_QuestionMark, \
-        //.iconPic = gItemIcon_##adjective##Food, \
+        //.iconPic = gItemIcon_##adjective##kind, \
         //.iconPalette = gItemIconPalette_##adjective##kind
 
 #define TAMA_EVO_FOOD(adjective) TAMA_EVO_ITEM(adjective, Food) \
         .description = COMPOUND_STRING( \
             "Enables a certain\n" \
-            "diet in Pokémon."),
+            "diet in Pokémon."), \
+        .iconPic = gItemIcon_##adjective##Food, \
+        .iconPalette = gItemIconPalette_##adjective##Food \
 
 #define TAMA_EVO_SCENT(adjective) TAMA_EVO_ITEM(adjective, Scent) \
         .description = COMPOUND_STRING( \
             "Enables a certain\n" \
-            "mood in Pokémon."),
+            "mood in Pokémon."), \
+        .iconPic = gItemIcon_QuestionMark, \
+        .iconPalette = gItemIconPalette_QuestionMark, \
 
     [ITEM_SAVORY_FOOD] = { TAMA_EVO_FOOD(Savory) },
     [ITEM_LEAFY_FOOD] = { TAMA_EVO_FOOD(Leafy) },

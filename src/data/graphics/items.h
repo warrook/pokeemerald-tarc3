@@ -2112,3 +2112,12 @@ const u16 gItemIconPalette_SwapSnack[] = INCGFX_U16("graphics/items/icon_palette
 
 const u32 gItemIcon_TwiceSpicedRadish[] = INCGFX_U32("graphics/items/icons/twice_spiced_radish.png", ".4bpp.smol");
 const u16 gItemIconPalette_TwiceSpicedRadish[] = INCGFX_U16("graphics/items/icon_palettes/twice_spiced_radish.pal", ".gbapal");
+
+
+// Tamagotchi
+const u32 gItemIcon_SavoryFood[] = INCGFX_U32("graphics/items/icons/savory_food.png", ".4bpp.smol");
+const u16 gItemIconPalette_SavoryFood[] = INCGFX_U16("graphics/items/icons/savory_food.png", ".gbapal");
+const u32 gItemIcon_LeafyFood[] = INCGFX_U32("graphics/items/icons/leafy_food.png", ".4bpp.smol");
+const u16 gItemIconPalette_LeafyFood[] = INCGFX_U16("graphics/items/icons/leafy_food.png", ".gbapal");
+const u32 gItemIcon_GooeyFood[] = INCGFX_U32("graphics/items/icons/gooey_food.png", ".4bpp.smol");
+const u16 gItemIconPalette_GooeyFood[] = INCGFX_U16("graphics/items/icons/gooey_food.png", ".gbapal");
