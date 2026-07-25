@@ -3320,6 +3320,10 @@ extern const u16 gContestResultsTitle_Tilemap[];
 // Trainer Card.
 extern const u16 gHoennTrainerCardGreen_Pal[];
 extern const u32 gHoennTrainerCard_Gfx[];
+extern const u16 gTamagotchiTrainerCard_Pal[];
+extern const u32 gTamagotchiTrainerCard_Gfx[];
+extern const u32 gTamagotchiTrainerCardBg_Tilemap[];
+extern const u32 gTamagotchiTrainerCardFront_Tilemap[];
 extern const u16 gKantoTrainerCardBlue_Pal[];
 extern const u32 gKantoTrainerCard_Gfx[];
 extern const u32 gKantoTrainerCardBg_Tilemap[];

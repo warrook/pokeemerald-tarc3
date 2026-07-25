@@ -1970,6 +1970,11 @@ const u32 gHoennTrainerCardFront_Tilemap[] = INCGFX_U32("graphics/trainer_card/f
 const u32 gHoennTrainerCardBack_Tilemap[] = INCGFX_U32("graphics/trainer_card/back.bin", ".smolTM");
 const u32 gHoennTrainerCardFrontLink_Tilemap[] = INCGFX_U32("graphics/trainer_card/front_link.bin", ".smolTM");
 
+const u16 gTamagotchiTrainerCard_Pal[] = INCGFX_U16("graphics/trainer_card/tama_tiles.png", ".gbapal");
+const u32 gTamagotchiTrainerCard_Gfx[] = INCGFX_U32("graphics/trainer_card/tama_tiles.png", ".4bpp.smol");
+const u32 gTamagotchiTrainerCardBg_Tilemap[] = INCGFX_U32("graphics/trainer_card/tama_bg.bin", ".smolTM");
+const u32 gTamagotchiTrainerCardFront_Tilemap[] = INCGFX_U32("graphics/trainer_card/tama_front.bin", ".smolTM");
+
 const u16 gKantoTrainerCardBlue_Pal[] = INCGFX_U16("graphics/trainer_card/frlg/blue.pal", ".gbapal");
 const u32 gKantoTrainerCard_Gfx[] = INCGFX_U32("graphics/trainer_card/frlg/tiles.png", ".4bpp.smol");
 const u32 gKantoTrainerCardBg_Tilemap[] = INCGFX_U32("graphics/trainer_card/frlg/bg.bin", ".smolTM");

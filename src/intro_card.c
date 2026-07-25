@@ -174,7 +174,7 @@ void CB2_InitIntroCard(void);
 
 static const u8 sIntroCardTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
 static const u8 sIntroCardControlColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY};
-static const u8 sIntroCardBlankColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_GREEN, TEXT_COLOR_TRANSPARENT};
+static const u8 sIntroCardBlankColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_TRANSPARENT};
 
 static void VblankCb_IntroCard(void)
 {
@@ -432,13 +432,13 @@ static bool8 LoadCardGfx(void)
     switch (sData->gfxLoadState)
     {
     case 0:
-        DecompressDataWithHeaderWram(gHoennTrainerCardBg_Tilemap, sData->bgTilemap);
+        DecompressDataWithHeaderWram(gTamagotchiTrainerCardBg_Tilemap, sData->bgTilemap);
         break;
     case 1:
-        DecompressDataWithHeaderVram(gHoennTrainerCardFront_Tilemap, sData->cardTilemap);
+        DecompressDataWithHeaderVram(gTamagotchiTrainerCardFront_Tilemap, sData->cardTilemap);
         break;
     case 2:
-        DecompressDataWithHeaderWram(gHoennTrainerCard_Gfx, sData->cardTiles);
+        DecompressDataWithHeaderWram(gTamagotchiTrainerCard_Gfx, sData->cardTiles);
         break;
     default:
         sData->gfxLoadState = 0;
@@ -578,7 +578,7 @@ static u8 SetCardBgsAndPals(void)
         LoadBgTiles(0, sData->cardTiles, 0x1800, 0);
         break;
     case 1:
-        LoadPalette(gHoennTrainerCardGreen_Pal, BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
+        LoadPalette(gTamagotchiTrainerCard_Pal, BG_PLTT_ID(0), 3 * PLTT_SIZE_4BPP);
         break;
     case 2:
         SetBgTilemapBuffer(0, sData->cardTilemapBuffer);
