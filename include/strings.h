@@ -1715,11 +1715,13 @@ extern const u8 gText_LinkBattles[];
 extern const u8 gText_WaitingTrainerFinishReading[];
 extern const u8 gText_TrainerCardName[];
 extern const u8 gText_TrainerCardIDNo[];
+extern const u8 gText_TrainerCardIDDashes[];
 extern const u8 gText_TrainerCardMoney[];
 extern const u8 gText_PokedollarVar1[];
 extern const u8 gText_EmptyString6[];
 extern const u8 gText_TrainerCardPokedex[];
 extern const u8 gText_TrainerCardTime[];
+extern const u8 gText_TrainerCardTimeBlank[];
 extern const u8 gText_Colon2[];
 extern const u8 gText_Var1sTrainerCard[];
 extern const u8 gText_HallOfFameDebut[];
@@ -2159,5 +2161,7 @@ extern const u8 gText_Girl[];
 extern const u8 gText_Items[];
 extern const u8 gText_PC[];
 extern const u8 gText_Call[];
+extern const u8 gText_AEnter[];
+extern const u8 gText_StartGame[];
 
 #endif // GUARD_STRINGS_H

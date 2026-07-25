@@ -1092,6 +1092,16 @@ static void PrintPokedexOnCard(void)
         }
         AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, xOffset, top, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
     }
+    else
+    {
+        // Player does not have the pokedex
+        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16, 73, sTrainerCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardPokedex);
+        StringCopy(ConvertIntToDecimalStringN(gStringVar4, 0, STR_CONV_MODE_LEFT_ALIGN, 4), gText_EmptyString6);
+        
+        xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 128);
+
+        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, xOffset, 73, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
+    }
 }
 
 static const u8 *const sTimeColonTextColors[] = {sTrainerCardTextColors, sTimeColonInvisibleTextColors};
