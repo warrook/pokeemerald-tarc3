@@ -1974,6 +1974,9 @@ const u16 gTamagotchiTrainerCard_Pal[] = INCGFX_U16("graphics/trainer_card/tama_
 const u32 gTamagotchiTrainerCard_Gfx[] = INCGFX_U32("graphics/trainer_card/tama_tiles.png", ".4bpp.smol");
 const u32 gTamagotchiTrainerCardBg_Tilemap[] = INCGFX_U32("graphics/trainer_card/tama_bg.bin", ".smolTM");
 const u32 gTamagotchiTrainerCardFront_Tilemap[] = INCGFX_U32("graphics/trainer_card/tama_front.bin", ".smolTM");
+const u32 gTamagotchiTrainerCardBack_Tilemap[] = INCGFX_U32("graphics/trainer_card/tama_back.bin", ".smolTM");
+const u8  gTamagotchiTrainerCardCheckmark[] = INCGFX_U8("graphics/trainer_card/checkmark.png", ".4bpp");
+const u16 gTamagotchiTrainerCardCheckmark_Pal[] = INCGFX_U16("graphics/trainer_card/checkmark.png", ".gbapal");
 
 const u16 gKantoTrainerCardBlue_Pal[] = INCGFX_U16("graphics/trainer_card/frlg/blue.pal", ".gbapal");
 const u32 gKantoTrainerCard_Gfx[] = INCGFX_U32("graphics/trainer_card/frlg/tiles.png", ".4bpp.smol");

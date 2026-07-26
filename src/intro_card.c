@@ -17,7 +17,7 @@
 #include "money.h"
 #include "strings.h"
 #include "string_util.h"
-#include "trainer_card.h"
+//#include "trainer_card.h"
 #include "gpu_regs.h"
 #include "international_string_util.h"
 #include "pokedex.h"
@@ -51,13 +51,19 @@ struct CardData
     u8 gfxLoadState;
     u8 bgPalLoadState;
     MainCallback callback2;
-    u16 cardTilemap[600];
+    u16 backTilemap[600];
+    u16 frontTilemap[600];
     u16 bgTilemap[600];
     u8 cardTiles[0x2300];
     u16 cardTilemapBuffer[0x1000];
     u16 bgTilemapBuffer[0x1000];
     u8 playerName[PLAYER_NAME_LENGTH + 1];
     u16 trainerSprite;
+    bool8 allowDMACopy;
+    u16 cardTop;
+    u8 flipDrawState;
+    bool8 onBack;
+    s8 flipBlendY;
 };
 
 static const struct BgTemplate sIntroCardBgTemplates[4] =
@@ -144,11 +150,13 @@ static const struct WindowTemplate sIntroCardWindowTemplates[] =
 EWRAM_DATA static struct CardData *sData = NULL;
 
 static void VblankCb_IntroCard(void);
-//static void HblankCb_IntroCard(void);
+static void HblankCb_IntroCard(void);
 static void CB2_IntroCard(void);
 static void CloseIntroCard(u8 taskId);
-static bool8 PrintAllOnCard(void);
+static bool8 PrintAllOnCardFront(void);
+static bool8 PrintAllOnCardBack(void);
 static void PrintControls(void);
+static void PrintObjectivesOnCard(void);
 static void DrawIntroCardWindow(u8);
 static u8 SetCardBgsAndPals(void);
 static void CreateIntroCardTrainerPic(void);
@@ -169,12 +177,33 @@ static void PrintOthersOnCard(void);
 
 //static void Task_IntroCard_Init(u8 taskId);
 static void Task_IntroCard(u8 taskId);
+static void Task_StartNamingScreen(u8 taskId);
+static void FlipTrainerCard(void);
+static bool8 IsCardFlipTaskActive(void);
+static void Task_DoCardFlipTask(u8);
+static bool8 Task_BeginCardFlip(struct Task *task);
+static bool8 Task_AnimateCardFlipDown(struct Task *task);
+static bool8 Task_DrawFlippedCardSide(struct Task *task);
+static bool8 Task_SetCardFlipped(struct Task *task);
+static bool8 Task_AnimateCardFlipUp(struct Task *task);
+static bool8 Task_EndCardFlip(struct Task *task);
+static void UpdateCardFlipRegs(u16);
 void CB2_InitIntroCard_BackFromNaming(void);
 void CB2_InitIntroCard(void);
 
 static const u8 sIntroCardTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
 static const u8 sIntroCardControlColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY};
 static const u8 sIntroCardBlankColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_RED, TEXT_COLOR_TRANSPARENT};
+
+static bool8 (*const sTrainerCardFlipTasks[])(struct Task *) =
+{
+    Task_BeginCardFlip,
+    Task_AnimateCardFlipDown,
+    Task_DrawFlippedCardSide,
+    Task_SetCardFlipped,
+    Task_AnimateCardFlipUp,
+    Task_EndCardFlip,
+};
 
 static void VblankCb_IntroCard(void)
 {
@@ -184,7 +213,6 @@ static void VblankCb_IntroCard(void)
     DmaCopy16(3, &gScanlineEffectRegBuffers[0], &gScanlineEffectRegBuffers[1], 0x140);
 }
 
-/*
 static void HblankCb_IntroCard(void)
 {
     u16 backup;
@@ -196,7 +224,6 @@ static void HblankCb_IntroCard(void)
     REG_BG0VOFS = bgVOffset;
     REG_IME = backup;
 }
-*/
 
 static void CB2_IntroCard(void)
 {
@@ -233,7 +260,7 @@ static void SetUpIntroCardTask(void)
     CreateTask(Task_IntroCard, 0);
 }
 
-static bool8 PrintAllOnCard(void)
+static bool8 PrintAllOnCardFront(void)
 {
     //DebugPrintf("sData->printState: %d", sData->printState);
     switch (sData->printState)
@@ -252,6 +279,21 @@ static bool8 PrintAllOnCard(void)
         //DebugPrintf("Print Others");
         PrintOthersOnCard();
         //DebugPrintf("Finished Print Others");
+        break;
+    default:
+        sData->printState = 0;
+        return TRUE;
+    }
+    sData->printState++;
+    return FALSE;
+}
+
+static bool8 PrintAllOnCardBack(void)
+{
+    switch (sData->printState)
+    {
+    case 0:
+        PrintObjectivesOnCard();
         break;
     default:
         sData->printState = 0;
@@ -332,22 +374,59 @@ static void PrintControls(void)
         return;
     
     s32 width;
+    u8 buffer[64];
 
-    // Left side
-    u8 enterName[] = _("{A_BUTTON} RENAME");
-    width = GetStringWidth(FONT_SMALL, enterName, 0);
-    FillWindowPixelRect(WIN_FOOTER, PIXEL_FILL(0), 0, 1, width, 15);
-    AddTextPrinterParameterized3(WIN_FOOTER, FONT_SMALL, 0, 1, sIntroCardControlColors, TEXT_SKIP_DRAW, enterName);
+    // Rename after naming has happened once, and before the flip
+    if (IsCardFlipTaskActive())
+    {
+        u8 enterName[] = _("{B_BUTTON}RENAME ");
+        StringCopy(buffer, enterName);
+    }
 
-    // Right side
-    u8 finish[] = _("{START_BUTTON} FINISH");
-    width = GetStringWidth(FONT_SMALL, finish, 0);
+    // Flip or finish depending on flipped
+    u8 flip[] = _("{A_BUTTON}FLIP");
+    u8 finish[] = _("{A_BUTTON}FINISH");
+    if (IsCardFlipTaskActive())
+        StringAppend(buffer, flip);
+    else
+        StringCopy(buffer, finish);
+    
+    // Print controls
+    width = GetStringWidth(FONT_SMALL, buffer, 0);
     FillWindowPixelRect(WIN_FOOTER, PIXEL_FILL(0), 224 - width, 1, width, 15);
-    AddTextPrinterParameterized3(WIN_FOOTER, FONT_SMALL, 224 - width, 1, sIntroCardControlColors, TEXT_SKIP_DRAW, finish);
+    AddTextPrinterParameterized3(WIN_FOOTER, FONT_SMALL, 224 - width, 1, sIntroCardControlColors, TEXT_SKIP_DRAW, buffer);
 }
 
-#define STATE_HANDLE_INPUT  9
-#define STATE_CLOSE_CARD    10
+static void PrintObjectiveOnCard(u8 top, const u8 *text)
+{
+    static const u8 textOffset = 16;
+    //static const u8 checkOffset = 0;
+
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, textOffset, top * 16 + 33, sIntroCardTextColors, TEXT_SKIP_DRAW, text);
+}
+
+static void PrintObjectivesOnCard(void)
+{
+    const u8 str1[] = _("Catch first partner");
+    const u8 str2[] = _("Study alien devices");
+    const u8 str3[] = _("Find cause of EXO-POKéMON agitation");
+
+    PrintObjectiveOnCard(0, str1);
+    PrintObjectiveOnCard(1, str2);
+    PrintObjectiveOnCard(2, str3);
+}
+
+static void DoNaming(u8 taskId)
+{
+    PlaySE(SE_SELECT);
+    BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
+    gTasks[taskId].func = Task_StartNamingScreen;
+}
+
+#define STATE_HANDLE_INPUT_FRONT  9
+#define STATE_HANDLE_INPUT_BACK   10
+#define STATE_WAIT_FLIP           11
+#define STATE_CLOSE_CARD          12
 
 static void Task_IntroCard(u8 taskId)
 {
@@ -363,7 +442,7 @@ static void Task_IntroCard(u8 taskId)
         }
         break;
     case 1:
-        if (PrintAllOnCard())
+        if (PrintAllOnCardFront())
             sData->mainState++;
         break;
     case 2:
@@ -387,7 +466,7 @@ static void Task_IntroCard(u8 taskId)
         sData->mainState++;
         break;
     case 6:
-        DrawCard(sData->cardTilemap);
+        DrawCard(sData->frontTilemap);
         sData->mainState++;
         break;
     case 7:
@@ -399,24 +478,43 @@ static void Task_IntroCard(u8 taskId)
     case 8:
         if (!UpdatePaletteFade() && !IsDma3ManagerBusyWithBgCopy())
         {
-            PlaySE(SE_RG_CARD_OPEN);
+            if (sData->playerName[0] == EOS)
+                PlaySE(SE_RG_CARD_OPEN);
             sData->mainState++;
         }
         break;
-    case STATE_HANDLE_INPUT:
+    case STATE_HANDLE_INPUT_FRONT:
+        if (sData->playerName[0] == EOS)
+        {
+            if (JOY_NEW(A_BUTTON))
+                DoNaming(taskId);
+        }
+        else
+        {
+            if (JOY_NEW(A_BUTTON))
+            {
+                FlipTrainerCard();
+                PlaySE(SE_RG_CARD_FLIP);
+                sData->mainState = STATE_WAIT_FLIP;
+            }
+            else if (JOY_NEW(B_BUTTON))
+                DoNaming(taskId);
+        }
+        break;
+    case STATE_WAIT_FLIP:
+        if (IsCardFlipTaskActive())
+        {
+            PlaySE(SE_RG_CARD_OPEN);
+            sData->mainState = STATE_HANDLE_INPUT_BACK;
+        }
+        break;
+    case STATE_HANDLE_INPUT_BACK:
         if (JOY_NEW(A_BUTTON))
         {
-            FreeAllWindowBuffers();
-            FreeAndDestroyTrainerPicSprite(sData->trainerSprite);
-            FREE_AND_SET_NULL(sData);
-            DestroyTask(taskId);
-            DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, MALE, 0, 0, CB2_InitIntroCard_BackFromNaming);
-        }
-        else if (sData->playerName[0] != EOS && JOY_NEW(START_BUTTON))
-        {
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-            PlaySE(SE_RG_CARD_FLIP);
-            sData->mainState++;
+            //PlaySE(SE_RG_CARD_FLIP);
+            PlaySE(SE_M_MORNING_SUN);
+            sData->mainState = STATE_CLOSE_CARD;
         }
         break;
     case STATE_CLOSE_CARD:
@@ -425,6 +523,216 @@ static void Task_IntroCard(u8 taskId)
         break;
     }
 }
+
+static void Task_StartNamingScreen(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        FreeAllWindowBuffers();
+        FreeAndDestroyTrainerPicSprite(sData->trainerSprite);
+        FREE_AND_SET_NULL(sData);
+        DestroyTask(taskId);
+        DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, MALE, 0, 0, CB2_InitIntroCard_BackFromNaming);
+    }
+}
+
+#define tFlipState data[0]
+#define tCardTop   data[1]
+
+static void FlipTrainerCard(void)
+{
+    u8 taskId = CreateTask(Task_DoCardFlipTask, 0);
+    Task_DoCardFlipTask(taskId);
+    SetHBlankCallback(HblankCb_IntroCard);
+}
+
+static bool8 IsCardFlipTaskActive(void)
+{
+    if (FindTaskIdByFunc(Task_DoCardFlipTask) == TASK_NONE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+static void Task_DoCardFlipTask(u8 taskId)
+{
+    while (sTrainerCardFlipTasks[gTasks[taskId].tFlipState](&gTasks[taskId]))
+        ;
+}
+
+static bool8 Task_BeginCardFlip(struct Task *task)
+{
+    u32 i;
+
+    HideBg(1);
+    HideBg(3);
+    ScanlineEffect_Stop();
+    ScanlineEffect_Clear();
+    for (i = 0; i < DISPLAY_HEIGHT; i++)
+        gScanlineEffectRegBuffers[1][i] = 0;
+    task->tFlipState++;
+    return FALSE;
+}
+
+// Note: Cannot be DISPLAY_HEIGHT / 2, or cardHeight will be 0
+#define CARD_FLIP_Y ((DISPLAY_HEIGHT / 2) - 3) // 77
+
+static bool8 Task_AnimateCardFlipDown(struct Task *task)
+{
+    u32 cardHeight, r5, r10, cardTop, r6, var_24, cardBottom, var;
+    s16 i;
+
+    sData->allowDMACopy = FALSE;
+    if (task->tCardTop >= CARD_FLIP_Y)
+        task->tCardTop = CARD_FLIP_Y;
+    else
+        task->tCardTop += 7;
+
+    sData->cardTop = task->tCardTop;
+    UpdateCardFlipRegs(task->tCardTop);
+
+    cardTop = task->tCardTop;
+    cardBottom = DISPLAY_HEIGHT - cardTop;
+    cardHeight = cardBottom - cardTop;
+    r6 = -cardTop << 16;
+    r5 = (DISPLAY_HEIGHT << 16) / cardHeight;
+    r5 -= 1 << 16;
+    var_24 = r6;
+    var_24 += r5 * cardHeight;
+    r10 = r5 / cardHeight;
+    r5 *= 2;
+
+    for (i = 0; i < cardTop; i++)
+        gScanlineEffectRegBuffers[0][i] = -i;
+    for (; i < (s16)cardBottom; i++)
+    {
+        var = r6 >> 16;
+        r6 += r5;
+        r5 -= r10;
+        gScanlineEffectRegBuffers[0][i] = var;
+    }
+    var = var_24 >> 16;
+    for (; i < DISPLAY_HEIGHT; i++)
+        gScanlineEffectRegBuffers[0][i] = var;
+
+    sData->allowDMACopy = TRUE;
+    if (task->tCardTop >= CARD_FLIP_Y)
+        task->tFlipState++;
+
+    return FALSE;
+}
+
+static bool8 Task_DrawFlippedCardSide(struct Task *task)
+{
+    sData->allowDMACopy = FALSE;
+    if (Overworld_IsRecvQueueAtMax() == TRUE)
+        return FALSE;
+
+    switch (sData->flipDrawState)
+    {
+    case 0:
+        FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
+        FillWindowPixelBuffer(WIN_FOOTER, PIXEL_FILL(0));
+        FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 0x20, 0x20);
+        break;
+    case 1:
+        if (!PrintAllOnCardBack())
+            return FALSE;
+        PrintControls();
+        break;
+    case 2:
+        DrawCard(sData->backTilemap);
+        break;
+    case 3:
+        //DrawIntroCardWindow(WIN_FOOTER);
+        //DrawIntroCardWindow(WIN_CARD_TEXT);
+        break;
+    case 4:
+        FillWindowPixelBuffer(WIN_TRAINER_PIC, PIXEL_FILL(0));
+        //DrawIntroCardWindow(WIN_TRAINER_PIC);
+        break;
+    default:
+        task->tFlipState++;
+        sData->allowDMACopy = TRUE;
+        sData->flipDrawState = 0;
+        return FALSE;
+    }
+    sData->flipDrawState++;
+
+    return FALSE;
+}
+
+static bool8 Task_SetCardFlipped(struct Task *task)
+{
+    sData->allowDMACopy = FALSE;
+
+    DrawIntroCardWindow(WIN_TRAINER_PIC);
+    DrawIntroCardWindow(WIN_CARD_TEXT);
+    DrawIntroCardWindow(WIN_FOOTER);
+    sData->onBack ^= 1;
+    DebugPrintfLevel(MGBA_LOG_DEBUG, "On back: %d", sData->onBack);
+    task->tFlipState++;
+    sData->allowDMACopy = TRUE;
+    PlaySE(SE_RG_CARD_FLIPPING);
+    return FALSE;
+}
+
+static bool8 Task_AnimateCardFlipUp(struct Task *task)
+{
+    u32 cardHeight, r5, r10, cardTop, r6, var_24, cardBottom, var;
+    s16 i;
+
+    sData->allowDMACopy = FALSE;
+    if (task->tCardTop <= 5)
+        task->tCardTop = 0;
+    else
+        task->tCardTop -= 5;
+
+    sData->cardTop = task->tCardTop;
+    UpdateCardFlipRegs(task->tCardTop);
+
+    cardTop = task->tCardTop;
+    cardBottom = DISPLAY_HEIGHT - cardTop;
+    cardHeight = cardBottom - cardTop;
+    r6 = -cardTop << 16;
+    r5 = (DISPLAY_HEIGHT << 16) / cardHeight;
+    r5 -= 1 << 16;
+    var_24 = r6;
+    var_24 += r5 * cardHeight;
+    r10 = r5 / cardHeight;
+    r5 /= 2;
+
+    for (i = 0; i < cardTop; i++)
+        gScanlineEffectRegBuffers[0][i] = -i;
+    for (; i < (s16)cardBottom; i++)
+    {
+        var = r6 >> 16;
+        r6 += r5;
+        r5 += r10;
+        gScanlineEffectRegBuffers[0][i] = var;
+    }
+    var = var_24 >> 16;
+    for (; i < DISPLAY_HEIGHT; i++)
+        gScanlineEffectRegBuffers[0][i] = var;
+
+    sData->allowDMACopy = TRUE;
+    if (task->tCardTop <= 0)
+        task->tFlipState++;
+
+    return FALSE;
+}
+
+static bool8 Task_EndCardFlip(struct Task *task)
+{
+    ShowBg(1);
+    ShowBg(3);
+    SetHBlankCallback(NULL);
+    DestroyTask(FindTaskIdByFunc(Task_DoCardFlipTask));
+    return FALSE;
+}
+
+#undef tFlipState
+#undef tCardTop
 
 static bool8 LoadCardGfx(void)
 {
@@ -435,9 +743,12 @@ static bool8 LoadCardGfx(void)
         DecompressDataWithHeaderWram(gTamagotchiTrainerCardBg_Tilemap, sData->bgTilemap);
         break;
     case 1:
-        DecompressDataWithHeaderVram(gTamagotchiTrainerCardFront_Tilemap, sData->cardTilemap);
+        DecompressDataWithHeaderVram(gTamagotchiTrainerCardBack_Tilemap, sData->backTilemap);
         break;
     case 2:
+        DecompressDataWithHeaderVram(gTamagotchiTrainerCardFront_Tilemap, sData->frontTilemap);
+        break;
+    case 3:
         DecompressDataWithHeaderWram(gTamagotchiTrainerCard_Gfx, sData->cardTiles);
         break;
     default:
@@ -533,6 +844,17 @@ static void InitGpuRegs(void)
     SetGpuReg(REG_OFFSET_WIN0V, DISPLAY_HEIGHT);
     SetGpuReg(REG_OFFSET_WIN0H, DISPLAY_WIDTH);
     EnableInterrupts(INTR_FLAG_VBLANK | INTR_FLAG_HBLANK);
+}
+
+static void UpdateCardFlipRegs(u16 cardTop)
+{
+    s8 blendY = (cardTop + 40) / 10;
+
+    if (blendY <= 4)
+        blendY = 0;
+    sData->flipBlendY = blendY;
+    SetGpuReg(REG_OFFSET_BLDY, sData->flipBlendY);
+    SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(sData->cardTop, DISPLAY_HEIGHT - sData->cardTop));
 }
 
 static void ResetGpuRegs(void)

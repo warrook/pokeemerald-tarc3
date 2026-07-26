@@ -135,6 +135,7 @@ static void PrintPokedexOnCard(void);
 static void PrintProfilePhraseOnCard(void);
 static bool8 PrintAllOnCardBack(void);
 static void PrintNameOnCardBack(void);
+static void PrintObjectivesOnCard(void);
 static void PrintHofDebutTimeOnCard(void);
 static void PrintLinkBattleResultsOnCard(void);
 static void PrintTradesStringOnCard(void);
@@ -542,7 +543,7 @@ static bool8 LoadCardGfx(void)
         break;
     case 1:
         if (sData->cardType != CARD_TYPE_FRLG)
-            DecompressDataWithHeaderWram(gHoennTrainerCardBack_Tilemap, sData->backTilemap);
+            DecompressDataWithHeaderWram(gTamagotchiTrainerCardBack_Tilemap, sData->backTilemap);
         else
             DecompressDataWithHeaderWram(gKantoTrainerCardBack_Tilemap, sData->backTilemap);
         break;
@@ -953,32 +954,35 @@ static bool8 PrintAllOnCardBack(void)
 {
     switch (sData->printState)
     {
+    // case 0:
+    //     PrintNameOnCardBack();
+    //     break;
+    // case 1:
+    //     PrintHofDebutTimeOnCard();
+    //     break;
+    // case 2:
+    //     PrintLinkBattleResultsOnCard();
+    //     break;
+    // case 3:
+    //     PrintTradesStringOnCard();
+    //     break;
+    // case 4:
+    //     PrintBerryCrushStringOnCard();
+    //     PrintPokeblockStringOnCard();
+    //     break;
+    // case 5:
+    //     PrintUnionStringOnCard();
+    //     PrintContestStringOnCard();
+    //     break;
+    // case 6:
+    //     PrintPokemonIconsOnCard();
+    //     PrintBattleFacilityStringOnCard();
+    //     break;
+    // case 7:
+    //     PrintStickersOnCard();
+    //     break;
     case 0:
-        PrintNameOnCardBack();
-        break;
-    case 1:
-        PrintHofDebutTimeOnCard();
-        break;
-    case 2:
-        PrintLinkBattleResultsOnCard();
-        break;
-    case 3:
-        PrintTradesStringOnCard();
-        break;
-    case 4:
-        PrintBerryCrushStringOnCard();
-        PrintPokeblockStringOnCard();
-        break;
-    case 5:
-        PrintUnionStringOnCard();
-        PrintContestStringOnCard();
-        break;
-    case 6:
-        PrintPokemonIconsOnCard();
-        PrintBattleFacilityStringOnCard();
-        break;
-    case 7:
-        PrintStickersOnCard();
+        PrintObjectivesOnCard();
         break;
     default:
         sData->printState = 0;
@@ -1211,6 +1215,27 @@ static void PrintStatOnBackOfCard(u8 top, const u8 *statName, u8 *stat, const u8
 
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, xOffsets[sData->isHoenn], top * 16 + 33, sTrainerCardTextColors, TEXT_SKIP_DRAW, statName);
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, stat, widths[sData->isHoenn]), top * 16 + 33, color, TEXT_SKIP_DRAW, stat);
+}
+
+static void PrintObjectiveOnCard(u8 top, const u8 *text/*, FLAG*/)
+{
+    static const u8 textOffset = 16;
+    static const u8 checkOffset = 9;
+
+    AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, textOffset, top * 16 + 33, sTrainerCardTextColors, TEXT_SKIP_DRAW, text);
+    //if FLAG
+    BlitBitmapRectToWindow(WIN_CARD_TEXT, gTamagotchiTrainerCardCheckmark, 0, 2, 16, 16, checkOffset, top * 16 + 33 + 1, 6, 12);
+}
+
+static void PrintObjectivesOnCard(void)
+{
+    const u8 str1[] = _("Catch first partner");
+    const u8 str2[] = _("Study alien devices");
+    const u8 str3[] = _("Find cause of EXO-POKéMON agitation");
+
+    PrintObjectiveOnCard(0, str1);
+    PrintObjectiveOnCard(1, str2);
+    PrintObjectiveOnCard(2, str3);
 }
 
 static void PrintHofDebutTimeOnCard(void)
@@ -1632,7 +1657,7 @@ static bool8 Task_BeginCardFlip(struct Task *task)
 }
 
 // Note: Cannot be DISPLAY_HEIGHT / 2, or cardHeight will be 0
-#define CARD_FLIP_Y ((DISPLAY_HEIGHT / 2) - 3)
+#define CARD_FLIP_Y ((DISPLAY_HEIGHT / 2) - 3) // 77
 
 static bool8 Task_AnimateCardFlipDown(struct Task *task)
 {
