@@ -1910,7 +1910,7 @@ void CB2_NewGame(void)
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     ResetSafariZoneFlag_();
-    NewGameInitData();
+    //NewGameInitData(); // Removed because it is called in intro_card.c
     ResetInitialPlayerAvatarState();
     PlayTimeCounter_Start();
     ScriptContext_Init();

@@ -18,6 +18,7 @@
 #include "strings.h"
 #include "string_util.h"
 //#include "trainer_card.h"
+#include "new_game.h"
 #include "gpu_regs.h"
 #include "international_string_util.h"
 #include "pokedex.h"
@@ -41,7 +42,7 @@ enum {
     WIN_MSG,
     WIN_CARD_TEXT,
     WIN_TRAINER_PIC,
-    WIN_FOOTER,
+    WIN_HEADER,
 };
 
 struct CardData
@@ -133,16 +134,16 @@ static const struct WindowTemplate sIntroCardWindowTemplates[] =
         .width = 9,
         .height = 10,
         .paletteNum = 8,
-        .baseBlock = 0x150,
+        .baseBlock = 0,//0x150,
     },
-    [WIN_FOOTER] = {
-        .bg = 1,
+    [WIN_HEADER] = {
+        .bg = 2,
         .tilemapLeft = 1,
-        .tilemapTop = 18,
+        .tilemapTop = 0,
         .width = 28, //224 px
         .height = 2, //16 px
-        .paletteNum = 15,
-        .baseBlock = 504,
+        .paletteNum = 0,
+        .baseBlock = 282,
     },
     DUMMY_WIN_TEMPLATE
 };
@@ -158,6 +159,8 @@ static bool8 PrintAllOnCardBack(void);
 static void PrintControls(void);
 static void PrintObjectivesOnCard(void);
 static void DrawIntroCardWindow(u8);
+static void PrepareHeaderWindow(void);
+static void DrawHeaderWindow(void);
 static u8 SetCardBgsAndPals(void);
 static void CreateIntroCardTrainerPic(void);
 static void DrawCard(u16 *ptr);
@@ -188,7 +191,9 @@ static bool8 Task_SetCardFlipped(struct Task *task);
 static bool8 Task_AnimateCardFlipUp(struct Task *task);
 static bool8 Task_EndCardFlip(struct Task *task);
 static void UpdateCardFlipRegs(u16);
+static bool8 IsNamed(void);
 void CB2_InitIntroCard_BackFromNaming(void);
+void CB2_InitIntroCard_BackFromRenaming(void);
 void CB2_InitIntroCard(void);
 
 static const u8 sIntroCardTextColors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY};
@@ -220,22 +225,20 @@ static void HblankCb_IntroCard(void)
 
     backup = REG_IME;
     REG_IME = 0;
-    bgVOffset = gScanlineEffectRegBuffers[1][REG_VCOUNT & 0xFF];
+    // 504 = shift down by 8 pixels (8 = shift up by 8)
+    bgVOffset = gScanlineEffectRegBuffers[1][REG_VCOUNT & 0xFF] + 504;
     REG_BG0VOFS = bgVOffset;
+    REG_BG1VOFS = bgVOffset;
+    REG_BG3VOFS = bgVOffset;
     REG_IME = backup;
 }
 
 static void CB2_IntroCard(void)
 {
-    //DebugPrintf("CB2_IntroCard");
     RunTasks();
-    //DebugPrintf("CB2_IntroCard after RunTasks");
     AnimateSprites();
-    //DebugPrintf("CB2_IntroCard after AnimateSprites");
     BuildOamBuffer();
-    //DebugPrintf("CB2_IntroCard after BuildOamBuffer");
     UpdatePaletteFade();
-    //DebugPrintf("CB2_IntroCard after UpdatePaletteFade");
 }
 
 static void CloseIntroCard(u8 taskId)
@@ -248,37 +251,34 @@ static void CloseIntroCard(u8 taskId)
 
 static void SetIntroCardCb2(void)
 {
-    //DebugPrintf("SetIntroCardCb2");
     SetMainCallback2(CB2_IntroCard);
 }
 
 static void SetUpIntroCardTask(void)
 {
-    //DebugPrintf("SetUpIntroCardTask");
     ResetTasks();
     ScanlineEffect_Stop();
     CreateTask(Task_IntroCard, 0);
 }
 
+// Returns true if player has entered a name at least once
+static bool8 IsNamed(void)
+{
+    return sData->playerName[0] != EOS;
+}
+
 static bool8 PrintAllOnCardFront(void)
 {
-    //DebugPrintf("sData->printState: %d", sData->printState);
     switch (sData->printState)
     {
     case 0:
-        //DebugPrintf("Print Name");
         PrintNameOnCard();
-        //DebugPrintf("Finished Print Name");
         break;
     case 1:
-        //DebugPrintf("Print Id");
         PrintIdOnCard();
-        //DebugPrintf("Finished Print Id");
         break;
     case 2:
-        //DebugPrintf("Print Others");
         PrintOthersOnCard();
-        //DebugPrintf("Finished Print Others");
         break;
     default:
         sData->printState = 0;
@@ -308,36 +308,25 @@ static void PrintNameOnCard(void)
     u8 buffer[32];
     u8 *txtPtr;
     txtPtr = StringCopy(buffer, gText_TrainerCardName);
-    if (sData->playerName[0] != EOS)
-        StringCopy(txtPtr, sData->playerName);
-    else
+    if (IsNamed())
     {
-        s32 xOffset = GetStringWidth(FONT_NORMAL, buffer, 0);
-
-        const u8 aColor[] = _("{A_COLOR}");
-        const u8 aButton[] = _("{A_BUTTON}");
-        const u8 text[] = _(" ENTER NAME");
-        
-        u8 txt2[32];
-        StringCopy(txt2, aButton);
-        StringAppend(txt2, text);
-        s32 centerOffset = GetStringCenterAlignXOffset(FONT_SMALL, txt2, 66);
-
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16 + xOffset + centerOffset, 33, sIntroCardBlankColors, TEXT_SKIP_DRAW, aColor);
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_SMALL, 16 + xOffset + centerOffset + 8, 33, sIntroCardBlankColors, TEXT_SKIP_DRAW, text);
+        // Player has been named
+        StringCopy(txtPtr, sData->playerName);
     }
-    //DebugPrintf("StringCopy succeeded");
+    // Print "NAME: " and player name if it has been set
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16, 33, sIntroCardTextColors, TEXT_SKIP_DRAW, buffer);
 }
 
 static void PrintIdOnCard(void)
 {
     u8 fullStr[32];
-    StringCopy(fullStr, gText_TrainerCardIDNo);
-    StringAppend(fullStr, gText_TrainerCardIDDashes);
+    u8 *txtPtr;
+    txtPtr = StringCopy(fullStr, gText_TrainerCardIDNo);
+    ConvertIntToDecimalStringN(txtPtr, (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0], STR_CONV_MODE_LEADING_ZEROS, 5);
     s32 centerOffset = GetStringCenterAlignXOffset(FONT_NORMAL, fullStr, 96) + 120;
     u32 top = 9;
-
+    if (!IsNamed())
+        fullStr[5] = EOS; // Chop off blank id
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, centerOffset, top, sIntroCardTextColors, TEXT_SKIP_DRAW, fullStr);
 }
 
@@ -345,21 +334,17 @@ static void PrintOthersOnCard(void)
 {
     s32 xOffset;
 
-    // Money (M-E)
+    // Money (Charge)
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16, 57, sIntroCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardMoney);
     ConvertIntToDecimalStringN(gStringVar1, 3000, STR_CONV_MODE_LEFT_ALIGN, MAX_MONEY_DIGITS);
     StringExpandPlaceholders(gStringVar4, gText_PokedollarVar1);
-    
     xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 128);
-    
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, xOffset, 57, sIntroCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
 
     // Pokedex
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 16, 73, sIntroCardTextColors, TEXT_SKIP_DRAW, gText_TrainerCardPokedex);
     StringCopy(ConvertIntToDecimalStringN(gStringVar4, 0, STR_CONV_MODE_LEFT_ALIGN, 4), gText_EmptyString6);
-    
     xOffset = GetStringRightAlignXOffset(FONT_NORMAL, gStringVar4, 128);
-
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, xOffset, 73, sIntroCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
 
     // Time
@@ -370,31 +355,30 @@ static void PrintOthersOnCard(void)
 
 static void PrintControls(void)
 {
-    if (sData->playerName[0] == EOS)
-        return;
-    
-    s32 width;
     u8 buffer[64];
 
-    // Rename after naming has happened once, and before the flip
-    if (IsCardFlipTaskActive())
+    if (!IsNamed())
     {
-        u8 enterName[] = _("{B_BUTTON}RENAME ");
+        u8 enterName[] = _("{FONT_NORMAL}{A_COLOR}{FONT_SMALL}ENTER NAME  ");
         StringCopy(buffer, enterName);
     }
-
-    // Flip or finish depending on flipped
-    u8 flip[] = _("{A_BUTTON}FLIP");
-    u8 finish[] = _("{A_BUTTON}FINISH");
-    if (IsCardFlipTaskActive())
+    else if (IsCardFlipTaskActive())
+    {
+        // Naming has happened once, and before the flip
+        u8 rename[] = _("{FONT_NORMAL}{B_COLOR}{FONT_SMALL}RENAME  ");
+        u8 flip[] = _("{FONT_NORMAL}{A_COLOR}{FONT_SMALL}FLIP");
+        StringCopy(buffer, rename);
         StringAppend(buffer, flip);
+    }
     else
+    {
+        u8 finish[] = _("{FONT_NORMAL}{A_COLOR}{FONT_SMALL}FINISH");
         StringCopy(buffer, finish);
+    }
     
     // Print controls
-    width = GetStringWidth(FONT_SMALL, buffer, 0);
-    FillWindowPixelRect(WIN_FOOTER, PIXEL_FILL(0), 224 - width, 1, width, 15);
-    AddTextPrinterParameterized3(WIN_FOOTER, FONT_SMALL, 224 - width, 1, sIntroCardControlColors, TEXT_SKIP_DRAW, buffer);
+    static const u8 colors[] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, 11 /*matches TEXT_COLOR_DARK_GRAY, in palette 0*/};
+    AddTextPrinterParameterized3(WIN_HEADER, FONT_SMALL, 0, 0, colors, TEXT_SKIP_DRAW, buffer);
 }
 
 static void PrintObjectiveOnCard(u8 top, const u8 *text)
@@ -430,13 +414,12 @@ static void DoNaming(u8 taskId)
 
 static void Task_IntroCard(u8 taskId)
 {
-    //DebugPrintfLevel(MGBA_LOG_DEBUG,"Task_IntroCard: sData->mainState: %d", sData->mainState);
     switch(sData->mainState)
     {
     case 0:
         if (!IsDma3ManagerBusyWithBgCopy())
         {
-            FillWindowPixelBuffer(WIN_FOOTER, PIXEL_FILL(0));
+            FillWindowPixelBuffer(WIN_HEADER, PIXEL_FILL(13));
             FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
             sData->mainState++;
         }
@@ -450,19 +433,19 @@ static void Task_IntroCard(u8 taskId)
         sData->mainState++;
         break;
     case 3:
-        PrintControls();
-        DrawIntroCardWindow(WIN_FOOTER);
+        DrawCardScreenBackground(sData->bgTilemap);
         sData->mainState++;
         break;
     case 4:
-        FillWindowPixelBuffer(WIN_TRAINER_PIC, PIXEL_FILL(0));
-        CreateIntroCardTrainerPic();
-        //DebugPrintfLevel(MGBA_LOG_DEBUG, "Outside Trainer Pic");
-        DrawIntroCardWindow(WIN_TRAINER_PIC);
+        PrepareHeaderWindow();
+        PrintControls();
+        DrawHeaderWindow();
         sData->mainState++;
         break;
     case 5:
-        DrawCardScreenBackground(sData->bgTilemap);
+        FillWindowPixelBuffer(WIN_TRAINER_PIC, PIXEL_FILL(0));
+        CreateIntroCardTrainerPic();
+        DrawIntroCardWindow(WIN_TRAINER_PIC);
         sData->mainState++;
         break;
     case 6:
@@ -473,18 +456,24 @@ static void Task_IntroCard(u8 taskId)
         BlendPalettes(PALETTES_ALL, 16, RGB_BLACK);
         BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
         SetVBlankCallback(VblankCb_IntroCard);
+        SetHBlankCallback(HblankCb_IntroCard);
+        // Ensure buffer is clean for the shift down in Hblank
+        ScanlineEffect_Stop();
+        ScanlineEffect_Clear();
+        for (u32 i = 0; i < DISPLAY_HEIGHT; i++)
+            gScanlineEffectRegBuffers[1][i] = 0;
         sData->mainState++;
         break;
     case 8:
         if (!UpdatePaletteFade() && !IsDma3ManagerBusyWithBgCopy())
         {
-            if (sData->playerName[0] == EOS)
+            if (!IsNamed())
                 PlaySE(SE_RG_CARD_OPEN);
             sData->mainState++;
         }
         break;
     case STATE_HANDLE_INPUT_FRONT:
-        if (sData->playerName[0] == EOS)
+        if (!IsNamed())
         {
             if (JOY_NEW(A_BUTTON))
                 DoNaming(taskId);
@@ -512,7 +501,6 @@ static void Task_IntroCard(u8 taskId)
         if (JOY_NEW(A_BUTTON))
         {
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-            //PlaySE(SE_RG_CARD_FLIP);
             PlaySE(SE_M_MORNING_SUN);
             sData->mainState = STATE_CLOSE_CARD;
         }
@@ -530,9 +518,14 @@ static void Task_StartNamingScreen(u8 taskId)
     {
         FreeAllWindowBuffers();
         FreeAndDestroyTrainerPicSprite(sData->trainerSprite);
+        
+        // Set whether naming or renaming
+        MainCallback callback = !IsNamed() ? CB2_InitIntroCard_BackFromNaming : CB2_InitIntroCard_BackFromRenaming;
+
         FREE_AND_SET_NULL(sData);
         DestroyTask(taskId);
-        DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, MALE, 0, 0, CB2_InitIntroCard_BackFromNaming);
+        
+        DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, MALE, 0, 0, callback);
     }
 }
 
@@ -566,6 +559,7 @@ static bool8 Task_BeginCardFlip(struct Task *task)
 
     HideBg(1);
     HideBg(3);
+    PrepareHeaderWindow();
     ScanlineEffect_Stop();
     ScanlineEffect_Clear();
     for (i = 0; i < DISPLAY_HEIGHT; i++)
@@ -628,36 +622,35 @@ static bool8 Task_DrawFlippedCardSide(struct Task *task)
     if (Overworld_IsRecvQueueAtMax() == TRUE)
         return FALSE;
 
-    switch (sData->flipDrawState)
-    {
-    case 0:
-        FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
-        FillWindowPixelBuffer(WIN_FOOTER, PIXEL_FILL(0));
-        FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 0x20, 0x20);
-        break;
-    case 1:
-        if (!PrintAllOnCardBack())
+    do {
+        switch (sData->flipDrawState)
+        {
+        case 0:
+            FillWindowPixelBuffer(WIN_CARD_TEXT, PIXEL_FILL(0));
+            FillBgTilemapBufferRect_Palette0(3, 0, 0, 0, 0x20, 0x20);
+            PrepareHeaderWindow();
+            PrintControls();
+            break;
+        case 1:
+            if (!PrintAllOnCardBack())
+                return FALSE;
+            break;
+        case 2:
+            DrawCard(sData->backTilemap);
+            break;
+        case 3:
+            break;
+        case 4:
+            FillWindowPixelBuffer(WIN_TRAINER_PIC, PIXEL_FILL(0));
+            break;
+        default:
+            task->tFlipState++;
+            sData->allowDMACopy = TRUE;
+            sData->flipDrawState = 0;
             return FALSE;
-        PrintControls();
-        break;
-    case 2:
-        DrawCard(sData->backTilemap);
-        break;
-    case 3:
-        //DrawIntroCardWindow(WIN_FOOTER);
-        //DrawIntroCardWindow(WIN_CARD_TEXT);
-        break;
-    case 4:
-        FillWindowPixelBuffer(WIN_TRAINER_PIC, PIXEL_FILL(0));
-        //DrawIntroCardWindow(WIN_TRAINER_PIC);
-        break;
-    default:
-        task->tFlipState++;
-        sData->allowDMACopy = TRUE;
-        sData->flipDrawState = 0;
-        return FALSE;
-    }
-    sData->flipDrawState++;
+        }
+        sData->flipDrawState++;
+    } while (sData->flipDrawState != 0);
 
     return FALSE;
 }
@@ -665,12 +658,9 @@ static bool8 Task_DrawFlippedCardSide(struct Task *task)
 static bool8 Task_SetCardFlipped(struct Task *task)
 {
     sData->allowDMACopy = FALSE;
-
     DrawIntroCardWindow(WIN_TRAINER_PIC);
     DrawIntroCardWindow(WIN_CARD_TEXT);
-    DrawIntroCardWindow(WIN_FOOTER);
     sData->onBack ^= 1;
-    DebugPrintfLevel(MGBA_LOG_DEBUG, "On back: %d", sData->onBack);
     task->tFlipState++;
     sData->allowDMACopy = TRUE;
     PlaySE(SE_RG_CARD_FLIPPING);
@@ -726,6 +716,7 @@ static bool8 Task_EndCardFlip(struct Task *task)
 {
     ShowBg(1);
     ShowBg(3);
+    DrawHeaderWindow();
     SetHBlankCallback(NULL);
     DestroyTask(FindTaskIdByFunc(Task_DoCardFlipTask));
     return FALSE;
@@ -736,7 +727,6 @@ static bool8 Task_EndCardFlip(struct Task *task)
 
 static bool8 LoadCardGfx(void)
 {
-    //DebugPrintfLevel(MGBA_LOG_DEBUG,"gfxLoadState: %d", sData->gfxLoadState);
     switch (sData->gfxLoadState)
     {
     case 0:
@@ -761,7 +751,6 @@ static bool8 LoadCardGfx(void)
 
 void CB2_InitIntroCard_FirstRun(void)
 {
-    //DebugPrintf("CB2_InitIntroCard_FirstRun");
     sData = AllocZeroed(sizeof(*sData));
     sData->playerName[0] = EOS;
     SetMainCallback2(CB2_InitIntroCard);
@@ -769,7 +758,12 @@ void CB2_InitIntroCard_FirstRun(void)
 
 void CB2_InitIntroCard_BackFromNaming(void)
 {
-    //DebugPrintfLevel(MGBA_LOG_DEBUG, "BackFromNaming");
+    NewGameInitData();
+    CB2_InitIntroCard_BackFromRenaming();
+}
+
+void CB2_InitIntroCard_BackFromRenaming(void)
+{
     sData = AllocZeroed(sizeof(*sData));
     StringCopy(sData->playerName, gSaveBlock2Ptr->playerName);
     sData->callback2 = CB2_NewGame;
@@ -778,53 +772,42 @@ void CB2_InitIntroCard_BackFromNaming(void)
 
 void CB2_InitIntroCard(void)
 {
-    //DebugPrintf("Reached CB2_InitIntroCard");
     switch (gMain.state)
     {
     case 0:
-        //DebugPrintf("state: 0");
         ResetGpuRegs();
         SetUpIntroCardTask();
         gMain.state++;
         break;
     case 1:
-        //DebugPrintf("state: 1");
         DmaClear32(3, (void *)OAM, OAM_SIZE);
         gMain.state++;
         break;
     case 2:
-        //DebugPrintf("state: 2");
-        //DmaClear16(3, (void *)PLTT, PLTT_SIZE);
         gMain.state++;
         break;
     case 3:
-        //DebugPrintf("state: 3");
         ResetSpriteData();
         FreeAllSpritePalettes();
         ResetPaletteFade();
         gMain.state++;
     case 4:
-        //DebugPrintf("state: 4");
         InitBgsAndWindows();
         gMain.state++;
         break;
     case 5:
-        //DebugPrintf("state: 5");
         if (LoadCardGfx() == TRUE)
             gMain.state++;
         break;
     case 6:
-        //DebugPrintf("state: 6");
         InitGpuRegs();
         gMain.state++;
         break;
     case 7:
-        //DebugPrintf("state: 7");
         if (SetCardBgsAndPals() == TRUE)
             gMain.state++;
         break;
     default:
-        //DebugPrintf("state: default");
         SetIntroCardCb2();
         break;
     }
@@ -887,9 +870,34 @@ static void InitBgsAndWindows(void)
 
 static void DrawIntroCardWindow(u8 windowId)
 {
-    //DebugPrintfLevel(MGBA_LOG_DEBUG, "Inside DrawIntroCardWindow");
     PutWindowTilemap(windowId);
     CopyWindowToVram(windowId, COPYWIN_FULL);
+}
+
+// Tile used for the screen background
+// A #define just in case I edit the tileset and have to move it
+#define SCREEN_TILE TILE_OFFSET_4BPP(89)
+
+static void PrepareHeaderWindow(void)
+{
+    u32 size = GetWindowAttribute(WIN_HEADER, WINDOW_WIDTH) * GetWindowAttribute(WIN_HEADER, WINDOW_HEIGHT);
+    u32 startTile = GetWindowAttribute(WIN_HEADER, WINDOW_BASE_BLOCK);
+
+    // Fill WIN_HEADER with tiles from the "screen" background
+    for (u32 i = 0; i < 56; i++)
+    {
+        CpuCopy32(&sData->cardTiles[SCREEN_TILE], (void *)(BG_VRAM) + TILE_OFFSET_4BPP(startTile + i), 32);
+    }
+
+    // Copy tiles to gfx buffer
+    CopyToWindowPixelBuffer(WIN_HEADER, (void *)(BG_VRAM) + TILE_OFFSET_4BPP(startTile), TILE_OFFSET_4BPP(size), 0);
+}
+
+#undef SCREEN_TILE
+
+static void DrawHeaderWindow(void)
+{
+    DrawIntroCardWindow(WIN_HEADER);
 }
 
 static u8 SetCardBgsAndPals(void)
@@ -955,6 +963,5 @@ static void DrawCardScreenBackground(u16 *ptr)
 
 static void CreateIntroCardTrainerPic(void)
 {
-    //DebugPrintfLevel(MGBA_LOG_DEBUG, "Inside Trainer Pic");
     sData->trainerSprite = CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(FACILITY_CLASS_BRENDAN), TRUE, 1, 0, 8, WIN_TRAINER_PIC);
 }
