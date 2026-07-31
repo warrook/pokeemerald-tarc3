@@ -1143,7 +1143,7 @@ void SwapHpBarsWithHpText(void)
             {
                 if (GetBattlerCoordsIndex(i) == BATTLE_COORDS_SINGLES)
                     continue;
-                if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+                if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY))
                     continue;
 
                 if (noBars == TRUE) // bars to text
@@ -1166,7 +1166,7 @@ void SwapHpBarsWithHpText(void)
             {
                 if (noBars == TRUE) // bars to text
                 {
-                    if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+                    if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY))
                     {
                         // Most likely a debug function.
                         PrintSafariMonInfo(gHealthboxSpriteIds[i], mon);
@@ -1183,7 +1183,7 @@ void SwapHpBarsWithHpText(void)
                 {
                     UpdateStatusIconInHealthbox(gHealthboxSpriteIds[i]);
                     UpdateHealthboxAttribute(gHealthboxSpriteIds[i], mon, HEALTHBOX_HEALTH_BAR);
-                    if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+                    if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY))
                         UpdateHealthboxAttribute(gHealthboxSpriteIds[i], mon, HEALTHBOX_NICK);
                 }
             }

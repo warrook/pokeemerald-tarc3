@@ -641,4 +641,5 @@ gSpecials::
 	def_special CheckAddCoins
 
 	def_special ScriptMenu_CreateCapsuleMultichoice, waitstate=1
+	def_special EnterStudyMode
 

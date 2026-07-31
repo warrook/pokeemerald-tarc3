@@ -2949,3 +2949,10 @@
 	getbraillestringwidth \text
 	call EventScript_BrailleCursorWaitButton
 	.endm
+
+@ Tamagotchi
+	@ Starts a suit call, which is basically a pokenav call, with the given text.
+	.macro suitcall text:req
+	.byte SCR_OP_SUITCALL
+	.4byte \text
+	.endm

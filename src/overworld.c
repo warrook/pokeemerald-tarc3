@@ -1910,15 +1910,16 @@ void CB2_NewGame(void)
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     ResetSafariZoneFlag_();
-    //NewGameInitData(); // Removed because it is called in intro_card.c
+    NewGameInitData();
     ResetInitialPlayerAvatarState();
     PlayTimeCounter_Start();
     ScriptContext_Init();
     UnlockPlayerFieldControls();
-    if (IS_FRLG)
-        gFieldCallback = FieldCB_WarpExitFadeFromBlack;
-    else
-        gFieldCallback = ExecuteTruckSequence;
+    // if (IS_FRLG)
+    //     gFieldCallback = FieldCB_WarpExitFadeFromBlack;
+    // else
+    //     gFieldCallback = ExecuteTruckSequence;
+    gFieldCallback = ExecuteLandingSequence;
     gFieldCallback2 = NULL;
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();

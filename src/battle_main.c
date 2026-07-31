@@ -3406,7 +3406,7 @@ static void DoBattleIntro(void)
     case BATTLE_INTRO_STATE_DRAW_SPRITES:
         for (battler = 0; battler < gBattlersCount; battler++)
         {
-            if ((gBattleTypeFlags & BATTLE_TYPE_SAFARI) && IsOnPlayerSide(battler))
+            if ((gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY)) && IsOnPlayerSide(battler))
             {
                 memset(&gBattleMons[battler], 0, sizeof(struct BattlePokemon));
             }
@@ -3609,7 +3609,7 @@ static void DoBattleIntro(void)
         }
         break;
     case BATTLE_INTRO_STATE_PRINT_PLAYER_SEND_OUT_TEXT:
-        if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI))
+        if (!(gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY)))
         {
             if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK && !(gBattleTypeFlags & BATTLE_TYPE_RECORDED_IS_MASTER))
                 battler = GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT);
@@ -3706,7 +3706,7 @@ static void TryDoEventsBeforeFirstTurn(void)
     case FIRST_TURN_EVENTS_START:
         LoadIndicatorSpritesGfx();
         // Set invalid mons as absent(for example when starting a double battle with only one Pokémon).
-        if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI))
+        if (!(gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY)))
         {
             for (enum BattlerId battler = 0; battler < gBattlersCount; battler++)
             {
@@ -4262,11 +4262,12 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_SAFARI_POKEBLOCK:
-                    if (!IS_FRLG)
-                    {
-                        BtlController_EmitChooseItem(battler, B_COMM_TO_CONTROLLER, gBattleStruct->battlerPartyOrders[battler]);
-                        MarkBattlerForControllerExec(battler);
-                    }
+                    // Tamagotchi land, so this won't happen
+                    // if (!IS_FRLG)
+                    // {
+                    //     BtlController_EmitChooseItem(battler, B_COMM_TO_CONTROLLER, gBattleStruct->battlerPartyOrders[battler]);
+                    //     MarkBattlerForControllerExec(battler);
+                    // }
                     break;
                 case B_ACTION_CANCEL_PARTNER:
                     gBattleCommunication[battler] = STATE_WAIT_SET_BEFORE_ACTION;
@@ -4471,17 +4472,17 @@ static void HandleTurnActionSelectionState(void)
                     gBattleCommunication[battler]++;
                     break;
                 case B_ACTION_SAFARI_POKEBLOCK:
-                    if (IS_FRLG)
-                    {
+                    // if (IS_FRLG)
+                    // {
                         gBattleCommunication[battler]++;
-                    }
-                    else
-                    {
-                        if ((gBattleResources->bufferB[battler][1] | (gBattleResources->bufferB[battler][2] << 8)) != 0)
-                            gBattleCommunication[battler]++;
-                        else
-                            gBattleCommunication[battler] = STATE_BEFORE_ACTION_CHOSEN;
-                    }
+                    // }
+                    // else
+                    // {
+                    //     if ((gBattleResources->bufferB[battler][1] | (gBattleResources->bufferB[battler][2] << 8)) != 0)
+                    //         gBattleCommunication[battler]++;
+                    //     else
+                    //         gBattleCommunication[battler] = STATE_BEFORE_ACTION_CHOSEN;
+                    // }
                     break;
                 case B_ACTION_SAFARI_GO_NEAR:
                     gBattleCommunication[battler]++;
@@ -4908,7 +4909,7 @@ static void SetActionsAndBattlersTurnOrder(void)
     s32 turnOrderId = 0;
     enum BattlerId battler, battler2;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+    if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY))
     {
         for (battler = 0; battler < gBattlersCount; battler++)
         {
@@ -5468,6 +5469,7 @@ static void HandleEndTurn_FinishBattle(void)
                                   | BATTLE_TYPE_RECORDED_LINK
                                   | BATTLE_TYPE_FIRST_BATTLE
                                   | BATTLE_TYPE_SAFARI
+                                  | BATTLE_TYPE_STUDY
                                   | BATTLE_TYPE_EREADER_TRAINER
                                   | BATTLE_TYPE_CATCH_TUTORIAL
                                   | BATTLE_TYPE_FRONTIER))
@@ -5521,6 +5523,7 @@ static void HandleEndTurn_FinishBattle(void)
                                   | BATTLE_TYPE_TRAINER
                                   | BATTLE_TYPE_FIRST_BATTLE
                                   | BATTLE_TYPE_SAFARI
+                                  | BATTLE_TYPE_STUDY
                                   | BATTLE_TYPE_FRONTIER
                                   | BATTLE_TYPE_EREADER_TRAINER
                                   | BATTLE_TYPE_CATCH_TUTORIAL))
@@ -5589,6 +5592,7 @@ static void FreeResetData_ReturnToOvOrDoEvolutions(void)
                                   | BATTLE_TYPE_RECORDED_LINK
                                   | BATTLE_TYPE_FIRST_BATTLE
                                   | BATTLE_TYPE_SAFARI
+                                  | BATTLE_TYPE_STUDY
                                   | BATTLE_TYPE_FRONTIER
                                   | BATTLE_TYPE_EREADER_TRAINER
                                   | BATTLE_TYPE_CATCH_TUTORIAL))

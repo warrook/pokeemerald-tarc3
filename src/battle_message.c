@@ -1492,6 +1492,8 @@ const u8 gText_Draw[] = _("{BACKGROUND TRANSPARENT}{ACCENT TRANSPARENT}Draw");
 static const u8 sText_SpaceIs[] = _(" is");
 static const u8 sText_ApostropheS[] = _("'s");
 const u8 gText_BattleTourney[] = _("BATTLE TOURNEY");
+const u8 gText_StudyModeCatches[] = _("Catches");
+const u8 gText_StudyModeCatchesLeft[] = _("Left: $");
 
 const u8 *const gRoundsStringTable[DOME_ROUNDS_COUNT] =
 {

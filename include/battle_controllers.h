@@ -80,6 +80,7 @@ enum BattleController
     BATTLE_CONTROLLER_RECORDED_PARTNER,
     BATTLE_CONTROLLER_RECORDED_OPPONENT,
     BATTLE_CONTROLLER_OAK_OLD_MAN,
+    BATTLE_CONTROLLER_STUDY,
     BATTLE_CONTROLLERS_COUNT,
 };
 
@@ -445,6 +446,10 @@ void PlayerPartnerBufferExecCompleted(enum BattlerId battler);
 // safari controller
 void SetControllerToSafari(enum BattlerId battler);
 void SafariBufferExecCompleted(enum BattlerId battler);
+
+// study controller
+void SetControllerToStudy(enum BattlerId battler);
+void StudyBufferExecCompleted(enum BattlerId battler);
 
 // wally controller
 void SetControllerToWally(enum BattlerId battler);

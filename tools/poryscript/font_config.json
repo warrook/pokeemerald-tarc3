@@ -356,6 +356,6 @@
     {"pattern": "\\f", "replacement": "♀"},
     {"pattern": "\\qo", "replacement": "“"},
     {"pattern": "\\qc", "replacement": "”"},
-    {"pattern": "\\\\h(\\d+)", "replacement": "{PAUSE_$1}", "regex": true}
+    {"pattern": "\\\\h(\\d+)", "replacement": "{PAUSE $1}", "regex": true}
   ]
 }

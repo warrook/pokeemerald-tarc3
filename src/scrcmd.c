@@ -63,6 +63,7 @@
 #include "list_menu.h"
 #include "malloc.h"
 #include "battle.h"
+#include "suit_call.h"
 #include "constants/event_objects.h"
 #include "constants/map_types.h"
 #include "constants/party_menu.h"
@@ -3420,5 +3421,17 @@ bool8 ScrCmd_getbraillestringwidth(struct ScriptContext * ctx)
         msg = (u8 *)ctx->data[0];
 
     gSpecialVar_0x8004 = GetStringWidth(FONT_BRAILLE, msg, -1);
+    return FALSE;
+}
+
+bool8 ScrCmd_suitcall(struct ScriptContext *ctx)
+{
+    const u8 *msg = (const u8 *)ScriptReadWord(ctx);
+
+    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+
+    if (msg == NULL)
+        msg = (const u8 *)ctx->data[0];
+    ShowSuitCallFieldMessage(msg);
     return FALSE;
 }

@@ -4,6 +4,7 @@
 #include "task.h"
 #include "text.h"
 #include "match_call.h"
+#include "suit_call.h"
 #include "field_message_box.h"
 #include "text_window.h"
 #include "script.h"
@@ -96,6 +97,26 @@ bool8 ShowPokenavFieldMessage(const u8 *str)
     StringExpandPlaceholders(gStringVar4, str);
     CreateTask(Task_HidePokenavMessageWhenDone, 0);
     StartMatchCallFromScript(str);
+    sFieldMessageBoxMode = FIELD_MESSAGE_BOX_NORMAL;
+    return TRUE;
+}
+
+static void Task_HideSuitCallMessageWhenDone(u8 taskId)
+{
+    if (!IsSuitCallTaskActive())
+    {
+        sFieldMessageBoxMode = FIELD_MESSAGE_BOX_HIDDEN;
+        DestroyTask(taskId);
+    }
+}
+
+bool8 ShowSuitCallFieldMessage(const u8 *str)
+{
+    if (sFieldMessageBoxMode != FIELD_MESSAGE_BOX_HIDDEN)
+        return FALSE;
+    StringExpandPlaceholders(gStringVar4, str);
+    CreateTask(Task_HideSuitCallMessageWhenDone, 0);
+    StartSuitCall();
     sFieldMessageBoxMode = FIELD_MESSAGE_BOX_NORMAL;
     return TRUE;
 }

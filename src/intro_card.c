@@ -19,6 +19,7 @@
 #include "string_util.h"
 //#include "trainer_card.h"
 #include "new_game.h"
+#include "m4a.h"
 #include "gpu_regs.h"
 #include "international_string_util.h"
 #include "pokedex.h"
@@ -243,9 +244,10 @@ static void CB2_IntroCard(void)
 
 static void CloseIntroCard(u8 taskId)
 {
-    SetMainCallback2(sData->callback2);
+    DebugPrintfLevel(MGBA_LOG_DEBUG, "Close Intro Card");
     FreeAllWindowBuffers();
     FREE_AND_SET_NULL(sData);
+    SetMainCallback2(CB2_NewGame);
     DestroyTask(taskId);
 }
 
@@ -359,21 +361,17 @@ static void PrintControls(void)
 
     if (!IsNamed())
     {
-        u8 enterName[] = _("{FONT_NORMAL}{A_COLOR}{FONT_SMALL}ENTER NAME  ");
-        StringCopy(buffer, enterName);
+        StringCopy(buffer, COMPOUND_STRING("{FONT_NORMAL}{A_COLOR}{FONT_SMALL}ENTER NAME  "));
     }
     else if (IsCardFlipTaskActive())
     {
         // Naming has happened once, and before the flip
-        u8 rename[] = _("{FONT_NORMAL}{B_COLOR}{FONT_SMALL}RENAME  ");
-        u8 flip[] = _("{FONT_NORMAL}{A_COLOR}{FONT_SMALL}FLIP");
-        StringCopy(buffer, rename);
-        StringAppend(buffer, flip);
+        StringCopy(buffer, COMPOUND_STRING("{FONT_NORMAL}{B_COLOR}{FONT_SMALL}RENAME  "));
+        StringAppend(buffer, COMPOUND_STRING("{FONT_NORMAL}{A_COLOR}{FONT_SMALL}FLIP"));
     }
     else
     {
-        u8 finish[] = _("{FONT_NORMAL}{A_COLOR}{FONT_SMALL}FINISH");
-        StringCopy(buffer, finish);
+        StringCopy(buffer, COMPOUND_STRING("{FONT_NORMAL}{A_COLOR}{FONT_SMALL}FINISH"));
     }
     
     // Print controls
@@ -391,13 +389,12 @@ static void PrintObjectiveOnCard(u8 top, const u8 *text)
 
 static void PrintObjectivesOnCard(void)
 {
-    const u8 str1[] = _("Catch first partner");
-    const u8 str2[] = _("Study alien devices");
-    const u8 str3[] = _("Find cause of EXO-POKéMON agitation");
-
-    PrintObjectiveOnCard(0, str1);
-    PrintObjectiveOnCard(1, str2);
-    PrintObjectiveOnCard(2, str3);
+    PrintObjectiveOnCard(0,
+        COMPOUND_STRING("Catch first partner"));
+    PrintObjectiveOnCard(1, 
+        COMPOUND_STRING("Study alien devices"));
+    PrintObjectiveOnCard(2, 
+        COMPOUND_STRING("Find cause of Exo-Pokémon agitation"));
 }
 
 static void DoNaming(u8 taskId)
@@ -469,6 +466,7 @@ static void Task_IntroCard(u8 taskId)
         {
             if (!IsNamed())
                 PlaySE(SE_RG_CARD_OPEN);
+            SetHBlankCallback(NULL);
             sData->mainState++;
         }
         break;
@@ -501,12 +499,13 @@ static void Task_IntroCard(u8 taskId)
         if (JOY_NEW(A_BUTTON))
         {
             BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-            PlaySE(SE_M_MORNING_SUN);
+            m4aSongNumStop(SE_RG_CARD_OPEN);
+            PlaySE(SE_M_PETAL_DANCE);
             sData->mainState = STATE_CLOSE_CARD;
         }
         break;
     case STATE_CLOSE_CARD:
-        if (!UpdatePaletteFade())
+        if (!UpdatePaletteFade() && !IsSEPlaying())
             CloseIntroCard(taskId);
         break;
     }
@@ -523,8 +522,11 @@ static void Task_StartNamingScreen(u8 taskId)
         MainCallback callback = !IsNamed() ? CB2_InitIntroCard_BackFromNaming : CB2_InitIntroCard_BackFromRenaming;
 
         FREE_AND_SET_NULL(sData);
-        DestroyTask(taskId);
         
+        // Set default name so things don't explode
+        StringCopy(gSaveBlock2Ptr->playerName, COMPOUND_STRING("Robin"));
+        gSaveBlock2Ptr->playerName[PLAYER_NAME_LENGTH] = EOS;
+        DestroyTask(taskId);
         DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, MALE, 0, 0, callback);
     }
 }
@@ -758,7 +760,7 @@ void CB2_InitIntroCard_FirstRun(void)
 
 void CB2_InitIntroCard_BackFromNaming(void)
 {
-    NewGameInitData();
+    //NewGameInitData();
     CB2_InitIntroCard_BackFromRenaming();
 }
 

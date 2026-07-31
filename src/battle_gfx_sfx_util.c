@@ -744,7 +744,7 @@ bool8 BattleLoadAllHealthBoxesGfx(u8 state)
         {
             if (state == 2)
             {
-                if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+                if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY))
                     LoadCompressedSpriteSheet(&sSpriteSheet_SafariHealthbox);
                 else
                     LoadCompressedSpriteSheet(&sSpriteSheet_SinglesPlayerHealthbox);
@@ -832,7 +832,7 @@ bool8 BattleInitAllSprites(u8 *state1, u8 *battler)
         (*state1)++;
         break;
     case 3:
-        if ((gBattleTypeFlags & BATTLE_TYPE_SAFARI) && *battler == 0)
+        if ((gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY)) && *battler == 0)
             gHealthboxSpriteIds[*battler] = CreateSafariPlayerHealthboxSprites();
         else
             gHealthboxSpriteIds[*battler] = CreateBattlerHealthboxSprites(*battler);
@@ -859,7 +859,7 @@ bool8 BattleInitAllSprites(u8 *state1, u8 *battler)
         }
         break;
     case 5:
-        if (!IsOnPlayerSide(*battler) || !(gBattleTypeFlags & BATTLE_TYPE_SAFARI))
+        if (!IsOnPlayerSide(*battler) || !(gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY)))
             UpdateHealthboxAttribute(gHealthboxSpriteIds[*battler], GetBattlerMon(*battler), HEALTHBOX_ALL);
         SetHealthboxSpriteInvisible(gHealthboxSpriteIds[*battler]);
         (*battler)++;

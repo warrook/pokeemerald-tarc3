@@ -13,6 +13,7 @@
 #include "sound.h"
 #include "sprite.h"
 #include "task.h"
+#include "event_scripts.h"
 #include "constants/event_objects.h"
 #include "constants/event_object_movement.h"
 #include "constants/field_specials.h"
@@ -277,6 +278,89 @@ void EndTruckSequence(u8 taskId)
         SetObjectEventSpritePosByLocalIdAndMap(LOCALID_TRUCK_BOX_BOTTOM_R, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, BOX3_X_OFFSET, BOX3_Y_OFFSET);
     }
 }
+
+#define tState   data[0]
+#define tTimer   data[1]
+#define tTaskId1 data[2]
+#define tTaskId2 data[3]
+
+static void Task_HandleLandingSequence(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    switch (tState)
+    {
+    case 0:
+        tTimer++;
+        if (tTimer == 90)
+        {
+            tTimer = 0;
+            tState++;
+            PlaySE(SE_TRUCK_MOVE);
+        }
+        break;
+    case 1:
+        tTimer++;
+        if (tTimer == 150)
+        {
+            FadeInFromBlack();
+            tTimer = 0;
+            tState++;
+        }
+        break;
+    case 2:
+        tTimer++;
+        if (!gPaletteFade.active && tTimer > 300)
+        {
+            tTimer = 0;
+            tState++;
+            PlaySE(SE_TRUCK_STOP);
+        }
+        break;
+    case 3:
+        tTimer++;
+        if (tTimer == 90)
+        {
+            tTimer = 0;
+            tState++;
+            PlaySE(SE_TRUCK_UNLOAD);
+        }
+        break;
+    case 4:
+        tTimer++;
+        if (tTimer == 120)
+        {
+            //DrawWholeMapView();
+            PlaySE(SE_TRUCK_DOOR);
+            DestroyTask(taskId);
+            //UnlockPlayerFieldControls();
+            ScriptContext_SetupScript(Banzo_EventScript_Intro);
+        }
+        break;
+    }
+}
+
+void ExecuteLandingSequence(void)
+{
+    DebugPrintfLevel(MGBA_LOG_DEBUG, "Execute Landing Sequence");
+
+    LockPlayerFieldControls();
+    CpuFastFill(0, gPlttBufferFaded, PLTT_SIZE);
+    CreateTask(Task_HandleLandingSequence, 0xA);
+}
+
+void EndLandingSequence(u8 taskId)
+{
+    if (!FuncIsActiveTask(Task_HandleLandingSequence))
+    {
+        //Wrap up
+    }
+}
+
+#undef tState
+#undef tTimer
+#undef tTaskId1
+#undef tTaskId2
 
 bool8 TrySetPortholeWarpDestination(void)
 {

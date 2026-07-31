@@ -1217,14 +1217,16 @@ static void PrintStatOnBackOfCard(u8 top, const u8 *statName, u8 *stat, const u8
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, stat, widths[sData->isHoenn]), top * 16 + 33, color, TEXT_SKIP_DRAW, stat);
 }
 
-static void PrintObjectiveOnCard(u8 top, const u8 *text/*, FLAG*/)
+static void PrintObjectiveOnCard(u8 top, u16 flag, const u8 *text)
 {
     static const u8 textOffset = 16;
     static const u8 checkOffset = 9;
 
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, textOffset, top * 16 + 33, sTrainerCardTextColors, TEXT_SKIP_DRAW, text);
-    //if FLAG
-    BlitBitmapRectToWindow(WIN_CARD_TEXT, gTamagotchiTrainerCardCheckmark, 0, 2, 16, 16, checkOffset, top * 16 + 33 + 1, 6, 12);
+    if (FlagGet(flag))
+    {
+        BlitBitmapRectToWindow(WIN_CARD_TEXT, gTamagotchiTrainerCardCheckmark, 0, 2, 16, 16, checkOffset, top * 16 + 33 + 1, 6, 12);
+    }
 }
 
 static void PrintObjectivesOnCard(void)
@@ -1233,9 +1235,10 @@ static void PrintObjectivesOnCard(void)
     const u8 str2[] = _("Study alien devices");
     const u8 str3[] = _("Find cause of EXO-POKéMON agitation");
 
-    PrintObjectiveOnCard(0, str1);
-    PrintObjectiveOnCard(1, str2);
-    PrintObjectiveOnCard(2, str3);
+    PrintObjectiveOnCard(0, FLAG_SYS_POKEMON_GET, str1);
+    // Placeholder flags
+    PrintObjectiveOnCard(1, FLAG_UNUSED_0x95D, str2);
+    PrintObjectiveOnCard(2, FLAG_UNUSED_0x95D, str3);
 }
 
 static void PrintHofDebutTimeOnCard(void)

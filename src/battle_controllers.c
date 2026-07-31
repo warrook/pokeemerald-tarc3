@@ -106,6 +106,7 @@ bool32 BattlerHasAi(enum BattlerId battlerId)
     case BATTLE_CONTROLLER_OPPONENT:
     case BATTLE_CONTROLLER_PLAYER_PARTNER:
     case BATTLE_CONTROLLER_SAFARI:
+    case BATTLE_CONTROLLER_STUDY: // ?
     case BATTLE_CONTROLLER_WALLY:
         return TRUE;
     default:
@@ -153,6 +154,11 @@ void SetUpBattleVarsAndBirchZigzagoon(void)
 
     if (!IS_FRLG && gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
         CreateWildMon(SPECIES_ZIGZAGOON, 2);
+    else if (!FlagGet(FLAG_SYS_POKEMON_GET))
+    {
+        // Force a Babymarutchi to avoid a Bbmarutchi from being someone's first mon (since the first area includes them)
+        CreateWildMon(SPECIES_BABYMARUTCHI, 5);
+    }
 }
 
 void InitBattleControllers(void)
@@ -272,6 +278,8 @@ static void InitBtlControllersInternal(void)
                 gBattlerControllerFuncs[GetBattlerPosition(B_BATTLER_0)] = SetControllerToRecordedPlayer;
             else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
                 gBattlerControllerFuncs[GetBattlerPosition(B_BATTLER_0)] = SetControllerToSafari;
+            else if (gBattleTypeFlags & BATTLE_TYPE_STUDY)
+                gBattlerControllerFuncs[GetBattlerPosition(B_BATTLER_0)] = SetControllerToStudy;
             else if (gBattleTypeFlags & BATTLE_TYPE_CATCH_TUTORIAL)
                 gBattlerControllerFuncs[GetBattlerPosition(B_BATTLER_0)] = IS_FRLG ? SetControllerToOakOrOldMan : SetControllerToWally;
             else if (IS_FRLG && (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE))
@@ -458,6 +466,11 @@ static inline bool32 IsControllerLinkPartner(enum BattlerId battler)
 static inline bool32 IsControllerSafari(enum BattlerId battler)
 {
     return (gBattlerControllerEndFuncs[battler] == SafariBufferExecCompleted);
+}
+
+static inline bool32 IsControllerStudy(enum BattlerId battler)
+{
+    return (gBattlerControllerEndFuncs[battler] == StudyBufferExecCompleted);
 }
 
 bool32 ShouldUpdateTvData(enum BattlerId battler)
@@ -1986,7 +1999,7 @@ static bool8 ShouldDoSlideInAnim(enum BattlerId battler)
 
     if (gBattleTypeFlags & (
         BATTLE_TYPE_LINK | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_FIRST_BATTLE |
-        BATTLE_TYPE_SAFARI | BATTLE_TYPE_CATCH_TUTORIAL | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TWO_OPPONENTS |
+        BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY | BATTLE_TYPE_CATCH_TUTORIAL | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TWO_OPPONENTS |
         BATTLE_TYPE_INGAME_PARTNER | BATTLE_TYPE_RECORDED | BATTLE_TYPE_TRAINER_HILL)
     )
         return FALSE;
@@ -2474,7 +2487,7 @@ void BtlController_HandleDrawTrainerPic(enum BattlerId battler, enum TrainerPicI
                                                              xPos,
                                                              yPos,
                                                              subpriority);
-            if ((gBattleTypeFlags & BATTLE_TYPE_SAFARI) && GetBattlerPosition(battler) == B_POSITION_PLAYER_LEFT)
+            if ((gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY)) && GetBattlerPosition(battler) == B_POSITION_PLAYER_LEFT)
                 gBattlerSpriteIds[battler] = gBattleStruct->trainerSlideSpriteIds[battler];
 
             // Sets sprite priority to 1 so mons don't remain in foreground
@@ -2502,7 +2515,7 @@ void BtlController_HandleTrainerSlide(enum BattlerId battler, enum TrainerPicID 
                                                          80,
                                                          (8 - GetTrainerBackPicCoords(trainerPicId)->size) * 4 + 80,
                                                          30);
-        if ((gBattleTypeFlags & BATTLE_TYPE_SAFARI) && GetBattlerPosition(battler) == B_POSITION_PLAYER_LEFT)
+        if ((gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY)) && GetBattlerPosition(battler) == B_POSITION_PLAYER_LEFT)
             gBattlerSpriteIds[battler] = gBattleStruct->trainerSlideSpriteIds[battler];
         // Sets sprite priority to 1 so mons don't remain in foreground
         gSprites[gBattleStruct->trainerSlideSpriteIds[battler]].oam.priority = 1;
@@ -2726,7 +2739,7 @@ void BtlController_HandleStatusIconUpdate(enum BattlerId battler)
     {
         struct Pokemon *mon = GetBattlerMon(battler);
 
-        if (IsControllerSafari(battler))
+        if (IsControllerSafari(battler) || IsControllerStudy(battler))
         {
             UpdateHealthboxAttribute(gHealthboxSpriteIds[battler], mon, HEALTHBOX_SAFARI_BALLS_TEXT);
             BtlController_Complete(battler);
@@ -3021,7 +3034,7 @@ void BtlController_HandleHidePartyStatusSummary(enum BattlerId battler)
 
 void BtlController_HandleBattleAnimation(enum BattlerId battler)
 {
-    if ((gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_CATCH_TUTORIAL))
+    if ((gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_CATCH_TUTORIAL | BATTLE_TYPE_STUDY))
         || IsControllerOakOldMan(battler)
         || !IsBattleSEPlaying(battler))
     {

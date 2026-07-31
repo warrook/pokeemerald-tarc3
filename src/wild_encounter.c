@@ -18,6 +18,7 @@
 #include "random.h"
 #include "roamer.h"
 #include "safari_zone.h"
+#include "study_mode.h"
 #include "script.h"
 #include "tv.h"
 #include "wild_encounter.h"
@@ -583,6 +584,12 @@ static bool8 EncounterOddsCheck(u16 encounterRate)
 // Returns true if it will try to create a wild encounter.
 static bool8 WildEncounterCheck(u32 encounterRate, bool8 ignoreAbility)
 {
+    // Make encountering a mon very quick if it's the player's first and they're in study mode
+    if (GetStudyModeFlag() && !FlagGet(FLAG_SYS_POKEMON_GET))
+    {
+        return EncounterOddsCheck(MAX_ENCOUNTER_RATE / 2);
+    }
+
     encounterRate *= 16;
     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
         encounterRate = encounterRate * 80 / 100;

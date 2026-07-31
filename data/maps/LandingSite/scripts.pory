@@ -1,7 +1,82 @@
-mapscripts LandingSite_MapScripts {}
+mapscripts LandingSite_MapScripts {
+    MAP_SCRIPT_ON_LOAD {
+        setrespawn(HEAL_LOCATION_LANDING_SITE)
+        end
+    }
+}
+
+script SuitCallBegin
+{
+    playse(SE_POKENAV_CALL)
+    waitse
+    playse(SE_POKENAV_ON)
+    return
+}
+
+script SuitCallEnd
+{
+    playse(SE_POKENAV_HANG_UP)
+    return
+}
+
+script Banzo_EventScript_Intro
+{
+    lockall
+    playse(SE_POKENAV_CALL)
+    delay(60)
+    playse(SE_POKENAV_ON)
+    suitcall("Prof. Banzo: {PLAYER}?\h15 {PLAYER}??\h30
+              I just saw you land, can you hear me?!")
+    waitmessage
+    playse(SE_POKENAV_OFF)
+    waitse
+    // Exit the lander
+    playse(SE_POKENAV_ON)
+    suitcall("Ahem.\h30 Okay, good, you're alive. Excellent.
+              And you know how to respond to comms.
+              
+              Odd how this planet is so like ours, huh?
+              
+              Your first task is to find an Exo-Pok\emon
+              to protect you.
+              
+              The ones nearby should be docile enough
+              for you to catch by yourself. Just don't
+              go very far, it's too dangerous and we
+              didn't bring a spare astronaut.")
+    waitmessage
+    applymovement(LOCALID_PLAYER, moves(emote_x))
+    delay(60)
+    suitcall("{FONT_SMALL}That's a joke.\h30 But please be careful.{FONT_NORMAL}
+              If Pok\eballs don't work on aliens, uh.\h30.\h30.\h15
+              Well,\h30 they'll work. Good luck!")
+            //Odd how this planet's so like ours, isn't it
+    waitmessage
+    // No hang-up sound because he's still listening
+    setvar(VAR_0x8004, 1) // SM limit
+    special(EnterStudyMode)
+    setflag(FLAG_SYS_B_DASH)
+    releaseall
+    end
+}
+
+script Banzo_EventScript_AfterCatch {
+    lockall
+    playse(SE_POKENAV_ON)
+    suitcall(format("Prof. Banzo: Phew. So they do work.\p"
+             "I'm going to analyze the data. I'm here if you need to talk to me!\p"
+             "Remember: you're there to figure out why the native life has started getting aggressive with each other...and what those odd devices we've observed are.\p"
+             "Good luck, and be safe."))
+    waitmessage
+    call(SuitCallEnd)
+    waitse
+    msgbox(format("Open your I.D. card in the start menu for a reminder of what to do, or call Banzo for a more elaborate explanation."))
+    releaseall
+    end
+}
 
 script Capsule {
-    lockall
+    lock
     //call Common_EventScript_OutOfCenterPartyHeal
     special(ScriptMenu_CreateCapsuleMultichoice)
     // - Rest

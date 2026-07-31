@@ -57,6 +57,7 @@ extern const u8 EventScript_ResetAllMapFlagsFrlg[];
 
 static void ClearFrontierRecord(void);
 static void WarpToTruck(void);
+static void WarpToLandingSite(void);
 static void ResetMiniGamesRecords(void);
 static void ResetItemFlags(void);
 static void ResetDexNav(void);
@@ -142,6 +143,13 @@ static void WarpToTruck(void)
     WarpIntoMap();
 }
 
+static void WarpToLandingSite(void)
+{
+    DebugPrintfLevel(MGBA_LOG_DEBUG, "Warp To Landing Site: group %u, num %u", MAP_GROUP(MAP_LANDING_SITE), MAP_NUM(MAP_LANDING_SITE));
+    SetWarpDestination(MAP_GROUP(MAP_LANDING_SITE), MAP_NUM(MAP_LANDING_SITE), WARP_ID_NONE, 12, 12);
+    WarpIntoMap();
+}
+
 void Sav2_ClearSetDefault(void)
 {
     ClearSav2();
@@ -211,7 +219,8 @@ void NewGameInitData(void)
     ResetFanClub();
     ResetLotteryCorner();
     UpdateDailySeed();
-    WarpToTruck();
+    //WarpToTruck();
+    WarpToLandingSite();
     if (IS_FRLG)
         RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
     else

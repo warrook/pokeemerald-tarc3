@@ -22,6 +22,7 @@
 #include "random.h"
 #include "text.h"
 #include "safari_zone.h"
+#include "study_mode.h"
 #include "sound.h"
 #include "sprite.h"
 #include "string_util.h"
@@ -743,8 +744,15 @@ void HandleAction_SafariZoneBallThrow(void)
     gBattlerAttacker = gBattlerByTurnOrder[gCurrentTurnActionNumber];
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
-    gNumSafariBalls--;
-    gLastUsedItem = ITEM_SAFARI_BALL;
+    if (gBattleTypeFlags & BATTLE_TYPE_STUDY)
+    {
+        gLastUsedItem = ITEM_POKE_BALL;
+    }
+    else
+    {
+        gNumSafariBalls--;
+        gLastUsedItem = ITEM_SAFARI_BALL;
+    }
     gBattlescriptCurrInstr = BattleScript_SafariBallThrow;
     gCurrentActionFuncId = B_ACTION_EXEC_SCRIPT;
 }
@@ -767,7 +775,7 @@ void HandleAction_ThrowPokeblock(void)
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
 
-    if (IS_FRLG)
+    if (gBattleTypeFlags & BATTLE_TYPE_STUDY || IS_FRLG)
     {
         // throw bait
         gBattleStruct->safariBaitThrowCounter += Random() % 5 + 2;
@@ -817,7 +825,7 @@ void HandleAction_GoNear(void)
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
 
-    if (IS_FRLG)
+    if (gBattleTypeFlags & BATTLE_TYPE_STUDY || IS_FRLG)
     {
         // throw rock
         gBattleStruct->safariRockThrowCounter += Random() % 5 + 2;
@@ -1755,7 +1763,7 @@ bool32 IsAbilityAndRecord(enum BattlerId battler, enum Ability battlerAbility, e
 
 bool32 HandleFaintedMonActions(void)
 {
-    if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+    if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY))
         return FALSE;
 
     do
@@ -2468,7 +2476,7 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
     bool32 effect = FALSE;
     bool32 isTerrain = FALSE;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+    if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY))
         return FALSE;
 
     switch (caseId)
@@ -2925,7 +2933,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
     u32 partner = 0;
     enum Species speciesForm = SPECIES_NONE;
 
-    if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+    if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY))
         return 0;
 
     if (gBattlerAttacker >= gBattlersCount)
@@ -9638,7 +9646,7 @@ void SetShellSideArmCategory(void)
     u32 power = GetMovePower(MOVE_SHELL_SIDE_ARM);
 
     // Don't run this check for Safari Battles. Because player's stats are zeroed out, this performs division by zero which previously would crash on certain emulators in Safari Zone.
-    if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+    if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY))
         return;
 
     for (battlerAtk = 0; battlerAtk < gBattlersCount; battlerAtk++)

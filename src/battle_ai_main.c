@@ -266,7 +266,7 @@ static u64 GetAiFlags(u16 trainerId, enum BattlerId battler)
     {
         if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
             flags = GetAiScriptsInRecordedBattle(battler);
-        else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+        else if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY))
             flags = AI_FLAG_SAFARI;
         else if (gBattleTypeFlags & BATTLE_TYPE_ROAMER)
             flags = AI_FLAG_ROAMING;

@@ -787,4 +787,8 @@ extern const u8 CableClub_EventScript_ShowBattleRecords_Frlg[];
 extern const u8 EventScript_Indigo_UltimateGoal[];
 extern const u8 EventScript_Indigo_HighestAuthority[];
 
+// Tamagotchi
+extern const u8 Banzo_EventScript_Intro[];
+extern const u8 Banzo_EventScript_AfterCatch[];
+
 #endif // GUARD_EVENT_SCRIPTS_H

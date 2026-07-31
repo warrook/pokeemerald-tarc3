@@ -283,7 +283,7 @@ static bool8 LoadBattlerSpriteGfx(enum BattlerId battler)
             else
                 BattleLoadSubstituteOrMonSpriteGfx(battler, FALSE);
         }
-        else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI && position == B_POSITION_PLAYER_LEFT)
+        else if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY) && position == B_POSITION_PLAYER_LEFT)
         {
             enum TrainerPicID trainerPicId = GetPlayerTrainerPic(gSaveBlock2Ptr->playerGender, GAME_VERSION);
             LoadSpritePaletteWithTag(GetTrainerBackPicPalette(trainerPicId), GetTrainerPicTag(trainerPicId, FALSE));
@@ -334,7 +334,7 @@ void CreateBattlerSprite(enum BattlerId battler)
 
             StartSpriteAnim(&gSprites[gBattlerSpriteIds[battler]], 0);
         }
-        else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI && position == B_POSITION_PLAYER_LEFT)
+        else if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY) && position == B_POSITION_PLAYER_LEFT)
         {
             enum TrainerPicID trainerPicId = GetPlayerTrainerPic(gSaveBlock2Ptr->playerGender, GAME_VERSION);
             SetMultiuseSpriteTemplateToTrainerBack(trainerPicId, position);
@@ -386,7 +386,7 @@ static void CreateHealthboxSprite(enum BattlerId battler)
         u8 healthboxSpriteId;
 
         enum BattlerPosition position = GetBattlerPosition(battler);
-        if (gBattleTypeFlags & BATTLE_TYPE_SAFARI && position == B_POSITION_PLAYER_LEFT)
+        if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY) && position == B_POSITION_PLAYER_LEFT)
             healthboxSpriteId = CreateSafariPlayerHealthboxSprites();
         else if (gBattleTypeFlags & BATTLE_TYPE_CATCH_TUTORIAL && position == B_POSITION_PLAYER_LEFT)
             return;
@@ -399,7 +399,7 @@ static void CreateHealthboxSprite(enum BattlerId battler)
 
         if (!IsOnPlayerSide(battler))
             UpdateHealthboxAttribute(gHealthboxSpriteIds[battler], GetBattlerMon(battler), HEALTHBOX_ALL);
-        else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
+        else if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY))
             UpdateHealthboxAttribute(gHealthboxSpriteIds[battler], GetBattlerMon(battler), HEALTHBOX_SAFARI_ALL_TEXT);
         else
             UpdateHealthboxAttribute(gHealthboxSpriteIds[battler], GetBattlerMon(battler), HEALTHBOX_ALL);
@@ -414,7 +414,7 @@ static void CreateHealthboxSprite(enum BattlerId battler)
             if (GetMonData(GetBattlerMon(battler), MON_DATA_HP) == 0 || gBattleStruct->battlerState[battler].notOnField)
                 SetHealthboxSpriteInvisible(healthboxSpriteId);
         }
-        else if (!(gBattleTypeFlags & BATTLE_TYPE_SAFARI))
+        else if (!(gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_STUDY)))
         {
             if (!IsValidForBattle(GetBattlerMon(battler)) || gBattleStruct->battlerState[battler].notOnField)
                 SetHealthboxSpriteInvisible(healthboxSpriteId);

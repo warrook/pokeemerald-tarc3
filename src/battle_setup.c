@@ -7,6 +7,7 @@
 #include "main.h"
 #include "task.h"
 #include "safari_zone.h"
+#include "study_mode.h"
 #include "script.h"
 #include "event_data.h"
 #include "metatile_behavior.h"
@@ -68,6 +69,7 @@ enum TransitionType
 // this file's functions
 static void DoBattlePikeWildBattle(void);
 static void DoSafariBattle(void);
+static void DoStudyBattle(void);
 static void DoGhostBattle(void);
 static void DoStandardWildBattle(bool32 isDouble);
 static void CB2_EndWildBattle(void);
@@ -333,6 +335,8 @@ void BattleSetup_StartWildBattle(void)
 {
     if (GetSafariZoneFlag())
         DoSafariBattle();
+    else if (GetStudyModeFlag())
+        DoStudyBattle();
     else if (CheckSilphScopeInPokemonTower(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum))
         DoGhostBattle();
     else
@@ -414,6 +418,16 @@ static void DoSafariBattle(void)
     StopPlayerAvatar();
     gMain.savedCallback = CB2_EndSafariBattle;
     gBattleTypeFlags = BATTLE_TYPE_SAFARI;
+    CreateBattleStartTask(GetWildBattleTransition(), 0);
+}
+
+static void DoStudyBattle(void)
+{
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    StopPlayerAvatar();
+    gMain.savedCallback = CB2_EndStudyModeBattle;
+    gBattleTypeFlags = BATTLE_TYPE_STUDY;
     CreateBattleStartTask(GetWildBattleTransition(), 0);
 }
 
