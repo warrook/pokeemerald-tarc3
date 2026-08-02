@@ -100,3 +100,19 @@ script Capsule {
     release
     end
 }
+
+script LandingSite_CatchIntro_PushDown {
+    msgbox(format("It's too dangerous to go on alone."))
+    applymovement(LOCALID_PLAYER, moves(walk_down))
+    waitmovement
+    release
+    end
+}
+
+script LandingSite_CatchIntro_PushUp {
+    msgbox(format("It's too dangerous to go on alone."))
+    applymovement(LOCALID_PLAYER, moves(walk_up))
+    waitmovement
+    release
+    end
+}

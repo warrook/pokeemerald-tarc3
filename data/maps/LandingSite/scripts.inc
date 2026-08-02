@@ -135,10 +135,46 @@ Capsule_7:
 	goto Capsule_1
 
 
+LandingSite_CatchIntro_PushDown::
+# 105 "data/maps/LandingSite/scripts.pory"
+	msgbox LandingSite_CatchIntro_PushDown_Text_0
+# 106 "data/maps/LandingSite/scripts.pory"
+	applymovement LOCALID_PLAYER, LandingSite_CatchIntro_PushDown_Movement_0
+# 107 "data/maps/LandingSite/scripts.pory"
+	waitmovement
+# 108 "data/maps/LandingSite/scripts.pory"
+	release
+	end
+
+
+LandingSite_CatchIntro_PushUp::
+# 113 "data/maps/LandingSite/scripts.pory"
+	msgbox LandingSite_CatchIntro_PushDown_Text_0
+# 114 "data/maps/LandingSite/scripts.pory"
+	applymovement LOCALID_PLAYER, LandingSite_CatchIntro_PushUp_Movement_0
+# 115 "data/maps/LandingSite/scripts.pory"
+	waitmovement
+# 116 "data/maps/LandingSite/scripts.pory"
+	release
+	end
+
+
 # 48 "data/maps/LandingSite/scripts.pory"
 Banzo_EventScript_Intro_Movement_0:
 # 48 "data/maps/LandingSite/scripts.pory"
 	emote_x
+	step_end
+
+# 106 "data/maps/LandingSite/scripts.pory"
+LandingSite_CatchIntro_PushDown_Movement_0:
+# 106 "data/maps/LandingSite/scripts.pory"
+	walk_down
+	step_end
+
+# 114 "data/maps/LandingSite/scripts.pory"
+LandingSite_CatchIntro_PushUp_Movement_0:
+# 114 "data/maps/LandingSite/scripts.pory"
+	walk_up
 	step_end
 
 Banzo_EventScript_Intro_Text_0:
@@ -192,3 +228,7 @@ Capsule_Text_1:
 Capsule_Text_2:
 # 96 "data/maps/LandingSite/scripts.pory"
 	.string "No answer.$"
+
+LandingSite_CatchIntro_PushDown_Text_0:
+# 105 "data/maps/LandingSite/scripts.pory"
+	.string "It's too dangerous to go on alone.$"

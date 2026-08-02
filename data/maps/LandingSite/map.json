@@ -54,6 +54,142 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 12,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushDown"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 12,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushDown"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    },
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    },
+    {
+      "type": "trigger",
+      "x": 27,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    },
+    {
+      "type": "trigger",
+      "x": 28,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    },
+    {
+      "type": "trigger",
+      "x": 29,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    },
+    {
+      "type": "trigger",
+      "x": 30,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 25,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushUp"
+    }
+  ],
   "bg_events": []
 }

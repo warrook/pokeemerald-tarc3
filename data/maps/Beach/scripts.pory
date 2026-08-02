@@ -1,1 +1,7 @@
 mapscripts Beach_MapScripts {}
+
+script Beach_Palooka_A {
+    trainerbattle_single(TRAINER_BEACH_A, format("Nyeh!"), format("Nyeh..."))
+    msgbox(format("Nyeh?!"))
+    end
+}
