@@ -63,71 +63,75 @@ Banzo_EventScript_Intro::
 # 58 "data/maps/LandingSite/scripts.pory"
 	setflag FLAG_SYS_B_DASH
 # 59 "data/maps/LandingSite/scripts.pory"
+	setflag FLAG_SYS_PC_LANETTE
+# 60 "data/maps/LandingSite/scripts.pory"
 	releaseall
 	end
 
 
 Banzo_EventScript_AfterCatch::
-# 64 "data/maps/LandingSite/scripts.pory"
-	lockall
 # 65 "data/maps/LandingSite/scripts.pory"
-	playse SE_POKENAV_ON
+	lockall
 # 66 "data/maps/LandingSite/scripts.pory"
+	playse SE_POKENAV_ON
+# 67 "data/maps/LandingSite/scripts.pory"
 	suitcall Banzo_EventScript_AfterCatch_Text_0
-# 70 "data/maps/LandingSite/scripts.pory"
-	waitmessage
 # 71 "data/maps/LandingSite/scripts.pory"
-	call SuitCallEnd
+	waitmessage
 # 72 "data/maps/LandingSite/scripts.pory"
-	waitse
+	call SuitCallEnd
 # 73 "data/maps/LandingSite/scripts.pory"
-	msgbox Banzo_EventScript_AfterCatch_Text_1
+	waitse
 # 74 "data/maps/LandingSite/scripts.pory"
+	msgbox Banzo_EventScript_AfterCatch_Text_1
+# 75 "data/maps/LandingSite/scripts.pory"
+	setflag FLAG_SYS_SCALE_OPPONENTS
+# 76 "data/maps/LandingSite/scripts.pory"
 	releaseall
 	end
 
 
 Capsule::
-# 79 "data/maps/LandingSite/scripts.pory"
-	lock
 # 81 "data/maps/LandingSite/scripts.pory"
+	lock
+# 83 "data/maps/LandingSite/scripts.pory"
 	special ScriptMenu_CreateCapsuleMultichoice
-# 87 "data/maps/LandingSite/scripts.pory"
+# 89 "data/maps/LandingSite/scripts.pory"
 	switch VAR_RESULT
-# 88 "data/maps/LandingSite/scripts.pory"
+# 90 "data/maps/LandingSite/scripts.pory"
 	case 0, Capsule_3
-# 91 "data/maps/LandingSite/scripts.pory"
-	case 1, Capsule_4
 # 93 "data/maps/LandingSite/scripts.pory"
-	case 2, Capsule_5
+	case 1, Capsule_4
 # 95 "data/maps/LandingSite/scripts.pory"
-	case 3, Capsule_6
+	case 2, Capsule_5
 # 97 "data/maps/LandingSite/scripts.pory"
+	case 3, Capsule_6
+# 99 "data/maps/LandingSite/scripts.pory"
 	case MULTI_B_PRESSED, Capsule_7
 Capsule_1:
-# 100 "data/maps/LandingSite/scripts.pory"
+# 102 "data/maps/LandingSite/scripts.pory"
 	release
 	end
 
 Capsule_3:
-# 89 "data/maps/LandingSite/scripts.pory"
+# 91 "data/maps/LandingSite/scripts.pory"
 	call Common_EventScript_OutOfCenterPartyHeal
-# 90 "data/maps/LandingSite/scripts.pory"
+# 92 "data/maps/LandingSite/scripts.pory"
 	msgbox Capsule_Text_0
 	goto Capsule_1
 
 Capsule_4:
-# 92 "data/maps/LandingSite/scripts.pory"
+# 94 "data/maps/LandingSite/scripts.pory"
 	msgbox Capsule_Text_1
 	goto Capsule_1
 
 Capsule_5:
-# 94 "data/maps/LandingSite/scripts.pory"
+# 96 "data/maps/LandingSite/scripts.pory"
 	call EventScript_AccessPokemonBoxLink
 	goto Capsule_1
 
 Capsule_6:
-# 96 "data/maps/LandingSite/scripts.pory"
+# 98 "data/maps/LandingSite/scripts.pory"
 	msgbox Capsule_Text_2
 	goto Capsule_1
 
@@ -136,25 +140,25 @@ Capsule_7:
 
 
 LandingSite_CatchIntro_PushDown::
-# 105 "data/maps/LandingSite/scripts.pory"
-	msgbox LandingSite_CatchIntro_PushDown_Text_0
-# 106 "data/maps/LandingSite/scripts.pory"
-	applymovement LOCALID_PLAYER, LandingSite_CatchIntro_PushDown_Movement_0
 # 107 "data/maps/LandingSite/scripts.pory"
-	waitmovement
+	msgbox LandingSite_CatchIntro_PushDown_Text_0
 # 108 "data/maps/LandingSite/scripts.pory"
+	applymovement LOCALID_PLAYER, LandingSite_CatchIntro_PushDown_Movement_0
+# 109 "data/maps/LandingSite/scripts.pory"
+	waitmovement
+# 110 "data/maps/LandingSite/scripts.pory"
 	release
 	end
 
 
 LandingSite_CatchIntro_PushUp::
-# 113 "data/maps/LandingSite/scripts.pory"
-	msgbox LandingSite_CatchIntro_PushDown_Text_0
-# 114 "data/maps/LandingSite/scripts.pory"
-	applymovement LOCALID_PLAYER, LandingSite_CatchIntro_PushUp_Movement_0
 # 115 "data/maps/LandingSite/scripts.pory"
-	waitmovement
+	msgbox LandingSite_CatchIntro_PushDown_Text_0
 # 116 "data/maps/LandingSite/scripts.pory"
+	applymovement LOCALID_PLAYER, LandingSite_CatchIntro_PushUp_Movement_0
+# 117 "data/maps/LandingSite/scripts.pory"
+	waitmovement
+# 118 "data/maps/LandingSite/scripts.pory"
 	release
 	end
 
@@ -165,15 +169,15 @@ Banzo_EventScript_Intro_Movement_0:
 	emote_x
 	step_end
 
-# 106 "data/maps/LandingSite/scripts.pory"
+# 108 "data/maps/LandingSite/scripts.pory"
 LandingSite_CatchIntro_PushDown_Movement_0:
-# 106 "data/maps/LandingSite/scripts.pory"
+# 108 "data/maps/LandingSite/scripts.pory"
 	walk_down
 	step_end
 
-# 114 "data/maps/LandingSite/scripts.pory"
+# 116 "data/maps/LandingSite/scripts.pory"
 LandingSite_CatchIntro_PushUp_Movement_0:
-# 114 "data/maps/LandingSite/scripts.pory"
+# 116 "data/maps/LandingSite/scripts.pory"
 	walk_up
 	step_end
 
@@ -201,7 +205,7 @@ Banzo_EventScript_Intro_Text_2:
 	.string "Well,{PAUSE 30} they'll work. Good luck!$"
 
 Banzo_EventScript_AfterCatch_Text_0:
-# 66 "data/maps/LandingSite/scripts.pory"
+# 67 "data/maps/LandingSite/scripts.pory"
 	.string "Prof. Banzo: Phew. So they do work.\p"
 	.string "I'm going to analyze the data. I'm here\n"
 	.string "if you need to talk to me!\p"
@@ -212,23 +216,23 @@ Banzo_EventScript_AfterCatch_Text_0:
 	.string "Good luck, and be safe.$"
 
 Banzo_EventScript_AfterCatch_Text_1:
-# 73 "data/maps/LandingSite/scripts.pory"
+# 74 "data/maps/LandingSite/scripts.pory"
 	.string "Open your I.D. card in the start menu\n"
 	.string "for a reminder of what to do, or call\l"
 	.string "Banzo for a more elaborate explanation.$"
 
 Capsule_Text_0:
-# 90 "data/maps/LandingSite/scripts.pory"
+# 92 "data/maps/LandingSite/scripts.pory"
 	.string "You feel refreshed!$"
 
 Capsule_Text_1:
-# 92 "data/maps/LandingSite/scripts.pory"
+# 94 "data/maps/LandingSite/scripts.pory"
 	.string "You fire up the synthesizer.$"
 
 Capsule_Text_2:
-# 96 "data/maps/LandingSite/scripts.pory"
+# 98 "data/maps/LandingSite/scripts.pory"
 	.string "No answer.$"
 
 LandingSite_CatchIntro_PushDown_Text_0:
-# 105 "data/maps/LandingSite/scripts.pory"
+# 107 "data/maps/LandingSite/scripts.pory"
 	.string "It's too dangerous to go on alone.$"

@@ -807,6 +807,8 @@ u8 CopyMonToPC(struct Pokemon *mon);
 u8 CalculatePlayerPartyCount(void);
 u8 CalculatePartnerPartyCount(void);
 u8 CalculateEnemyPartyCount(void);
+u8 CalculateAverageLevelOfParty(enum BattleTrainer trainer);
+u8 GetHighestLevelInParty(enum BattleTrainer trainer);
 u8 GetMonsStateToDoubles(void);
 u8 GetMonsStateToDoubles_2(void);
 enum Ability GetAbilityBySpecies(enum Species species, u8 abilityNum);

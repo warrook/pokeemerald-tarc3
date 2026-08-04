@@ -343,6 +343,64 @@ u8 ChooseWildMonLevel(const struct WildPokemon *wildPokemon, u8 wildMonIndex, en
             min = wildPokemon[wildMonIndex].maxLevel;
             max = wildPokemon[wildMonIndex].minLevel;
         }
+        
+        if (FlagGet(FLAG_SYS_SCALE_OPPONENTS))
+        {
+            // Should scale opponents
+            //u8 fixedLvl = CalculateAverageLevelOfParty(B_TRAINER_PLAYER);
+            u8 fixedLvl = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL);
+            s16 diffMin = fixedLvl - min; // if negative, average is below mon's min level
+            s16 diffMax = fixedLvl - max; // if negative, avg is below mon's max level
+            DebugPrintfLevel(MGBA_LOG_WARN, "== TRY SCALED WILD %S ==", GetSpeciesName(wildPokemon[wildMonIndex].species));
+            DebugPrintfLevel(MGBA_LOG_WARN, "Base mon range: %d-%d", min, max);
+            DebugPrintfLevel(MGBA_LOG_WARN, "Diffs: %d-%d", diffMin, diffMax);
+
+            s16 lvlShift = 0;
+
+            if (diffMin < 0)
+            {
+                // Party is below minimum
+                // Assume party will be below maximum too
+                // Shift wild mon's level by maximum 3 levels
+                lvlShift = diffMin > -3 ? -diffMin : 3;
+            }
+            else
+            {
+                // Party is at or above minimum
+                if (diffMax < 0)
+                {
+                    // Party is below maximum
+                    // Party is within generated range
+                    lvlShift = 0;
+                }
+                else
+                {
+                    // Party is at or above maximum
+                    // Shift wild mon's level by maximium -3 levels
+                    lvlShift = diffMax < 3 ? -diffMax : -3;
+                }
+            }
+
+            DebugPrintfLevel(MGBA_LOG_WARN, "fixedLvl(%d) + lvlShift(%d) = %d", fixedLvl, lvlShift, fixedLvl + lvlShift);
+
+            u8 shiftedLvl = fixedLvl + lvlShift;
+            if (fixedLvl >= shiftedLvl)
+            {
+                // Party is higher than or equal to the range
+                min = shiftedLvl;
+                max = fixedLvl;
+            }
+            else
+            {
+                // Party is lower than the range
+                // If significantly out of range, minimum should probably be shifted too
+                min = fixedLvl;
+                max = shiftedLvl;
+            }
+            u8 minT = min;
+            u8 maxT = max;
+            DebugPrintfLevel(MGBA_LOG_WARN, "Final range: %d-%d", minT, maxT);
+        }
         range = max - min + 1;
         rand = Random() % range;
 

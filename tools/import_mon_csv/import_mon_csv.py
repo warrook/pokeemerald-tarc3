@@ -318,7 +318,7 @@ def register_species(row: dict):
     # except for learned-on-evo moves
     for p in sp.preevolutions:
         if p in all_species:
-            current_learnset.update([i for i in all_species[p].learnset if i.level != 0])
+            current_learnset.update([i for i in all_species[p].learnset if (i.level != 0 and i.move != "MOVE_SPLASH")])
     
     # Store current learnset
     sp.learnset.clear()

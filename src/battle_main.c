@@ -1861,6 +1861,26 @@ void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct TrainerMon 
     }
 }
 
+void GetTrainerPartyRanges(const struct Trainer *trainer, u8 *min, u8 *max, u8 *avg)
+{
+    u32 total = 0;
+    u8 count = trainer->partySize;
+    u8 smallest = 0;
+    u8 largest = 0;
+    for (s32 i = 0; i < count; i++)
+    {
+        u8 lvl = trainer->party[i].lvl;
+        total += lvl;
+        if (lvl < smallest || smallest == 0)
+            smallest = lvl;
+        if (lvl > largest || largest == 0)
+            largest = lvl;
+    }
+    *min = smallest;
+    *max = largest;
+    *avg = total / count;
+}
+
 u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer, bool32 halfTeam, u32 battleTypeFlags)
 {
     u32 personalityValue;
@@ -1881,6 +1901,28 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         else
         {
             monsCount = trainer->partySize;
+        }
+
+        s16 lvlShift = 0;
+
+        if (FlagGet(FLAG_SYS_SCALE_OPPONENTS))
+        {
+            DebugPrintfLevel(MGBA_LOG_WARN, "== TRY SCALED TRAINER %S ==", trainer->trainerName);
+
+            u8 trainerMin = 0;
+            u8 trainerMax = 0;
+            u8 trainerAvg = 0;
+            GetTrainerPartyRanges(trainer, &trainerMin, &trainerMax, &trainerAvg);
+            DebugPrintfLevel(MGBA_LOG_WARN, "trainer ranges: %d-%d (avg %d)", trainerMin, trainerMax, trainerAvg);
+
+            u8 playerAvg = CalculateAverageLevelOfParty(B_TRAINER_PLAYER);
+            u8 playerMax = GetHighestLevelInPlayerParty();
+            // Set base level based on player's highest level or average
+            u8 baseLvl = (playerMax - playerAvg > 5) ? playerMax : playerAvg;
+            DebugPrintfLevel(MGBA_LOG_WARN, "player: avg %d vs max %d, using %d as base", playerAvg, playerMax, baseLvl);
+
+            lvlShift = baseLvl - trainerMin;
+            DebugPrintfLevel(MGBA_LOG_WARN, "applying lvl shift of %d to trainer", lvlShift);
         }
 
         u32 monIndices[monsCount];
@@ -1915,7 +1957,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 otId.method = OT_ID_PRESET;
                 otId.value = HIHALF(personalityValue) ^ LOHALF(personalityValue);
             }
-            CreateMon(&party[i], partyData[monIndex].species, partyData[monIndex].lvl, personalityValue, otId);
+            CreateMon(&party[i], partyData[monIndex].species, partyData[monIndex].lvl + lvlShift, personalityValue, otId);
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[monIndex].heldItem);
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[monIndex]);

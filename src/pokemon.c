@@ -3074,6 +3074,30 @@ u8 CalculateEnemyPartyCount(void)
     return gPartiesCount[B_TRAINER_OPPONENT_A] + gPartiesCount[B_TRAINER_OPPONENT_B];
 }
 
+u8 CalculateAverageLevelOfParty(enum BattleTrainer trainer)
+{
+    u8 count = CalculatePartyCount(trainer);
+    u8 levels = 0;
+    for (u8 i = 0; i < count; i++)
+    {
+       levels += GetMonData(&gParties[trainer][i], MON_DATA_LEVEL);
+    }
+    return levels / count;
+}
+
+u8 GetHighestLevelInParty(enum BattleTrainer trainer)
+{
+    u8 highest = 0;
+    u8 count = CalculatePartyCount(trainer);
+    for (u8 i = 0; i < count; i++)
+    {
+        u8 level = GetMonData(&gParties[trainer][i], MON_DATA_LEVEL);
+        if (level > highest)
+            highest = level;
+    }
+    return highest;
+}
+
 u8 GetMonsStateToDoubles(void)
 {
     s32 aliveCount = 0;

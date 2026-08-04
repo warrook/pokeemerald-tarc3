@@ -36582,61 +36582,61 @@
           "map": "MAP_LANDING_SITE",
           "base_label": "gLandingSite",
           "land_mons": {
-            "encounter_rate": 7,
+            "encounter_rate": 20,
             "mons": [
               {
-                "min_level": 5,
+                "min_level": 3,
                 "max_level": 5,
                 "species": "SPECIES_BABYMARUTCHI"
               },
               {
-                "min_level": 5,
+                "min_level": 3,
                 "max_level": 5,
                 "species": "SPECIES_BABYMARUTCHI"
               },
               {
-                "min_level": 5,
+                "min_level": 3,
                 "max_level": 5,
                 "species": "SPECIES_BABYMARUTCHI"
               },
               {
-                "min_level": 5,
+                "min_level": 3,
                 "max_level": 5,
                 "species": "SPECIES_BABYMARUTCHI"
               },
               {
-                "min_level": 5,
+                "min_level": 3,
                 "max_level": 5,
                 "species": "SPECIES_BABYMARUTCHI"
               },
               {
-                "min_level": 5,
+                "min_level": 3,
                 "max_level": 5,
                 "species": "SPECIES_BABYMARUTCHI"
               },
               {
-                "min_level": 5,
+                "min_level": 3,
                 "max_level": 5,
                 "species": "SPECIES_BABYMARUTCHI"
               },
               {
-                "min_level": 5,
+                "min_level": 3,
                 "max_level": 5,
                 "species": "SPECIES_BABYMARUTCHI"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
+                "min_level": 4,
+                "max_level": 6,
+                "species": "SPECIES_BABYMARUTCHI"
+              },
+              {
+                "min_level": 4,
+                "max_level": 6,
                 "species": "SPECIES_BABYMARUTCHI"
               },
               {
                 "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_BABYMARUTCHI"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
+                "max_level": 7,
                 "species": "SPECIES_BABYMARUTCHI"
               },
               {
@@ -36654,64 +36654,202 @@
             "encounter_rate": 7,
             "mons": [
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_WATER_KID"
+              },
+              {
+                "min_level": 6,
+                "max_level": 7,
+                "species": "SPECIES_WATER_KID"
+              },
+              {
+                "min_level": 7,
+                "max_level": 7,
+                "species": "SPECIES_WATER_KID"
+              },
+              {
+                "min_level": 8,
+                "max_level": 10,
+                "species": "SPECIES_FLOAT_WATER"
+              },
+              {
+                "min_level": 8,
+                "max_level": 10,
+                "species": "SPECIES_GLIDE_WATER"
+              },
+              {
+                "min_level": 8,
+                "max_level": 10,
+                "species": "SPECIES_LEAP_WATER"
+              },
+              {
+                "min_level": 8,
+                "max_level": 10,
+                "species": "SPECIES_PADDLE_WATER"
+              },
+              {
+                "min_level": 8,
+                "max_level": 10,
+                "species": "SPECIES_PADDLE_WATER"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_WATER_KID"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_WATER_KID"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_BABYMARUTCHI"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_BABYMARUTCHI"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_LAND",
+          "base_label": "gLand",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_LAND_KID"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_LAND_KID"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_LAND_KID"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_LICK_LAND"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_ROAR_LAND"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_SPROUT_LAND"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_TODDLE_LAND"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_TODDLE_LAND"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_LAND_KID"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_LAND_KID"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_BABYMARUTCHI"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_BABYMARUTCHI"
+              }
+            ]
+          }
+        },
+        {
+          "map": "MAP_MOUNTAIN",
+          "base_label": "gMountain",
+          "land_mons": {
+            "encounter_rate": 7,
+            "mons": [
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_SKY_KID"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_SKY_KID"
+              },
+              {
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_SKY_KID"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_BUMBLE_SKY"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_CHIRP_SKY"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_FLAP_SKY"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_ROCKY_SKY"
+              },
+              {
+                "min_level": 8,
+                "max_level": 8,
+                "species": "SPECIES_ROCKY_SKY"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_SKY_KID"
               },
               {
                 "min_level": 5,
                 "max_level": 5,
-                "species": "SPECIES_NONE"
+                "species": "SPECIES_SKY_KID"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_BABYMARUTCHI"
               },
               {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
-              },
-              {
-                "min_level": 5,
-                "max_level": 5,
-                "species": "SPECIES_NONE"
+                "min_level": 6,
+                "max_level": 6,
+                "species": "SPECIES_BABYMARUTCHI"
               }
             ]
           }

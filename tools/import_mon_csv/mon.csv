@@ -1,5 +1,5 @@
 Index,Name,Field,Young,Type 1,Type 2,Target,Total,HP,ATK,DEF,SpATK,SpDEF,SPD,Ability 1,Ability 2,Ability Hidden,Stage,Evo Item,Learnset
-1,Babymarutchi,N/A,N/A,Mystery,,200,300,50,50,50,50,50,50,Cute Charm,Rattled,Oblivious,1,,1:Tackle;1:Play Nice
+1,Babymarutchi,N/A,N/A,Mystery,,200,300,50,50,50,50,50,50,Cute Charm,Rattled,Oblivious,1,,1:Tackle;1:Splash
 2,Land Kid,Land,N/A,Mystery,,300,300,50,50,50,50,50,50,Cute Charm,Rattled,Oblivious,2,,0:Double Hit;5:Double Hit;8:Defense Curl;10:Flail
 3,Roar (Land),Land,Roar,Mystery,,400,360,60,60,60,60,60,60,Pickup,Run Away,Frisk,3,savory food,0:Roar;12:Roar;16:Headbutt
 4,Meowtchi,Land,Roar,Psychic,,580,580,80,90,80,130,80,120,Justified,,Indignation,4,vivid scent,0:Psybeam;18:Psybeam;22:Slash;26:Focus Energy;32:Psychic

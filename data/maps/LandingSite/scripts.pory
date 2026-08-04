@@ -56,6 +56,7 @@ script Banzo_EventScript_Intro
     setvar(VAR_0x8004, 1) // SM limit
     special(EnterStudyMode)
     setflag(FLAG_SYS_B_DASH)
+    setflag(FLAG_SYS_PC_LANETTE)
     releaseall
     end
 }
@@ -71,6 +72,7 @@ script Banzo_EventScript_AfterCatch {
     call(SuitCallEnd)
     waitse
     msgbox(format("Open your I.D. card in the start menu for a reminder of what to do, or call Banzo for a more elaborate explanation."))
+    setflag(FLAG_SYS_SCALE_OPPONENTS)
     releaseall
     end
 }

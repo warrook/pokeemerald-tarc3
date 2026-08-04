@@ -9,7 +9,7 @@ gText_PkmnTransferredLanettesPC::
 #if IS_FRLG
 	.string "BILL'S PC.\p"
 #else
-	.string "LANETTE'S PC.\p"
+	.string "the lander's PC.\p"
 #endif
 	.string "It was placed in \n"
 	.string "BOX “{STR_VAR_1}.”$"
@@ -25,14 +25,14 @@ gText_PkmnTransferredLanettesPCBoxFull::
 #if IS_FRLG
 	.string "BILL'S PC was full.\p"
 #else
-	.string "LANETTE'S PC was full.\p"
+	.string "the lander's PC was full.\p"
 #endif
 	.string "{STR_VAR_2} was transferred to\n"
 	.string "BOX “{STR_VAR_1}.”$"
 
 gText_PkmnSentToPCAfterCatch::
 	.string "{STR_VAR_2} was sent to\n"
-	.string "{B_PC_CREATOR_NAME} PC.\p"
+	.string "the lander's PC.\p"
 	.string "It was placed in \n"
 	.string "BOX “{STR_VAR_1}”.$"
 

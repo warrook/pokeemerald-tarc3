@@ -1404,8 +1404,9 @@
 #define FLAG_SYS_CRUISE_MODE                        (SYSTEM_FLAGS + 0x2D)
 
 #define FLAG_UNUSED_0x88E                           (SYSTEM_FLAGS + 0x2E) // Unused Flag
-#define FLAG_SYS_STUDY_MODE                         FLAG_UNUSED_0x88E
+#define FLAG_SYS_STUDY_MODE                         FLAG_UNUSED_0x88E // Used for modified safari mode (see study_mode.c, battle_controller_study.c)
 #define FLAG_UNUSED_0x88F                           (SYSTEM_FLAGS + 0x2F) // Unused Flag
+#define FLAG_SYS_SCALE_OPPONENTS                    FLAG_UNUSED_0x88F // Should scale opponent mons (wild and trainers) toward player's level
 
 #define FLAG_SYS_TV_HOME                            (SYSTEM_FLAGS + 0x30)
 #define FLAG_SYS_TV_WATCH                           (SYSTEM_FLAGS + 0x31)
