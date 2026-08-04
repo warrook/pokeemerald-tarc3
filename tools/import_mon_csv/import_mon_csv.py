@@ -87,7 +87,7 @@ def generate_palette(fpath:str, pal:str):
         return False
 
     # Call gbagfx
-    subprocess.run(["tools/gbagfx/gbagfx", fpath + target, fpath + pal])
+    #subprocess.run(["tools/gbagfx/gbagfx", fpath + target, fpath + pal])
     return True
 
 
@@ -116,12 +116,12 @@ def gfx_constant(name_in_row:str, part:str):
             g["output"] =   ".4bpp.lz"
             g["size"] =     "32"
         case "Palette":
-            g["input"] =    "normal.pal"
+            g["input"] =    "front.png"
             g["output"] =   ".gbapal"
             g["size"] =     "16"
             present = generate_palette(g["path"], g["input"])
         case "ShinyPalette":
-            g["input"] =    "shiny.pal"
+            g["input"] =    "back.png"
             g["output"] =   ".gbapal"
             g["size"] =     "16"
             present = generate_palette(g["path"], g["input"])
@@ -201,9 +201,9 @@ def make_graphics_info_strings(d:dict, name_in_var:str):
         ("\t.backPic = gMonBackPic_" + name_in_var + ",") \
             if os.path.exists(fpath + "back.png") else None,
         ("\t.palette = gMonPalette_" + name_in_var + ",") \
-            if os.path.exists(fpath + "normal.pal") else None,
+            if os.path.exists(fpath + "front.png") else None,
         ("\t.shinyPalette = gMonShinyPalette_" + name_in_var + ",") \
-            if os.path.exists(fpath + "shiny.pal") else None,
+            if os.path.exists(fpath + "back.png") else None,
         ("\t.iconSprite = gMonIcon_" + name_in_var + ",") \
             if os.path.exists(fpath + "icon.png") else None,
         ("\tFOOTPRINT(" + name_in_var + ")") \
