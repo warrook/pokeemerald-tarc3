@@ -1,5 +1,5 @@
 // Include this in src/data/graphics/pokemon.h
-// Completion: 95/390 (24%)
+// Completion: 99/388 (25%)
 
 const u32 gMonFrontPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/front.png", ".4bpp.lz");
 const u32 gMonBackPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/back.png", ".4bpp.lz");
@@ -211,12 +211,12 @@ const u8 gMonFootprint_Glide_Water[] = INCGFX_U8("graphics/pokemon/glide_water/f
 // const u8 gMonIcon_Uruotchi[] = INCGFX_U8("graphics/pokemon/uruotchi/icon.png", ".4bpp");
 // const u8 gMonFootprint_Uruotchi[] = INCGFX_U8("graphics/pokemon/uruotchi/footprint.png", ".1bpp");
 
-// const u32 gMonFrontPic_Leap_Water[] = INCGFX_U32("graphics/pokemon/leap_water/front.png", ".4bpp.lz");
-// const u32 gMonBackPic_Leap_Water[] = INCGFX_U32("graphics/pokemon/leap_water/back.png", ".4bpp.lz");
-// const u16 gMonPalette_Leap_Water[] = INCGFX_U16("graphics/pokemon/leap_water/front.png", ".gbapal");
-// const u16 gMonShinyPalette_Leap_Water[] = INCGFX_U16("graphics/pokemon/leap_water/back.png", ".gbapal");
-// const u8 gMonIcon_Leap_Water[] = INCGFX_U8("graphics/pokemon/leap_water/icon.png", ".4bpp");
-// const u8 gMonFootprint_Leap_Water[] = INCGFX_U8("graphics/pokemon/leap_water/footprint.png", ".1bpp");
+const u32 gMonFrontPic_Leap_Water[] = INCGFX_U32("graphics/pokemon/leap_water/front.png", ".4bpp.lz");
+const u32 gMonBackPic_Leap_Water[] = INCGFX_U32("graphics/pokemon/leap_water/back.png", ".4bpp.lz");
+const u16 gMonPalette_Leap_Water[] = INCGFX_U16("graphics/pokemon/leap_water/front.png", ".gbapal");
+const u16 gMonShinyPalette_Leap_Water[] = INCGFX_U16("graphics/pokemon/leap_water/back.png", ".gbapal");
+const u8 gMonIcon_Leap_Water[] = INCGFX_U8("graphics/pokemon/leap_water/icon.png", ".4bpp");
+const u8 gMonFootprint_Leap_Water[] = INCGFX_U8("graphics/pokemon/leap_water/footprint.png", ".1bpp");
 
 // const u32 gMonFrontPic_Axolopatchi[] = INCGFX_U32("graphics/pokemon/axolopatchi/front.png", ".4bpp.lz");
 // const u32 gMonBackPic_Axolopatchi[] = INCGFX_U32("graphics/pokemon/axolopatchi/back.png", ".4bpp.lz");

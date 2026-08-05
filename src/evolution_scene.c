@@ -791,6 +791,8 @@ static void Task_EvolutionScene(u8 taskId)
             GetSetPokedexFlag(SpeciesToNationalPokedexNum(gTasks[taskId].tPostEvoSpecies), FLAG_SET_SEEN);
             GetSetPokedexFlag(SpeciesToNationalPokedexNum(gTasks[taskId].tPostEvoSpecies), FLAG_SET_CAUGHT);
             IncrementGameStat(GAME_STAT_EVOLVED_POKEMON);
+            VarSet(VAR_LAST_EVO, gTasks[taskId].tPostEvoSpecies);
+            FlagSet(FLAG_EVOLVED_MON);
         }
         break;
     case EVOSTATE_TRY_LEARN_MOVE:

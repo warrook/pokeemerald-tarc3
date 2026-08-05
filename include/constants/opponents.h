@@ -860,7 +860,12 @@
 #define TRAINER_BRENDAN_PLACEHOLDER         853
 #define TRAINER_MAY_PLACEHOLDER             854
 
-#define TRAINER_BEACH_A                     1
+// Tamagotchi
+#define TRAINER_FIRST_PALOOKA               TRAINER_SAWYER_1 //1
+#define TRAINER_SECOND_PALOOKA              TRAINER_GRUNT_AQUA_HIDEOUT_1 //2
+#define TRAINER_THIRD_PALOOKA               TRAINER_GRUNT_AQUA_HIDEOUT_2 //3
+
+#define TRAINER_BEACH_A                     TRAINER_GRUNT_AQUA_HIDEOUT_3 //4
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

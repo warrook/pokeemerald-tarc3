@@ -5,20 +5,6 @@ mapscripts LandingSite_MapScripts {
     }
 }
 
-script SuitCallBegin
-{
-    playse(SE_POKENAV_CALL)
-    waitse
-    playse(SE_POKENAV_ON)
-    return
-}
-
-script SuitCallEnd
-{
-    playse(SE_POKENAV_HANG_UP)
-    return
-}
-
 script Banzo_EventScript_Intro
 {
     lockall
@@ -53,7 +39,7 @@ script Banzo_EventScript_Intro
             //Odd how this planet's so like ours, isn't it
     waitmessage
     // No hang-up sound because he's still listening
-    setvar(VAR_0x8004, 1) // SM limit
+    setvar(VAR_0x8004, 1) // Study Mode limit
     special(EnterStudyMode)
     setflag(FLAG_SYS_B_DASH)
     setflag(FLAG_SYS_PC_LANETTE)
@@ -69,7 +55,7 @@ script Banzo_EventScript_AfterCatch {
              "Remember: you're there to figure out why the native life has started getting aggressive with each other...and what those odd devices we've observed are.\p"
              "Good luck, and be safe."))
     waitmessage
-    call(SuitCallEnd)
+    call(Tamagotchi_SuitCallEnd)
     waitse
     msgbox(format("Open your I.D. card in the start menu for a reminder of what to do, or call Banzo for a more elaborate explanation."))
     setflag(FLAG_SYS_SCALE_OPPONENTS)
@@ -117,4 +103,183 @@ script LandingSite_CatchIntro_PushUp {
     waitmovement
     release
     end
+}
+
+script Tamagotchi_SuitCallBegin
+{
+    playse(SE_POKENAV_CALL)
+    waitse
+    playse(SE_POKENAV_ON)
+    return
+}
+
+script Tamagotchi_SuitCallEnd
+{
+    playse(SE_POKENAV_HANG_UP)
+    return
+}
+
+script Tamagotchi_Palooka_Vanish {
+    getobjectcurrentxy(VAR_LAST_TALKED, destX=VAR_0x8006, destY=VAR_0x8007)
+    addvar(VAR_0x8006, 7)
+    addvar(VAR_0x8007, 7)
+    applymovement(VAR_LAST_TALKED, Movement_JumpDown)
+    waitmovement
+    setfieldeffectargument(0, VAR_0x8006)
+    setfieldeffectargument(1, VAR_0x8007)
+    setfieldeffectargument(2, 124) #subpriority
+    setfieldeffectargument(3, 2) #priority
+    dofieldeffect(FLDEFF_ASH_PUFF)
+    removeobject(VAR_LAST_TALKED)
+    waitfieldeffect(FLDEFF_ASH_PUFF)
+    //delay(10)
+}
+
+script Tamagotchi_BabyEvo_Explanation {
+    if (!flag(FLAG_EVOLVED_MON)) {
+        // Eject because no mon has been evolved
+        end
+    }
+    bufferspeciesname(STR_VAR_1, VAR_LAST_EVO)
+    switch (var(VAR_LAST_EVO)) {
+        case SPECIES_LAND_KID:
+            bufferstring(STR_VAR_2, "Land Hills")
+        case SPECIES_WATER_KID:
+            bufferstring(STR_VAR_2, "Water Beach")
+        case SPECIES_SKY_KID:
+            bufferstring(STR_VAR_2, "Sky Mountain")
+        default:
+            clearflag(FLAG_EVOLVED_MON)
+            end //Eject because wrong evo
+    }
+    lock
+    call(Tamagotchi_SuitCallBegin)
+    suitcall(format("Prof. Banzo: {PLAYER}! The Exo-Pokémon of this planet evolve like ours back home, but somewhat differently.\p"
+    "A \qobaby\qc evolves depending on the area of the island it spends time in.\p"
+    "That little {STR_VAR_1} evolved in {STR_VAR_2}...makes sense, right?"))
+    waitmessage
+    call(Tamagotchi_SuitCallEnd)
+    addvar(VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1)
+    clearflag(FLAG_EVOLVED_MON)
+    release
+}
+
+script Tamagotchi_KidEvo_Explanation {
+    lock
+    call(Tamagotchi_SuitCallBegin)
+    suitcall(format("Prof. Banzo: {PLAYER}! The \qokids\qc of this world evolve based on their diet.\p"
+    "They'll evolve into different \qoyoung\qc depending on the food you give them.\p"
+    "The synthesizer should be able to fabricate suitable nourishment."))
+    waitmessage
+    call(Tamagotchi_SuitCallEnd)
+    addvar(VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1)
+    release
+}
+
+script Tamagotchi_YoungEvo_Explanation {
+    lock
+    call(Tamagotchi_SuitCallBegin)
+    suitcall(format("Prof. Banzo: {PLAYER}! The \qoyoung\qc of this world evolve from scents.\p"
+    "Like diet, scents take some time to trigger their evolution.\p"
+    "The correct pheromones can be synthesized with enough charge."))
+    waitmessage
+    call(Tamagotchi_SuitCallEnd)
+    addvar(VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1)
+    release
+}
+
+script Tamagotchi_TryEarlyPalookas {
+    // VAR_0x8004 has been set to trainer constant
+    if (defeated(VAR_0x8004)) {
+        return //the trainer has been defeated already
+    }
+    switch (var(VAR_PALOOKAS_DEFEATED)) {
+        // Will never call if it's 0
+        case 1:
+            trainerbattle_single(TRAINER_SECOND_PALOOKA, Tamagotchi_SecondPalooka_Intro, Tamagotchi_SecondPalooka_Defeat, Tamagotchi_SecondPalooka_Defeated)
+        case 2:
+            trainerbattle_single(TRAINER_THIRD_PALOOKA, Tamagotchi_ThirdPalooka_Intro, Tamagotchi_ThirdPalooka_Defeat, Tamagotchi_ThirdPalooka_Defeated)
+        default:
+            trainerbattle_single(VAR_0x8004, "{STR_VAR_1}", "{STR_VAR_2}")
+    }
+    gotopostbattlescript
+}
+
+text Tamagotchi_FirstPalooka_Intro {
+    //"{FONT_PALOOKA}IDENTIFY YOURSELF!"
+    //"Whoa! who are you?" > "Whoa! you are-Q?"
+    "{FONT_PALOOKA}KA! KE TO,WA?"
+}
+
+text Tamagotchi_FirstPalooka_Defeat {
+    //"Did you come from that capsule?" > "From capsule you come-Q?"
+    "{FONT_PALOOKA}JO LADA KE APGE,WA?"
+}
+
+script Tamagotchi_FirstPalooka_Defeated {
+    lock
+    special(PlayerFaceTrainerAfterBattle)
+	waitmovement
+    msgbox(format("Translator calibrated.\p"
+    "Identify yourself!"))
+    waitmessage
+    msgbox(format("You're a kid? Humiliating!"))
+    waitmessage
+    closemessage
+    addvar(VAR_PALOOKAS_DEFEATED, 1)
+    call(Tamagotchi_Palooka_Vanish)
+    release
+}
+
+text Tamagotchi_SecondPalooka_Intro {
+    "{FONT_PALOOKA}KE TO,WA? {FONT_NORMAL}Oh, you're the alien!"
+}
+
+text Tamagotchi_SecondPalooka_Defeat {
+    "No way..."
+}
+
+script Tamagotchi_SecondPalooka_Defeated {
+    lock
+    special(PlayerFaceTrainerAfterBattle)
+	waitmovement
+    msgbox(format("Yikes! You're a good fighter!\p"
+    "I gotta tell Jomo about this!"))
+    waitmessage
+    addvar(VAR_PALOOKAS_DEFEATED, 1)
+    settrainerflag(VAR_0x8004)
+    release
+}
+
+text Tamagotchi_ThirdPalooka_Intro {
+    format("My orders are to stop you from interfering!")
+}
+
+text Tamagotchi_ThirdPalooka_Defeat {
+    format("Jomo will be hearing about this...!")
+}
+
+script Tamagotchi_ThirdPalooka_Defeated {
+    lock
+    special(PlayerFaceTrainerAfterBattle)
+	waitmovement
+    msgbox(format("These monsters are ours, alien. We've worked hard to make them battle-ready.\p"
+    "You'd better go home before Jomo decides to take care of you himself."))
+    waitmessage
+    call(Tamagotchi_SuitCallBegin)
+    suitcall(format("???: Ahahaha! Alien! You hear now the voice of Jomo, leader of this operation!\p"
+    "Before we arrived, these monsters were miserably joyful. You're here to stop us from making lucrative fighters of them.\p"
+    "I respect this, though you will fail.\n"
+    "No one can defeat a Palooka whose eyes are set on victory.\p"
+    "We'll be in touch, alien."))
+    waitmessage
+    call(Tamagotchi_SuitCallEnd)
+    waitse
+    call(Tamagotchi_SuitCallBegin)
+    suitcall(format("Prof. Banzo: Jomo seems scary... I'll try to pinpoint his location from up here. Keep doing what you're doing!"))
+    waitmessage
+    call(Tamagotchi_SuitCallEnd)
+    addvar(VAR_PALOOKAS_DEFEATED, 1)
+    settrainerflag(VAR_0x8004)
+    release
 }

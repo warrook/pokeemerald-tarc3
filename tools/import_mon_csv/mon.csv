@@ -13,7 +13,7 @@ Index,Name,Field,Young,Type 1,Type 2,Target,Total,HP,ATK,DEF,SpATK,SpDEF,SPD,Abi
 12,Sheeptchi,Land,Toddle,Normal,Electric,580,580,130,80,80,80,90,120,Fluffy,,,4,no scent,0:Spark;18:Spark;22:Stomp;26:Thunder Wave;32:Wild Charge
 13,Lick (Land),Land,Lick,Mystery,,400,360,60,60,60,60,60,60,Pickup,Run Away,Frisk,3,gooey food,0:Lick;12:Lick;16:Tail Slap
 14,Leopatchi,Land,Lick,Poison,,580,580,90,130,80,80,80,120,Poison Touch,,,4,vivid scent,0:Poison Tail;18:Poison Tail;22:Acid Armor;26:Stomping Tantrum;32:Gunk Shot
-15,Sebiretchi,Land,Lick,Dragon,,580,580,120,100,80,120,70,90,Gluttony,Thick Fat,,4,excite scent,0:Dragon Breath;18:Dragon Breath;22:Calm Mind;26:Ancient Power;32:Dragon Pulse
+15,Sebiretchi,Land,Lick,Dragon,Fire,580,580,120,100,80,120,70,90,Gluttony,Thick Fat,,4,excite scent,0:Dragon Breath;18:Dragon Breath;22:Calm Mind;26:Ancient Power;32:Dragon Pulse
 16,Elizardotchi,Land,Lick,Electric,,580,580,80,60,110,120,110,100,Intimidate,Static,Innards Out,4,joy scent,0:Parabolic Charge;18:Parabolic Charge;22:Electric Terrain;26:Rising Voltage;32:Gastro Acid
 17,Heavytchi,Land,Lick,Poison,Dark,580,580,60,150,70,80,100,120,Intimidate,Unnerve,Sturdy,4,no scent,0:Poison Fang;18:Poison Fang;22:Venom Drench;26:Coil;32:Power Trip
 18,Sprout (Land),Land,Sprout,Mystery,,400,360,60,60,60,60,60,60,Pickup,Run Away,Frisk,3,no food,0:Mega Drain;12:Mega Drain;16:Magical Leaf
