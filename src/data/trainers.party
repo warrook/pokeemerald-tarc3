@@ -95,7 +95,7 @@ AI: Basic Trainer
 Geodude
 Level: 21
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-*/
+*/ /*
 === TRAINER_GRUNT_AQUA_HIDEOUT_1 ===
 Name: GRUNT
 Class: Team Aqua
@@ -108,7 +108,7 @@ AI: Check Bad Move
 Poochyena
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
+*/ /*
 === TRAINER_GRUNT_AQUA_HIDEOUT_2 ===
 Name: GRUNT
 Class: Team Aqua
@@ -125,7 +125,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Carvanha
 Level: 31
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
+*/ /*
 === TRAINER_GRUNT_AQUA_HIDEOUT_3 ===
 Name: GRUNT
 Class: Team Aqua
@@ -138,7 +138,7 @@ AI: Check Bad Move
 Zubat
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
+*/
 === TRAINER_GRUNT_AQUA_HIDEOUT_4 ===
 Name: GRUNT
 Class: Team Aqua
@@ -16878,7 +16878,41 @@ Kyogre
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BEACH_A ===
+=== TRAINER_FIRST_PALOOKA ===
+Name: Grunt
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_BABYMARUTCHI
+Level: 3
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BABYMARUTCHI
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SECOND_PALOOKA ===
+Name: Grunt
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_WATER_KID
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKY_KID
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_THIRD_PALOOKA ===
 Name: Grunt
 Class: Gentleman
 Pic: Gentleman
@@ -16888,6 +16922,36 @@ Double Battle: No
 AI: Basic Trainer
 
 SPECIES_LAND_KID
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKY_KID
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_WATER_KID
+Level: 8
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+/*
+=== TRAINER_BEACH_GUARD ===
+Guards the beach agitator.
+
+=== TRAINER_LAND_GUARD ===
+
+=== TRAINER_MOUNTAIN_GUARD ===
+*/
+
+=== TRAINER_BEACH_A ===
+Name: Grunt
+Class: Gentleman
+Pic: Gentleman
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_BABYMARUTCHI
 Level: 3
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 

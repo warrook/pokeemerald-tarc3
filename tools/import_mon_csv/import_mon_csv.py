@@ -355,9 +355,9 @@ def make_mon_evolutions(const_name: str, evo_stage: int, field: str):
     evos = []
     if const_name == "BABYMARUTCHI":
         # Babymarutchi evolves with location
-        evos.append(f"{{EVO_LEVEL, 0, SPECIES_LAND_KID, CONDITIONS({{IF_MIN_OVERWORLD_STEPS, 100}}, {{IF_IN_MAPSEC, MAPSEC_LAND_HILLS}})}}")
-        evos.append(f"{{EVO_LEVEL, 0, SPECIES_WATER_KID, CONDITIONS({{IF_MIN_OVERWORLD_STEPS, 100}}, {{IF_IN_MAPSEC, MAPSEC_WATER_BEACH}})}}")
-        evos.append(f"{{EVO_LEVEL, 0, SPECIES_SKY_KID, CONDITIONS({{IF_MIN_OVERWORLD_STEPS, 100}}, {{IF_IN_MAPSEC, MAPSEC_SKY_MOUNTAIN}})}}")
+        evos.append(f"{{EVO_LEVEL, 0, SPECIES_LAND_KID, CONDITIONS({{IF_IN_MAPSEC, MAPSEC_LAND_HILLS}})}}")
+        evos.append(f"{{EVO_LEVEL, 0, SPECIES_WATER_KID, CONDITIONS({{IF_IN_MAPSEC, MAPSEC_WATER_BEACH}})}}")
+        evos.append(f"{{EVO_LEVEL, 0, SPECIES_SKY_KID, CONDITIONS({{IF_IN_MAPSEC, MAPSEC_SKY_MOUNTAIN}})}}")
         evos.append(f"{{EVO_LEVEL, 12, SPECIES_BBMARUTCHI, CONDITIONS({{IF_IN_MAPSEC, MAPSEC_LANDING_SITE}})}}")
 
         return evos

@@ -1,7 +1,16 @@
-mapscripts Beach_MapScripts {}
+mapscripts Beach_MapScripts {
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TAMAGOTCHI_STAGE_EXPLAINED, 0: Tamagotchi_BabyEvo_Explanation
+    ]
+}
 
 script Beach_Palooka_A {
-    trainerbattle_single(TRAINER_BEACH_A, format("Nyeh!"), format("Nyeh..."))
-    msgbox(format("Nyeh?!"))
-    end
+    trainerbattle_single(TRAINER_FIRST_PALOOKA, Tamagotchi_FirstPalooka_Intro, Tamagotchi_FirstPalooka_Defeat, Tamagotchi_FirstPalooka_Defeated)
+    setvar(VAR_0x8004, TRAINER_BEACH_A)
+    bufferstring(STR_VAR_1, format("Bleh!"))
+    bufferstring(STR_VAR_2, format("Bleh..."))
+    call(Tamagotchi_TryEarlyPalookas)
+    msgbox("Go away!")
+    waitmessage
+    release
 }

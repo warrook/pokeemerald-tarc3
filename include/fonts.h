@@ -23,5 +23,7 @@ extern const u8 gFontShortNarrowLatinGlyphWidths[];
 extern const u16 gFontShortNarrowLatinGlyphs[];
 extern const u8 gFontShortNarrowerLatinGlyphWidths[];
 extern const u16 gFontShortNarrowerLatinGlyphs[];
+extern const u16 gFontPalookaGlyphs[];
+extern const u8 gFontPalookaGlyphWidths[];
 
 #endif // GUARD_FONTS_H
