@@ -1437,3 +1437,61 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_ShinySparkle = {
     .affineAnims = gDummySpriteAffineAnimTable,
     .callback = UpdateBubblesFieldEffect,
 };
+
+static const struct SpriteFrameImage sPicTable_Palookaport[] = {
+    overworld_frame(gFieldEffectObjectPic_Palookaport, 2, 4, 0),
+    overworld_frame(gFieldEffectObjectPic_Palookaport, 2, 4, 1),
+    overworld_frame(gFieldEffectObjectPic_Palookaport, 2, 4, 2),
+    overworld_frame(gFieldEffectObjectPic_Palookaport, 2, 4, 3),
+    overworld_frame(gFieldEffectObjectPic_Palookaport, 2, 4, 4),
+    overworld_frame(gFieldEffectObjectPic_Palookaport, 2, 4, 5),
+    overworld_frame(gFieldEffectObjectPic_Palookaport, 2, 4, 6),
+    overworld_frame(gFieldEffectObjectPic_Palookaport, 2, 4, 7),
+    overworld_frame(gFieldEffectObjectPic_Palookaport, 2, 4, 8),
+};
+
+static const union AnimCmd sAnim_Palookaport_Out[] =
+{
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_FRAME(1, 6),
+    ANIMCMD_FRAME(2, 6),
+    ANIMCMD_FRAME(3, 6),
+    ANIMCMD_FRAME(4, 6),
+    ANIMCMD_FRAME(5, 6),
+    ANIMCMD_FRAME(6, 6),
+    ANIMCMD_FRAME(7, 6),
+    ANIMCMD_FRAME(8, 6),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_Palookaport_In[] =
+{
+    ANIMCMD_FRAME(8, 6),
+    ANIMCMD_FRAME(7, 6),
+    ANIMCMD_FRAME(6, 6),
+    ANIMCMD_FRAME(5, 6),
+    ANIMCMD_FRAME(4, 6),
+    ANIMCMD_FRAME(3, 6),
+    ANIMCMD_FRAME(2, 6),
+    ANIMCMD_FRAME(1, 6),
+    ANIMCMD_FRAME(0, 6),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd *const sAnimTable_Palookaport[] =
+{
+    sAnim_Palookaport_Out,
+    sAnim_Palookaport_In,
+};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_Palookaport =
+{
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_PALOOKAPORT,
+    .oam = &gObjectEventBaseOam_16x32,
+    .anims = sAnimTable_Palookaport,
+    .images = sPicTable_Palookaport,
+    .callback = SpriteCB_Palookaport
+};
+
+const struct SpritePalette gSpritePalette_Palookaport = {gFieldEffectPal_Palookaport, FLDEFF_PAL_TAG_PALOOKAPORT};

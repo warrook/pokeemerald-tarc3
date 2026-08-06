@@ -119,20 +119,34 @@ script Tamagotchi_SuitCallEnd
     return
 }
 
-script Tamagotchi_Palooka_Vanish {
-    getobjectcurrentxy(VAR_LAST_TALKED, destX=VAR_0x8006, destY=VAR_0x8007)
-    addvar(VAR_0x8006, 7)
-    addvar(VAR_0x8007, 7)
-    applymovement(VAR_LAST_TALKED, Movement_JumpDown)
+script Tamagotchi_Palookaport_Out {
+    applymovement(VAR_LAST_TALKED, Common_Movement_WalkInPlaceDown)
     waitmovement
+    setvar(VAR_0x8006, 65535)
     setfieldeffectargument(0, VAR_0x8006)
-    setfieldeffectargument(1, VAR_0x8007)
+    setfieldeffectargument(1, VAR_LAST_TALKED)
     setfieldeffectargument(2, 124) #subpriority
     setfieldeffectargument(3, 2) #priority
-    dofieldeffect(FLDEFF_ASH_PUFF)
+    setfieldeffectargument(4, 0) #teleport anim (0 = out, 1 = in)
+    dofieldeffect(FLDEFF_PALOOKAPORT)
+    delay(24) //Delay to correct frame before disappearing
     removeobject(VAR_LAST_TALKED)
-    waitfieldeffect(FLDEFF_ASH_PUFF)
-    //delay(10)
+    waitfieldeffect(FLDEFF_PALOOKAPORT)
+    goto(Tamagotchi_Palookaport_In)
+}
+
+script Tamagotchi_Palookaport_In {
+    addobject(VAR_LAST_TALKED) // This will need modified to handle arbitrary IDs
+    hideobjectat(VAR_LAST_TALKED, MAP_BEACH)
+    setfieldeffectargument(0, VAR_0x8006)
+    setfieldeffectargument(1, VAR_LAST_TALKED)
+    setfieldeffectargument(2, 124) #subpriority
+    setfieldeffectargument(3, 2) #priority
+    setfieldeffectargument(4, 1) #teleport anim (0 = out, 1 = in)
+    dofieldeffect(FLDEFF_PALOOKAPORT)
+    delay(24) //Delay to correct frame before appearing anyone
+    showobjectat(VAR_LAST_TALKED, MAP_BEACH)
+    waitfieldeffect(FLDEFF_PALOOKAPORT)
 }
 
 script Tamagotchi_BabyEvo_Explanation {
@@ -227,7 +241,7 @@ script Tamagotchi_FirstPalooka_Defeated {
     waitmessage
     closemessage
     addvar(VAR_PALOOKAS_DEFEATED, 1)
-    call(Tamagotchi_Palooka_Vanish)
+    call(Tamagotchi_Palookaport_Out)
     release
 }
 
