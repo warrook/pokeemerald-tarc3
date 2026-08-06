@@ -1,5 +1,7 @@
 const u32 gObjectEventPic_Capsule[] = INCGFX_U32("graphics/object_events/pics/_custom/capsule.png", ".4bpp");
 const u16 gObjectEventPal_Capsule[] = INCGFX_U16("graphics/object_events/pics/_custom/capsule.png", ".gbapal");
+const u16 gFieldEffectPal_Palookaport[] = INCGFX_U16("graphics/field_effects/pics/palookaport.png", ".gbapal");
+const u32 gFieldEffectObjectPic_Palookaport[] = INCGFX_U32("graphics/field_effects/pics/palookaport.png", ".4bpp", "-mwidth 2 -mheight 4");
 
 const u32 gObjectEventPic_BrendanNormalRunning[] = INCBIN_U32("graphics/object_events/pics/people/brendan/walking.4bpp", "graphics/object_events/pics/people/brendan/running.4bpp");
 const u16 gObjectEventPal_Brendan[] = INCGFX_U16("graphics/object_events/palettes/brendan.pal", ".gbapal");
