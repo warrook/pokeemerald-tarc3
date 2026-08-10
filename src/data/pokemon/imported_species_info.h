@@ -112,7 +112,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .palette = gMonPalette_Roar_Land,
     .shinyPalette = gMonShinyPalette_Roar_Land,
     .iconSprite = gMonIcon_Roar_Land,
-    .iconPalIndex = 1,
+    .iconPalIndex = 0,
     FOOTPRINT(Roar_Land)
     .levelUpLearnset = sRoar_LandLevelUpLearnset,
     .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_MEOWTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
@@ -511,18 +511,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Sebire{TCHI}"),
     .natDexNum = NATIONAL_DEX_SEBIRETCHI,
     .categoryName = _("Land Lick"),
-    .frontPic = gMonFrontPic_Sebiretchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
-    .backPic = gMonBackPic_Sebiretchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
-    .palette = gMonPalette_Sebiretchi,
-    .shinyPalette = gMonShinyPalette_Sebiretchi,
-    .iconSprite = gMonIcon_Sebiretchi,
-    .iconPalIndex = 3,
-    FOOTPRINT(Sebiretchi)
     .levelUpLearnset = sSebiretchiLevelUpLearnset,
 },
 
@@ -619,14 +612,14 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconPalIndex = 3,
     FOOTPRINT(Sprout_Land)
     .levelUpLearnset = sSprout_LandLevelUpLearnset,
-    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_VIOLETCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
+    .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_FURAWATCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
                             {EVO_LEVEL, 18, SPECIES_POTSUNENTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},
                             {EVO_LEVEL, 18, SPECIES_TUSTUSTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_JOY_SCENT})},
                             {EVO_LEVEL, 18, SPECIES_SHIGEMISAN},
                             {EVO_LEVEL, 18, SPECIES_MASKUTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_COMPLEX_SCENT})}),
 },
 
-[SPECIES_VIOLETCHI] =
+[SPECIES_FURAWATCHI] =
 {
     .baseHP        = 80,
     .baseAttack    = 60,
@@ -646,22 +639,15 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .growthRate = GROWTH_MEDIUM_FAST,
     .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FIELD),
     .abilities = { ABILITY_HARVEST, ABILITY_NONE, ABILITY_NONE },
-    .speciesName = _("Viole{TCHI}"),
-    .natDexNum = NATIONAL_DEX_VIOLETCHI,
+    .speciesName = _("Furawa{TCHI}"),
+    .natDexNum = NATIONAL_DEX_FURAWATCHI,
     .categoryName = _("Land Sprout"),
-    .frontPic = gMonFrontPic_Violetchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
-    .backPic = gMonBackPic_Violetchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
-    .palette = gMonPalette_Violetchi,
-    .shinyPalette = gMonShinyPalette_Violetchi,
-    .iconSprite = gMonIcon_Violetchi,
-    .iconPalIndex = 1,
-    FOOTPRINT(Violetchi)
-    .levelUpLearnset = sVioletchiLevelUpLearnset,
+    .levelUpLearnset = sFurawatchiLevelUpLearnset,
 },
 
 [SPECIES_POTSUNENTCHI] =
@@ -1893,18 +1879,11 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Kuchipa{TCHI}"),
     .natDexNum = NATIONAL_DEX_KUCHIPATCHI,
     .categoryName = _("Sky Chirp"),
-    .frontPic = gMonFrontPic_Kuchipatchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
-    .backPic = gMonBackPic_Kuchipatchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
-    .palette = gMonPalette_Kuchipatchi,
-    .shinyPalette = gMonShinyPalette_Kuchipatchi,
-    .iconSprite = gMonIcon_Kuchipatchi,
-    .iconPalIndex = 1,
-    FOOTPRINT(Kuchipatchi)
     .levelUpLearnset = sKuchipatchiLevelUpLearnset,
 },
 
