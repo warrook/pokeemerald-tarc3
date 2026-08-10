@@ -132,7 +132,6 @@ script Tamagotchi_Palookaport_Out {
     delay(24) //Delay to correct frame before disappearing
     removeobject(VAR_LAST_TALKED)
     waitfieldeffect(FLDEFF_PALOOKAPORT)
-    goto(Tamagotchi_Palookaport_In)
 }
 
 script Tamagotchi_Palookaport_In {

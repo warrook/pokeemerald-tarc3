@@ -14,3 +14,34 @@ script Beach_Palooka_A {
     waitmessage
     release
 }
+
+script Beach_NeutralPalooka_A {
+    lockall
+    if (!flag(FLAG_TEMP_1)) {
+        //"Where did the drone go..." > "drone is(place)-Q?"
+        msgbox("{FONT_PALOOKA}E... ROVA AR,WA...?")
+    }
+    if (defeated(TRAINER_FIRST_PALOOKA))
+    {
+        if (!flag(FLAG_TEMP_1)) {
+            playse(SE_PIN)
+            applymovement(LOCALID_NEUTRAL_PALOOKA_A, Common_Movement_ExclamationMark)
+            waitmovement
+            delay(30)
+            faceplayer
+            msgbox(format("Don't worry, I'm not a threat, alien. I'm a technician.\p"
+            "You see the tracks on the ground?\p"
+            "They're from the drones we sent before we got here in person.\p"
+            "This one's path seems to have...gone into the wall.\p"
+            "You haven't seen it anywhere, have you?"))
+            applymovement(LOCALID_NEUTRAL_PALOOKA_A, Common_Movement_FaceUp)
+            waitmovement
+            setflag(FLAG_TEMP_1)
+        }
+        else {
+            msgbox(format("Maybe there's something scarier than us here..."))
+        }
+    }
+    releaseall
+    end
+}

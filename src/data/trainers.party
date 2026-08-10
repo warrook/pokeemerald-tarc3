@@ -16879,9 +16879,9 @@ Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_FIRST_PALOOKA ===
-Name: Grunt
-Class: Gentleman
-Pic: Gentleman
+Name: TRAINER
+Class: Alien
+Pic: Palooka 1
 Gender: Male
 Music: Rich
 Double Battle: No
@@ -16896,9 +16896,9 @@ Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_SECOND_PALOOKA ===
-Name: Grunt
-Class: Gentleman
-Pic: Gentleman
+Name: TRAINER
+Class: Alien
+Pic: Palooka 2
 Gender: Male
 Music: Rich
 Double Battle: No
@@ -16913,9 +16913,9 @@ Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_THIRD_PALOOKA ===
-Name: Grunt
-Class: Gentleman
-Pic: Gentleman
+Name: TRAINER
+Class: Alien
+Pic: Palooka 1
 Gender: Male
 Music: Rich
 Double Battle: No
@@ -16934,18 +16934,18 @@ Level: 8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 /*
-=== TRAINER_BEACH_GUARD ===
-Guards the beach agitator.
+=== TRAINER_SKY_GUARD ===
+Guards the mountain agitator.
+
+=== TRAINER_WATER_GUARD ===
 
 === TRAINER_LAND_GUARD ===
-
-=== TRAINER_MOUNTAIN_GUARD ===
 */
 
 === TRAINER_BEACH_A ===
 Name: Grunt
 Class: Gentleman
-Pic: Gentleman
+Pic: Palooka 1
 Gender: Male
 Music: Rich
 Double Battle: No
