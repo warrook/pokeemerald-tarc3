@@ -687,11 +687,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Potsunen{TCHI}"),
     .natDexNum = NATIONAL_DEX_POTSUNENTCHI,
     .categoryName = _("Land Sprout"),
+    .frontPic = gMonFrontPic_Potsunentchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Potsunentchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Potsunentchi,
+    .shinyPalette = gMonShinyPalette_Potsunentchi,
+    .iconSprite = gMonIcon_Potsunentchi,
+    .iconPalIndex = 1,
+    FOOTPRINT(Potsunentchi)
     .levelUpLearnset = sPotsunentchiLevelUpLearnset,
 },
 
@@ -816,11 +823,13 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Masku{TCHI}"),
     .natDexNum = NATIONAL_DEX_MASKUTCHI,
     .categoryName = _("Rare Land"),
+    .frontPic = gMonFrontPic_Maskutchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Maskutchi,
     .levelUpLearnset = sMaskutchiLevelUpLearnset,
 },
 
@@ -1206,11 +1215,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Paddle Yng."),
     .natDexNum = NATIONAL_DEX_PADDLE_WATER,
     .categoryName = _("Water Teen"),
+    .frontPic = gMonFrontPic_Paddle_Water,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Paddle_Water,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Paddle_Water,
+    .shinyPalette = gMonShinyPalette_Paddle_Water,
+    .iconSprite = gMonIcon_Paddle_Water,
+    .iconPalIndex = 3,
+    FOOTPRINT(Paddle_Water)
     .levelUpLearnset = sPaddle_WaterLevelUpLearnset,
     .evolutions = EVOLUTION({EVO_LEVEL, 18, SPECIES_TACHUTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_VIVID_SCENT})},
                             {EVO_LEVEL, 18, SPECIES_SHARKTCHI, CONDITIONS({IF_HOLD_ITEM, ITEM_EXCITE_SCENT})},

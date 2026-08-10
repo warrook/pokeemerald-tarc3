@@ -33,8 +33,8 @@
     {
       "local_id": "LOCALID_CAPSULE",
       "graphics_id": "OBJ_EVENT_GFX_CAPSULE",
-      "x": 12,
-      "y": 11,
+      "x": 7,
+      "y": 8,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -43,12 +43,38 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Capsule",
       "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+      "x": 18,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_BURIED",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_BURIED",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Tamagotchi_FirstPalooka",
+      "flag": "FLAG_HIDE_FIRST_PALOOKA"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+      "x": 20,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_BURIED",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_BURIED",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Tamagotchi_SecondPalooka",
+      "flag": "FLAG_HIDE_SECOND_PALOOKA"
     }
   ],
   "warp_events": [
     {
-      "x": 12,
-      "y": 12,
+      "x": 7,
+      "y": 9,
       "elevation": 0,
       "dest_map": "MAP_LANDING_SITE",
       "dest_warp_id": "0"
@@ -57,134 +83,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 23,
-      "y": 12,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushDown"
-    },
-    {
-      "type": "trigger",
-      "x": 24,
-      "y": 12,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushDown"
-    },
-    {
-      "type": "trigger",
       "x": 18,
-      "y": 25,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
-    },
-    {
-      "type": "trigger",
-      "x": 17,
-      "y": 25,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
-    },
-    {
-      "type": "trigger",
-      "x": 21,
-      "y": 25,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
-    },
-    {
-      "type": "trigger",
-      "x": 22,
-      "y": 25,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
-    },
-    {
-      "type": "trigger",
-      "x": 23,
-      "y": 25,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
-    },
-    {
-      "type": "trigger",
-      "x": 24,
-      "y": 25,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
-    },
-    {
-      "type": "trigger",
-      "x": 25,
-      "y": 25,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
-    },
-    {
-      "type": "trigger",
-      "x": 26,
-      "y": 25,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
-    },
-    {
-      "type": "trigger",
-      "x": 27,
-      "y": 25,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
-    },
-    {
-      "type": "trigger",
-      "x": 28,
-      "y": 25,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
-    },
-    {
-      "type": "trigger",
-      "x": 29,
-      "y": 25,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
-    },
-    {
-      "type": "trigger",
-      "x": 30,
-      "y": 25,
-      "elevation": 0,
-      "var": "FLAG_SYS_POKEMON_GET",
-      "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
-    },
-    {
-      "type": "trigger",
-      "x": 19,
-      "y": 25,
+      "y": 8,
       "elevation": 0,
       "var": "FLAG_SYS_POKEMON_GET",
       "var_value": "0",

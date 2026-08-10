@@ -133,7 +133,7 @@ def gfx_constant(name_in_row:str, part:str):
             g["input"] =    "footprint.png"
             g["output"] =   ".1bpp"
             g["size"] =     "8"
-    present = present or os.path.exists(g["path"] + g["input"])
+    present = os.path.exists(g["path"] + g["input"])
     
     return ("// " if not present else "") + "const u{size} gMon{variable}_{name_in_variable}[] = INCGFX_U{size}(\"{path}{input}\", \"{output}\");".format_map(g)
 
@@ -323,7 +323,7 @@ def register_species(row: dict):
     # Store current learnset
     sp.learnset.clear()
     from operator import attrgetter
-    sp.learnset.extend(sorted(current_learnset, key=attrgetter("level")))
+    sp.learnset.extend(sorted(current_learnset, key=attrgetter("level", "move")))
     
     # Add moves to future evolutions, if they exist yet; again this
     # probably never gets called

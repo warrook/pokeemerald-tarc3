@@ -4,8 +4,8 @@
 #define LEVEL_UP_END {.move = LEVEL_UP_MOVE_END, .level = 0}
 
 static const struct LevelUpMove sBabymarutchiLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_SPLASH),
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_END
 };
 
@@ -282,8 +282,8 @@ static const struct LevelUpMove sTustustchiLevelUpLearnset[] = {
     LEVEL_UP_MOVE(16, MOVE_MAGICAL_LEAF),
     LEVEL_UP_MOVE(18, MOVE_NEEDLE_ARM),
     LEVEL_UP_MOVE(22, MOVE_BARB_BARRAGE),
-    LEVEL_UP_MOVE(26, MOVE_SPIKY_SHIELD),
     LEVEL_UP_MOVE(26, MOVE_BANEFUL_BUNKER),
+    LEVEL_UP_MOVE(26, MOVE_SPIKY_SHIELD),
     LEVEL_UP_MOVE(32, MOVE_LEAF_BLADE),
     LEVEL_UP_END
 };
@@ -629,9 +629,9 @@ static const struct LevelUpMove sGusokutchiLevelUpLearnset[] = {
 
 static const struct LevelUpMove sMermarintchiLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_MYSTICAL_POWER),
-    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
-    LEVEL_UP_MOVE( 1, MOVE_SUPERSONIC),
     LEVEL_UP_MOVE( 1, MOVE_AQUA_RING),
+    LEVEL_UP_MOVE( 1, MOVE_SUPERSONIC),
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 5, MOVE_BUBBLE),
     LEVEL_UP_MOVE( 8, MOVE_TAIL_WHIP),
     LEVEL_UP_MOVE(10, MOVE_AQUA_JET),
@@ -956,8 +956,8 @@ static const struct LevelUpMove sMagmatchiLevelUpLearnset[] = {
 static const struct LevelUpMove sYayacorntchiLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 0, MOVE_DRAINING_KISS),
     LEVEL_UP_MOVE( 1, MOVE_PLUCK),
-    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 1, MOVE_SCREECH),
+    LEVEL_UP_MOVE( 1, MOVE_TACKLE),
     LEVEL_UP_MOVE( 5, MOVE_QUICK_ATTACK),
     LEVEL_UP_MOVE( 8, MOVE_ROOST),
     LEVEL_UP_MOVE(10, MOVE_SWIFT),
@@ -997,17 +997,17 @@ static const struct LevelUpMove sBbmarutchiLevelUpLearnset[] = {
 };
 
 static const struct LevelUpMove sShinigamiLevelUpLearnset[] = {
-    LEVEL_UP_MOVE( 1, MOVE_MYSTICAL_FIRE),
     LEVEL_UP_MOVE( 1, MOVE_FIERY_WRATH),
     LEVEL_UP_MOVE( 1, MOVE_GRIM_REAPER),
+    LEVEL_UP_MOVE( 1, MOVE_MYSTICAL_FIRE),
     LEVEL_UP_MOVE( 1, MOVE_PERISH_SONG),
     LEVEL_UP_END
 };
 
 static const struct LevelUpMove sKuritenLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_FLY),
-    LEVEL_UP_MOVE( 1, MOVE_TAILWIND),
     LEVEL_UP_MOVE( 1, MOVE_MAGICAL_ARROW),
+    LEVEL_UP_MOVE( 1, MOVE_TAILWIND),
     LEVEL_UP_MOVE( 1, MOVE_TRIPLE_ARROWS),
     LEVEL_UP_END
 };

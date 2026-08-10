@@ -5,58 +5,31 @@ mapscripts Beach_MapScripts {
 }
 
 script Beach_Palooka_A {
-    trainerbattle_single(TRAINER_FIRST_PALOOKA, Tamagotchi_FirstPalooka_Intro, Tamagotchi_FirstPalooka_Defeat, Tamagotchi_FirstPalooka_Defeated)
-    setvar(VAR_0x8004, TRAINER_BEACH_A)
-    bufferstring(STR_VAR_1, format("Bleh!"))
-    bufferstring(STR_VAR_2, format("Bleh..."))
-    call(Tamagotchi_TryEarlyPalookas)
-    msgbox("Go away!")
-    waitmessage
-    release
+    trainerbattle_single(TRAINER_BEACH_A, format("Bleh!"), format("Bleh..."), Beach_Palooka_A_Defeated)
+}
+
+script Beach_Palooka_A_Defeated {
+    special(PlayerFaceTrainerAfterBattle)
+	waitmovement
+    msgbox(format("Yikes! You're strong!"))
+    closemessage
+    call(Tamagotchi_Palookaport_Out)
 }
 
 script Beach_Palooka_B {
-    trainerbattle_single(TRAINER_FIRST_PALOOKA, Tamagotchi_FirstPalooka_Intro, Tamagotchi_FirstPalooka_Defeat, Tamagotchi_FirstPalooka_Defeated)
-    setvar(VAR_0x8004, TRAINER_BEACH_B)
-    bufferstring(STR_VAR_1, format("Bleh!"))
-    bufferstring(STR_VAR_2, format("Bleh..."))
-    call(Tamagotchi_TryEarlyPalookas)
-    msgbox("Go away!")
-    waitmessage
-    release
+    trainerbattle_single(TRAINER_BEACH_B, format("Bleh!"), format("Bleh..."), Tamagotchi_Palookaport_Out)
 }
 
 script Beach_Palooka_C {
-    trainerbattle_single(TRAINER_FIRST_PALOOKA, Tamagotchi_FirstPalooka_Intro, Tamagotchi_FirstPalooka_Defeat, Tamagotchi_FirstPalooka_Defeated)
-    setvar(VAR_0x8004, TRAINER_BEACH_C)
-    bufferstring(STR_VAR_1, format("Bleh!"))
-    bufferstring(STR_VAR_2, format("Bleh..."))
-    call(Tamagotchi_TryEarlyPalookas)
-    msgbox("Go away!")
-    waitmessage
-    release
+    trainerbattle_single(TRAINER_BEACH_C, format("Bleh!"), format("Bleh..."), Tamagotchi_Palookaport_Out)
 }
 
 script Beach_Palooka_D {
-    trainerbattle_single(TRAINER_FIRST_PALOOKA, Tamagotchi_FirstPalooka_Intro, Tamagotchi_FirstPalooka_Defeat, Tamagotchi_FirstPalooka_Defeated)
-    setvar(VAR_0x8004, TRAINER_BEACH_D)
-    bufferstring(STR_VAR_1, format("Bleh!"))
-    bufferstring(STR_VAR_2, format("Bleh..."))
-    call(Tamagotchi_TryEarlyPalookas)
-    msgbox("Go away!")
-    waitmessage
-    release
+    trainerbattle_single(TRAINER_BEACH_D, format("Bleh!"), format("Bleh..."), Tamagotchi_Palookaport_Out)
 }
 
 script Beach_Palooka_E {
-    trainerbattle_single(TRAINER_FIRST_PALOOKA, Tamagotchi_FirstPalooka_Intro, Tamagotchi_FirstPalooka_Defeat, Tamagotchi_FirstPalooka_Defeated)
-    setvar(VAR_0x8004, TRAINER_BEACH_E)
-    bufferstring(STR_VAR_1, format("Bleh!"))
-    bufferstring(STR_VAR_2, format("Bleh..."))
-    call(Tamagotchi_TryEarlyPalookas)
-    msgbox("Go away!")
-    waitmessage
-    release
+    trainerbattle_single(TRAINER_BEACH_E, format("Bleh!"), format("Bleh..."), Tamagotchi_Palookaport_Out)
 }
 
 script Beach_WaterGuard {
