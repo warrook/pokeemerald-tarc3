@@ -188,51 +188,49 @@ Tamagotchi_Palookaport_Out::
 	removeobject VAR_LAST_TALKED
 # 134 "data/maps/LandingSite/scripts.pory"
 	waitfieldeffect FLDEFF_PALOOKAPORT
-# 135 "data/maps/LandingSite/scripts.pory"
-	goto Tamagotchi_Palookaport_In
 	return
 
 
 Tamagotchi_Palookaport_In::
-# 139 "data/maps/LandingSite/scripts.pory"
+# 138 "data/maps/LandingSite/scripts.pory"
 	addobject VAR_LAST_TALKED
-# 140 "data/maps/LandingSite/scripts.pory"
+# 139 "data/maps/LandingSite/scripts.pory"
 	hideobjectat VAR_LAST_TALKED, MAP_BEACH
-# 141 "data/maps/LandingSite/scripts.pory"
+# 140 "data/maps/LandingSite/scripts.pory"
 	setfieldeffectargument 0, VAR_0x8006
-# 142 "data/maps/LandingSite/scripts.pory"
+# 141 "data/maps/LandingSite/scripts.pory"
 	setfieldeffectargument 1, VAR_LAST_TALKED
-# 143 "data/maps/LandingSite/scripts.pory"
+# 142 "data/maps/LandingSite/scripts.pory"
 	setfieldeffectargument 2, 124
-# 144 "data/maps/LandingSite/scripts.pory"
+# 143 "data/maps/LandingSite/scripts.pory"
 	setfieldeffectargument 3, 2
-# 145 "data/maps/LandingSite/scripts.pory"
+# 144 "data/maps/LandingSite/scripts.pory"
 	setfieldeffectargument 4, 1
-# 146 "data/maps/LandingSite/scripts.pory"
+# 145 "data/maps/LandingSite/scripts.pory"
 	dofieldeffect FLDEFF_PALOOKAPORT
-# 147 "data/maps/LandingSite/scripts.pory"
+# 146 "data/maps/LandingSite/scripts.pory"
 	delay 24
-# 148 "data/maps/LandingSite/scripts.pory"
+# 147 "data/maps/LandingSite/scripts.pory"
 	showobjectat VAR_LAST_TALKED, MAP_BEACH
-# 149 "data/maps/LandingSite/scripts.pory"
+# 148 "data/maps/LandingSite/scripts.pory"
 	waitfieldeffect FLDEFF_PALOOKAPORT
 	return
 
 
 Tamagotchi_BabyEvo_Explanation::
-# 153 "data/maps/LandingSite/scripts.pory"
+# 152 "data/maps/LandingSite/scripts.pory"
 	goto_if_unset FLAG_EVOLVED_MON, Tamagotchi_BabyEvo_Explanation_2
-# 157 "data/maps/LandingSite/scripts.pory"
+# 156 "data/maps/LandingSite/scripts.pory"
 	bufferspeciesname STR_VAR_1, VAR_LAST_EVO
-# 158 "data/maps/LandingSite/scripts.pory"
+# 157 "data/maps/LandingSite/scripts.pory"
 	switch VAR_LAST_EVO
-# 159 "data/maps/LandingSite/scripts.pory"
+# 158 "data/maps/LandingSite/scripts.pory"
 	case SPECIES_LAND_KID, Tamagotchi_BabyEvo_Explanation_6
-# 161 "data/maps/LandingSite/scripts.pory"
+# 160 "data/maps/LandingSite/scripts.pory"
 	case SPECIES_WATER_KID, Tamagotchi_BabyEvo_Explanation_7
-# 163 "data/maps/LandingSite/scripts.pory"
+# 162 "data/maps/LandingSite/scripts.pory"
 	case SPECIES_SKY_KID, Tamagotchi_BabyEvo_Explanation_8
-# 166 "data/maps/LandingSite/scripts.pory"
+# 165 "data/maps/LandingSite/scripts.pory"
 	clearflag FLAG_EVOLVED_MON
 	end
 
@@ -240,90 +238,90 @@ Tamagotchi_BabyEvo_Explanation_2:
 	end
 
 Tamagotchi_BabyEvo_Explanation_4:
-# 169 "data/maps/LandingSite/scripts.pory"
+# 168 "data/maps/LandingSite/scripts.pory"
 	lock
-# 170 "data/maps/LandingSite/scripts.pory"
+# 169 "data/maps/LandingSite/scripts.pory"
 	call Tamagotchi_SuitCallBegin
-# 171 "data/maps/LandingSite/scripts.pory"
+# 170 "data/maps/LandingSite/scripts.pory"
 	suitcall Tamagotchi_BabyEvo_Explanation_Text_3
-# 174 "data/maps/LandingSite/scripts.pory"
+# 173 "data/maps/LandingSite/scripts.pory"
 	waitmessage
-# 175 "data/maps/LandingSite/scripts.pory"
+# 174 "data/maps/LandingSite/scripts.pory"
 	call Tamagotchi_SuitCallEnd
-# 176 "data/maps/LandingSite/scripts.pory"
+# 175 "data/maps/LandingSite/scripts.pory"
 	addvar VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1
-# 177 "data/maps/LandingSite/scripts.pory"
+# 176 "data/maps/LandingSite/scripts.pory"
 	clearflag FLAG_EVOLVED_MON
-# 178 "data/maps/LandingSite/scripts.pory"
+# 177 "data/maps/LandingSite/scripts.pory"
 	release
 	return
 
 Tamagotchi_BabyEvo_Explanation_6:
-# 160 "data/maps/LandingSite/scripts.pory"
+# 159 "data/maps/LandingSite/scripts.pory"
 	bufferstring STR_VAR_2, Tamagotchi_BabyEvo_Explanation_Text_0
 	goto Tamagotchi_BabyEvo_Explanation_4
 
 Tamagotchi_BabyEvo_Explanation_7:
-# 162 "data/maps/LandingSite/scripts.pory"
+# 161 "data/maps/LandingSite/scripts.pory"
 	bufferstring STR_VAR_2, Tamagotchi_BabyEvo_Explanation_Text_1
 	goto Tamagotchi_BabyEvo_Explanation_4
 
 Tamagotchi_BabyEvo_Explanation_8:
-# 164 "data/maps/LandingSite/scripts.pory"
+# 163 "data/maps/LandingSite/scripts.pory"
 	bufferstring STR_VAR_2, Tamagotchi_BabyEvo_Explanation_Text_2
 	goto Tamagotchi_BabyEvo_Explanation_4
 
 
 Tamagotchi_KidEvo_Explanation::
-# 182 "data/maps/LandingSite/scripts.pory"
+# 181 "data/maps/LandingSite/scripts.pory"
 	lock
-# 183 "data/maps/LandingSite/scripts.pory"
+# 182 "data/maps/LandingSite/scripts.pory"
 	call Tamagotchi_SuitCallBegin
-# 184 "data/maps/LandingSite/scripts.pory"
+# 183 "data/maps/LandingSite/scripts.pory"
 	suitcall Tamagotchi_KidEvo_Explanation_Text_0
-# 187 "data/maps/LandingSite/scripts.pory"
+# 186 "data/maps/LandingSite/scripts.pory"
 	waitmessage
-# 188 "data/maps/LandingSite/scripts.pory"
+# 187 "data/maps/LandingSite/scripts.pory"
 	call Tamagotchi_SuitCallEnd
-# 189 "data/maps/LandingSite/scripts.pory"
+# 188 "data/maps/LandingSite/scripts.pory"
 	addvar VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1
-# 190 "data/maps/LandingSite/scripts.pory"
+# 189 "data/maps/LandingSite/scripts.pory"
 	release
 	return
 
 
 Tamagotchi_YoungEvo_Explanation::
-# 194 "data/maps/LandingSite/scripts.pory"
+# 193 "data/maps/LandingSite/scripts.pory"
 	lock
-# 195 "data/maps/LandingSite/scripts.pory"
+# 194 "data/maps/LandingSite/scripts.pory"
 	call Tamagotchi_SuitCallBegin
-# 196 "data/maps/LandingSite/scripts.pory"
+# 195 "data/maps/LandingSite/scripts.pory"
 	suitcall Tamagotchi_YoungEvo_Explanation_Text_0
-# 199 "data/maps/LandingSite/scripts.pory"
+# 198 "data/maps/LandingSite/scripts.pory"
 	waitmessage
-# 200 "data/maps/LandingSite/scripts.pory"
+# 199 "data/maps/LandingSite/scripts.pory"
 	call Tamagotchi_SuitCallEnd
-# 201 "data/maps/LandingSite/scripts.pory"
+# 200 "data/maps/LandingSite/scripts.pory"
 	addvar VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1
-# 202 "data/maps/LandingSite/scripts.pory"
+# 201 "data/maps/LandingSite/scripts.pory"
 	release
 	return
 
 
 Tamagotchi_TryEarlyPalookas::
-# 207 "data/maps/LandingSite/scripts.pory"
+# 206 "data/maps/LandingSite/scripts.pory"
 	checktrainerflag VAR_0x8004
 	goto_if 1, Tamagotchi_TryEarlyPalookas_2
-# 210 "data/maps/LandingSite/scripts.pory"
+# 209 "data/maps/LandingSite/scripts.pory"
 	switch VAR_PALOOKAS_DEFEATED
-# 212 "data/maps/LandingSite/scripts.pory"
+# 211 "data/maps/LandingSite/scripts.pory"
 	case 1, Tamagotchi_TryEarlyPalookas_6
-# 214 "data/maps/LandingSite/scripts.pory"
+# 213 "data/maps/LandingSite/scripts.pory"
 	case 2, Tamagotchi_TryEarlyPalookas_7
-# 217 "data/maps/LandingSite/scripts.pory"
+# 216 "data/maps/LandingSite/scripts.pory"
 	trainerbattle_single VAR_0x8004, Tamagotchi_TryEarlyPalookas_Text_0, Tamagotchi_TryEarlyPalookas_Text_1
 Tamagotchi_TryEarlyPalookas_4:
-# 219 "data/maps/LandingSite/scripts.pory"
+# 218 "data/maps/LandingSite/scripts.pory"
 	gotopostbattlescript
 	return
 
@@ -331,96 +329,96 @@ Tamagotchi_TryEarlyPalookas_2:
 	return
 
 Tamagotchi_TryEarlyPalookas_6:
-# 213 "data/maps/LandingSite/scripts.pory"
+# 212 "data/maps/LandingSite/scripts.pory"
 	trainerbattle_single TRAINER_SECOND_PALOOKA, Tamagotchi_SecondPalooka_Intro, Tamagotchi_SecondPalooka_Defeat, Tamagotchi_SecondPalooka_Defeated
 	goto Tamagotchi_TryEarlyPalookas_4
 
 Tamagotchi_TryEarlyPalookas_7:
-# 215 "data/maps/LandingSite/scripts.pory"
+# 214 "data/maps/LandingSite/scripts.pory"
 	trainerbattle_single TRAINER_THIRD_PALOOKA, Tamagotchi_ThirdPalooka_Intro, Tamagotchi_ThirdPalooka_Defeat, Tamagotchi_ThirdPalooka_Defeated
 	goto Tamagotchi_TryEarlyPalookas_4
 
 
 Tamagotchi_FirstPalooka_Defeated::
-# 234 "data/maps/LandingSite/scripts.pory"
+# 233 "data/maps/LandingSite/scripts.pory"
 	lock
-# 235 "data/maps/LandingSite/scripts.pory"
+# 234 "data/maps/LandingSite/scripts.pory"
 	special PlayerFaceTrainerAfterBattle
-# 236 "data/maps/LandingSite/scripts.pory"
+# 235 "data/maps/LandingSite/scripts.pory"
 	waitmovement
-# 237 "data/maps/LandingSite/scripts.pory"
+# 236 "data/maps/LandingSite/scripts.pory"
 	msgbox Tamagotchi_FirstPalooka_Defeated_Text_0
+# 238 "data/maps/LandingSite/scripts.pory"
+	waitmessage
 # 239 "data/maps/LandingSite/scripts.pory"
-	waitmessage
-# 240 "data/maps/LandingSite/scripts.pory"
 	msgbox Tamagotchi_FirstPalooka_Defeated_Text_1
-# 241 "data/maps/LandingSite/scripts.pory"
+# 240 "data/maps/LandingSite/scripts.pory"
 	waitmessage
-# 242 "data/maps/LandingSite/scripts.pory"
+# 241 "data/maps/LandingSite/scripts.pory"
 	closemessage
-# 243 "data/maps/LandingSite/scripts.pory"
+# 242 "data/maps/LandingSite/scripts.pory"
 	addvar VAR_PALOOKAS_DEFEATED, 1
-# 244 "data/maps/LandingSite/scripts.pory"
+# 243 "data/maps/LandingSite/scripts.pory"
 	call Tamagotchi_Palookaport_Out
-# 245 "data/maps/LandingSite/scripts.pory"
+# 244 "data/maps/LandingSite/scripts.pory"
 	release
 	return
 
 
 Tamagotchi_SecondPalooka_Defeated::
-# 257 "data/maps/LandingSite/scripts.pory"
+# 256 "data/maps/LandingSite/scripts.pory"
 	lock
-# 258 "data/maps/LandingSite/scripts.pory"
+# 257 "data/maps/LandingSite/scripts.pory"
 	special PlayerFaceTrainerAfterBattle
-# 259 "data/maps/LandingSite/scripts.pory"
+# 258 "data/maps/LandingSite/scripts.pory"
 	waitmovement
-# 260 "data/maps/LandingSite/scripts.pory"
+# 259 "data/maps/LandingSite/scripts.pory"
 	msgbox Tamagotchi_SecondPalooka_Defeated_Text_0
-# 262 "data/maps/LandingSite/scripts.pory"
+# 261 "data/maps/LandingSite/scripts.pory"
 	waitmessage
-# 263 "data/maps/LandingSite/scripts.pory"
+# 262 "data/maps/LandingSite/scripts.pory"
 	addvar VAR_PALOOKAS_DEFEATED, 1
-# 264 "data/maps/LandingSite/scripts.pory"
+# 263 "data/maps/LandingSite/scripts.pory"
 	settrainerflag VAR_0x8004
-# 265 "data/maps/LandingSite/scripts.pory"
+# 264 "data/maps/LandingSite/scripts.pory"
 	release
 	return
 
 
 Tamagotchi_ThirdPalooka_Defeated::
-# 277 "data/maps/LandingSite/scripts.pory"
+# 276 "data/maps/LandingSite/scripts.pory"
 	lock
-# 278 "data/maps/LandingSite/scripts.pory"
+# 277 "data/maps/LandingSite/scripts.pory"
 	special PlayerFaceTrainerAfterBattle
-# 279 "data/maps/LandingSite/scripts.pory"
+# 278 "data/maps/LandingSite/scripts.pory"
 	waitmovement
-# 280 "data/maps/LandingSite/scripts.pory"
+# 279 "data/maps/LandingSite/scripts.pory"
 	msgbox Tamagotchi_ThirdPalooka_Defeated_Text_0
+# 281 "data/maps/LandingSite/scripts.pory"
+	waitmessage
 # 282 "data/maps/LandingSite/scripts.pory"
-	waitmessage
+	call Tamagotchi_SuitCallBegin
 # 283 "data/maps/LandingSite/scripts.pory"
-	call Tamagotchi_SuitCallBegin
-# 284 "data/maps/LandingSite/scripts.pory"
 	suitcall Tamagotchi_ThirdPalooka_Defeated_Text_1
+# 288 "data/maps/LandingSite/scripts.pory"
+	waitmessage
 # 289 "data/maps/LandingSite/scripts.pory"
-	waitmessage
+	call Tamagotchi_SuitCallEnd
 # 290 "data/maps/LandingSite/scripts.pory"
-	call Tamagotchi_SuitCallEnd
-# 291 "data/maps/LandingSite/scripts.pory"
 	waitse
-# 292 "data/maps/LandingSite/scripts.pory"
+# 291 "data/maps/LandingSite/scripts.pory"
 	call Tamagotchi_SuitCallBegin
-# 293 "data/maps/LandingSite/scripts.pory"
+# 292 "data/maps/LandingSite/scripts.pory"
 	suitcall Tamagotchi_ThirdPalooka_Defeated_Text_2
-# 294 "data/maps/LandingSite/scripts.pory"
+# 293 "data/maps/LandingSite/scripts.pory"
 	waitmessage
-# 295 "data/maps/LandingSite/scripts.pory"
+# 294 "data/maps/LandingSite/scripts.pory"
 	call Tamagotchi_SuitCallEnd
-# 296 "data/maps/LandingSite/scripts.pory"
+# 295 "data/maps/LandingSite/scripts.pory"
 	addvar VAR_PALOOKAS_DEFEATED, 1
-# 297 "data/maps/LandingSite/scripts.pory"
+# 296 "data/maps/LandingSite/scripts.pory"
 	settrainerflag VAR_0x8004
-# 298 "data/maps/LandingSite/scripts.pory"
+# 297 "data/maps/LandingSite/scripts.pory"
 	release
 	return
 
@@ -500,19 +498,19 @@ LandingSite_CatchIntro_PushDown_Text_0:
 	.string "It's too dangerous to go on alone.$"
 
 Tamagotchi_BabyEvo_Explanation_Text_0:
-# 160 "data/maps/LandingSite/scripts.pory"
+# 159 "data/maps/LandingSite/scripts.pory"
 	.string "Land Hills$"
 
 Tamagotchi_BabyEvo_Explanation_Text_1:
-# 162 "data/maps/LandingSite/scripts.pory"
+# 161 "data/maps/LandingSite/scripts.pory"
 	.string "Water Beach$"
 
 Tamagotchi_BabyEvo_Explanation_Text_2:
-# 164 "data/maps/LandingSite/scripts.pory"
+# 163 "data/maps/LandingSite/scripts.pory"
 	.string "Sky Mountain$"
 
 Tamagotchi_BabyEvo_Explanation_Text_3:
-# 171 "data/maps/LandingSite/scripts.pory"
+# 170 "data/maps/LandingSite/scripts.pory"
 	.string "Prof. Banzo: {PLAYER}! The Exo-Pokémon\n"
 	.string "of this planet evolve like ours back\l"
 	.string "home, but somewhat differently.\p"
@@ -522,7 +520,7 @@ Tamagotchi_BabyEvo_Explanation_Text_3:
 	.string "{STR_VAR_2}...makes sense, right?$"
 
 Tamagotchi_KidEvo_Explanation_Text_0:
-# 184 "data/maps/LandingSite/scripts.pory"
+# 183 "data/maps/LandingSite/scripts.pory"
 	.string "Prof. Banzo: {PLAYER}! The “kids” of\n"
 	.string "this world evolve based on their diet.\p"
 	.string "They'll evolve into different “young”\n"
@@ -531,7 +529,7 @@ Tamagotchi_KidEvo_Explanation_Text_0:
 	.string "fabricate suitable nourishment.$"
 
 Tamagotchi_YoungEvo_Explanation_Text_0:
-# 196 "data/maps/LandingSite/scripts.pory"
+# 195 "data/maps/LandingSite/scripts.pory"
 	.string "Prof. Banzo: {PLAYER}! The “young” of\n"
 	.string "this world evolve from scents.\p"
 	.string "Like diet, scents take some time to\n"
@@ -540,36 +538,36 @@ Tamagotchi_YoungEvo_Explanation_Text_0:
 	.string "synthesized with enough charge.$"
 
 Tamagotchi_TryEarlyPalookas_Text_0:
-# 217 "data/maps/LandingSite/scripts.pory"
+# 216 "data/maps/LandingSite/scripts.pory"
 	.string "{STR_VAR_1}$"
 
 Tamagotchi_TryEarlyPalookas_Text_1:
-# 217 "data/maps/LandingSite/scripts.pory"
+# 216 "data/maps/LandingSite/scripts.pory"
 	.string "{STR_VAR_2}$"
 
 Tamagotchi_FirstPalooka_Defeated_Text_0:
-# 237 "data/maps/LandingSite/scripts.pory"
+# 236 "data/maps/LandingSite/scripts.pory"
 	.string "Translator calibrated.\p"
 	.string "Identify yourself!$"
 
 Tamagotchi_FirstPalooka_Defeated_Text_1:
-# 240 "data/maps/LandingSite/scripts.pory"
+# 239 "data/maps/LandingSite/scripts.pory"
 	.string "You're a kid? Humiliating!$"
 
 Tamagotchi_SecondPalooka_Defeated_Text_0:
-# 260 "data/maps/LandingSite/scripts.pory"
+# 259 "data/maps/LandingSite/scripts.pory"
 	.string "Yikes! You're a good fighter!\p"
 	.string "I gotta tell Jomo about this!$"
 
 Tamagotchi_ThirdPalooka_Defeated_Text_0:
-# 280 "data/maps/LandingSite/scripts.pory"
+# 279 "data/maps/LandingSite/scripts.pory"
 	.string "These monsters are ours, alien. We've\n"
 	.string "worked hard to make them battle-ready.\p"
 	.string "You'd better go home before Jomo\n"
 	.string "decides to take care of you himself.$"
 
 Tamagotchi_ThirdPalooka_Defeated_Text_1:
-# 284 "data/maps/LandingSite/scripts.pory"
+# 283 "data/maps/LandingSite/scripts.pory"
 	.string "???: Ahahaha! Alien! You hear now the\n"
 	.string "voice of Jomo, leader of this operation!\p"
 	.string "Before we arrived, these monsters were\n"
@@ -581,32 +579,32 @@ Tamagotchi_ThirdPalooka_Defeated_Text_1:
 	.string "We'll be in touch, alien.$"
 
 Tamagotchi_ThirdPalooka_Defeated_Text_2:
-# 293 "data/maps/LandingSite/scripts.pory"
+# 292 "data/maps/LandingSite/scripts.pory"
 	.string "Prof. Banzo: Jomo seems scary... I'll try\n"
 	.string "to pinpoint his location from up here.\l"
 	.string "Keep doing what you're doing!$"
 
 Tamagotchi_FirstPalooka_Intro::
-# 222 "data/maps/LandingSite/scripts.pory"
+# 221 "data/maps/LandingSite/scripts.pory"
 	.string "{FONT_PALOOKA}KA! KE TO,WA?$"
 
 Tamagotchi_FirstPalooka_Defeat::
-# 228 "data/maps/LandingSite/scripts.pory"
+# 227 "data/maps/LandingSite/scripts.pory"
 	.string "{FONT_PALOOKA}JO LADA KE APGE,WA?$"
 
 Tamagotchi_SecondPalooka_Intro::
-# 248 "data/maps/LandingSite/scripts.pory"
+# 247 "data/maps/LandingSite/scripts.pory"
 	.string "{FONT_PALOOKA}KE TO,WA? {FONT_NORMAL}Oh, you're the alien!$"
 
 Tamagotchi_SecondPalooka_Defeat::
-# 252 "data/maps/LandingSite/scripts.pory"
+# 251 "data/maps/LandingSite/scripts.pory"
 	.string "No way...$"
 
 Tamagotchi_ThirdPalooka_Intro::
-# 268 "data/maps/LandingSite/scripts.pory"
+# 267 "data/maps/LandingSite/scripts.pory"
 	.string "My orders are to stop you from\n"
 	.string "interfering!$"
 
 Tamagotchi_ThirdPalooka_Defeat::
-# 272 "data/maps/LandingSite/scripts.pory"
+# 271 "data/maps/LandingSite/scripts.pory"
 	.string "Jomo will be hearing about this...!$"

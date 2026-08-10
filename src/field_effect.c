@@ -4645,6 +4645,7 @@ u8 FldEff_Palookaport(void)
 {
     u8 spriteId;
     s16 x, y;
+    u32 subpriority;
     //DebugPrintfLevel(MGBA_LOG_WARN, "Palookaport Args: { %d, %d, %d, %d, %d }", gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2], gFieldEffectArguments[3], gFieldEffectArguments[4]);
     if (gFieldEffectArguments[0] < 0)
     {
@@ -4652,13 +4653,14 @@ u8 FldEff_Palookaport(void)
         struct ObjectEvent *objectEvent = &gObjectEvents[GetObjectEventIdByLocalId(gFieldEffectArguments[1])];
         x = objectEvent->currentCoords.x;
         y = objectEvent->currentCoords.y;
+        subpriority = gSprites[objectEvent->spriteId].subpriority - 1;
     }
     else
     {
         x = gFieldEffectArguments[0] + MAP_OFFSET;
         y = gFieldEffectArguments[1] + MAP_OFFSET;
+        subpriority = gFieldEffectArguments[2];
     }
-    u32 subpriority = gFieldEffectArguments[2];
     u16 priority = gFieldEffectArguments[3];
     SetSpritePosToOffsetMapCoords(&x, &y, 8, 0);
     spriteId = CreateSpriteAtEnd(
