@@ -1,5 +1,5 @@
 // Include this in src/data/graphics/pokemon.h
-// Completion: 99/388 (25%)
+// Completion: 111/382 (29%)
 
 const u32 gMonFrontPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/front.png", ".4bpp.lz");
 const u32 gMonBackPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/back.png", ".4bpp.lz");
@@ -99,12 +99,12 @@ const u8 gMonFootprint_Lick_Land[] = INCGFX_U8("graphics/pokemon/lick_land/footp
 // const u8 gMonIcon_Leopatchi[] = INCGFX_U8("graphics/pokemon/leopatchi/icon.png", ".4bpp");
 // const u8 gMonFootprint_Leopatchi[] = INCGFX_U8("graphics/pokemon/leopatchi/footprint.png", ".1bpp");
 
-// const u32 gMonFrontPic_Sebiretchi[] = INCGFX_U32("graphics/pokemon/sebiretchi/front.png", ".4bpp.lz");
-// const u32 gMonBackPic_Sebiretchi[] = INCGFX_U32("graphics/pokemon/sebiretchi/back.png", ".4bpp.lz");
-// const u16 gMonPalette_Sebiretchi[] = INCGFX_U16("graphics/pokemon/sebiretchi/front.png", ".gbapal");
-// const u16 gMonShinyPalette_Sebiretchi[] = INCGFX_U16("graphics/pokemon/sebiretchi/back.png", ".gbapal");
-// const u8 gMonIcon_Sebiretchi[] = INCGFX_U8("graphics/pokemon/sebiretchi/icon.png", ".4bpp");
-// const u8 gMonFootprint_Sebiretchi[] = INCGFX_U8("graphics/pokemon/sebiretchi/footprint.png", ".1bpp");
+const u32 gMonFrontPic_Sebiretchi[] = INCGFX_U32("graphics/pokemon/sebiretchi/front.png", ".4bpp.lz");
+const u32 gMonBackPic_Sebiretchi[] = INCGFX_U32("graphics/pokemon/sebiretchi/back.png", ".4bpp.lz");
+const u16 gMonPalette_Sebiretchi[] = INCGFX_U16("graphics/pokemon/sebiretchi/front.png", ".gbapal");
+const u16 gMonShinyPalette_Sebiretchi[] = INCGFX_U16("graphics/pokemon/sebiretchi/back.png", ".gbapal");
+const u8 gMonIcon_Sebiretchi[] = INCGFX_U8("graphics/pokemon/sebiretchi/icon.png", ".4bpp");
+const u8 gMonFootprint_Sebiretchi[] = INCGFX_U8("graphics/pokemon/sebiretchi/footprint.png", ".1bpp");
 
 // const u32 gMonFrontPic_Elizardotchi[] = INCGFX_U32("graphics/pokemon/elizardotchi/front.png", ".4bpp.lz");
 // const u32 gMonBackPic_Elizardotchi[] = INCGFX_U32("graphics/pokemon/elizardotchi/back.png", ".4bpp.lz");
@@ -127,12 +127,12 @@ const u16 gMonShinyPalette_Sprout_Land[] = INCGFX_U16("graphics/pokemon/sprout_l
 const u8 gMonIcon_Sprout_Land[] = INCGFX_U8("graphics/pokemon/sprout_land/icon.png", ".4bpp");
 const u8 gMonFootprint_Sprout_Land[] = INCGFX_U8("graphics/pokemon/sprout_land/footprint.png", ".1bpp");
 
-// const u32 gMonFrontPic_Furawatchi[] = INCGFX_U32("graphics/pokemon/furawatchi/front.png", ".4bpp.lz");
-// const u32 gMonBackPic_Furawatchi[] = INCGFX_U32("graphics/pokemon/furawatchi/back.png", ".4bpp.lz");
-// const u16 gMonPalette_Furawatchi[] = INCGFX_U16("graphics/pokemon/furawatchi/front.png", ".gbapal");
-// const u16 gMonShinyPalette_Furawatchi[] = INCGFX_U16("graphics/pokemon/furawatchi/back.png", ".gbapal");
-// const u8 gMonIcon_Furawatchi[] = INCGFX_U8("graphics/pokemon/furawatchi/icon.png", ".4bpp");
-// const u8 gMonFootprint_Furawatchi[] = INCGFX_U8("graphics/pokemon/furawatchi/footprint.png", ".1bpp");
+const u32 gMonFrontPic_Flowertchi[] = INCGFX_U32("graphics/pokemon/flowertchi/front.png", ".4bpp.lz");
+const u32 gMonBackPic_Flowertchi[] = INCGFX_U32("graphics/pokemon/flowertchi/back.png", ".4bpp.lz");
+const u16 gMonPalette_Flowertchi[] = INCGFX_U16("graphics/pokemon/flowertchi/front.png", ".gbapal");
+const u16 gMonShinyPalette_Flowertchi[] = INCGFX_U16("graphics/pokemon/flowertchi/back.png", ".gbapal");
+const u8 gMonIcon_Flowertchi[] = INCGFX_U8("graphics/pokemon/flowertchi/icon.png", ".4bpp");
+const u8 gMonFootprint_Flowertchi[] = INCGFX_U8("graphics/pokemon/flowertchi/footprint.png", ".1bpp");
 
 // const u32 gMonFrontPic_Potsunentchi[] = INCGFX_U32("graphics/pokemon/potsunentchi/front.png", ".4bpp.lz");
 // const u32 gMonBackPic_Potsunentchi[] = INCGFX_U32("graphics/pokemon/potsunentchi/back.png", ".4bpp.lz");
@@ -393,12 +393,12 @@ const u8 gMonFootprint_Chirp_Sky[] = INCGFX_U8("graphics/pokemon/chirp_sky/footp
 // const u8 gMonIcon_Batatchi[] = INCGFX_U8("graphics/pokemon/batatchi/icon.png", ".4bpp");
 // const u8 gMonFootprint_Batatchi[] = INCGFX_U8("graphics/pokemon/batatchi/footprint.png", ".1bpp");
 
-// const u32 gMonFrontPic_Kuchipatchi[] = INCGFX_U32("graphics/pokemon/kuchipatchi/front.png", ".4bpp.lz");
-// const u32 gMonBackPic_Kuchipatchi[] = INCGFX_U32("graphics/pokemon/kuchipatchi/back.png", ".4bpp.lz");
-// const u16 gMonPalette_Kuchipatchi[] = INCGFX_U16("graphics/pokemon/kuchipatchi/front.png", ".gbapal");
-// const u16 gMonShinyPalette_Kuchipatchi[] = INCGFX_U16("graphics/pokemon/kuchipatchi/back.png", ".gbapal");
-// const u8 gMonIcon_Kuchipatchi[] = INCGFX_U8("graphics/pokemon/kuchipatchi/icon.png", ".4bpp");
-// const u8 gMonFootprint_Kuchipatchi[] = INCGFX_U8("graphics/pokemon/kuchipatchi/footprint.png", ".1bpp");
+const u32 gMonFrontPic_Kuchipatchi[] = INCGFX_U32("graphics/pokemon/kuchipatchi/front.png", ".4bpp.lz");
+const u32 gMonBackPic_Kuchipatchi[] = INCGFX_U32("graphics/pokemon/kuchipatchi/back.png", ".4bpp.lz");
+const u16 gMonPalette_Kuchipatchi[] = INCGFX_U16("graphics/pokemon/kuchipatchi/front.png", ".gbapal");
+const u16 gMonShinyPalette_Kuchipatchi[] = INCGFX_U16("graphics/pokemon/kuchipatchi/back.png", ".gbapal");
+const u8 gMonIcon_Kuchipatchi[] = INCGFX_U8("graphics/pokemon/kuchipatchi/icon.png", ".4bpp");
+const u8 gMonFootprint_Kuchipatchi[] = INCGFX_U8("graphics/pokemon/kuchipatchi/footprint.png", ".1bpp");
 
 // const u32 gMonFrontPic_Kiwitchi[] = INCGFX_U32("graphics/pokemon/kiwitchi/front.png", ".4bpp.lz");
 // const u32 gMonBackPic_Kiwitchi[] = INCGFX_U32("graphics/pokemon/kiwitchi/back.png", ".4bpp.lz");

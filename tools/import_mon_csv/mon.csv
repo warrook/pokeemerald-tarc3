@@ -17,7 +17,7 @@ Index,Name,Field,Young,Type 1,Type 2,Target,Total,HP,ATK,DEF,SpATK,SpDEF,SPD,Abi
 16,Elizardotchi,Land,Lick,Electric,,580,580,80,60,110,120,110,100,Intimidate,Static,Innards Out,4,joy scent,0:Parabolic Charge;18:Parabolic Charge;22:Electric Terrain;26:Rising Voltage;32:Gastro Acid
 17,Heavytchi,Land,Lick,Poison,Dark,580,580,60,150,70,80,100,120,Intimidate,Unnerve,Sturdy,4,no scent,0:Poison Fang;18:Poison Fang;22:Venom Drench;26:Coil;32:Power Trip
 18,Sprout (Land),Land,Sprout,Mystery,,400,360,60,60,60,60,60,60,Pickup,Run Away,Frisk,3,no food,0:Mega Drain;12:Mega Drain;16:Magical Leaf
-19,Furawatchi,Land,Sprout,Fairy,Grass,580,580,80,60,100,120,110,110,Harvest,,,4,vivid scent,0:Natural Gift;18:Natural Gift;22:Grassy Terrain;26:Sunny Day;32:Moonblast
+19,Flowertchi,Land,Sprout,Fairy,Grass,580,580,80,60,100,120,110,110,Harvest,,,4,vivid scent,0:Natural Gift;18:Natural Gift;22:Grassy Terrain;26:Sunny Day;32:Moonblast
 20,Potsunentchi,Land,Sprout,Grass,,580,580,120,80,130,80,90,80,Chlorophyll,,,4,excite scent,0:Giga Drain;18:Giga Drain;22:Protect;26:Petal Blizzard;32:Synthesis
 21,Tustustchi,Land,Sprout,Grass,Poison,580,580,100,90,120,80,120,70,Water Absorb,,Poison Point,4,joy scent,0:Needle Arm;18:Needle Arm;22:Barb Barrage;26:Baneful Bunker;26:Spiky Shield;32:Leaf Blade
 22,Shigemi-san,Land,Sprout,Steel,,580,580,130,80,120,90,100,60,Fluffy,,,4,no scent,0:Rollout;18:Rollout;22:Iron Defense;26:Body Press;32:Gyro Ball
