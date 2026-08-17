@@ -1782,6 +1782,14 @@ extern const u32 gItemIcon_LeafyFood[];
 extern const u16 gItemIconPalette_LeafyFood[];
 extern const u32 gItemIcon_GooeyFood[];
 extern const u16 gItemIconPalette_GooeyFood[];
+extern const u32 gItemIcon_JoyScent[];
+extern const u16 gItemIconPalette_JoyScent[];
+extern const u32 gItemIcon_ExciteScent[];
+extern const u16 gItemIconPalette_ExciteScent[];
+extern const u32 gItemIcon_VividScent[];
+extern const u16 gItemIconPalette_VividScent[];
+extern const u32 gItemIcon_ComplexScent[];
+extern const u16 gItemIconPalette_ComplexScent[];
 
 //menu graphics
 extern const u16 gMenuInfoElements1_Pal[16];
