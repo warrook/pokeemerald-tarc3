@@ -150,6 +150,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    FOOTPRINT(Meowtchi)
     .levelUpLearnset = sMeowtchiLevelUpLearnset,
 },
 
@@ -181,6 +182,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    FOOTPRINT(Pochitchi)
     .levelUpLearnset = sPochitchiLevelUpLearnset,
 },
 
@@ -211,6 +213,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    FOOTPRINT(Gumax)
     .levelUpLearnset = sGumaxLevelUpLearnset,
 },
 
@@ -378,6 +381,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    FOOTPRINT(Molmotchi)
     .levelUpLearnset = sMolmotchiLevelUpLearnset,
 },
 
@@ -578,11 +582,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Heavy{TCHI}"),
     .natDexNum = NATIONAL_DEX_HEAVYTCHI,
     .categoryName = _("Land Lick"),
+    .frontPic = gMonFrontPic_Heavytchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Heavytchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Heavytchi,
+    .shinyPalette = gMonShinyPalette_Heavytchi,
+    .iconSprite = gMonIcon_Heavytchi,
+    .iconPalIndex = 1,
+    FOOTPRINT(Heavytchi)
     .levelUpLearnset = sHeavytchiLevelUpLearnset,
 },
 
@@ -1427,6 +1438,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    FOOTPRINT(Kuraratchi)
     .levelUpLearnset = sKuraratchiLevelUpLearnset,
 },
 
@@ -1458,6 +1470,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    FOOTPRINT(Mendakotchi)
     .levelUpLearnset = sMendakotchiLevelUpLearnset,
 },
 
@@ -1489,6 +1502,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    FOOTPRINT(Amefuratchi)
     .levelUpLearnset = sAmefuratchiLevelUpLearnset,
 },
 
@@ -1721,6 +1735,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    FOOTPRINT(Mongatchi)
     .levelUpLearnset = sMongatchiLevelUpLearnset,
 },
 
@@ -1781,6 +1796,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    FOOTPRINT(Batchi)
     .levelUpLearnset = sBatchiLevelUpLearnset,
 },
 
@@ -1947,11 +1963,17 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Kiwi{TCHI}"),
     .natDexNum = NATIONAL_DEX_KIWITCHI,
     .categoryName = _("Sky Chirp"),
+    .frontPic = gMonFrontPic_Kiwitchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Kiwitchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    .palette = gMonPalette_Kiwitchi,
+    .shinyPalette = gMonShinyPalette_Kiwitchi,
+    .iconPalIndex = 1,
+    FOOTPRINT(Kiwitchi)
     .levelUpLearnset = sKiwitchiLevelUpLearnset,
 },
 
@@ -2023,6 +2045,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
         ANIMCMD_FRAME(0,1),
     ),
     .backPicSize = MON_COORDS_SIZE(64, 64),
+    FOOTPRINT(Papillotchi)
     .levelUpLearnset = sPapillotchiLevelUpLearnset,
 },
 
