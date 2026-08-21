@@ -1,2 +1,7 @@
 field,value
 iconPalIndex,1
+frontAnimId,ANIM_H_SPRING
+frontPicYOffset,2
+shadow,0 5 SHADOW_SIZE_L
+backAnimId,BACK_ANIM_H_SPRING
+backPicYOffset,13

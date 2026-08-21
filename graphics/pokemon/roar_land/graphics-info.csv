@@ -1,2 +1,7 @@
 field,value
 iconPalIndex,1
+frontAnimId,ANIM_TIP_HOP_FORWARD
+frontPicYOffset,7
+shadow,0 -1 SHADOW_SIZE_S
+backAnimId,BACK_ANIM_JOLT_RIGHT
+backPicYOffset,13

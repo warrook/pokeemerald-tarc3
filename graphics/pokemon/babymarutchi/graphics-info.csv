@@ -1,2 +1,7 @@
 field,value
 iconPalIndex,4
+frontAnimId,ANIM_V_SQUISH_AND_BOUNCE
+frontPicYOffset,7
+shadow,0 -2 SHADOW_SIZE_S
+backAnimId,BACK_ANIM_DIP_RIGHT_SIDE
+backPicYOffset,13

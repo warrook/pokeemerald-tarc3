@@ -1,2 +1,7 @@
 field,value
 iconPalIndex,4
+backAnimId,BACK_ANIM_CONCAVE_ARC_SMALL
+backPicYOffset,13
+frontAnimId,ANIM_BOUNCE_ROTATE_TO_SIDES
+frontPicYOffset,7
+shadow,-1 -2 SHADOW_SIZE_S

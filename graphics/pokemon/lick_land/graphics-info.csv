@@ -1,2 +1,7 @@
 field,value
 iconPalIndex,5
+frontAnimId,ANIM_V_JUMPS_BIG
+frontPicYOffset,9
+shadow,0 -2 SHADOW_SIZE_M
+backAnimId,BACK_ANIM_H_SLIDE
+backPicYOffset,13

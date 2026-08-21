@@ -182,6 +182,8 @@ def gfx_str(d:dict, key:str):
         return output.format(key, value)
     elif key.endswith("PicSize"):
         return "\t.{0} = MON_COORDS_SIZE(64, 64),".format(key)
+    elif key == "backPicYOffset":
+        return "\t.{0} = 13, //default".format(key) #default yoffset
 
 
 def make_graphics_info_strings(d:dict, name_in_var:str):

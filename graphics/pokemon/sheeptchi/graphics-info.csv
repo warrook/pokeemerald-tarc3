@@ -1,2 +1,7 @@
 field,value
 iconPalIndex,3
+frontAnimId,ANIM_FLASH_YELLOW
+frontPicYOffset,2
+shadow,0 5 SHADOW_SIZE_L
+backAnimId,BACK_ANIM_SHAKE_FLASH_YELLOW
+backPicYOffset,13
