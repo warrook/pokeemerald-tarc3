@@ -374,12 +374,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Mimi{TCHI}"),
     .natDexNum = NATIONAL_DEX_MIMITCHI,
     .categoryName = _("Land Toddle"),
+    .frontPic = gMonFrontPic_Mimitchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Mimitchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
+    .palette = gMonPalette_Mimitchi,
+    .shinyPalette = gMonShinyPalette_Mimitchi,
+    .iconSprite = gMonIcon_Mimitchi,
+    .iconPalIndex = 3,
     .levelUpLearnset = sMimitchiLevelUpLearnset,
 },
 
@@ -406,12 +412,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Molmo{TCHI}"),
     .natDexNum = NATIONAL_DEX_MOLMOTCHI,
     .categoryName = _("Land Toddle"),
+    .frontPic = gMonFrontPic_Molmotchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Molmotchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
+    .palette = gMonPalette_Molmotchi,
+    .shinyPalette = gMonShinyPalette_Molmotchi,
+    .iconSprite = gMonIcon_Molmotchi,
+    .iconPalIndex = 5,
     FOOTPRINT(Molmotchi)
     .levelUpLearnset = sMolmotchiLevelUpLearnset,
 },
@@ -861,12 +873,19 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Chodraco{TCHI}"),
     .natDexNum = NATIONAL_DEX_CHODRACOTCHI,
     .categoryName = _("Rare Land"),
+    .frontPic = gMonFrontPic_Chodracotchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Chodracotchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
+    .palette = gMonPalette_Chodracotchi,
+    .shinyPalette = gMonShinyPalette_Chodracotchi,
+    .iconSprite = gMonIcon_Chodracotchi,
+    .iconPalIndex = 4,
+    FOOTPRINT(Chodracotchi)
     .levelUpLearnset = sChodracotchiLevelUpLearnset,
 },
 
@@ -1103,12 +1122,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Uruo{TCHI}"),
     .natDexNum = NATIONAL_DEX_URUOTCHI,
     .categoryName = _("Water Glide"),
+    .frontPic = gMonFrontPic_Uruotchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Uruotchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
+    .palette = gMonPalette_Uruotchi,
+    .shinyPalette = gMonShinyPalette_Uruotchi,
+    .iconPalIndex = 3,
+    FOOTPRINT(Uruotchi)
     .levelUpLearnset = sUruotchiLevelUpLearnset,
 },
 
@@ -1236,12 +1261,19 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Kawazu{TCHI}"),
     .natDexNum = NATIONAL_DEX_KAWAZUTCHI,
     .categoryName = _("Water Leap"),
+    .frontPic = gMonFrontPic_Kawazutchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Kawazutchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
+    .palette = gMonPalette_Kawazutchi,
+    .shinyPalette = gMonShinyPalette_Kawazutchi,
+    .iconSprite = gMonIcon_Kawazutchi,
+    .iconPalIndex = 1,
+    FOOTPRINT(Kawazutchi)
     .levelUpLearnset = sKawazutchiLevelUpLearnset,
 },
 
@@ -1510,12 +1542,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Kurara{TCHI}"),
     .natDexNum = NATIONAL_DEX_KURARATCHI,
     .categoryName = _("Water Float"),
+    .frontPic = gMonFrontPic_Kuraratchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Kuraratchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
+    .palette = gMonPalette_Kuraratchi,
+    .shinyPalette = gMonShinyPalette_Kuraratchi,
+    .iconSprite = gMonIcon_Kuraratchi,
+    .iconPalIndex = 5,
     FOOTPRINT(Kuraratchi)
     .levelUpLearnset = sKuraratchiLevelUpLearnset,
 },
@@ -1543,12 +1581,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Mendako{TCHI}"),
     .natDexNum = NATIONAL_DEX_MENDAKOTCHI,
     .categoryName = _("Water Float"),
+    .frontPic = gMonFrontPic_Mendakotchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Mendakotchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
+    .palette = gMonPalette_Mendakotchi,
+    .shinyPalette = gMonShinyPalette_Mendakotchi,
+    .iconSprite = gMonIcon_Mendakotchi,
+    .iconPalIndex = 3,
     FOOTPRINT(Mendakotchi)
     .levelUpLearnset = sMendakotchiLevelUpLearnset,
 },
@@ -1576,12 +1620,18 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Amefura{TCHI}"),
     .natDexNum = NATIONAL_DEX_AMEFURATCHI,
     .categoryName = _("Water Float"),
+    .frontPic = gMonFrontPic_Amefuratchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Amefuratchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
+    .palette = gMonPalette_Amefuratchi,
+    .shinyPalette = gMonShinyPalette_Amefuratchi,
+    .iconSprite = gMonIcon_Amefuratchi,
+    .iconPalIndex = 3,
     FOOTPRINT(Amefuratchi)
     .levelUpLearnset = sAmefuratchiLevelUpLearnset,
 },
@@ -1879,12 +1929,17 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Ba{TCHI}"),
     .natDexNum = NATIONAL_DEX_BATCHI,
     .categoryName = _("Sky Flap"),
+    .frontPic = gMonFrontPic_Batchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Batchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
+    .palette = gMonPalette_Batchi,
+    .shinyPalette = gMonShinyPalette_Batchi,
+    .iconPalIndex = 3,
     FOOTPRINT(Batchi)
     .levelUpLearnset = sBatchiLevelUpLearnset,
 },
@@ -2199,12 +2254,19 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Tento{TCHI}"),
     .natDexNum = NATIONAL_DEX_TENTOTCHI,
     .categoryName = _("Sky Bumble"),
+    .frontPic = gMonFrontPic_Tentotchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Tentotchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
+    .palette = gMonPalette_Tentotchi,
+    .shinyPalette = gMonShinyPalette_Tentotchi,
+    .iconSprite = gMonIcon_Tentotchi,
+    .iconPalIndex = 3,
+    FOOTPRINT(Tentotchi)
     .levelUpLearnset = sTentotchiLevelUpLearnset,
 },
 
@@ -2377,12 +2439,19 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Ishikoro{TCHI}"),
     .natDexNum = NATIONAL_DEX_ISHIKOROTCHI,
     .categoryName = _("Sky Rocky"),
+    .frontPic = gMonFrontPic_Ishikorotchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Ishikorotchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
+    .palette = gMonPalette_Ishikorotchi,
+    .shinyPalette = gMonShinyPalette_Ishikorotchi,
+    .iconSprite = gMonIcon_Ishikorotchi,
+    .iconPalIndex = 0,
+    FOOTPRINT(Ishikorotchi)
     .levelUpLearnset = sIshikorotchiLevelUpLearnset,
 },
 

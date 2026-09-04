@@ -415,6 +415,7 @@ enum
     OBJ_EVENT_GFX_BREAKABLE_ROCK_FRLG,
     OBJ_EVENT_GFX_CAPSULE,
     OBJ_EVENT_GFX_AGITATOR,
+    OBJ_EVENT_GFX_PALOOKA,
     NUM_OBJ_EVENT_GFX,
 };
 
@@ -574,6 +575,7 @@ enum
 // Tamagotchi
 #define OBJ_EVENT_PAL_TAG_CAPSULE                 0x1134
 #define OBJ_EVENT_PAL_TAG_AGITATOR                0x1135
+#define OBJ_EVENT_PAL_TAG_PALOOKA                 0x1136
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla

@@ -14,6 +14,10 @@ static const struct SpriteFrameImage sPicTable_Agitator[] = {
     overworld_frame(gObjectEventPic_Agitator, 2, 4, 2),
 };
 
+static const struct SpriteFrameImage sPicTable_Palooka[] = {
+    overworld_ascending_frames(gObjectEventPic_Palooka, 2, 4),
+};
+
 
 static const struct SpriteFrameImage sPicTable_BrendanNormal[] = {
     overworld_ascending_frames(gObjectEventPic_BrendanNormalRunning, 2, 4),

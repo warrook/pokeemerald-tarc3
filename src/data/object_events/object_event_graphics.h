@@ -2,6 +2,8 @@ const u32 gObjectEventPic_Capsule[] = INCGFX_U32("graphics/object_events/pics/_c
 const u16 gObjectEventPal_Capsule[] = INCGFX_U16("graphics/object_events/pics/_custom/capsule.png", ".gbapal");
 const u32 gObjectEventPic_Agitator[] = INCGFX_U32("graphics/object_events/pics/_custom/agitator.png", ".4bpp", "-mwidth 2 -mheight 4");
 const u16 gObjectEventPal_Agitator[] = INCGFX_U16("graphics/object_events/pics/_custom/agitator.png", ".gbapal");
+const u32 gObjectEventPic_Palooka[] = INCGFX_U32("graphics/object_events/pics/people/palooka.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u16 gObjectEventPal_Palooka[] = INCGFX_U16("graphics/object_events/pics/people/palooka.png", ".gbapal");
 const u16 gFieldEffectPal_Palookaport[] = INCGFX_U16("graphics/field_effects/pics/palookaport.png", ".gbapal");
 const u32 gFieldEffectObjectPic_Palookaport[] = INCGFX_U32("graphics/field_effects/pics/palookaport.png", ".4bpp", "-mwidth 2 -mheight 4");
 
