@@ -55,6 +55,7 @@ script Banzo_EventScript_AfterCatch {
     suitcall(format("Prof. Banzo: Phew. So they do work.\p"
              "I'm going to analyze the data. I'm here if you need to talk to me!\p"
              "Remember: you're there to figure out why the native life has started getting aggressive with each other...and what those odd devices we've observed are.\p"
+             "Rest up in the lander when you need to, and use the synthesizer too.\p"
              "Good luck, and be safe."))
     waitmessage
     call(Tamagotchi_SuitCallEnd)
@@ -63,6 +64,7 @@ script Banzo_EventScript_AfterCatch {
     setflag(FLAG_SYS_SCALE_OPPONENTS)
     clearflag(FLAG_HIDE_FIRST_PALOOKA)
     clearflag(FLAG_HIDE_SECOND_PALOOKA)
+    additem(ITEM_POKE_BALL,20)
     releaseall
     end
 }
