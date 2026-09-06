@@ -3074,15 +3074,19 @@ u8 CalculateEnemyPartyCount(void)
     return gPartiesCount[B_TRAINER_OPPONENT_A] + gPartiesCount[B_TRAINER_OPPONENT_B];
 }
 
+u32 CalculateTotalLevelOfParty(enum BattleTrainer trainer)
+{
+    u32 sum = 0;
+    for (u32 i = 0; i < CalculatePartyCount(trainer); i++)
+    {
+        sum += GetMonData(&gParties[trainer][i], MON_DATA_LEVEL);
+    }
+    return sum;
+}
+
 u8 CalculateAverageLevelOfParty(enum BattleTrainer trainer)
 {
-    u8 count = CalculatePartyCount(trainer);
-    u8 levels = 0;
-    for (u8 i = 0; i < count; i++)
-    {
-       levels += GetMonData(&gParties[trainer][i], MON_DATA_LEVEL);
-    }
-    return levels / count;
+    return CalculateTotalLevelOfParty(trainer) / CalculatePartyCount(trainer);
 }
 
 u8 GetHighestLevelInParty(enum BattleTrainer trainer)

@@ -45,7 +45,7 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+      "graphics_id": "OBJ_EVENT_GFX_PALOOKA",
       "x": 18,
       "y": 5,
       "elevation": 0,
@@ -58,7 +58,7 @@
       "flag": "FLAG_HIDE_FIRST_PALOOKA"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_AQUA_MEMBER_F",
+      "graphics_id": "OBJ_EVENT_GFX_PALOOKA",
       "x": 20,
       "y": 16,
       "elevation": 0,
@@ -83,12 +83,39 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 18,
-      "y": 8,
+      "x": 15,
+      "y": 7,
       "elevation": 0,
       "var": "FLAG_SYS_POKEMON_GET",
       "var_value": "0",
-      "script": "LandingSite_CatchIntro_PushUp"
+      "script": "LandingSite_CatchIntro_PushLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 6,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 5,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushLeft"
+    },
+    {
+      "type": "trigger",
+      "x": 15,
+      "y": 4,
+      "elevation": 0,
+      "var": "FLAG_SYS_POKEMON_GET",
+      "var_value": "0",
+      "script": "LandingSite_CatchIntro_PushLeft"
     }
   ],
   "bg_events": []

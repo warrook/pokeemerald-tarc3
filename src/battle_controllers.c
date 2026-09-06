@@ -157,7 +157,11 @@ void SetUpBattleVarsAndBirchZigzagoon(void)
     else if (!FlagGet(FLAG_SYS_POKEMON_GET))
     {
         // Force a Babymarutchi to avoid a Bbmarutchi from being someone's first mon (since the first area includes them)
-        CreateWildMon(SPECIES_BABYMARUTCHI, 5);
+        enum Species species = SPECIES_BABYMARUTCHI;
+        ZeroEnemyPartyMons();
+        u32 personality = GetMonPersonality(species, MON_GENDER_RANDOM, NATURE_RANDOM, RANDOM_UNOWN_LETTER);
+        CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], species, 5, personality, OTID_STRUCT_PLAYER_ID, MAX_PER_STAT_IVS);
+        GiveMonInitialMoveset(&gParties[B_TRAINER_OPPONENT_A][0]);
     }
 }
 

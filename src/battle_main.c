@@ -5356,6 +5356,14 @@ static void HandleEndTurn_BattleWon(void)
 {
     gCurrentActionFuncId = 0;
 
+    if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+    {
+        u16 payday = gPaydayMoney;
+        gPaydayMoney += CalculateTotalLevelOfParty(B_TRAINER_PLAYER);
+        if (payday > gPaydayMoney)
+            gPaydayMoney = 0xFFFF;
+    }
+
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
     {
         gSpecialVar_Result = gBattleOutcome;
