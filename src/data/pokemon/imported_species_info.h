@@ -568,9 +568,14 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Leopatchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Leopatchi,
+    .shinyPalette = gMonShinyPalette_Leopatchi,
+    .iconSprite = gMonIcon_Leopatchi,
+    .iconPalIndex = 3,
+    FOOTPRINT(Leopatchi)
     .levelUpLearnset = sLeopatchiLevelUpLearnset,
 },
 
@@ -834,12 +839,19 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .speciesName = _("Tustus{TCHI}"),
     .natDexNum = NATIONAL_DEX_TUSTUSTCHI,
     .categoryName = _("Land Sprout"),
+    .frontPic = gMonFrontPic_Tustustchi,
     .frontPicSize = MON_COORDS_SIZE(64, 64),
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Tustustchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
+    .palette = gMonPalette_Tustustchi,
+    .shinyPalette = gMonShinyPalette_Tustustchi,
+    .iconSprite = gMonIcon_Tustustchi,
+    .iconPalIndex = 1,
+    FOOTPRINT(Tustustchi)
     .levelUpLearnset = sTustustchiLevelUpLearnset,
 },
 
@@ -1066,9 +1078,14 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Irukatchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Irukatchi,
+    .shinyPalette = gMonShinyPalette_Irukatchi,
+    .iconSprite = gMonIcon_Irukatchi,
+    .iconPalIndex = 3,
+    FOOTPRINT(Irukatchi)
     .levelUpLearnset = sIrukatchiLevelUpLearnset,
 },
 
@@ -1257,9 +1274,14 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Axolopatchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Axolopatchi,
+    .shinyPalette = gMonShinyPalette_Axolopatchi,
+    .iconSprite = gMonIcon_Axolopatchi,
+    .iconPalIndex = 0,
+    FOOTPRINT(Axolopatchi)
     .levelUpLearnset = sAxolopatchiLevelUpLearnset,
 },
 
@@ -1289,9 +1311,14 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Imoritchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Imoritchi,
+    .shinyPalette = gMonShinyPalette_Imoritchi,
+    .iconSprite = gMonIcon_Imoritchi,
+    .iconPalIndex = 2,
+    FOOTPRINT(Imoritchi)
     .levelUpLearnset = sImoritchiLevelUpLearnset,
 },
 
@@ -1440,9 +1467,14 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Tachutchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Tachutchi,
+    .shinyPalette = gMonShinyPalette_Tachutchi,
+    .iconSprite = gMonIcon_Tachutchi,
+    .iconPalIndex = 0,
+    FOOTPRINT(Tachutchi)
     .levelUpLearnset = sTachutchiLevelUpLearnset,
 },
 
@@ -1472,9 +1504,14 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Sharktchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Sharktchi,
+    .shinyPalette = gMonShinyPalette_Sharktchi,
+    .iconSprite = gMonIcon_Sharktchi,
+    .iconPalIndex = 0,
+    FOOTPRINT(Sharktchi)
     .levelUpLearnset = sSharktchiLevelUpLearnset,
 },
 
@@ -1935,9 +1972,14 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Horhotchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Horhotchi,
+    .shinyPalette = gMonShinyPalette_Horhotchi,
+    .iconSprite = gMonIcon_Horhotchi,
+    .iconPalIndex = 2,
+    FOOTPRINT(Horhotchi)
     .levelUpLearnset = sHorhotchiLevelUpLearnset,
 },
 
@@ -1967,9 +2009,13 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Mongatchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Mongatchi,
+    .shinyPalette = gMonShinyPalette_Mongatchi,
+    .iconSprite = gMonIcon_Mongatchi,
+    .iconPalIndex = 4,
     FOOTPRINT(Mongatchi)
     .levelUpLearnset = sMongatchiLevelUpLearnset,
 },
@@ -2157,9 +2203,14 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Batatchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Batatchi,
+    .shinyPalette = gMonShinyPalette_Batatchi,
+    .iconSprite = gMonIcon_Batatchi,
+    .iconPalIndex = 3,
+    FOOTPRINT(Batatchi)
     .levelUpLearnset = sBatatchiLevelUpLearnset,
 },
 
@@ -2309,9 +2360,13 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Papillotchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Papillotchi,
+    .shinyPalette = gMonShinyPalette_Papillotchi,
+    .iconSprite = gMonIcon_Papillotchi,
+    .iconPalIndex = 0,
     FOOTPRINT(Papillotchi)
     .levelUpLearnset = sPapillotchiLevelUpLearnset,
 },
@@ -2503,9 +2558,14 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Gemtchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Gemtchi,
+    .shinyPalette = gMonShinyPalette_Gemtchi,
+    .iconSprite = gMonIcon_Gemtchi,
+    .iconPalIndex = 4,
+    FOOTPRINT(Gemtchi)
     .levelUpLearnset = sGemtchiLevelUpLearnset,
 },
 
@@ -2537,9 +2597,14 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Oretatchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Oretatchi,
+    .shinyPalette = gMonShinyPalette_Oretatchi,
+    .iconSprite = gMonIcon_Oretatchi,
+    .iconPalIndex = 2,
+    FOOTPRINT(Oretatchi)
     .levelUpLearnset = sOretatchiLevelUpLearnset,
 },
 
