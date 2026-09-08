@@ -247,6 +247,7 @@ static void CloseIntroCard(u8 taskId)
     DebugPrintfLevel(MGBA_LOG_DEBUG, "Close Intro Card");
     FreeAllWindowBuffers();
     FREE_AND_SET_NULL(sData);
+    //SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON);
     SetMainCallback2(CB2_NewGame);
     DestroyTask(taskId);
 }
@@ -965,5 +966,5 @@ static void DrawCardScreenBackground(u16 *ptr)
 
 static void CreateIntroCardTrainerPic(void)
 {
-    sData->trainerSprite = CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(FACILITY_CLASS_BRENDAN), TRUE, 1, 0, 8, WIN_TRAINER_PIC);
+    //sData->trainerSprite = CreateTrainerCardTrainerPicSprite(FacilityClassToPicIndex(FACILITY_CLASS_BRENDAN), TRUE, 1, 0, 8, WIN_TRAINER_PIC);
 }

@@ -353,8 +353,8 @@
     {
       "id": "HEAL_LOCATION_LANDING_SITE",
       "map": "MAP_LANDING_SITE",
-      "x": 7,
-      "y": 9
+      "x": 5,
+      "y": 8
     }
   ]
 }

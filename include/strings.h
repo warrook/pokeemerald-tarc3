@@ -2159,6 +2159,7 @@ extern const u8 gText_Girl[];
 
 // Tamagotchi
 extern const u8 gText_Items[];
+extern const u8 gText_Candy[];
 extern const u8 gText_PC[];
 extern const u8 gText_Call[];
 extern const u8 gText_AEnter[];

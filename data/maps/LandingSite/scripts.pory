@@ -8,8 +8,16 @@ mapscripts LandingSite_MapScripts {
 script Banzo_EventScript_Intro
 {
     lockall
+    applymovement(LOCALID_PLAYER, moves(face_up))
+    delay(50)
+    applymovement(LOCALID_PLAYER, moves(face_left))
+    delay(50)
+    applymovement(LOCALID_PLAYER, moves(face_down))
+    delay(50)
     playse(SE_POKENAV_CALL)
     delay(60)
+    applymovement(LOCALID_PLAYER, moves(face_down))
+    waitmovement
     playse(SE_POKENAV_ON)
     suitcall("Prof. Banzo: {PLAYER}?\h15 {PLAYER}??\h30
               I just saw you land, can you hear me?!")
@@ -43,8 +51,8 @@ script Banzo_EventScript_Intro
     special(EnterStudyMode)
     setflag(FLAG_SYS_B_DASH)
     setflag(FLAG_SYS_PC_LANETTE)
-    setflag(FLAG_HIDE_FIRST_PALOOKA)
-    setflag(FLAG_HIDE_SECOND_PALOOKA)
+    #setflag(FLAG_HIDE_FIRST_PALOOKA)
+    #setflag(FLAG_HIDE_SECOND_PALOOKA)
     releaseall
     end
 }
@@ -62,8 +70,10 @@ script Banzo_EventScript_AfterCatch {
     waitse
     msgbox(format("Open your I.D. card in the start menu for a reminder of what to do, or call Banzo for a more elaborate explanation."))
     setflag(FLAG_SYS_SCALE_OPPONENTS)
-    clearflag(FLAG_HIDE_FIRST_PALOOKA)
-    clearflag(FLAG_HIDE_SECOND_PALOOKA)
+    setflag(FLAG_EXP_SHARE)
+    clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    #clearflag(FLAG_HIDE_FIRST_PALOOKA)
+    #clearflag(FLAG_HIDE_SECOND_PALOOKA)
     additem(ITEM_POKE_BALL,20)
     releaseall
     end
@@ -71,10 +81,12 @@ script Banzo_EventScript_AfterCatch {
 
 script Capsule {
     lock
+    //fadescreen(FADE_TO_BLACK)
     //call Common_EventScript_OutOfCenterPartyHeal
     special(ScriptMenu_CreateCapsuleMultichoice)
     // - Rest
     // - Items
+    // - Candy
     // - PC
     // - Call
     // - Exit
@@ -83,16 +95,88 @@ script Capsule {
             call(Common_EventScript_OutOfCenterPartyHeal)
             msgbox("You feel refreshed!")
         case 1:
+            playse(SE_PC_ON)
             msgbox("You fire up the synthesizer.")
+            msgbox("Synthesizer: Hello!\p"
+                "How may I serve you?")
+            switch(var(VAR_TAMAGOTCHI_STAGE_EXPLAINED)) {
+                case 2:
+                    pokemart(SynthesizerStage2)
+                case 3:
+                    pokemart(SynthesizerStage3)
+                default:
+                    pokemart(SynthesizerStage1)
+            }
+            playse(SE_PC_OFF)
+            msgbox("You shut down the synthesizer.")
         case 2:
-            call(EventScript_AccessPokemonBoxLink)
+            playfanfare(MUS_LEVEL_UP)
+            additem(ITEM_RARE_CANDY, 10)
+            msgbox(format("10 Rare Candies dispensed."))
+            closemessage
+            goto(Capsule)
         case 3:
+            call(EventScript_AccessPokemonBoxLink)
+        case 4:
             msgbox("No answer.")
         case MULTI_B_PRESSED:
             break
     }
+    //fadescreen(FADE_FROM_BLACK)
     release
     end
+}
+
+mart SynthesizerStage1 {
+    ITEM_POKE_BALL
+    ITEM_POTION
+    ITEM_REPEL
+    ITEM_FULL_HEAL
+    ITEM_REVIVE
+    ITEM_FLUFFY_TAIL
+}
+
+mart SynthesizerStage2 {
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_FULL_HEAL
+    ITEM_REVIVE
+    ITEM_FLUFFY_TAIL
+    ITEM_EVERSTONE
+    ITEM_SAVORY_FOOD
+    ITEM_LEAFY_FOOD
+    ITEM_GOOEY_FOOD
+}
+
+mart SynthesizerStage3 {
+    ITEM_POKE_BALL
+    ITEM_GREAT_BALL
+    ITEM_ULTRA_BALL
+    ITEM_QUICK_BALL
+    ITEM_POTION
+    ITEM_SUPER_POTION
+    ITEM_HYPER_POTION
+    ITEM_REPEL
+    ITEM_SUPER_REPEL
+    ITEM_MAX_REPEL
+    ITEM_FULL_HEAL
+    ITEM_REVIVE
+    ITEM_MAX_REVIVE
+    ITEM_FLUFFY_TAIL
+    ITEM_EVERSTONE
+    ITEM_ABILITY_CAPSULE
+    ITEM_ABILITY_PATCH
+    ITEM_SAVORY_FOOD
+    ITEM_LEAFY_FOOD
+    ITEM_GOOEY_FOOD
+    ITEM_JOY_SCENT
+    ITEM_EXCITE_SCENT
+    ITEM_VIVID_SCENT
+    ITEM_COMPLEX_SCENT
 }
 
 script LandingSite_CatchIntro_PushLeft {
@@ -129,8 +213,8 @@ script Tamagotchi_Palookaport_Out {
     applymovement(VAR_LAST_TALKED, Common_Movement_WalkInPlaceDown)
     waitmovement
     setvar(VAR_0x8006, 65535)
-    setfieldeffectargument(0, VAR_0x8006)
-    setfieldeffectargument(1, VAR_LAST_TALKED)
+    setfieldeffectargument(0, VAR_0x8006) #center on object event
+    setfieldeffectargument(1, VAR_LAST_TALKED) #object event to be center
     setfieldeffectargument(2, 124) #subpriority
     setfieldeffectargument(3, 2) #priority
     setfieldeffectargument(4, 0) #teleport anim (0 = out, 1 = in)
@@ -187,10 +271,14 @@ script Tamagotchi_KidEvo_Explanation {
     lock
     call(Tamagotchi_SuitCallBegin)
     suitcall(format("Prof. Banzo: {PLAYER}! The \qokids\qc of this world evolve based on their diet.\p"
-    "They'll evolve into different \qoyoung\qc depending on the food you give them.\p"
+    "They'll evolve into different \qoyoung\qc depending on the food you give them, if they're experienced enough.\p"
+    "Or if you give them none at all, it seems...\p"
     "The synthesizer should be able to fabricate suitable nourishment."))
     waitmessage
     call(Tamagotchi_SuitCallEnd)
+    playfanfare(FANFARE_REGISTER_MATCH_CALL)
+    msgbox(format("Food synth-patterns unlocked."), MSGBOX_SIGN)
+    waitmessage
     addvar(VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1)
     release
 }
@@ -203,6 +291,9 @@ script Tamagotchi_YoungEvo_Explanation {
     "The correct pheromones can be synthesized with enough charge."))
     waitmessage
     call(Tamagotchi_SuitCallEnd)
+    playfanfare(FANFARE_REGISTER_MATCH_CALL)
+    msgbox(format("Scent synth-patterns unlocked."), MSGBOX_SIGN)
+    waitmessage
     addvar(VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1)
     release
 }

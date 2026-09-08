@@ -1330,7 +1330,7 @@ static void CreateCapsuleMultichoice(void)
     u8 x = 8;
     u32 pixelWidth = 0;
     u8 width;
-    u8 numChoices = 5;
+    u8 numChoices = 6;
     u8 windowId;
 
 
@@ -1338,21 +1338,24 @@ static void CreateCapsuleMultichoice(void)
 
     width = ConvertPixelWidthToTileWidth(pixelWidth);
 
-    windowId = CreateWindowFromRect(0, 0, width, 10);
+    windowId = CreateWindowFromRect(0, 0, width, 12);
     SetStandardWindowBorderStyle(windowId, FALSE);
 
     // Set up options
     // - Rest
     // - Items
+    // - Candy
     // - PC
     // - Call
     // - Exit
 
-    AddTextPrinterParameterized(windowId,FONT_NORMAL, gText_Rest, x, 1, TEXT_SKIP_DRAW, NULL);
-    AddTextPrinterParameterized(windowId,FONT_NORMAL, gText_Items, x, 17, TEXT_SKIP_DRAW, NULL);
-    AddTextPrinterParameterized(windowId,FONT_NORMAL, gText_PC, x, 33, TEXT_SKIP_DRAW, NULL);
-    AddTextPrinterParameterized(windowId, FONT_NORMAL, gText_Call, x, 49, TEXT_SKIP_DRAW, NULL);
-    AddTextPrinterParameterized(windowId, FONT_NORMAL, gText_Exit, x, 65, TEXT_SKIP_DRAW, NULL);
+    s32 option = 0;
+    AddTextPrinterParameterized(windowId,FONT_NORMAL, gText_Rest, x, 1 + (option++ * 16), TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId,FONT_NORMAL, gText_Items, x, 1 + (option++ * 16), TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId,FONT_NORMAL, gText_Candy, x, 1 + (option++ * 16), TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId,FONT_NORMAL, gText_PC, x, 1 + (option++ * 16), TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, gText_Call, x, 1 + (option++ * 16), TEXT_SKIP_DRAW, NULL);
+    AddTextPrinterParameterized(windowId, FONT_NORMAL, gText_Exit, x, 1 + (option++ * 16), TEXT_SKIP_DRAW, NULL);
 
 
     InitMenuInUpperLeftCornerNormal(windowId, numChoices, 0);

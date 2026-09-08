@@ -146,7 +146,7 @@ static void WarpToTruck(void)
 static void WarpToLandingSite(void)
 {
     DebugPrintfLevel(MGBA_LOG_DEBUG, "Warp To Landing Site: group %u, num %u", MAP_GROUP(MAP_LANDING_SITE), MAP_NUM(MAP_LANDING_SITE));
-    SetWarpDestination(MAP_GROUP(MAP_LANDING_SITE), MAP_NUM(MAP_LANDING_SITE), WARP_ID_NONE, 12, 12);
+    SetWarpDestination(MAP_GROUP(MAP_LANDING_SITE), MAP_NUM(MAP_LANDING_SITE), WARP_ID_NONE, 6, 7);
     WarpIntoMap();
 }
 

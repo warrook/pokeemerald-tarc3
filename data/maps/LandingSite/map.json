@@ -41,7 +41,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Capsule",
+      "script": "NULL",
       "flag": "0"
     },
     {
@@ -49,10 +49,10 @@
       "x": 18,
       "y": 5,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_BURIED",
+      "movement_type": "MOVEMENT_TYPE_TREE_DISGUISE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_BURIED",
+      "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
       "trainer_sight_or_berry_tree_id": "2",
       "script": "Tamagotchi_FirstPalooka",
       "flag": "FLAG_HIDE_FIRST_PALOOKA"
@@ -60,12 +60,12 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_PALOOKA",
       "x": 20,
-      "y": 16,
+      "y": 13,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_BURIED",
+      "movement_type": "MOVEMENT_TYPE_MOUNTAIN_DISGUISE",
       "movement_range_x": 0,
       "movement_range_y": 0,
-      "trainer_type": "TRAINER_TYPE_BURIED",
+      "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Tamagotchi_SecondPalooka",
       "flag": "FLAG_HIDE_SECOND_PALOOKA"
@@ -73,8 +73,8 @@
   ],
   "warp_events": [
     {
-      "x": 7,
-      "y": 9,
+      "x": 5,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_LANDING_SITE",
       "dest_warp_id": "0"
@@ -118,5 +118,14 @@
       "script": "LandingSite_CatchIntro_PushLeft"
     }
   ],
-  "bg_events": []
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 6,
+      "y": 8,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_EAST",
+      "script": "Capsule"
+    }
+  ]
 }

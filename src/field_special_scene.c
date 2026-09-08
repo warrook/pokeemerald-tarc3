@@ -292,7 +292,7 @@ static void Task_HandleLandingSequence(u8 taskId)
     {
     case 0:
         tTimer++;
-        if (tTimer == 90)
+        if (tTimer == 30)
         {
             tTimer = 0;
             tState++;
@@ -303,35 +303,46 @@ static void Task_HandleLandingSequence(u8 taskId)
         tTimer++;
         if (tTimer == 150)
         {
-            FadeInFromBlack();
-            tTimer = 0;
-            tState++;
-        }
-        break;
-    case 2:
-        tTimer++;
-        if (!gPaletteFade.active && tTimer > 300)
-        {
             tTimer = 0;
             tState++;
             PlaySE(SE_TRUCK_STOP);
         }
         break;
-    case 3:
+    case 2:
         tTimer++;
-        if (tTimer == 90)
+        if (tTimer == 200)
         {
             tTimer = 0;
             tState++;
-            PlaySE(SE_TRUCK_UNLOAD);
+            PlaySE(SE_TRUCK_DOOR);
+        }
+        break;
+    case 3:
+        tTimer++;
+        if (tTimer == 60)
+        {
+            tTimer = 0;
+            tState++;
         }
         break;
     case 4:
+        ObjectEventSetHeldMovement(&gObjectEvents[gPlayerAvatar.objectEventId], MOVEMENT_ACTION_WALK_SLOW_DIAGONAL_DOWN_LEFT);
+        tState++;
+        break;
+    case 5:
         tTimer++;
-        if (tTimer == 120)
+        if (tTimer == 12)
+        {
+            FadeInFromBlack();
+            tTimer = 0;
+            tState++;
+        }
+        break;
+    case 6:
+        tTimer++;
+        if (!gPaletteFade.active && tTimer >= 120)
         {
             //DrawWholeMapView();
-            PlaySE(SE_TRUCK_DOOR);
             DestroyTask(taskId);
             //UnlockPlayerFieldControls();
             ScriptContext_SetupScript(Banzo_EventScript_Intro);

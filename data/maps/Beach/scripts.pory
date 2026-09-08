@@ -1,6 +1,8 @@
 mapscripts Beach_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TAMAGOTCHI_STAGE_EXPLAINED, 0: Tamagotchi_BabyEvo_Explanation
+        VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1: Tamagotchi_KidEvo_Explanation
+        VAR_TAMAGOTCHI_STAGE_EXPLAINED, 2: Tamagotchi_YoungEvo_Explanation
     ]
 }
 

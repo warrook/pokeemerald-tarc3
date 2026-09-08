@@ -1921,6 +1921,7 @@ void CB2_NewGame(void)
     //     gFieldCallback = ExecuteTruckSequence;
     gFieldCallback = ExecuteLandingSequence;
     gFieldCallback2 = NULL;
+    FlagSet(FLAG_HIDE_MAP_NAME_POPUP);
     DoMapLoadLoop(&gMain.state);
     SetFieldVBlankCallback();
     SetMainCallback1(CB1_Overworld);
