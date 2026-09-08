@@ -69,6 +69,20 @@
       "trainer_sight_or_berry_tree_id": "3",
       "script": "Tamagotchi_SecondPalooka",
       "flag": "FLAG_HIDE_SECOND_PALOOKA"
+    },
+    {
+      "local_id": "LOCALID_JOMO",
+      "graphics_id": "OBJ_EVENT_GFX_PALOOKA_BOSS",
+      "x": 1,
+      "y": 8,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_HIDE_JOMO"
     }
   ],
   "warp_events": [

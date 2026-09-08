@@ -223,7 +223,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 Taillow
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-*/
+
 === TRAINER_GRUNT_PETALBURG_WOODS ===
 Name: GRUNT
 Class: Team Aqua
@@ -451,7 +451,7 @@ AI: Check Bad Move
 Carvanha
 Level: 32
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
-
+*/
 === TRAINER_GRUNT_MT_PYRE_3 ===
 Name: GRUNT
 Class: Team Aqua
@@ -16925,14 +16925,6 @@ SPECIES_WATER_KID
 Level: 8
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-/*
-=== TRAINER_SKY_GUARD ===
-
-=== TRAINER_WATER_GUARD ===
-
-=== TRAINER_LAND_GUARD ===
-*/
-
 === TRAINER_BEACH_A ===
 Name: GRUNT
 Class: Palooka
@@ -16950,6 +16942,40 @@ SPECIES_WATER_KID
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
+=== TRAINER_LAND_A ===
+Name: GRUNT
+Class: Palooka
+Pic: Palooka 1
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_BABYMARUTCHI
+Level: 3
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LAND_KID
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MOUNTAIN_A ===
+Name: GRUNT
+Class: Palooka
+Pic: Palooka 1
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_BABYMARUTCHI
+Level: 3
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKY_KID
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
 === TRAINER_BEACH_B ===
 Name: GRUNT
 Class: Palooka
@@ -16964,6 +16990,40 @@ Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_WATER_KID
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_LAND_B ===
+Name: GRUNT
+Class: Palooka
+Pic: Palooka 1
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_LAND_KID
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_LAND_KID
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MOUNTAIN_B ===
+Name: GRUNT
+Class: Palooka
+Pic: Palooka 2
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_SKY_KID
+Level: 5
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SKY_KID
 Level: 5
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -16988,10 +17048,52 @@ SPECIES_LEAP_WATER
 Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BEACH_D ===
+=== TRAINER_LAND_C ===
 Name: GRUNT
 Class: Palooka
 Pic: Palooka 1
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_LAND_KID
+Level: 6
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ROAR_LAND
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SPROUT_LAND
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MOUNTAIN_C ===
+Name: GRUNT
+Class: Palooka
+Pic: Palooka 2
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_SKY_KID
+Level: 6
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_FLAP_SKY
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BUMBLE_SKY
+Level: 7
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_BEACH_D ===
+Name: GRUNT
+Class: Palooka
+Pic: Palooka 2
 Gender: Male
 Music: Rich
 Double Battle: No
@@ -17006,6 +17108,48 @@ Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_GLIDE_WATER
+Level: 10
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_LAND_D ===
+Name: GRUNT
+Class: Palooka
+Pic: Palooka 1
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_LICK_LAND
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_TODDLE_LAND
+Level: 10
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ROAR_LAND
+Level: 10
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MOUNTAIN_D ===
+Name: GRUNT
+Class: Palooka
+Pic: Palooka 1
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_ROCKY_SKY
+Level: 9
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CHIRP_SKY
+Level: 10
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_BUMBLE_SKY
 Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
@@ -17027,7 +17171,49 @@ Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_FLOAT_WATER
-Level: 13
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_LAND_E ===
+Name: GRUNT
+Class: Palooka
+Pic: Palooka 2
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_LICK_LAND
+Level: 12
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ROAR_LAND
+Level: 12
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SPROUT_LAND
+Level: 16
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_MOUNTAIN_E ===
+Name: GRUNT
+Class: Palooka
+Pic: Palooka 1
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_BUMBLE_SKY
+Level: 12
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ROCKY_SKY
+Level: 12
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CHIRP_SKY
+Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 === TRAINER_WATER_GUARD ===
@@ -17050,6 +17236,116 @@ Ball: Strange
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
 SPECIES_MERMARINTCHI
+Level: 22
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_LAND_GUARD_LEFT ===
+Name: LIEUTENANT
+Class: Palooka
+Pic: Palooka 1
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_HEAVYTCHI
 Level: 18
+Ability: Intimidate
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GUMAX
+Level: 18
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_CHODRACOTCHI
+Level: 22
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_LAND_GUARD_RIGHT ===
+Name: GRUNT
+Class: Palooka
+Pic: Palooka 2
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_ELIZARDOTCHI
+Level: 18
+Ability: Static
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MOLMOTCHI @ Oran Berry
+Level: 18
+Ability: Cheek Pouch
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_SKY_GUARD ===
+Name: LIEUTENANT
+Class: Palooka
+Pic: Palooka 1
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_BATCHI
+Level: 18
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_GEMTCHI
+Level: 18
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_YAYACORNTCHI
+Level: 22
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+=== TRAINER_JOMO ===
+Name: JOMO
+Class: Palooka Boss
+Pic: Palooka Boss
+Gender: Male
+Music: Rich
+Double Battle: No
+AI: Basic Trainer
+
+SPECIES_MASKUTCHI
+Level: 32
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SHIGEMISAN
+Level: 26
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ACHIATCHI
+Level: 32
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_SHARKTCHI
+Level: 26
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_ANDROTCHI
+Level: 32
+Ball: Strange
+IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
+
+SPECIES_MAGMATCHI
+Level: 26
+Ability: Gooey
 Ball: Strange
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe

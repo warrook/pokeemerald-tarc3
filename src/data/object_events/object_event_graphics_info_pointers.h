@@ -1,6 +1,7 @@
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Capsule;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Agitator;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Palooka;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PalookaBoss;
 
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanNormal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanMachBike;
@@ -798,6 +799,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_CAPSULE]                  = &gObjectEventGraphicsInfo_Capsule,
     [OBJ_EVENT_GFX_AGITATOR]                 = &gObjectEventGraphicsInfo_Agitator,
     [OBJ_EVENT_GFX_PALOOKA]                  = &gObjectEventGraphicsInfo_Palooka,
+    [OBJ_EVENT_GFX_PALOOKA_BOSS]             = &gObjectEventGraphicsInfo_PalookaBoss,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

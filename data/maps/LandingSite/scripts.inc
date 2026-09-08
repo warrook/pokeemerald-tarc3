@@ -64,10 +64,6 @@ Banzo_EventScript_Intro::
 	setflag FLAG_SYS_B_DASH
 # 53 "data/maps/LandingSite/scripts.pory"
 	setflag FLAG_SYS_PC_LANETTE
-# 54 "data/maps/LandingSite/scripts.pory"
-	setflag FLAG_HIDE_FIRST_PALOOKA
-# 55 "data/maps/LandingSite/scripts.pory"
-	setflag FLAG_HIDE_SECOND_PALOOKA
 # 56 "data/maps/LandingSite/scripts.pory"
 	releaseall
 	end
@@ -94,10 +90,6 @@ Banzo_EventScript_AfterCatch::
 	setflag FLAG_EXP_SHARE
 # 74 "data/maps/LandingSite/scripts.pory"
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-# 75 "data/maps/LandingSite/scripts.pory"
-	clearflag FLAG_HIDE_FIRST_PALOOKA
-# 76 "data/maps/LandingSite/scripts.pory"
-	clearflag FLAG_HIDE_SECOND_PALOOKA
 # 77 "data/maps/LandingSite/scripts.pory"
 	additem ITEM_POKE_BALL, 20
 # 78 "data/maps/LandingSite/scripts.pory"

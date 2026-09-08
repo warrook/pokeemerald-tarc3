@@ -872,21 +872,23 @@
 #define TRAINER_BEACH_E                     TRAINER_GRUNT_SEAFLOOR_CAVERN_3 //8
 #define TRAINER_WATER_GUARD                 TRAINER_GABRIELLE_1 //9
 
-//#define TRAINER_LAND_A                      TRAINER_GRUNT_PETALBURG_WOODS //10
-//#define TRAINER_LAND_B                      TRAINER_MARCEL //11
-//#define TRAINER_LAND_C                      TRAINER_ALBERTO //12
-//#define TRAINER_LAND_D                      TRAINER_ED //13
-//#define TRAINER_LAND_E                      TRAINER_GRUNT_SEAFLOOR_CAVERN_4 //14
-//#define TRAINER_LAND_GUARD_LEFT             TRAINER_DECLAN //15
-//#define TRAINER_LAND_GUARD_RIGHT            TRAINER_GRUNT_RUSTURF_TUNNEL //16
+#define TRAINER_LAND_A                      TRAINER_GRUNT_PETALBURG_WOODS //10
+#define TRAINER_LAND_B                      TRAINER_MARCEL //11
+#define TRAINER_LAND_C                      TRAINER_ALBERTO //12
+#define TRAINER_LAND_D                      TRAINER_ED //13
+#define TRAINER_LAND_E                      TRAINER_GRUNT_SEAFLOOR_CAVERN_4 //14
+#define TRAINER_LAND_GUARD_LEFT             TRAINER_DECLAN //15
+#define TRAINER_LAND_GUARD_RIGHT            TRAINER_GRUNT_RUSTURF_TUNNEL //16
 
-//#define TRAINER_MOUNTAIN_A                  TRAINER_GRUNT_WEATHER_INST_1 //17
-//#define TRAINER_MOUNTAIN_B                  TRAINER_GRUNT_WEATHER_INST_2 //18
-//#define TRAINER_MOUNTAIN_C                  TRAINER_GRUNT_WEATHER_INST_3 //19
-//#define TRAINER_MOUNTAIN_D                  TRAINER_GRUNT_MUSEUM_1 //20
-//#define TRAINER_MOUNTAIN_E                  TRAINER_GRUNT_MUSEUM_2 //21
-//#define TRAINER_MOUNTAIN_F                  TRAINER_GRUNT_SPACE_CENTER_1 //22
-//#define TRAINER_SKY_GUARD                   TRAINER_GRUNT_MT_PYRE_1 //23
+#define TRAINER_MOUNTAIN_A                  TRAINER_GRUNT_WEATHER_INST_1 //17
+#define TRAINER_MOUNTAIN_B                  TRAINER_GRUNT_WEATHER_INST_2 //18
+#define TRAINER_MOUNTAIN_C                  TRAINER_GRUNT_WEATHER_INST_3 //19
+#define TRAINER_MOUNTAIN_D                  TRAINER_GRUNT_MUSEUM_1 //20
+#define TRAINER_MOUNTAIN_E                  TRAINER_GRUNT_MUSEUM_2 //21
+#define TRAINER_MOUNTAIN_F                  TRAINER_GRUNT_SPACE_CENTER_1 //22
+#define TRAINER_SKY_GUARD                   TRAINER_GRUNT_MT_PYRE_1 //23
+
+#define TRAINER_JOMO                        TRAINER_GRUNT_MT_PYRE_2 //24
 
 // NOTE: Because each Trainer uses a flag to determine when they are defeated, there is only space for 9 additional trainers before trainer flag space overflows
 //       More space can be made by shifting flags around in constants/flags.h or changing how trainer flags are handled

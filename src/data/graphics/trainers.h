@@ -476,6 +476,9 @@ const u16 gTrainerPalette_PalookaVariant1[] = INCGFX_U16("graphics/trainers/fron
 const u32 gTrainerFrontPic_PalookaVariant2[] = INCGFX_U32("graphics/trainers/front_pics/palooka2.png", ".4bpp.smol");
 const u16 gTrainerPalette_PalookaVariant2[] = INCGFX_U16("graphics/trainers/front_pics/palooka2.png", ".gbapal");
 
+const u32 gTrainerFrontPic_PalookaPair[] = INCGFX_U32("graphics/trainers/front_pics/palooka_pair.png", ".4bpp.smol");
+const u16 gTrainerPalette_PalookaPair[] = INCGFX_U16("graphics/trainers/front_pics/palooka_pair.png", ".gbapal");
+
 const u32 gTrainerFrontPic_Jomo[] = INCGFX_U32("graphics/trainers/front_pics/jomo.png", ".4bpp.smol");
 const u16 gTrainerPalette_Jomo[] = INCGFX_U16("graphics/trainers/front_pics/jomo.png", ".gbapal");
 // End Tamagotchi
@@ -1244,6 +1247,10 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_PALOOKA_2] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_PalookaVariant2, gTrainerPalette_PalookaVariant2),
+    },
+    [TRAINER_PIC_PALOOKA_PAIR] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_PalookaPair, gTrainerPalette_PalookaPair),
     },
     [TRAINER_PIC_PALOOKA_BOSS] =
     {
