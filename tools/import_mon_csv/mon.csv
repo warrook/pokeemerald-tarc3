@@ -1,68 +1,68 @@
 Index,Name,Field,Young,Type 1,Type 2,Target,Total,HP,ATK,DEF,SpATK,SpDEF,SPD,Ability 1,Ability 2,Ability Hidden,Stage,Evo Item,Learnset
-1,Babymarutchi,N/A,N/A,Mystery,,200,300,50,50,50,50,50,50,Cute Charm,Rattled,Oblivious,1,,1:Tackle;1:Splash
-2,Land Kid,Land,N/A,Mystery,,300,300,50,50,50,50,50,50,Cute Charm,Rattled,Oblivious,2,,0:Double Hit;5:Double Hit;8:Defense Curl;10:Flail
-3,Roar (Land),Land,Roar,Mystery,,400,360,60,60,60,60,60,60,Pickup,Run Away,Frisk,3,savory food,0:Roar;12:Roar;16:Headbutt
+1,Babymarutchi,N/A,N/A,Mystery,,200,360,60,60,60,60,60,60,Cute Charm,Rattled,Oblivious,1,,1:Tackle;1:Splash
+2,Land Kid,Land,N/A,Mystery,,300,420,70,70,70,70,70,70,Cute Charm,Rattled,Oblivious,2,,0:Double Hit;5:Double Hit;8:Defense Curl;10:Flail
+3,Roar (Land),Land,Roar,Mystery,,400,480,80,80,80,80,80,80,Pickup,Run Away,Frisk,3,savory food,0:Roar;12:Roar;16:Headbutt
 4,Meowtchi,Land,Roar,Psychic,,580,580,80,90,80,130,80,120,Justified,,Indignation,4,vivid scent,0:Psybeam;18:Psybeam;22:Slash;26:Focus Energy;32:Psychic
 5,Pochitchi,Land,Roar,Normal,,580,580,120,100,110,60,110,80,Guard Dog,,Simple,4,excite scent,0:Body Slam;18:Body Slam;22:Howl;26:Crunch;32:Protect
 6,Gumax,Land,Roar,Fighting,,580,580,120,130,100,60,90,80,Huge Power,,,4,joy scent,0:Brick Break;18:Brick Break;22:Bulk Up;26:Glare;32:Revenge
 7,Ratchi,Land,Roar,Dark,,580,580,90,120,70,100,60,140,Pickup,,Pickpocket,4,no scent,0:Thief;18:Thief;22:Fling;26:Agility;32:Sucker Punch
-8,Toddle (Land),Land,Toddle,Mystery,,400,360,60,60,60,60,60,60,Pickup,Run Away,Frisk,3,leafy food,0:Fury Swipes;12:Fury Swipes;16:Bite
+8,Toddle (Land),Land,Toddle,Mystery,,400,480,80,80,80,80,80,80,Pickup,Run Away,Frisk,3,leafy food,0:Fury Swipes;12:Fury Swipes;16:Bite
 9,Mametchi,Land,Toddle,Psychic,,580,580,80,100,60,150,70,120,Trace,Unnerve,Analytic,4,vivid scent,0:Mind Reader;18:Mind Reader;22:Psybeam;26:Kinesis;32:Psyshock
 10,Mimitchi,Land,Toddle,Fairy,,580,580,90,70,60,140,100,120,Magic Guard,,Magician,4,excite scent,0:Dazzling Gleam;18:Dazzling Gleam;22:Reflect;26:Misty Terrain;32:Moonblast
 11,Molmotchi,Land,Toddle,Ground,,580,580,120,100,120,70,80,90,Cheek Pouch,,Cud Chew,4,joy scent,0:Stomping Tantrum;18:Stomping Tantrum;22:Stuff Cheeks;26:Dig;32:Mean Look
 12,Sheeptchi,Land,Toddle,Normal,Electric,580,580,130,80,80,80,90,120,Fluffy,,,4,no scent,0:Spark;18:Spark;22:Stomp;26:Thunder Wave;32:Wild Charge
-13,Lick (Land),Land,Lick,Mystery,,400,360,60,60,60,60,60,60,Pickup,Run Away,Frisk,3,gooey food,0:Lick;12:Lick;16:Tail Slap
+13,Lick (Land),Land,Lick,Mystery,,400,480,80,80,80,80,80,80,Pickup,Run Away,Frisk,3,gooey food,0:Lick;12:Lick;16:Tail Slap
 14,Leopatchi,Land,Lick,Poison,,580,580,90,130,80,80,80,120,Poison Touch,,,4,vivid scent,0:Poison Tail;18:Poison Tail;22:Acid Armor;26:Stomping Tantrum;32:Gunk Shot
 15,Sebiretchi,Land,Lick,Dragon,Fire,580,580,120,100,80,120,70,90,Gluttony,Thick Fat,,4,excite scent,0:Dragon Breath;18:Dragon Breath;22:Calm Mind;26:Ancient Power;32:Dragon Pulse
 16,Elizardotchi,Land,Lick,Electric,,580,580,80,60,110,120,110,100,Intimidate,Static,Innards Out,4,joy scent,0:Parabolic Charge;18:Parabolic Charge;22:Electric Terrain;26:Rising Voltage;32:Gastro Acid
 17,Heavytchi,Land,Lick,Poison,Dark,580,580,60,150,70,80,100,120,Intimidate,Unnerve,Sturdy,4,no scent,0:Poison Fang;18:Poison Fang;22:Venom Drench;26:Coil;32:Power Trip
-18,Sprout (Land),Land,Sprout,Mystery,,400,360,60,60,60,60,60,60,Pickup,Run Away,Frisk,3,no food,0:Mega Drain;12:Mega Drain;16:Magical Leaf
+18,Sprout (Land),Land,Sprout,Mystery,,400,480,80,80,80,80,80,80,Pickup,Run Away,Frisk,3,no food,0:Mega Drain;12:Mega Drain;16:Magical Leaf
 19,Flowertchi,Land,Sprout,Fairy,Grass,580,580,80,60,100,120,110,110,Harvest,,,4,vivid scent,0:Natural Gift;18:Natural Gift;22:Grassy Terrain;26:Sunny Day;32:Moonblast
 20,Potsunentchi,Land,Sprout,Grass,,580,580,120,80,130,80,90,80,Chlorophyll,,,4,excite scent,0:Giga Drain;18:Giga Drain;22:Protect;26:Petal Blizzard;32:Synthesis
 21,Tustustchi,Land,Sprout,Grass,Poison,580,580,100,90,120,80,120,70,Water Absorb,,Poison Point,4,joy scent,0:Needle Arm;18:Needle Arm;22:Barb Barrage;26:Baneful Bunker;26:Spiky Shield;32:Leaf Blade
 22,Shigemi-san,Land,Sprout,Steel,,580,580,130,80,120,90,100,60,Fluffy,,,4,no scent,0:Rollout;18:Rollout;22:Iron Defense;26:Body Press;32:Gyro Ball
 23,Chodracotchi,Land,Roar;Toddle;Lick,Dragon,Fire,600,600,100,130,80,90,80,120,Moxie,,,4,complex scent,0:Fire Fang;1:Lick;1:Tail Slap;18:Fire Fang;22:Dragon Claw;26:Dragon Dance;32:Dragon Rush;36:Flare Blitz
 24,Maskutchi,Land,Sprout,Dark,,600,600,80,130,160,60,70,100,Stakeout,,,4,complex scent,0:Sucker Punch;18:Sucker Punch;22:Body Press;32:Night Slash;36:Mega Kick
-25,Water Kid,Water,N/A,Mystery,,300,300,50,50,50,50,50,50,Cute Charm,Rattled,Oblivious,2,,0:Bubble;5:Bubble;8:Tail Whip;10:Aqua Jet
-26,Glide (Water),Water,Glide,Mystery,,400,360,60,60,60,60,60,60,Swift Swim,Run Away,Inner Focus,3,savory food,0:Aqua Ring;12:Aqua Ring;16:Supersonic
+25,Water Kid,Water,N/A,Mystery,,300,420,70,70,70,70,70,70,Cute Charm,Rattled,Oblivious,2,,0:Bubble;5:Bubble;8:Tail Whip;10:Aqua Jet
+26,Glide (Water),Water,Glide,Mystery,,400,480,80,80,80,80,80,80,Swift Swim,Run Away,Inner Focus,3,savory food,0:Aqua Ring;12:Aqua Ring;16:Supersonic
 27,Irukatchi,Water,Glide,Water,,580,580,90,100,60,70,120,140,Swift Swim,,,4,vivid scent,0:Flip Turn;18:Flip Turn;22:Charm;26:Jet Punch;32:Aqua Tail
 28,Kametchi,Water,Glide,Water,Rock,580,580,120,60,150,70,80,100,Swift Swim,,,4,excite scent,0:Ancient Power;18:Ancient Power;22:Shell Smash;26:Dive;32:Surf
 29,Kujiratchi,Water,Glide,Water,,580,580,130,80,80,90,80,120,Liquid Voice,,Thick Fat,4,joy scent,0:Sing;18:Sing;22:Echoed Voice;26:Confide;32:Hyper Voice
 30,Uruotchi,Water,Glide,Water,Ghost,580,580,90,80,100,120,120,70,Dry Skin,,,4,no scent,0:Rain Dance;18:Rain Dance;22:Water Pulse;26:Weather Ball;32:Shadow Ball
-31,Leap (Water),Water,Leap,Mystery,,400,360,60,60,60,60,60,60,Swift Swim,Run Away,Inner Focus,3,leafy food,0:Mud Slap;12:Mud Slap;16:Mud Sport
+31,Leap (Water),Water,Leap,Mystery,,400,480,80,80,80,80,80,80,Swift Swim,Run Away,Inner Focus,3,leafy food,0:Mud Slap;12:Mud Slap;16:Mud Sport
 32,Axolopatchi,Water,Leap,Water,Ground,580,580,100,90,120,70,120,80,Regenerator,,,4,vivid scent,0:Bulldoze;18:Bulldoze;22:Shed Tail;26:Liquidation;32:Earthquake
 33,Imoritchi,Water,Leap,Poison,Fire,580,580,70,100,60,150,80,120,Poison Touch,,,4,excite scent,0:Sludge;18:Sludge;22:Fire Spin;26:Venoshock;32:Flamethrower
 34,Kawazutchi,Water,Leap,Poison,,580,580,80,130,80,80,120,90,Contrary,Swift Swim,Own Tempo,4,joy scent,0:Cross Poison;18:Cross Poison;22:Sing;26:Screech;32:Close Combat
 35,Beavertchi,Water,Leap,Normal,Water,580,580,120,80,120,70,90,100,Guts,,,4,no scent,0:Hyper Fang;18:Hyper Fang;22:Worry Seed;26:Aqua Cutter;32:Aqua Tail
-36,Paddle (Water),Water,Paddle,Mystery,,400,360,60,60,60,60,60,60,Swift Swim,Run Away,Inner Focus,3,gooey food,0:Chilling Water;12:Chilling Water;16:Jet Punch
+36,Paddle (Water),Water,Paddle,Mystery,,400,480,80,80,80,80,80,80,Swift Swim,Run Away,Inner Focus,3,gooey food,0:Chilling Water;12:Chilling Water;16:Jet Punch
 37,Tachutchi,Water,Paddle,Water,,580,580,120,70,60,140,100,90,Unaware,Sniper,,4,vivid scent,0:Sweet Kiss;18:Sweet Kiss;22:Aqua Cutter;26:Baby Doll Eyes;32:Snipe Shot
 38,Sharktchi,Water,Paddle,Water,Dark,580,580,120,150,80,60,70,100,Strong Jaw,,Rough Skin,4,excite scent,0:Bite;18:Bite;22:Focus Energy;26:Jaw Lock;32:Crunch
 39,Ankotchi,Water,Paddle,Water,Electric,580,580,90,120,80,130,80,80,Illuminate,Lightning Rod,,4,joy scent,0:Shock Wave;18:Shock Wave;22:Flash;26:Charge;32:Thunderbolt
 40,Otototchi,Water,Paddle,Water,Fighting,580,580,120,120,100,70,90,80,Stamina,,No Guard,4,no scent,0:Karate Chop;18:Karate Chop;22:Bulk Up;26:Brick Break;32:Body Press
-41,Float (Water),Water,Float,Mystery,,400,360,60,60,60,60,60,60,Swift Swim,Run Away,Inner Focus,3,no food,0:Water Sport;12:Water Sport;16:Bubble Beam
+41,Float (Water),Water,Float,Mystery,,400,480,80,80,80,80,80,80,Swift Swim,Run Away,Inner Focus,3,no food,0:Water Sport;12:Water Sport;16:Bubble Beam
 42,Kuraratchi,Water,Float,Water,Psychic,580,580,80,120,80,130,90,80,Cute Charm,,,4,vivid scent,0:Psybeam;18:Psybeam;22:Water Pulse;26:Flatter;32:Extrasensory
 43,Mendakotchi,Water,Float,Fire,,580,580,90,100,120,80,120,70,Suction Cups,,,4,excite scent,0:Fire Lash;18:Flame Charge;22:Scald;26:Octolock;32:Flare Blitz
 44,Amefuratchi,Water,Float,Water,Poison,580,580,150,70,120,100,80,60,Swift Swim,Sticky Hold,Drizzle,4,joy scent,0:Rain Dance;18:Rain Dance;22:Acid Spray;26:Teeter Dance;32:Muddy Water
 45,Gusokutchi,Water,Float,Bug,Ghost,580,580,120,80,150,70,100,60,Shell Armor,Weak Armor,,4,no scent,0:Shadow Claw;18:Shadow Claw;22:Lunge;26:Scary Face;32:Fell Stinger
 46,Mermarintchi,Water,Glide;Leap;Paddle,Water,Psychic,600,600,120,80,80,130,100,90,Storm Drain,,,4,complex scent,0:Mystical Power;1:Aqua Ring;1:Supersonic;18:Mystical Power;22:Life Dew;26:Lumina Crash;32:Sparkling Aria;36:Hydro Pump
 47,Achiatchi,Water,Float,Fire,,600,600,130,100,80,70,60,160,Flame Body,,,4,complex scent,0:Flame Charge;18:Flame Charge;22:Sunny Day;26:Torment;32:Blaze Kick;36:Raging Fury
-48,Sky Kid,Sky,N/A,Mystery,,300,300,50,50,50,50,50,50,Cute Charm,Rattled,Oblivious,2,,0:Quick Attack;5:Quick Attack;8:Roost;10:Swift
-49,Flap (Sky),Sky,Flap,Mystery,,400,360,60,60,60,60,60,60,Levitate,Run Away,Early Bird,3,savory food,0:Wing Attack;12:Wing Attack;16:Agility
+48,Sky Kid,Sky,N/A,Mystery,,300,420,70,70,70,70,70,70,Cute Charm,Rattled,Oblivious,2,,0:Quick Attack;5:Quick Attack;8:Roost;10:Swift
+49,Flap (Sky),Sky,Flap,Mystery,,400,480,80,80,80,80,80,80,Levitate,Run Away,Early Bird,3,savory food,0:Wing Attack;12:Wing Attack;16:Agility
 50,Horhotchi,Sky,Flap,Dark,Flying,580,580,100,60,70,140,120,90,Infiltrator,Insomnia,,4,vivid scent,0:Air Cutter;18:Air Cutter;22:Nasty Plot;26:Dark Pulse;32:Hurricane
 51,Mongatchi,Sky,Flap,Normal,Flying,580,580,80,120,70,100,60,150,Sap Sipper,,,4,excite scent,0:Stuff Cheeks;18:Stuff Cheeks;22:Pluck;26:Follow Me;32:Strength Sap
 52,Eagletchi,Sky,Flap,Fighting,Flying,580,580,100,120,80,70,90,120,Infiltrator,Intimidate,,4,joy scent,0:Low Sweep;18:Low Sweep;22:Scary Face;26:Phantom Force;32:Flying Press
 53,Batchi,Sky,Flap,Poison,Flying,580,580,120,100,70,90,80,120,Hustle,,,4,no scent,0:Poison Fang;18:Poison Fang;22:Leech Life;26:Confuse Ray;32:Fly
-54,Chirp (Sky),Sky,Chirp,Mystery,,400,360,60,60,60,60,60,60,Levitate,Run Away,Early Bird,3,leafy food,0:Screech;12:Screech;16:Pluck
+54,Chirp (Sky),Sky,Chirp,Mystery,,400,480,80,80,80,80,80,80,Levitate,Run Away,Early Bird,3,leafy food,0:Screech;12:Screech;16:Pluck
 55,Peacotchi,Sky,Chirp,Flying,,580,580,130,90,80,120,80,80,Cute Charm,Sturdy,Inner Focus,4,vivid scent,0:Attract;18:Attract;22:Air Slash;26:Quiver Dance;32:Hurricane
 56,Batatchi,Sky,Chirp,Flying,,580,580,90,120,80,80,80,130,Run Away,Rattled,,4,excite scent,0:Aerial Ace;18:Aerial Ace;22:Hone Claws;26:Drill Peck;32:Fly
 57,Kuchipatchi,Sky,Chirp,Ground,Dragon,580,580,120,100,110,80,110,60,Big Pecks,,,4,joy scent,0:Slack Off;18:Slack Off;22:Dragon Claw;26:Yawn;32:Earthquake
 58,Kiwitchi,Sky,Chirp,Ground,,580,580,120,90,80,80,80,130,Hustle,Guts,Frisk,4,no scent,0:Bulldoze;18:Bulldoze;22:Grassy Terrain;26:Drill Peck;32:High Horsepower
-59,Bumble (Sky),Sky,Bumble,Mystery,,400,360,60,60,60,60,60,60,Levitate,Run Away,Early Bird,3,gooey food,0:Poison Sting;12:Poison Sting;16:Struggle Bug
+59,Bumble (Sky),Sky,Bumble,Mystery,,400,480,80,80,80,80,80,80,Levitate,Run Away,Early Bird,3,gooey food,0:Poison Sting;12:Poison Sting;16:Struggle Bug
 60,Papillotchi,Sky,Bumble,Bug,Fairy,580,580,90,70,100,80,120,120,Wind Rider,,Flower Veil,4,vivid scent,0:Draining Kiss;18:Draining Kiss;22:Quiver Dance;26:Silver Wind;32:Flower Trick
 61,Kabutotchi,Sky,Bumble,Bug,Fighting,580,580,90,120,120,80,70,100,Swarm,Guts,Moxie,4,excite scent,0:Horn Attack;18:Horn Attack;22:Bulk Up;26:Lunge;32:Sky Uppercut
 62,Tentotchi,Sky,Bumble,Bug,,580,580,130,120,100,90,80,60,Oblivious,,Unaware,4,joy scent,0:Bug Bite;18:Bug Bite;22:U Turn;26:Light Screen;26:Reflect;32:Leech Life
 63,Hatchitchi,Sky,Bumble,Bug,Flying,580,580,120,70,80,100,120,90,Healer,,,4,no scent,0:Struggle Bug;18:Struggle Bug;22:Air Slash;26:Leech Seed;32:Bug Buzz
-64,Rocky (Sky),Sky,Rocky,Mystery,,400,360,60,60,60,60,60,60,Sturdy,Run Away,Early Bird,3,no food,0:Rock Throw;12:Rock Throw;16:Rock Polish
+64,Rocky (Sky),Sky,Rocky,Mystery,,400,480,80,80,80,80,80,80,Sturdy,Run Away,Early Bird,3,no food,0:Rock Throw;12:Rock Throw;16:Rock Polish
 65,Gemtchi,Sky,Rocky,Rock,Fairy,580,580,100,90,70,120,140,60,Clear Body,Shadow Tag,Magic Guard,4,vivid scent,0:Dazzling Gleam;18:Dazzling Gleam;22:Protect;26:Power Gem;32:Moonblast
 66,Oretatchi,Sky,Rocky,Rock,,580,580,100,120,140,90,70,60,Defiant,Arena Trap,Magic Guard,4,excite scent,0:Rock Slide;18:Rock Slide;22:Protect;26:Dig;32:Stone Edge
 67,Ishikorotchi,Sky,Rocky,Rock,Ground,580,580,130,90,120,80,80,80,Rock Head,,,4,joy scent,0:Rollout;18:Rollout;22:Stealth Rock;26:Defense Curl;32:Head Smash

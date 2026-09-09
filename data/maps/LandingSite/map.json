@@ -2,7 +2,7 @@
   "id": "MAP_LANDING_SITE",
   "name": "LandingSite",
   "layout": "LAYOUT_LANDING_SITE",
-  "music": "MUS_DUMMY",
+  "music": "MUS_MT_PYRE",
   "region_map_section": "MAPSEC_LANDING_SITE",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -73,15 +73,15 @@
     {
       "local_id": "LOCALID_JOMO",
       "graphics_id": "OBJ_EVENT_GFX_PALOOKA_BOSS",
-      "x": 1,
-      "y": 8,
+      "x": 7,
+      "y": 9,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_TREE_DISGUISE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
-      "trainer_sight_or_berry_tree_id": "4",
-      "script": "NULL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "LandingSite_Jomo",
       "flag": "FLAG_HIDE_JOMO"
     }
   ],

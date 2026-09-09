@@ -1,4 +1,9 @@
 mapscripts Beach_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (flag(FLAG_WATER_GUARD_DEFEATED)) {
+            setobjectmovementtype(LOCALID_WATER_AGITATOR, MOVEMENT_TYPE_FACE_DOWN)
+        }
+    }
     MAP_SCRIPT_ON_FRAME_TABLE [
         VAR_TAMAGOTCHI_STAGE_EXPLAINED, 0: Tamagotchi_BabyEvo_Explanation
         VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1: Tamagotchi_KidEvo_Explanation
@@ -7,7 +12,7 @@ mapscripts Beach_MapScripts {
 }
 
 script Beach_Palooka_A {
-    trainerbattle_single(TRAINER_BEACH_A, format("Bleh!"), format("Bleh..."), Beach_Palooka_A_Defeated)
+    trainerbattle_single(TRAINER_BEACH_A, format("Oh no, it's you!"), format("Bleh..."), Beach_Palooka_A_Defeated)
 }
 
 script Beach_Palooka_A_Defeated {
@@ -19,11 +24,11 @@ script Beach_Palooka_A_Defeated {
 }
 
 script Beach_Palooka_B {
-    trainerbattle_single(TRAINER_BEACH_B, format("Bleh!"), format("Bleh..."), Tamagotchi_Palookaport_Out)
+    trainerbattle_single(TRAINER_BEACH_B, format("If I beat you, surely I'll get promoted!"), format("Aw...but I could use the money..."), Tamagotchi_Palookaport_Out)
 }
 
 script Beach_Palooka_C {
-    trainerbattle_single(TRAINER_BEACH_C, format("Bleh!"), format("Bleh..."), Tamagotchi_Palookaport_Out)
+    trainerbattle_single(TRAINER_BEACH_C, format("No, this ocean view is mine!"), format("I've never seen an ocean..."), Tamagotchi_Palookaport_Out)
 }
 
 script Beach_Palooka_D {
@@ -35,7 +40,59 @@ script Beach_Palooka_E {
 }
 
 script Beach_WaterGuard {
-    msgbox("Hello!!")
+    call(Tamagotchi_BossIntro)
+    trainerbattle_no_intro(TRAINER_WATER_GUARD, format("Jomo will do what I could not."))
+    msgbox(format("You have bested me, alien. You shall not win forever."))
+    closemessage
+    setvar(VAR_LAST_TALKED, LOCALID_WATER_GUARD)
+    call(Tamagotchi_Palookaport_Out)
+    if (flag(FLAG_TEMP_2)) {
+        applymovement(LOCALID_PLAYER, moves(walk_left * 4, face_up))
+    }
+    elif (flag(FLAG_TEMP_3)) {
+        applymovement(LOCALID_PLAYER, moves(walk_left * 4, walk_up))
+    }
+    else {
+        applymovement(LOCALID_PLAYER, moves(walk_left * 4, walk_up * 2))
+    }
+    waitmovement
+    setvar(VAR_0x8006, LOCALID_WATER_AGITATOR)
+    call(Tamagotchi_AgitatorInteract)
+    addvar(VAR_BOSSES_DEFEATED, 1)
+    setflag(FLAG_WATER_GUARD_DEFEATED)
+    releaseall
+}
+
+script Beach_WaterGuard_Alerted {
+    lockall
+    applymovement(LOCALID_WATER_GUARD, moves(face_right, emote_exclamation_mark))
+    playse(SE_PIN)
+    waitse
+    return
+}
+
+script Beach_WaterGuard_Trigger_Top {
+    call(Beach_WaterGuard_Alerted)
+    setflag(FLAG_TEMP_2)
+    applymovement(LOCALID_WATER_GUARD, moves(walk_right * 3))
+    waitmovement
+    goto(Beach_WaterGuard)
+}
+
+script Beach_WaterGuard_Trigger_Middle {
+    call(Beach_WaterGuard_Alerted)
+    setflag(FLAG_TEMP_3)
+    applymovement(LOCALID_WATER_GUARD, moves(walk_right * 2, walk_down, walk_right))
+    waitmovement
+    goto(Beach_WaterGuard)
+}
+
+script Beach_WaterGuard_Trigger_Bottom {
+    call(Beach_WaterGuard_Alerted)
+    setflag(FLAG_TEMP_4)
+    applymovement(LOCALID_WATER_GUARD, moves(walk_right * 2, walk_down * 2, walk_right))
+    waitmovement
+    goto(Beach_WaterGuard)
 }
 
 script Beach_NeutralPalooka_A {

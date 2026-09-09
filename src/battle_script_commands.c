@@ -5864,32 +5864,33 @@ static void Cmd_getmoneyreward(void)
     }
     else
     {
-        if (B_WHITEOUT_MONEY <= GEN_3)
-        {
-            money = GetMoney(&gSaveBlock1Ptr->money) / 2;
-        }
-        else
-        {
-            s32 i, count;
-            for (i = 0; i < PARTY_SIZE; i++)
-            {
-                if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE
-                && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES_OR_EGG) != SPECIES_EGG)
-                {
-                    if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_LEVEL) > sPartyLevel)
-                        sPartyLevel = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_LEVEL);
-                }
-            }
-            for (count = 0, i = 0; i < ARRAY_COUNT(gBadgeFlags); i++)
-            {
-                if (FlagGet(gBadgeFlags[i]) == TRUE)
-                    ++count;
-            }
-            money = sWhiteOutBadgeMoney[count] * sPartyLevel;
-        }
-        if (!IsEnoughMoney(&gSaveBlock1Ptr->money, money))
-            money = GetMoney(&gSaveBlock1Ptr->money);
-        RemoveMoney(&gSaveBlock1Ptr->money, money);
+        money = 0;
+        // if (B_WHITEOUT_MONEY <= GEN_3)
+        // {
+        //     money = GetMoney(&gSaveBlock1Ptr->money) / 2;
+        // }
+        // else
+        // {
+        //     s32 i, count;
+        //     for (i = 0; i < PARTY_SIZE; i++)
+        //     {
+        //         if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE
+        //         && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES_OR_EGG) != SPECIES_EGG)
+        //         {
+        //             if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_LEVEL) > sPartyLevel)
+        //                 sPartyLevel = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_LEVEL);
+        //         }
+        //     }
+        //     for (count = 0, i = 0; i < ARRAY_COUNT(gBadgeFlags); i++)
+        //     {
+        //         if (FlagGet(gBadgeFlags[i]) == TRUE)
+        //             ++count;
+        //     }
+        //     money = sWhiteOutBadgeMoney[count] * sPartyLevel;
+        // }
+        // if (!IsEnoughMoney(&gSaveBlock1Ptr->money, money))
+        //     money = GetMoney(&gSaveBlock1Ptr->money);
+        // RemoveMoney(&gSaveBlock1Ptr->money, money);
     }
 
     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, money);

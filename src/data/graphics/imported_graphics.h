@@ -1,5 +1,5 @@
 // Include this in src/data/graphics/pokemon.h
-// Completion: 285/293 (97%)
+// Completion: 288/292 (98%)
 
 const u32 gMonFrontPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/front.png", ".4bpp.lz");
 const u32 gMonBackPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/back.png", ".4bpp.lz");
@@ -107,11 +107,11 @@ const u8 gMonIcon_Sebiretchi[] = INCGFX_U8("graphics/pokemon/sebiretchi/icon.png
 const u8 gMonFootprint_Sebiretchi[] = INCGFX_U8("graphics/pokemon/sebiretchi/footprint.png", ".1bpp");
 
 const u32 gMonFrontPic_Elizardotchi[] = INCGFX_U32("graphics/pokemon/elizardotchi/front.png", ".4bpp.lz");
-// const u32 gMonBackPic_Elizardotchi[] = INCGFX_U32("graphics/pokemon/elizardotchi/back.png", ".4bpp.lz");
+const u32 gMonBackPic_Elizardotchi[] = INCGFX_U32("graphics/pokemon/elizardotchi/back.png", ".4bpp.lz");
 const u16 gMonPalette_Elizardotchi[] = INCGFX_U16("graphics/pokemon/elizardotchi/front.png", ".gbapal");
-// const u16 gMonShinyPalette_Elizardotchi[] = INCGFX_U16("graphics/pokemon/elizardotchi/back.png", ".gbapal");
-// const u8 gMonIcon_Elizardotchi[] = INCGFX_U8("graphics/pokemon/elizardotchi/icon.png", ".4bpp");
-// const u8 gMonFootprint_Elizardotchi[] = INCGFX_U8("graphics/pokemon/elizardotchi/footprint.png", ".1bpp");
+const u16 gMonShinyPalette_Elizardotchi[] = INCGFX_U16("graphics/pokemon/elizardotchi/back.png", ".gbapal");
+const u8 gMonIcon_Elizardotchi[] = INCGFX_U8("graphics/pokemon/elizardotchi/icon.png", ".4bpp");
+const u8 gMonFootprint_Elizardotchi[] = INCGFX_U8("graphics/pokemon/elizardotchi/footprint.png", ".1bpp");
 
 const u32 gMonFrontPic_Heavytchi[] = INCGFX_U32("graphics/pokemon/heavytchi/front.png", ".4bpp.lz");
 const u32 gMonBackPic_Heavytchi[] = INCGFX_U32("graphics/pokemon/heavytchi/back.png", ".4bpp.lz");

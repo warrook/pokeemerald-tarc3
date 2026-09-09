@@ -2,7 +2,7 @@
   "id": "MAP_MOUNTAIN",
   "name": "Mountain",
   "layout": "LAYOUT_MOUNTAIN",
-  "music": "MUS_DUMMY",
+  "music": "MUS_MNTNZONE",
   "region_map_section": "MAPSEC_SKY_MOUNTAIN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -58,8 +58,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
-      "trainer_sight_or_berry_tree_id": "1",
-      "script": "NULL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Mountain_Palooka_B",
       "flag": "FLAG_HIDE_TRAINER_SKY_B"
     },
     {
@@ -73,7 +73,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
       "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "script": "Mountain_Palooka_C",
       "flag": "FLAG_HIDE_TRAINER_SKY_C"
     },
     {
@@ -86,8 +86,8 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
-      "trainer_sight_or_berry_tree_id": "3",
-      "script": "NULL",
+      "trainer_sight_or_berry_tree_id": "2",
+      "script": "Mountain_Palooka_E",
       "flag": "FLAG_HIDE_TRAINER_SKY_E"
     },
     {
@@ -101,7 +101,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "script": "Mountain_Palooka_A",
       "flag": "FLAG_HIDE_TRAINER_SKY_A"
     },
     {
@@ -115,11 +115,30 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_SEE_ALL_DIRECTIONS",
       "trainer_sight_or_berry_tree_id": "2",
-      "script": "NULL",
+      "script": "Mountain_Palooka_D",
       "flag": "FLAG_HIDE_TRAINER_SKY_D"
     }
   ],
   "warp_events": [],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 17,
+      "y": 8,
+      "elevation": 0,
+      "var": "FLAG_SKY_GUARD_DEFEATED",
+      "var_value": "0",
+      "script": "Mountain_SkyGuard"
+    }
+  ],
+  "bg_events": [
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Tamagotchi_AgitatorDisabled"
+    }
+  ]
 }

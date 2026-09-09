@@ -466,3 +466,8 @@ u8 (*const gMovementTypeFuncs_Invisible[])(struct ObjectEvent *, struct Sprite *
     MovementType_Invisible_Step1,
     MovementType_Invisible_Step2,
 };
+
+u8 (*const gMovementTypeFuncs_Cloaked[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_Cloaked_Step0,
+    MovementType_Cloaked_Step1,
+};

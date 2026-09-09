@@ -3,6 +3,11 @@ mapscripts LandingSite_MapScripts {
         setrespawn(HEAL_LOCATION_LANDING_SITE)
         end
     }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TAMAGOTCHI_STAGE_EXPLAINED, 0: Tamagotchi_BabyEvo_Explanation
+        VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1: Tamagotchi_KidEvo_Explanation
+        VAR_TAMAGOTCHI_STAGE_EXPLAINED, 2: Tamagotchi_YoungEvo_Explanation
+    ]
 }
 
 script Banzo_EventScript_Intro
@@ -60,15 +65,14 @@ script Banzo_EventScript_Intro
 script Banzo_EventScript_AfterCatch {
     lockall
     playse(SE_POKENAV_ON)
-    suitcall(format("Prof. Banzo: Phew. So they do work.\p"
-             "I'm going to analyze the data. I'm here if you need to talk to me!\p"
+    suitcall(format("Prof. Banzo: Phew. So they do work."
+             "I'm going to analyze the data.\p"
              "Remember: you're there to figure out why the native life has started getting aggressive with each other...and what those odd devices we've observed are.\p"
              "Rest up in the lander when you need to, and use the synthesizer too.\p"
              "Good luck, and be safe."))
     waitmessage
     call(Tamagotchi_SuitCallEnd)
     waitse
-    msgbox(format("Open your I.D. card in the start menu for a reminder of what to do, or call Banzo for a more elaborate explanation."))
     setflag(FLAG_SYS_SCALE_OPPONENTS)
     setflag(FLAG_EXP_SHARE)
     clearflag(FLAG_HIDE_MAP_NAME_POPUP)
@@ -195,6 +199,39 @@ script LandingSite_CatchIntro_PushUp {
     end
 }
 
+script LandingSite_Jomo {
+    trainerbattle_single(TRAINER_JOMO, format("I am here, alien!\p"
+        "Prepare yourself. I will capture you, and make you a champion.\p"
+        "You will make me the richest Palooka there ever was. I know it to be true."),
+        format("...no."), LandingSite_Jomo_Defeated)
+}
+
+script LandingSite_Jomo_Defeated {
+    lock
+    special(PlayerFaceTrainerAfterBattle)
+	waitmovement
+    msgbox(format("Ahaha...I am defeated.\pYou have trained your creatures with such brutality.\p"
+        "We will leave this planet, forever. Definitely. We definitely won't return with more."))
+    fadescreen(FADE_TO_BLACK)
+    playse(SE_FLEE)
+    removeobject(LOCALID_JOMO)
+    waitse
+    fadescreen(FADE_FROM_BLACK)
+    msgbox(format("He just...ran away."))
+    call(Tamagotchi_SuitCallBegin)
+    suitcall(format("Prof. Banzo: {PLAYER}!"
+        "You're alive!\p"
+        "We need to report this to Mossdeep."))
+    waitmessage
+    call(Tamagotchi_SuitCallEnd)
+    fadescreen(FADE_TO_BLACK)
+    msgbox(format("Thank you for playing!"))
+    waitmessage
+    delay(60)
+    fadescreen(FADE_FROM_BLACK)
+    msgbox(format("You can keep playing, but that's all."))
+}
+
 script Tamagotchi_SuitCallBegin
 {
     playse(SE_POKENAV_CALL)
@@ -222,6 +259,7 @@ script Tamagotchi_Palookaport_Out {
     delay(24) //Delay to correct frame before disappearing
     removeobject(VAR_LAST_TALKED)
     waitfieldeffect(FLDEFF_PALOOKAPORT)
+    return
 }
 
 script Tamagotchi_Palookaport_In {
@@ -236,6 +274,7 @@ script Tamagotchi_Palookaport_In {
     delay(24) //Delay to correct frame before appearing anyone
     showobjectat(VAR_LAST_TALKED, MAP_BEACH)
     waitfieldeffect(FLDEFF_PALOOKAPORT)
+    return
 }
 
 script Tamagotchi_BabyEvo_Explanation {
@@ -323,7 +362,6 @@ script Tamagotchi_FirstPalooka_Defeated {
     msgbox(format("I gotta tell Jomo about this!"))
     waitmessage
     closemessage
-    addvar(VAR_PALOOKAS_DEFEATED, 1)
     call(Tamagotchi_Palookaport_Out)
     release
 }
@@ -348,7 +386,6 @@ script Tamagotchi_SecondPalooka_Defeated {
     msgbox(format("These monsters are ours, alien. We've worked hard to make them battle-ready.\p"
     "You'd better go home before Jomo decides to take care of you himself."))
     closemessage
-    addvar(VAR_PALOOKAS_DEFEATED, 1)
     call(Tamagotchi_Palookaport_Out)
     delay(30)
     call(Tamagotchi_SuitCallBegin)
@@ -364,5 +401,57 @@ script Tamagotchi_SecondPalooka_Defeated {
     suitcall(format("Prof. Banzo: Jomo seems scary... I'll try to pinpoint his location from up here. Keep doing what you're doing!"))
     waitmessage
     call(Tamagotchi_SuitCallEnd)
+    release
+}
+
+script Tamagotchi_BossIntro {
+    switch (var(VAR_BOSSES_DEFEATED)) {
+        case 0:
+            msgbox(format("Alien, I do not know why you're here, but we will stop you."))
+        case 1:
+            msgbox(format("Alien. If you continue this way, you'll incur Jomo's wrath!"))
+        case 2:
+            msgbox(format("Alien. I know we cannot defeat you, but honor demands we fight anyway."))
+    }
+    return
+}
+
+// VAR_0x8006 has been set to the localid of the device 
+script Tamagotchi_AgitatorInteract {
+    if (var(VAR_BOSSES_DEFEATED) == 0) {
+        msgbox(format("It's the alien device you're looking for.\p"
+            "Though written in the Palooka language, there are enough graphics to indicate that this thing causes the Pok\emon here to want to battle.\p"
+            "There's an obvious off switch."))
+    }
+    playse(SE_M_STAT_DECREASE)
+    applymovement(VAR_0x8006, moves(face_up delay_8 face_down))
+    waitse
+    waitmovement
+    if (var(VAR_BOSSES_DEFEATED) == 2) {
+        call(Tamagotchi_SuitCallBegin)
+        suitcall(format("Prof. Banzo: Bad news, {PLAYER}...\l"
+            "I found Jomo, and he's at the lander.\p"
+            "Worse news, his ship is in orbit and it's way bigger--"))
+        waitmessage
+        call(Tamagotchi_SuitCallBegin)
+        suitcall(format("Jomo: Alien! You hear now the voice of Jomo, leader of this operation!\p"
+            "You have bested my lieutenants and disabled my machines.\p"
+            "Watch your back. I will take you and make you the best fighter ever known.\l"
+            "You will make me rich."))
+        waitmessage
+        call(Tamagotchi_SuitCallEnd)
+        suitcall(format("Prof. Banzo: ...I don't think he knew I was listening.\p"
+            "I don't know what beating him will do, but...good luck."))
+        waitmessage
+        call(Tamagotchi_SuitCallEnd)
+        clearflag(FLAG_HIDE_JOMO)
+    }
+    return
+}
+
+script Tamagotchi_AgitatorDisabled {
+    lock
+    msgbox("It's been shut down.")
+    waitmessage
     release
 }

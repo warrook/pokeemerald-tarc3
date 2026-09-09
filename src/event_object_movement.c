@@ -349,6 +349,7 @@ static void (*const sMovementTypeCallbacks[])(struct Sprite *) =
     [MOVEMENT_TYPE_WATCH_PLAYER_OWE] = MovementType_OverworldWildEncounter_WatchPlayer,
     [MOVEMENT_TYPE_APPROACH_PLAYER_OWE] = MovementType_OverworldWildEncounter_ApproachPlayer,
     [MOVEMENT_TYPE_DESPAWN_OWE] = MovementType_OverworldWildEncounter_Despawn,
+    [MOVEMENT_TYPE_CLOAKED] = MovementType_Cloaked,
 };
 
 static const bool8 sMovementTypeHasRange[NUM_MOVEMENT_TYPES] = {
@@ -484,6 +485,7 @@ const u8 gInitialMovementTypeFacingDirections[NUM_MOVEMENT_TYPES] = {
     [MOVEMENT_TYPE_WATCH_PLAYER_OWE] = DIR_SOUTH,
     [MOVEMENT_TYPE_APPROACH_PLAYER_OWE] = DIR_SOUTH,
     [MOVEMENT_TYPE_DESPAWN_OWE] = DIR_SOUTH,
+    [MOVEMENT_TYPE_CLOAKED] = DIR_SOUTH,
 };
 
 #include "data/object_events/object_event_graphics_info_pointers.h"
@@ -534,6 +536,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Capsule,               OBJ_EVENT_PAL_TAG_CAPSULE},
     {gObjectEventPal_Agitator,              OBJ_EVENT_PAL_TAG_AGITATOR},
     {gObjectEventPal_Palooka,               OBJ_EVENT_PAL_TAG_PALOOKA},
+    {gObjectEventPal_PalookaBoss,           OBJ_EVENT_PAL_TAG_PALOOKA_BOSS},
 #if IS_FRLG
     {gObjectEventPal_PlayerFrlg,            OBJ_EVENT_PAL_TAG_PLAYER_RED},
     {gObjectEventPal_PlayerReflectionFrlg,  OBJ_EVENT_PAL_TAG_PLAYER_RED_REFLECTION},
@@ -12246,3 +12249,139 @@ bool8 MovementType_OverworldWildEncounter_Despawn_Step11(struct ObjectEvent *obj
 }
 
 #undef sDespawnTimer
+
+movement_type_def(MovementType_Cloaked, gMovementTypeFuncs_Cloaked)
+
+bool8 MovementType_Cloaked_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    // DebugPrintfLevel(MGBA_LOG_WARN, "Doing OE (%d,%d)", objectEvent->currentCoords.x - MAP_OFFSET, objectEvent->currentCoords.y - MAP_OFFSET);
+
+
+    // ClearObjectEventMovement(objectEvent, sprite);
+
+    // u32 x = objectEvent->currentCoords.x;
+    // u32 y = objectEvent->currentCoords.y;
+    // const struct MapLayout *mapLayout = Overworld_GetMapHeaderByGroupAndId(objectEvent->mapGroup, objectEvent->mapNum)->mapLayout;
+
+    // u32 metatileId = MapGridGetMetatileIdAt(x, y);
+    // DebugPrintfLevel(MGBA_LOG_WARN, "- metatile ID: %d (0x%x)", metatileId, metatileId);
+    // const u16 *metatiles;
+    // const u32 *tiles;
+    
+
+    // if (metatileId > NUM_METATILES_TOTAL)
+    //     metatileId = 0;
+    // if (metatileId < GetNumMetatilesInPrimary(mapLayout))
+    // {
+    //     metatiles = mapLayout->primaryTileset->metatiles;
+    // }
+    // else
+    // {
+    //     metatiles = mapLayout->secondaryTileset->metatiles;
+    //     metatileId -= GetNumMetatilesInPrimary(mapLayout);
+        
+    // }
+
+
+    // const u16 *tiles8x8 = metatiles + metatileId * NUM_TILES_PER_METATILE;
+    // DebugPrintfLevel(MGBA_LOG_WARN, "- tile %d (0x%x)", tiles8x8[0], tiles8x8[0]);
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     switch (i)
+    //     {
+    //         case 0:
+    //             DebugPrintfLevel(MGBA_LOG_WARN, "- Bottom layer:");
+    //             break;
+    //         case 1:
+    //             DebugPrintfLevel(MGBA_LOG_WARN, "- Middle layer:");
+    //             break;
+    //         case 2:
+    //             DebugPrintfLevel(MGBA_LOG_WARN, "- Top layer:");
+    //             break;
+    //     }
+    //     for (int j = 0; j < 4; j++)
+    //     {
+    //         u32 tile = tiles8x8[(i*4) + j];
+    //         DebugPrintfLevel(MGBA_LOG_WARN, "- - tile[%d] = %d (0x%x)", (i*4) + j, tile, tile);
+    //     }
+
+    // }
+    //BlendPalette(OBJ_PLTT_ID(sprite->oam.paletteNum), 16, 16, RGB_ALPHA);
+    DebugPrintfLevel(MGBA_LOG_WARN, "Obj mode: %d", sprite->oam.objMode);
+    sprite->sTypeFuncId = 1;
+    return TRUE; // Do next func immediately
+}
+
+bool8 MovementType_Cloaked_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    ClearObjectEventMovement(objectEvent, sprite);
+    sprite->sTypeFuncId = 1;
+    return FALSE;
+}
+
+#define sTimer  data[4]
+#define sState data[5]
+
+bool8 MovementAction_RevealCloakedTrainer_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    // if (sprite->anims[ANIM_STD_FACE_EAST]->frame.hFlip)
+    // {
+    //     //Affines hate hFlipped
+    //     u32 matrixNum = AllocOamMatrix();
+    //     sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
+    //     sprite->oam.matrixNum = matrixNum;
+    //     gOamMatrices[matrixNum].a = -256;
+    //     gOamMatrices[matrixNum].b = 0;
+    //     gOamMatrices[matrixNum].c = 0;
+    //     gOamMatrices[matrixNum].d = 256;
+    // }
+    sprite->sActionFuncId = 1;
+    return FALSE;//MovementAction_RevealCloakedTrainer_Step1(objectEvent, sprite);
+}
+
+bool8 MovementAction_RevealCloakedTrainer_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
+{
+    u32 stretch;
+
+    enum {
+        SETUP,
+        MOSAIC_IN,
+        MOSAIC_OUT,
+        FINISH,
+    };
+
+    switch (sprite->sState)
+    {
+    case SETUP:
+        sprite->oam.mosaic = TRUE;
+        sprite->sTimer = 8 * 2 - 1; // 16 frames timer
+        sprite->sState = MOSAIC_OUT;//MOSAIC_IN;
+        break;
+    case MOSAIC_IN:
+        stretch = 8 - (sprite->sTimer / 2 % 8); // Mosaic in
+        SetGpuReg(REG_OFFSET_MOSAIC, (stretch << 12) | (stretch << 8));
+        if (--sprite->sTimer <= 0)
+            sprite->sState = MOSAIC_OUT;
+        break;
+    case MOSAIC_OUT:
+        stretch = (sprite->sTimer / 2 % 8); // Mosaic out
+        SetGpuReg(REG_OFFSET_MOSAIC, (stretch << 12) | (stretch << 8));
+        if (--sprite->sTimer <= 0)
+            sprite->sState = FINISH;
+        break;
+    case FINISH:
+        sprite->oam.mosaic = FALSE;
+        if (sprite->oam.affineMode == ST_OAM_AFFINE_NORMAL)
+        {
+            // hFlipped, so free the matrix
+            sprite->oam.affineMode = ST_OAM_AFFINE_OFF;
+            FreeOamMatrix(sprite->oam.matrixNum);
+        }
+        sprite->sActionFuncId = 2;
+        return TRUE;
+    }
+    return FALSE;
+}
+
+#undef sTimer
+#undef sState

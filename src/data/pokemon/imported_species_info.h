@@ -650,9 +650,14 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .frontAnimFrames = ANIM_FRAMES(
         ANIMCMD_FRAME(0,1),
     ),
+    .backPic = gMonBackPic_Elizardotchi,
     .backPicSize = MON_COORDS_SIZE(64, 64),
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Elizardotchi,
+    .shinyPalette = gMonShinyPalette_Elizardotchi,
+    .iconSprite = gMonIcon_Elizardotchi,
+    .iconPalIndex = 1,
+    FOOTPRINT(Elizardotchi)
     .levelUpLearnset = sElizardotchiLevelUpLearnset,
 },
 
