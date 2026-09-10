@@ -103,6 +103,71 @@ Mountain_SkyGuard::
 	return
 
 
+Mountain_Kuriten::
+# 62 "data/maps/Mountain/scripts.pory"
+	goto_if_set FLAG_CAUGHT_KURITEN, Mountain_Kuriten_2
+# 68 "data/maps/Mountain/scripts.pory"
+	goto_if_set FLAG_JOMO_DEFEATED, Mountain_Kuriten_4
+# 91 "data/maps/Mountain/scripts.pory"
+	msgbox Mountain_Kuriten_Text_3
+# 92 "data/maps/Mountain/scripts.pory"
+	closemessage
+# 93 "data/maps/Mountain/scripts.pory"
+	release
+	return
+
+Mountain_Kuriten_2:
+# 63 "data/maps/Mountain/scripts.pory"
+	msgbox Mountain_Kuriten_Text_0
+# 64 "data/maps/Mountain/scripts.pory"
+	closemessage
+# 65 "data/maps/Mountain/scripts.pory"
+	release
+	end
+
+Mountain_Kuriten_4:
+# 69 "data/maps/Mountain/scripts.pory"
+	msgbox Mountain_Kuriten_Text_1
+# 70 "data/maps/Mountain/scripts.pory"
+	playse SE_PIN
+# 71 "data/maps/Mountain/scripts.pory"
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+# 72 "data/maps/Mountain/scripts.pory"
+	delay 40
+# 73 "data/maps/Mountain/scripts.pory"
+	seteventmon SPECIES_KURITEN, 30
+# 74 "data/maps/Mountain/scripts.pory"
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+# 75 "data/maps/Mountain/scripts.pory"
+	special BattleSetup_StartLegendaryBattle
+# 76 "data/maps/Mountain/scripts.pory"
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+# 77 "data/maps/Mountain/scripts.pory"
+	specialvar VAR_RESULT, GetBattleOutcome
+# 0 "data/maps/Mountain/scripts.pory"
+	switch VAR_RESULT
+# 78 "data/maps/Mountain/scripts.pory"
+	case B_OUTCOME_WON, Mountain_Kuriten_9
+# 79 "data/maps/Mountain/scripts.pory"
+	case B_OUTCOME_RAN, Mountain_Kuriten_9
+# 80 "data/maps/Mountain/scripts.pory"
+	case B_OUTCOME_PLAYER_TELEPORTED, Mountain_Kuriten_9
+# 86 "data/maps/Mountain/scripts.pory"
+	setflag FLAG_CAUGHT_KURITEN
+# 87 "data/maps/Mountain/scripts.pory"
+	release
+	end
+
+Mountain_Kuriten_9:
+# 81 "data/maps/Mountain/scripts.pory"
+	msgbox Mountain_Kuriten_Text_2
+# 82 "data/maps/Mountain/scripts.pory"
+	closemessage
+# 83 "data/maps/Mountain/scripts.pory"
+	release
+	end
+
+
 # 44 "data/maps/Mountain/scripts.pory"
 Mountain_SkyGuard_Movement_0:
 # 44 "data/maps/Mountain/scripts.pory"
@@ -167,3 +232,20 @@ Mountain_SkyGuard_Text_1:
 # 47 "data/maps/Mountain/scripts.pory"
 	.string "Such a beautiful place...isn't it?\p"
 	.string "Good luck, alien.$"
+
+Mountain_Kuriten_Text_0:
+# 63 "data/maps/Mountain/scripts.pory"
+	.string "The strange power is gone.$"
+
+Mountain_Kuriten_Text_1:
+# 69 "data/maps/Mountain/scripts.pory"
+	.string "A strange power emanates from this\n"
+	.string "tree...$"
+
+Mountain_Kuriten_Text_2:
+# 81 "data/maps/Mountain/scripts.pory"
+	.string "It will let you try to catch it again.$"
+
+Mountain_Kuriten_Text_3:
+# 91 "data/maps/Mountain/scripts.pory"
+	.string "An unusual tree.$"

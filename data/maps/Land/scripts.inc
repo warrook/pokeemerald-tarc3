@@ -119,6 +119,71 @@ Land_LandGuards::
 	return
 
 
+Land_Shinigami::
+# 69 "data/maps/Land/scripts.pory"
+	goto_if_set FLAG_CAUGHT_SHINIGAMI, Land_Shinigami_2
+# 75 "data/maps/Land/scripts.pory"
+	goto_if_set FLAG_JOMO_DEFEATED, Land_Shinigami_4
+# 98 "data/maps/Land/scripts.pory"
+	msgbox Land_Shinigami_Text_3
+# 99 "data/maps/Land/scripts.pory"
+	closemessage
+# 100 "data/maps/Land/scripts.pory"
+	release
+	return
+
+Land_Shinigami_2:
+# 70 "data/maps/Land/scripts.pory"
+	msgbox Land_Shinigami_Text_0
+# 71 "data/maps/Land/scripts.pory"
+	closemessage
+# 72 "data/maps/Land/scripts.pory"
+	release
+	end
+
+Land_Shinigami_4:
+# 76 "data/maps/Land/scripts.pory"
+	msgbox Land_Shinigami_Text_1
+# 77 "data/maps/Land/scripts.pory"
+	playse SE_PIN
+# 78 "data/maps/Land/scripts.pory"
+	applymovement LOCALID_PLAYER, Common_Movement_ExclamationMark
+# 79 "data/maps/Land/scripts.pory"
+	delay 40
+# 80 "data/maps/Land/scripts.pory"
+	seteventmon SPECIES_SHINIGAMI, 30
+# 81 "data/maps/Land/scripts.pory"
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+# 82 "data/maps/Land/scripts.pory"
+	special BattleSetup_StartLegendaryBattle
+# 83 "data/maps/Land/scripts.pory"
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+# 84 "data/maps/Land/scripts.pory"
+	specialvar VAR_RESULT, GetBattleOutcome
+# 0 "data/maps/Land/scripts.pory"
+	switch VAR_RESULT
+# 85 "data/maps/Land/scripts.pory"
+	case B_OUTCOME_WON, Land_Shinigami_9
+# 86 "data/maps/Land/scripts.pory"
+	case B_OUTCOME_RAN, Land_Shinigami_9
+# 87 "data/maps/Land/scripts.pory"
+	case B_OUTCOME_PLAYER_TELEPORTED, Land_Shinigami_9
+# 93 "data/maps/Land/scripts.pory"
+	setflag FLAG_CAUGHT_SHINIGAMI
+# 94 "data/maps/Land/scripts.pory"
+	release
+	end
+
+Land_Shinigami_9:
+# 88 "data/maps/Land/scripts.pory"
+	msgbox Land_Shinigami_Text_2
+# 89 "data/maps/Land/scripts.pory"
+	closemessage
+# 90 "data/maps/Land/scripts.pory"
+	release
+	end
+
+
 # 44 "data/maps/Land/scripts.pory"
 Land_LandGuards_Movement_0:
 # 44 "data/maps/Land/scripts.pory"
@@ -201,3 +266,20 @@ Land_LandGuards_Text_1:
 Land_LandGuards_Text_2:
 # 53 "data/maps/Land/scripts.pory"
 	.string "Grunt, let's go.$"
+
+Land_Shinigami_Text_0:
+# 70 "data/maps/Land/scripts.pory"
+	.string "The strange power is gone.$"
+
+Land_Shinigami_Text_1:
+# 76 "data/maps/Land/scripts.pory"
+	.string "A strange power emanates from this\n"
+	.string "rock...$"
+
+Land_Shinigami_Text_2:
+# 88 "data/maps/Land/scripts.pory"
+	.string "It will let you try to catch it again.$"
+
+Land_Shinigami_Text_3:
+# 98 "data/maps/Land/scripts.pory"
+	.string "An unusual rock.$"

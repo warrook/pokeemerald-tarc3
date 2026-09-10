@@ -76,6 +76,7 @@ script Banzo_EventScript_AfterCatch {
     setflag(FLAG_SYS_SCALE_OPPONENTS)
     setflag(FLAG_EXP_SHARE)
     clearflag(FLAG_HIDE_MAP_NAME_POPUP)
+    setflag(FLAG_BADGE08_GET)
     #clearflag(FLAG_HIDE_FIRST_PALOOKA)
     #clearflag(FLAG_HIDE_SECOND_PALOOKA)
     additem(ITEM_POKE_BALL,20)
@@ -211,7 +212,9 @@ script LandingSite_Jomo_Defeated {
     special(PlayerFaceTrainerAfterBattle)
 	waitmovement
     msgbox(format("Ahaha...I am defeated.\pYou have trained your creatures with such brutality.\p"
-        "We will leave this planet, forever. Definitely. We definitely won't return with more."))
+        "We will leave this planet, forever. Definitely. We definitely won't return with more guys."))
+    closemessage
+    setflag(FLAG_JOMO_DEFEATED)
     fadescreen(FADE_TO_BLACK)
     playse(SE_FLEE)
     removeobject(LOCALID_JOMO)
@@ -221,15 +224,17 @@ script LandingSite_Jomo_Defeated {
     call(Tamagotchi_SuitCallBegin)
     suitcall(format("Prof. Banzo: {PLAYER}!"
         "You're alive!\p"
-        "We need to report this to Mossdeep."))
+        "We need to report this to Mossdeep! Get back up here as soon as you can!"))
     waitmessage
     call(Tamagotchi_SuitCallEnd)
     fadescreen(FADE_TO_BLACK)
-    msgbox(format("Thank you for playing!"))
-    waitmessage
+    msgbox(format("A mysterious power is coming from the hills and mountain..."))
     delay(60)
+    closemessage
     fadescreen(FADE_FROM_BLACK)
-    msgbox(format("You can keep playing, but that's all."))
+    msgbox(format("Thank you for playing!"))
+    closemessage
+    release
 }
 
 script Tamagotchi_SuitCallBegin

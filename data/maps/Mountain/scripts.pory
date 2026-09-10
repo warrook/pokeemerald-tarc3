@@ -57,3 +57,39 @@ script Mountain_SkyGuard {
     setflag(FLAG_SKY_GUARD_DEFEATED)
     releaseall
 }
+
+script Mountain_Kuriten {
+    if (flag(FLAG_CAUGHT_KURITEN)) {
+        msgbox(format("The strange power is gone."))
+        closemessage
+        release
+        end
+    }
+    if (flag(FLAG_JOMO_DEFEATED)) {
+        msgbox(format("A strange power emanates from this tree..."))
+        playse(SE_PIN)
+        applymovement(LOCALID_PLAYER, Common_Movement_ExclamationMark)
+        delay(40)
+        seteventmon(SPECIES_KURITEN, 30)
+        setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+        special(BattleSetup_StartLegendaryBattle)
+        clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+        switch(specialvar(VAR_RESULT, GetBattleOutcome)) {
+            case B_OUTCOME_WON:
+            case B_OUTCOME_RAN:
+            case B_OUTCOME_PLAYER_TELEPORTED:
+                msgbox("It will let you try to catch it again.")
+                closemessage
+                release
+                end
+        }
+        setflag(FLAG_CAUGHT_KURITEN)
+        release
+        end
+    }
+    else {
+        msgbox(format("An unusual tree."))
+        closemessage
+        release
+    }
+}

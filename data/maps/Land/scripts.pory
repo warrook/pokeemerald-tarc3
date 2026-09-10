@@ -64,3 +64,39 @@ script Land_LandGuards {
     setflag(FLAG_LAND_GUARDS_DEFEATED)
     releaseall
 }
+
+script Land_Shinigami {
+    if (flag(FLAG_CAUGHT_SHINIGAMI)) {
+        msgbox(format("The strange power is gone."))
+        closemessage
+        release
+        end
+    }
+    if (flag(FLAG_JOMO_DEFEATED)) {
+        msgbox(format("A strange power emanates from this rock..."))
+        playse(SE_PIN)
+        applymovement(LOCALID_PLAYER, Common_Movement_ExclamationMark)
+        delay(40)
+        seteventmon(SPECIES_SHINIGAMI, 30)
+        setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+        special(BattleSetup_StartLegendaryBattle)
+        clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+        switch(specialvar(VAR_RESULT, GetBattleOutcome)) {
+            case B_OUTCOME_WON:
+            case B_OUTCOME_RAN:
+            case B_OUTCOME_PLAYER_TELEPORTED:
+                msgbox("It will let you try to catch it again.")
+                closemessage
+                release
+                end
+        }
+        setflag(FLAG_CAUGHT_SHINIGAMI)
+        release
+        end
+    }
+    else {
+        msgbox(format("An unusual rock."))
+        closemessage
+        release
+    }
+}

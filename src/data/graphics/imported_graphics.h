@@ -1,5 +1,5 @@
 // Include this in src/data/graphics/pokemon.h
-// Completion: 288/292 (98%)
+// Completion: 292/292 (100%)
 
 const u32 gMonFrontPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/front.png", ".4bpp.lz");
 const u32 gMonBackPic_Babymarutchi[] = INCGFX_U32("graphics/pokemon/babymarutchi/back.png", ".4bpp.lz");
@@ -208,7 +208,7 @@ const u32 gMonFrontPic_Uruotchi[] = INCGFX_U32("graphics/pokemon/uruotchi/front.
 const u32 gMonBackPic_Uruotchi[] = INCGFX_U32("graphics/pokemon/uruotchi/back.png", ".4bpp.lz");
 const u16 gMonPalette_Uruotchi[] = INCGFX_U16("graphics/pokemon/uruotchi/front.png", ".gbapal");
 const u16 gMonShinyPalette_Uruotchi[] = INCGFX_U16("graphics/pokemon/uruotchi/back.png", ".gbapal");
-// const u8 gMonIcon_Uruotchi[] = INCGFX_U8("graphics/pokemon/uruotchi/icon.png", ".4bpp");
+const u8 gMonIcon_Uruotchi[] = INCGFX_U8("graphics/pokemon/uruotchi/icon.png", ".4bpp");
 const u8 gMonFootprint_Uruotchi[] = INCGFX_U8("graphics/pokemon/uruotchi/footprint.png", ".1bpp");
 
 const u32 gMonFrontPic_Leap_Water[] = INCGFX_U32("graphics/pokemon/leap_water/front.png", ".4bpp.lz");
@@ -278,7 +278,7 @@ const u32 gMonFrontPic_Otototchi[] = INCGFX_U32("graphics/pokemon/otototchi/fron
 const u32 gMonBackPic_Otototchi[] = INCGFX_U32("graphics/pokemon/otototchi/back.png", ".4bpp.lz");
 const u16 gMonPalette_Otototchi[] = INCGFX_U16("graphics/pokemon/otototchi/front.png", ".gbapal");
 const u16 gMonShinyPalette_Otototchi[] = INCGFX_U16("graphics/pokemon/otototchi/back.png", ".gbapal");
-// const u8 gMonIcon_Otototchi[] = INCGFX_U8("graphics/pokemon/otototchi/icon.png", ".4bpp");
+const u8 gMonIcon_Otototchi[] = INCGFX_U8("graphics/pokemon/otototchi/icon.png", ".4bpp");
 const u8 gMonFootprint_Otototchi[] = INCGFX_U8("graphics/pokemon/otototchi/footprint.png", ".1bpp");
 
 const u32 gMonFrontPic_Float_Water[] = INCGFX_U32("graphics/pokemon/float_water/front.png", ".4bpp.lz");
@@ -369,7 +369,7 @@ const u32 gMonFrontPic_Batchi[] = INCGFX_U32("graphics/pokemon/batchi/front.png"
 const u32 gMonBackPic_Batchi[] = INCGFX_U32("graphics/pokemon/batchi/back.png", ".4bpp.lz");
 const u16 gMonPalette_Batchi[] = INCGFX_U16("graphics/pokemon/batchi/front.png", ".gbapal");
 const u16 gMonShinyPalette_Batchi[] = INCGFX_U16("graphics/pokemon/batchi/back.png", ".gbapal");
-// const u8 gMonIcon_Batchi[] = INCGFX_U8("graphics/pokemon/batchi/icon.png", ".4bpp");
+const u8 gMonIcon_Batchi[] = INCGFX_U8("graphics/pokemon/batchi/icon.png", ".4bpp");
 const u8 gMonFootprint_Batchi[] = INCGFX_U8("graphics/pokemon/batchi/footprint.png", ".1bpp");
 
 const u32 gMonFrontPic_Chirp_Sky[] = INCGFX_U32("graphics/pokemon/chirp_sky/front.png", ".4bpp.lz");
@@ -404,7 +404,7 @@ const u32 gMonFrontPic_Kiwitchi[] = INCGFX_U32("graphics/pokemon/kiwitchi/front.
 const u32 gMonBackPic_Kiwitchi[] = INCGFX_U32("graphics/pokemon/kiwitchi/back.png", ".4bpp.lz");
 const u16 gMonPalette_Kiwitchi[] = INCGFX_U16("graphics/pokemon/kiwitchi/front.png", ".gbapal");
 const u16 gMonShinyPalette_Kiwitchi[] = INCGFX_U16("graphics/pokemon/kiwitchi/back.png", ".gbapal");
-// const u8 gMonIcon_Kiwitchi[] = INCGFX_U8("graphics/pokemon/kiwitchi/icon.png", ".4bpp");
+const u8 gMonIcon_Kiwitchi[] = INCGFX_U8("graphics/pokemon/kiwitchi/icon.png", ".4bpp");
 const u8 gMonFootprint_Kiwitchi[] = INCGFX_U8("graphics/pokemon/kiwitchi/footprint.png", ".1bpp");
 
 const u32 gMonFrontPic_Bumble_Sky[] = INCGFX_U32("graphics/pokemon/bumble_sky/front.png", ".4bpp.lz");

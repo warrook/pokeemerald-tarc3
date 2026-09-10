@@ -6,12 +6,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_BABYMARUTCHI] =
 {
-    .baseHP        = 50,
-    .baseAttack    = 50,
-    .baseDefense   = 50,
-    .baseSpeed     = 50,
-    .baseSpAttack  = 50,
-    .baseSpDefense = 50,
+    .baseHP        = 60,
+    .baseAttack    = 60,
+    .baseDefense   = 60,
+    .baseSpeed     = 60,
+    .baseSpAttack  = 60,
+    .baseSpDefense = 60,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -50,12 +50,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_LAND_KID] =
 {
-    .baseHP        = 50,
-    .baseAttack    = 50,
-    .baseDefense   = 50,
-    .baseSpeed     = 50,
-    .baseSpAttack  = 50,
-    .baseSpDefense = 50,
+    .baseHP        = 70,
+    .baseAttack    = 70,
+    .baseDefense   = 70,
+    .baseSpeed     = 70,
+    .baseSpAttack  = 70,
+    .baseSpDefense = 70,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -83,7 +83,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .palette = gMonPalette_Land_Kid,
     .shinyPalette = gMonShinyPalette_Land_Kid,
     .iconSprite = gMonIcon_Land_Kid,
-    .iconPalIndex = 4,
+    .iconPalIndex = 0,
     FOOTPRINT(Land_Kid)
     .levelUpLearnset = sLand_KidLevelUpLearnset,
     .evolutions = EVOLUTION({EVO_LEVEL, 12, SPECIES_ROAR_LAND, CONDITIONS({IF_HOLD_ITEM, ITEM_SAVORY_FOOD})},
@@ -94,12 +94,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_ROAR_LAND] =
 {
-    .baseHP        = 60,
-    .baseAttack    = 60,
-    .baseDefense   = 60,
-    .baseSpeed     = 60,
-    .baseSpAttack  = 60,
-    .baseSpDefense = 60,
+    .baseHP        = 80,
+    .baseAttack    = 80,
+    .baseDefense   = 80,
+    .baseSpeed     = 80,
+    .baseSpAttack  = 80,
+    .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -296,12 +296,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_TODDLE_LAND] =
 {
-    .baseHP        = 60,
-    .baseAttack    = 60,
-    .baseDefense   = 60,
-    .baseSpeed     = 60,
-    .baseSpAttack  = 60,
-    .baseSpDefense = 60,
+    .baseHP        = 80,
+    .baseAttack    = 80,
+    .baseDefense   = 80,
+    .baseSpeed     = 80,
+    .baseSpAttack  = 80,
+    .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -499,12 +499,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_LICK_LAND] =
 {
-    .baseHP        = 60,
-    .baseAttack    = 60,
-    .baseDefense   = 60,
-    .baseSpeed     = 60,
-    .baseSpAttack  = 60,
-    .baseSpDefense = 60,
+    .baseHP        = 80,
+    .baseAttack    = 80,
+    .baseDefense   = 80,
+    .baseSpeed     = 80,
+    .baseSpAttack  = 80,
+    .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -704,12 +704,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_SPROUT_LAND] =
 {
-    .baseHP        = 60,
-    .baseAttack    = 60,
-    .baseDefense   = 60,
-    .baseSpeed     = 60,
-    .baseSpAttack  = 60,
-    .baseSpDefense = 60,
+    .baseHP        = 80,
+    .baseAttack    = 80,
+    .baseDefense   = 80,
+    .baseSpeed     = 80,
+    .baseSpAttack  = 80,
+    .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -977,12 +977,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_WATER_KID] =
 {
-    .baseHP        = 50,
-    .baseAttack    = 50,
-    .baseDefense   = 50,
-    .baseSpeed     = 50,
-    .baseSpAttack  = 50,
-    .baseSpDefense = 50,
+    .baseHP        = 70,
+    .baseAttack    = 70,
+    .baseDefense   = 70,
+    .baseSpeed     = 70,
+    .baseSpAttack  = 70,
+    .baseSpDefense = 70,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -1017,12 +1017,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_GLIDE_WATER] =
 {
-    .baseHP        = 60,
-    .baseAttack    = 60,
-    .baseDefense   = 60,
-    .baseSpeed     = 60,
-    .baseSpAttack  = 60,
-    .baseSpDefense = 60,
+    .baseHP        = 80,
+    .baseAttack    = 80,
+    .baseDefense   = 80,
+    .baseSpeed     = 80,
+    .baseSpAttack  = 80,
+    .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -1205,6 +1205,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Uruotchi,
     .shinyPalette = gMonShinyPalette_Uruotchi,
+    .iconSprite = gMonIcon_Uruotchi,
     .iconPalIndex = 3,
     FOOTPRINT(Uruotchi)
     .levelUpLearnset = sUruotchiLevelUpLearnset,
@@ -1212,12 +1213,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_LEAP_WATER] =
 {
-    .baseHP        = 60,
-    .baseAttack    = 60,
-    .baseDefense   = 60,
-    .baseSpeed     = 60,
-    .baseSpAttack  = 60,
-    .baseSpDefense = 60,
+    .baseHP        = 80,
+    .baseAttack    = 80,
+    .baseDefense   = 80,
+    .baseSpeed     = 80,
+    .baseSpAttack  = 80,
+    .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -1405,12 +1406,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_PADDLE_WATER] =
 {
-    .baseHP        = 60,
-    .baseAttack    = 60,
-    .baseDefense   = 60,
-    .baseSpeed     = 60,
-    .baseSpAttack  = 60,
-    .baseSpDefense = 60,
+    .baseHP        = 80,
+    .baseAttack    = 80,
+    .baseDefense   = 80,
+    .baseSpeed     = 80,
+    .baseSpAttack  = 80,
+    .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -1590,6 +1591,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Otototchi,
     .shinyPalette = gMonShinyPalette_Otototchi,
+    .iconSprite = gMonIcon_Otototchi,
     .iconPalIndex = 1,
     FOOTPRINT(Otototchi)
     .levelUpLearnset = sOtototchiLevelUpLearnset,
@@ -1597,12 +1599,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_FLOAT_WATER] =
 {
-    .baseHP        = 60,
-    .baseAttack    = 60,
-    .baseDefense   = 60,
-    .baseSpeed     = 60,
-    .baseSpAttack  = 60,
-    .baseSpDefense = 60,
+    .baseHP        = 80,
+    .baseAttack    = 80,
+    .baseDefense   = 80,
+    .baseSpeed     = 80,
+    .baseSpAttack  = 80,
+    .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -1870,12 +1872,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_SKY_KID] =
 {
-    .baseHP        = 50,
-    .baseAttack    = 50,
-    .baseDefense   = 50,
-    .baseSpeed     = 50,
-    .baseSpAttack  = 50,
-    .baseSpDefense = 50,
+    .baseHP        = 70,
+    .baseAttack    = 70,
+    .baseDefense   = 70,
+    .baseSpeed     = 70,
+    .baseSpAttack  = 70,
+    .baseSpDefense = 70,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -1910,12 +1912,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_FLAP_SKY] =
 {
-    .baseHP        = 60,
-    .baseAttack    = 60,
-    .baseDefense   = 60,
-    .baseSpeed     = 60,
-    .baseSpAttack  = 60,
-    .baseSpDefense = 60,
+    .baseHP        = 80,
+    .baseAttack    = 80,
+    .baseDefense   = 80,
+    .baseSpeed     = 80,
+    .baseSpAttack  = 80,
+    .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -2095,6 +2097,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Batchi,
     .shinyPalette = gMonShinyPalette_Batchi,
+    .iconSprite = gMonIcon_Batchi,
     .iconPalIndex = 3,
     FOOTPRINT(Batchi)
     .levelUpLearnset = sBatchiLevelUpLearnset,
@@ -2102,12 +2105,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_CHIRP_SKY] =
 {
-    .baseHP        = 60,
-    .baseAttack    = 60,
-    .baseDefense   = 60,
-    .baseSpeed     = 60,
-    .baseSpAttack  = 60,
-    .baseSpDefense = 60,
+    .baseHP        = 80,
+    .baseAttack    = 80,
+    .baseDefense   = 80,
+    .baseSpeed     = 80,
+    .baseSpAttack  = 80,
+    .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -2291,6 +2294,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .backPicYOffset = 13, //default
     .palette = gMonPalette_Kiwitchi,
     .shinyPalette = gMonShinyPalette_Kiwitchi,
+    .iconSprite = gMonIcon_Kiwitchi,
     .iconPalIndex = 1,
     FOOTPRINT(Kiwitchi)
     .levelUpLearnset = sKiwitchiLevelUpLearnset,
@@ -2298,12 +2302,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_BUMBLE_SKY] =
 {
-    .baseHP        = 60,
-    .baseAttack    = 60,
-    .baseDefense   = 60,
-    .baseSpeed     = 60,
-    .baseSpAttack  = 60,
-    .baseSpDefense = 60,
+    .baseHP        = 80,
+    .baseAttack    = 80,
+    .baseDefense   = 80,
+    .baseSpeed     = 80,
+    .baseSpAttack  = 80,
+    .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -2494,12 +2498,12 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
 
 [SPECIES_ROCKY_SKY] =
 {
-    .baseHP        = 60,
-    .baseAttack    = 60,
-    .baseDefense   = 60,
-    .baseSpeed     = 60,
-    .baseSpAttack  = 60,
-    .baseSpDefense = 60,
+    .baseHP        = 80,
+    .baseAttack    = 80,
+    .baseDefense   = 80,
+    .baseSpeed     = 80,
+    .baseSpAttack  = 80,
+    .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_MYSTERY),
     .catchRate = 255,
     .expYield = 67,
@@ -2817,9 +2821,9 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .baseSpAttack  = 160,
     .baseSpDefense = 140,
     .types = MON_TYPES(TYPE_DARK, TYPE_GHOST),
-    .catchRate = 255,
+    .catchRate = 3,
     .expYield = 67,
-    .genderRatio = PERCENT_FEMALE(50),
+    .genderRatio = MON_GENDERLESS,
     .eggCycles = 10,
     .friendship = STANDARD_FRIENDSHIP,
     .growthRate = GROWTH_MEDIUM_FAST,
@@ -2841,6 +2845,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Shinigami,
     .iconPalIndex = 3,
     FOOTPRINT(Shinigami)
+    .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
     .levelUpLearnset = sShinigamiLevelUpLearnset,
 },
 
@@ -2853,9 +2858,9 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .baseSpAttack  = 90,
     .baseSpDefense = 80,
     .types = MON_TYPES(TYPE_FAIRY, TYPE_FLYING),
-    .catchRate = 255,
+    .catchRate = 3,
     .expYield = 67,
-    .genderRatio = PERCENT_FEMALE(50),
+    .genderRatio = MON_GENDERLESS,
     .eggCycles = 10,
     .friendship = STANDARD_FRIENDSHIP,
     .growthRate = GROWTH_MEDIUM_FAST,
@@ -2881,6 +2886,7 @@ const struct SpeciesInfo gSpeciesInfoImported[] =
     .iconSprite = gMonIcon_Kuriten,
     .iconPalIndex = 2,
     FOOTPRINT(Kuriten)
+    .perfectIVCount = LEGENDARY_PERFECT_IV_COUNT,
     .levelUpLearnset = sKuritenLevelUpLearnset,
 },
 
