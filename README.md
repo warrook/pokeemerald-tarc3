@@ -5,7 +5,7 @@
 * There are 73 Tamagotchis in this hack.
 * Tamagotchis are unique among Pokémon: they do not have types until they reach the end of their evolution.
 * There are no ICE-type Tamagotchis in this version of the hack :(
-* Two mysterious creatures roam the island after you get rid of the alien menace.
+* Two mysterious creatures appear on the island after you get rid of the alien menace.
 
 # About `pokeemerald-expansion`
 
