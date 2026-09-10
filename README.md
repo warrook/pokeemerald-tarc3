@@ -1,4 +1,4 @@
-![](title_screen.png)
+![](box_art.png)
 
 # Hints for Pokémon Tamagotchi
 
