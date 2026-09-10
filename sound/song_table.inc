@@ -616,6 +616,11 @@ gSongTable::
 	song ph_nurse_blend, MUSIC_PLAYER_SE2, 2
 	song ph_nurse_held, MUSIC_PLAYER_SE2, 2
 	song ph_nurse_solo, MUSIC_PLAYER_SE2, 2
+	song mus_hope_springs, MUSIC_PLAYER_BGM, 0
+	song mus_morningrise, MUSIC_PLAYER_BGM, 0
+	song mus_mntnzone, MUSIC_PLAYER_BGM, 0
+	song mus_jomo, MUSIC_PLAYER_BGM, 0
+	song mus_western, MUSIC_PLAYER_BGM, 0
 
 	.align 2
 dummy_song_header:

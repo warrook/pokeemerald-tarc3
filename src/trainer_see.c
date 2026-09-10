@@ -50,6 +50,9 @@ static bool8 RevealBuriedTrainer(u8 taskId, struct Task *task, struct ObjectEven
 static bool8 PopOutOfAshBuriedTrainer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj);
 static bool8 JumpInPlaceBuriedTrainer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj);
 static bool8 WaitRevealBuriedTrainer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj);
+static bool8 RevealCloakedTrainer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj);
+static bool8 DecloakCloakedTrainer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj);
+static bool8 WaitRevealCloakedTrainer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj);
 
 static void SpriteCB_TrainerIcons(struct Sprite *sprite);
 
@@ -95,6 +98,9 @@ enum {
     TRSEE_BURIED_POP_OUT,
     TRSEE_BURIED_JUMP,
     TRSEE_REVEAL_BURIED_WAIT,
+    TRSEE_REVEAL_CLOAKED,
+    TRSEE_CLOAKED_DECLOAK,
+    TRSEE_REVEAL_CLOAKED_WAIT,
 };
 
 static bool8 (*const sTrainerSeeFuncList[])(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj) =
@@ -112,6 +118,9 @@ static bool8 (*const sTrainerSeeFuncList[])(u8 taskId, struct Task *task, struct
     [TRSEE_BURIED_POP_OUT]       = PopOutOfAshBuriedTrainer,
     [TRSEE_BURIED_JUMP]          = JumpInPlaceBuriedTrainer,
     [TRSEE_REVEAL_BURIED_WAIT]   = WaitRevealBuriedTrainer,
+    [TRSEE_REVEAL_CLOAKED]       = RevealCloakedTrainer,
+    [TRSEE_CLOAKED_DECLOAK]      = DecloakCloakedTrainer,
+    [TRSEE_REVEAL_CLOAKED_WAIT]  = WaitRevealCloakedTrainer,
 };
 
 static bool8 (*const sTrainerSeeFuncList2[])(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj) =
@@ -826,6 +835,8 @@ static bool8 WaitTrainerExclamationMark(u8 taskId, struct Task *task, struct Obj
             task->tFuncId = TRSEE_REVEAL_DISGUISE;
         if (trainerObj->movementType == MOVEMENT_TYPE_BURIED)
             task->tFuncId = TRSEE_REVEAL_BURIED;
+        if (trainerObj->movementType == MOVEMENT_TYPE_CLOAKED)
+            task->tFuncId = TRSEE_REVEAL_CLOAKED;
         return TRUE;
     }
 }
@@ -908,7 +919,7 @@ static bool8 RevealDisguisedTrainer(u8 taskId, struct Task *task, struct ObjectE
 static bool8 WaitRevealDisguisedTrainer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj)
 {
     if (ObjectEventClearHeldMovementIfFinished(trainerObj))
-        task->tFuncId = TRSEE_MOVE_TO_PLAYER;
+        task->tFuncId = TRSEE_TURN_TO_FACE_PLAYER;
 
     return FALSE;
 }
@@ -968,6 +979,40 @@ static bool8 WaitRevealBuriedTrainer(u8 taskId, struct Task *task, struct Object
 
     return FALSE;
 }
+
+// TRSEE_REVEAL_CLOAKED
+static bool8 RevealCloakedTrainer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj)
+{
+    if (!ObjectEventIsMovementOverridden(trainerObj)
+     || ObjectEventClearHeldMovementIfFinished(trainerObj))
+    {
+        ObjectEventSetHeldMovement(trainerObj, MOVEMENT_ACTION_FACE_PLAYER);
+        task->tFuncId++; // TRSEE_CLOAKED_DECLOAK
+    }
+    return FALSE;
+}
+
+// TRSEE_CLOAKED_DECLOAK
+static bool8 DecloakCloakedTrainer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj)
+{
+    if (ObjectEventCheckHeldMovementStatus(trainerObj))
+    {
+        task->tFuncId++; //TRSEE_REVEAL_CLOAKED_WAIT
+    }
+    
+    return FALSE;
+}
+
+
+// TRSEE_REVEAL_CLOAKED_WAIT
+static bool8 WaitRevealCloakedTrainer(u8 taskId, struct Task *task, struct ObjectEvent *trainerObj)
+{
+    if (ObjectEventClearHeldMovementIfFinished(trainerObj))
+        task->tFuncId = TRSEE_MOVE_TO_PLAYER;
+
+    return FALSE;
+}
+
 
 #undef tTrainerRange
 #undef tOutOfAshSpriteId

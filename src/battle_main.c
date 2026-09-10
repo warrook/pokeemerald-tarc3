@@ -421,7 +421,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
 
     [TRAINER_CLASS_ALIEN] =              { _("ALIEN"), 5, BALL_STRANGE },
     [TRAINER_CLASS_PALOOKA] =              { _("PALOOKA"), 5, BALL_STRANGE},
-    [TRAINER_CLASS_PALOOKA_BOSS] =         { _("Palooka Boss"), 10, BALL_STRANGE },
+    [TRAINER_CLASS_PALOOKA_BOSS] =         { _("PALOOKA BOSS"), 10, BALL_STRANGE },
 };
 
 static void (*const sTurnActionsFuncsTable[])(void) =
@@ -1908,6 +1908,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
         }
 
         s16 lvlShift = 0;
+        u8 baseLvl = 0;
 
         if (FlagGet(FLAG_SYS_SCALE_OPPONENTS))
         {
@@ -1922,7 +1923,7 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             u8 playerAvg = CalculateAverageLevelOfParty(B_TRAINER_PLAYER);
             u8 playerMax = GetHighestLevelInPlayerParty();
             // Set base level based on player's highest level or average
-            u8 baseLvl = (playerMax - playerAvg > 5) ? playerMax : playerAvg;
+            baseLvl = (playerMax - playerAvg > 5) ? playerMax : playerAvg;
             DebugPrintfLevel(MGBA_LOG_WARN, "player: avg %d vs max %d, using %d as base", playerAvg, playerMax, baseLvl);
 
             lvlShift = baseLvl - trainerMin;
@@ -1961,7 +1962,10 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
                 otId.method = OT_ID_PRESET;
                 otId.value = HIHALF(personalityValue) ^ LOHALF(personalityValue);
             }
-            CreateMon(&party[i], partyData[monIndex].species, partyData[monIndex].lvl + lvlShift, personalityValue, otId);
+            u8 shiftedLvl = partyData[monIndex].lvl + lvlShift;
+            if (shiftedLvl - baseLvl > 3)
+                shiftedLvl = baseLvl + 3;
+            CreateMon(&party[i], partyData[monIndex].species, shiftedLvl, personalityValue, otId);
             SetMonData(&party[i], MON_DATA_HELD_ITEM, &partyData[monIndex].heldItem);
 
             CustomTrainerPartyAssignMoves(&party[i], &partyData[monIndex]);

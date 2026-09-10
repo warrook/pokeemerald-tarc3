@@ -1,1 +1,66 @@
-mapscripts Land_MapScripts {}
+mapscripts Land_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (flag(FLAG_LAND_GUARDS_DEFEATED)) {
+            setobjectmovementtype(LOCALID_LAND_AGITATOR, MOVEMENT_TYPE_FACE_DOWN)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TAMAGOTCHI_STAGE_EXPLAINED, 0: Tamagotchi_BabyEvo_Explanation
+        VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1: Tamagotchi_KidEvo_Explanation
+        VAR_TAMAGOTCHI_STAGE_EXPLAINED, 2: Tamagotchi_YoungEvo_Explanation
+    ]
+}
+
+script Land_Palooka_A {
+    trainerbattle_single(TRAINER_LAND_A, format("Alien, you're not allowed here!"), format("You're scary!"), Beach_Palooka_A_Defeated)
+}
+
+script Land_Palooka_A_Defeated {
+    special(PlayerFaceTrainerAfterBattle)
+	waitmovement
+    msgbox(format("I gotta get out of here!"))
+    closemessage
+    call(Tamagotchi_Palookaport_Out)
+}
+
+script Land_Palooka_B {
+    trainerbattle_single(TRAINER_LAND_B, format("Boo!"), format("Jomo will get you!"), Tamagotchi_Palookaport_Out)
+}
+
+script Land_Palooka_C {
+    trainerbattle_single(TRAINER_LAND_C, format("You're not getting through, alien."), format("Fine, go through!"), Tamagotchi_Palookaport_Out)
+}
+
+script Land_Palooka_D {
+    trainerbattle_single(TRAINER_LAND_D, format("This place is kind of spooky...\lI'll fight you to relax!"), format("Maybe too relaxed!"), Tamagotchi_Palookaport_Out)
+}
+
+script Land_Palooka_E {
+    trainerbattle_single(TRAINER_LAND_E, format("Don't steal my spot!"), format("Don't get too comfortable, alien."), Tamagotchi_Palookaport_Out)
+}
+
+script Land_LandGuards {
+    lockall
+    applymovement(LOCALID_PLAYER, moves(walk_left * 2, walk_up * 3))
+    waitmovement
+    applymovement(LOCALID_LAND_GUARD_RIGHT, moves(face_down))
+    applymovement(LOCALID_LAND_GUARD_LEFT, Common_Movement_WalkInPlaceDown)
+    waitmovement
+    call(Tamagotchi_BossIntro)
+    trainerbattle_two_trainers(TRAINER_LAND_GUARD_LEFT, format("Tch."), TRAINER_LAND_GUARD_RIGHT, format("Uh-oh..."))
+    applymovement(LOCALID_LAND_GUARD_LEFT, Common_Movement_WalkInPlaceDown)
+    waitmovement
+    msgbox(format("Grunt, let's go."))
+    waitmessage
+    setvar(VAR_LAST_TALKED, LOCALID_LAND_GUARD_LEFT)
+    call(Tamagotchi_Palookaport_Out)
+    setvar(VAR_LAST_TALKED, LOCALID_LAND_GUARD_RIGHT)
+    call(Tamagotchi_Palookaport_Out)
+    applymovement(LOCALID_PLAYER, moves(walk_up))
+    waitmovement
+    setvar(VAR_0x8006, LOCALID_LAND_AGITATOR)
+    call(Tamagotchi_AgitatorInteract)
+    addvar(VAR_BOSSES_DEFEATED, 1)
+    setflag(FLAG_LAND_GUARDS_DEFEATED)
+    releaseall
+}

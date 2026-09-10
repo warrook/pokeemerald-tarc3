@@ -1,1 +1,59 @@
-mapscripts Mountain_MapScripts {}
+mapscripts Mountain_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION {
+        if (flag(FLAG_SKY_GUARD_DEFEATED)) {
+            setobjectmovementtype(LOCALID_SKY_AGITATOR, MOVEMENT_TYPE_FACE_DOWN)
+        }
+    }
+    MAP_SCRIPT_ON_FRAME_TABLE [
+        VAR_TAMAGOTCHI_STAGE_EXPLAINED, 0: Tamagotchi_BabyEvo_Explanation
+        VAR_TAMAGOTCHI_STAGE_EXPLAINED, 1: Tamagotchi_KidEvo_Explanation
+        VAR_TAMAGOTCHI_STAGE_EXPLAINED, 2: Tamagotchi_YoungEvo_Explanation
+    ]
+}
+
+script Mountain_Palooka_A {
+    trainerbattle_single(TRAINER_MOUNTAIN_A, format("Alien, go back the way you came!"), format("Curses..."), Beach_Palooka_A_Defeated)
+}
+
+script Mountain_Palooka_A_Defeated {
+    special(PlayerFaceTrainerAfterBattle)
+	waitmovement
+    msgbox(format("Victory is yours. I guess."))
+    closemessage
+    call(Tamagotchi_Palookaport_Out)
+}
+
+script Mountain_Palooka_B {
+    trainerbattle_single(TRAINER_MOUNTAIN_B, format("My disguise isn't good enough for you!"), format("Jomo will get you."), Tamagotchi_Palookaport_Out)
+}
+
+script Mountain_Palooka_C {
+    trainerbattle_single(TRAINER_MOUNTAIN_C, format("I am ordered to fight you."), format("I just wanted to look at the island."), Tamagotchi_Palookaport_Out)
+}
+
+script Mountain_Palooka_D {
+    trainerbattle_single(TRAINER_MOUNTAIN_D, format("Get out of here!"), format("I'll get out of here!"), Tamagotchi_Palookaport_Out)
+}
+
+script Mountain_Palooka_E {
+    trainerbattle_single(TRAINER_MOUNTAIN_E, format("Ack, go away!"), format("I was just napping..."), Tamagotchi_Palookaport_Out)
+}
+
+script Mountain_SkyGuard {
+    lockall
+    applymovement(LOCALID_SKY_GUARD, moves(face_down))
+    call(Tamagotchi_BossIntro)
+    trainerbattle_no_intro(TRAINER_SKY_GUARD, format("..."))
+    msgbox(format("Such a beautiful place...isn't it?\p"
+        "Good luck, alien."))
+    waitmessage
+    setvar(VAR_LAST_TALKED, LOCALID_SKY_GUARD)
+    call(Tamagotchi_Palookaport_Out)
+    applymovement(LOCALID_PLAYER, moves(walk_up))
+    waitmovement
+    setvar(VAR_0x8006, LOCALID_SKY_AGITATOR)
+    call(Tamagotchi_AgitatorInteract)
+    addvar(VAR_BOSSES_DEFEATED, 1)
+    setflag(FLAG_SKY_GUARD_DEFEATED)
+    releaseall
+}

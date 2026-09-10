@@ -301,6 +301,8 @@ u8 MovementAction_SpinLeft_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_SpinLeft_Step1(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_SpinRight_Step0(struct ObjectEvent *, struct Sprite *);
 u8 MovementAction_SpinRight_Step1(struct ObjectEvent *, struct Sprite *);
+u8 MovementAction_RevealCloakedTrainer_Step0(struct ObjectEvent *, struct Sprite *);
+u8 MovementAction_RevealCloakedTrainer_Step1(struct ObjectEvent *, struct Sprite *);
 
 
 u8 (*const gMovementActionFuncs_FaceDown[])(struct ObjectEvent *, struct Sprite *);
@@ -487,6 +489,7 @@ u8 (*const gMovementActionFuncs_SpinDown[])(struct ObjectEvent *, struct Sprite 
 u8 (*const gMovementActionFuncs_SpinUp[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_SpinLeft[])(struct ObjectEvent *, struct Sprite *);
 u8 (*const gMovementActionFuncs_SpinRight[])(struct ObjectEvent *, struct Sprite *);
+u8 (*const gMovementActionFuncs_RevealCloakedTrainer[])(struct ObjectEvent *, struct Sprite *);
 
 u8 (*const *const gMovementActionFuncs[])(struct ObjectEvent *, struct Sprite *) = {
     [MOVEMENT_ACTION_FACE_DOWN] = gMovementActionFuncs_FaceDown,
@@ -672,6 +675,7 @@ u8 (*const *const gMovementActionFuncs[])(struct ObjectEvent *, struct Sprite *)
     [MOVEMENT_ACTION_SPIN_UP]          = gMovementActionFuncs_SpinUp,
     [MOVEMENT_ACTION_SPIN_LEFT]        = gMovementActionFuncs_SpinLeft,
     [MOVEMENT_ACTION_SPIN_RIGHT]       = gMovementActionFuncs_SpinRight,
+    [MOVEMENT_ACTION_REVEAL_CLOAKED]   = gMovementActionFuncs_RevealCloakedTrainer,
 };
 
 u8 (*const gMovementActionFuncs_FaceDown[])(struct ObjectEvent *, struct Sprite *) = {
@@ -1826,4 +1830,10 @@ u8 (*const gMovementTypeFuncs_Despawn_OverworldWildEncounter[])(struct ObjectEve
     MovementType_OverworldWildEncounter_Despawn_Step10,
     MovementType_OverworldWildEncounter_Despawn_Step11,
     MovementType_OverworldWildEncounter_Common_Step12,
+};
+
+u8 (*const gMovementActionFuncs_RevealCloakedTrainer[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementAction_RevealCloakedTrainer_Step0,
+    MovementAction_RevealCloakedTrainer_Step1,
+    MovementAction_Finish,
 };

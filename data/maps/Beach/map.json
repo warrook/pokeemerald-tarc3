@@ -2,7 +2,7 @@
   "id": "MAP_BEACH",
   "name": "Beach",
   "layout": "LAYOUT_BEACH",
-  "music": "MUS_DUMMY",
+  "music": "MUS_MORNINGRISE",
   "region_map_section": "MAPSEC_WATER_BEACH",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
@@ -106,12 +106,40 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Beach_WaterGuard",
+      "script": "NULL",
       "flag": "FLAG_HIDE_TRAINER_WATER_GUARD"
     }
   ],
   "warp_events": [],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 8,
+      "elevation": 0,
+      "var": "FLAG_WATER_GUARD_DEFEATED",
+      "var_value": "0",
+      "script": "Beach_WaterGuard_Trigger_Top"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 9,
+      "elevation": 0,
+      "var": "FLAG_WATER_GUARD_DEFEATED",
+      "var_value": "0",
+      "script": "Beach_WaterGuard_Trigger_Middle"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 10,
+      "elevation": 0,
+      "var": "FLAG_WATER_GUARD_DEFEATED",
+      "var_value": "0",
+      "script": "Beach_WaterGuard_Trigger_Bottom"
+    }
+  ],
   "bg_events": [
     {
       "type": "hidden_item",
@@ -128,6 +156,14 @@
       "elevation": 0,
       "item": "ITEM_BERRY_JUICE",
       "flag": "FLAG_HIDDEN_ITEM_TRICK_HOUSE_NUGGET"
+    },
+    {
+      "type": "sign",
+      "x": 17,
+      "y": 7,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "Tamagotchi_AgitatorDisabled"
     }
   ]
 }

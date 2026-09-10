@@ -2111,15 +2111,17 @@ const u16 gMonIconPalettes[][16] =
     INCGFX_U16("graphics/pokemon/icon_palettes/pal5.pal", ".gbapal"),
 };
 
-const u16 gTitleScreenBgPalettes[]         = INCBIN_U16("graphics/title_screen/pokemon_logo.gbapal",
-                                                        "graphics/title_screen/rayquaza_and_clouds.gbapal");
+const u16 gTitleScreenBgPalettes[]         = INCBIN_U16("graphics/title_screen/tama_title_logo.gbapal",
+                                                        "graphics/title_screen/tama_title_background_tiles.gbapal");
+const u16 gTitleScreenBgPalette[]          = INCBIN_U16("graphics/title_screen/tama_title_background_tiles.gbapal");
 const u16 gTitleScreenEmeraldVersionPal[]  = INCGFX_U16("graphics/title_screen/emerald_version.png", ".gbapal");
 const u32 gTitleScreenCloudsTilemap[]      = INCGFX_U32("graphics/title_screen/clouds.bin", ".smolTM");
-const u32 gTitleScreenPokemonLogoGfx[]     = INCGFX_U32("graphics/title_screen/pokemon_logo.png", ".8bpp.smol");
 const u32 gTitleScreenEmeraldVersionGfx[]  = INCGFX_U32("graphics/title_screen/emerald_version.png", ".8bpp.smol", "-mwidth 8 -mheight 4");
 const u16 gTitleScreenPressStartPal[]      = INCGFX_U16("graphics/title_screen/press_start.png", ".gbapal");
 const u32 gTitleScreenPressStartGfx[]      = INCGFX_U32("graphics/title_screen/press_start.png", ".4bpp.smol");
-const u32 gTitleScreenPokemonLogoTilemap[] = INCGFX_U32("graphics/title_screen/pokemon_logo.bin", ".smolTM");
+const u32 gTitleScreenPokemonLogoGfx[]     = INCGFX_U32("graphics/title_screen/tama_title_logo_tiles2.png", ".8bpp.smol");
+const u32 gTitleScreenPokemonLogoTilemap[] = INCGFX_U32("graphics/title_screen/tama_title_logo_tiles2.bin", ".smolTM");
+const u16 gTitleScreenPokemonLogoPalette[] = INCGFX_U16("graphics/title_screen/tama_title_logo_tiles2.png", ".gbapal");
 
 const u16 gFrontierPassBg_Pal[][16]                      = INCGFX_U16("graphics/frontier_pass/bg.png", ".gbapal"); // 8 x 16
 const u32 gFrontierPassBg_Gfx[]                          = INCGFX_U32("graphics/frontier_pass/bg.png", ".4bpp.smol");

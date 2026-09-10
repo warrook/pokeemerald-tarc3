@@ -329,7 +329,7 @@
 // Tamagotchi
 #define VAR_LAST_EVO                        VAR_DEOXYS_ROCK_STEP_COUNT // 0x4034
 #define VAR_TAMAGOTCHI_STAGE_EXPLAINED      (VAR_LAST_EVO + 0x1)
-#define VAR_PALOOKAS_DEFEATED               (VAR_LAST_EVO + 0x3) // Skip VAR_PC_BOX_TO_SEND_MON
+#define VAR_BOSSES_DEFEATED                 (VAR_LAST_EVO + 0x3) // Skip VAR_PC_BOX_TO_SEND_MON
 
 #if TESTING
 #define TESTING_VARS_START                  0x9000
