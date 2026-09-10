@@ -1,3 +1,5 @@
+![](title_screen.png)
+
 # Hints for Pokémon Tamagotchi
 
 * If you white out, you will appear back at your lander.
